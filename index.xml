@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JingyiWu&#39;s Space</title>
+    <link>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/</link>
+    <description>Recent content on JingyiWu&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>JingyiWu</copyright>
+    <lastBuildDate>Sun, 14 Jan 2024 20:48:45 +0100</lastBuildDate>
+    <atom:link href="https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/about/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/about/</guid>
+      <description>Name: Jingyi Wu Profession: Programmer Interests: Gym, Travel</description>
+    </item>
+    <item>
+      <title>Get better !</title>
+      <link>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/posts/life/first/</link>
+      <pubDate>Sun, 14 Jan 2024 20:48:45 +0100</pubDate>
+      <guid>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/posts/life/first/</guid>
+      <description>&amp;ldquo;While I frequently face confusion over which path to choose, I am certain that the determination to do my best lies within me.&amp;rdquo;</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/resume/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/resume/</guid>
+      <description>Content coming soon.</description>
+    </item>
+  </channel>
+</rss>
