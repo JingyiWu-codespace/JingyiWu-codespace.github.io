@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://github.com/JingyiWu-codespace/JingyiWu-codespace.github.io.git/sitemap.xml
+Sitemap: https://jingyiwu-codespace.github.io/sitemap.xml
