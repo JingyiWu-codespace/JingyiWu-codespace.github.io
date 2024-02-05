@@ -7,14 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>JingyiWu</copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 20:48:45 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 05 Feb 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TripSpain</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</guid>
+      <description>Trip about Spain, A very happy week</description>
+    </item>
     <item>
       <title>About Me</title>
       <link>https://jingyiwu-codespace.github.io/en/about/</link>
       <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/en/about/</guid>
-      <description>Name: Jingyi Wu Profession: Programmer Interests: Gym, Travel</description>
+      <description>class Me: def __init__(self): self.name = &amp;#34;Jingyi Wu&amp;#34; self.prefer_name = &amp;#34;Jennie&amp;#34; self.born_year = 1999 self.MBTI = &amp;#34;ISFJ&amp;#34; self.constellation = &amp;#34;Capricorn&amp;#34; self.curr_location = &amp;#34;Brussels｜ BE&amp;#34; self.grad_school = &amp;#34;Hong Kong Baptist University&amp;#34; self.undergrad_school = &amp;#34;NENU&amp;#34;</description>
     </item>
     <item>
       <title>Get better !</title>
