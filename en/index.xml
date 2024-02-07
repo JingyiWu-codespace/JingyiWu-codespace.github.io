@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Home</title>
+    <link>https://jingyiwu-codespace.github.io/en/</link>
+    <description>Recent content on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown Grammer Tips  !</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</link>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</guid>
+      <description>markdown 语法</description>
+    </item>
+    <item>
+      <title>TripSpain</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</guid>
+      <description>Trip about Spain, A very happy week</description>
+    </item>
+    <item>
+      <title>Get better !</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/life/first/</link>
+      <pubDate>Sun, 14 Jan 2024 20:48:45 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/life/first/</guid>
+      <description>&amp;ldquo;While I frequently face confusion over which path to choose, I am certain that the determination to do my best lies within me.&amp;rdquo;</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>https://jingyiwu-codespace.github.io/en/resume/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/resume/</guid>
+      <description>&lt;!DOCTYPE html&gt; Title </description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://jingyiwu-codespace.github.io/en/about/</link>
+      <pubDate>Thu, 01 Jan 1970 01:33:44 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/about/</guid>
+      <description>class Me: def __init__(self): self.name = &amp;#34;Jingyi Wu&amp;#34; self.prefer_name = &amp;#34;Jennie&amp;#34; self.born_year = 1999 self.MBTI = &amp;#34;ISFJ&amp;#34; self.constellation = &amp;#34;Capricorn&amp;#34; self.curr_location = &amp;#34;Brussels｜ BE&amp;#34; self.grad_school = &amp;#34;Hong Kong Baptist University&amp;#34; self.undergrad_school = &amp;#34;NENU&amp;#34;</description>
+    </item>
+  </channel>
+</rss>
