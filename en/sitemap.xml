@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< HEAD
     <loc>https://jingyiwu-codespace.github.io/en/posts/tech/</loc>
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -17,6 +18,10 @@
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/</loc>
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+=======
+    <loc>https://jingyiwu-codespace.github.io/en/posts/</loc>
+    <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+>>>>>>> 37d9099 (fix error)
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -29,7 +34,11 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/categories/</loc>
+<<<<<<< HEAD
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+=======
+    <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+>>>>>>> 37d9099 (fix error)
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -42,7 +51,11 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/</loc>
+<<<<<<< HEAD
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+=======
+    <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+>>>>>>> 37d9099 (fix error)
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -54,6 +67,7 @@
                 href="https://jingyiwu-codespace.github.io/en/"
                 />
   </url><url>
+<<<<<<< HEAD
     <loc>https://jingyiwu-codespace.github.io/en/tags/markdown/</loc>
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -76,6 +90,8 @@
                 href="https://jingyiwu-codespace.github.io/en/tags/"
                 />
   </url><url>
+=======
+>>>>>>> 37d9099 (fix error)
     <loc>https://jingyiwu-codespace.github.io/en/categories/life/</loc>
     <lastmod>2024-02-05T20:29:08+01:00</lastmod>
   </url><url>
@@ -98,6 +114,35 @@
                 href="https://jingyiwu-codespace.github.io/en/posts/life/"
                 />
   </url><url>
+<<<<<<< HEAD
+=======
+    <loc>https://jingyiwu-codespace.github.io/en/tags/</loc>
+    <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/about/</loc>
+    <lastmod>2024-02-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/about/"
+                />
+  </url><url>
+>>>>>>> 37d9099 (fix error)
     <loc>https://jingyiwu-codespace.github.io/en/posts/life/first/</loc>
     <lastmod>2024-01-14T20:48:45+01:00</lastmod>
     <xhtml:link
@@ -124,17 +169,29 @@
                 href="https://jingyiwu-codespace.github.io/en/resume/"
                 />
   </url><url>
+<<<<<<< HEAD
     <loc>https://jingyiwu-codespace.github.io/en/about/</loc>
     <lastmod>1970-01-01T01:33:44+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
                 href="https://jingyiwu-codespace.github.io/zh/about/"
+=======
+    <loc>https://jingyiwu-codespace.github.io/en/posts/tech/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/posts/tech/"
+>>>>>>> 37d9099 (fix error)
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
+<<<<<<< HEAD
                 href="https://jingyiwu-codespace.github.io/en/about/"
+=======
+                href="https://jingyiwu-codespace.github.io/en/posts/tech/"
+>>>>>>> 37d9099 (fix error)
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/projects/</loc>

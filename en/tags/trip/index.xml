@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
+<<<<<<< HEAD
     <title>Trip on Home</title>
     <link>https://jingyiwu-codespace.github.io/en/tags/trip/</link>
     <description>Recent content in Trip on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
+=======
+    <title>Trip on JingyiWu&#39;s Space</title>
+    <link>https://jingyiwu-codespace.github.io/en/tags/trip/</link>
+    <description>Recent content in Trip on JingyiWu&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>JingyiWu</copyright>
+>>>>>>> 37d9099 (fix error)
     <lastBuildDate>Mon, 05 Feb 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/tags/trip/index.xml" rel="self" type="application/rss+xml" />
     <item>
