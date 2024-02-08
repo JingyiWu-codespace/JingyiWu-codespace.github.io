@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir=" auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="class Me: def __init__(self): self.name = &#34;Jingyi Wu&#34; self.prefer_name = &#34;Jennie&#34; self.born_year = 1999 self.MBTI = &#34;ISFJ&#34; self.constellation = &#34;Capricorn&#34; self.curr_location = &#34;Brussels｜ BE&#34; self.grad_school = &#34;Hong Kong Baptist University&#34; self.undergrad_school = &#34;NENU&#34;">
 <meta name="author" content="">
 <link rel="canonical" href="https://jingyiwu-codespace.github.io/en/about/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5dc1a0624c5d5856b36d4c68f441187cc7203dd2b31b528fe7cf6ed1a8951e86.css" integrity="sha256-XcGgYkxdWFazbUxo9EEYfMcgPdKzG1KP589u0aiVHoY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.887fa1d9ea7edd40006e05d902d6e83052b38d86e1c7d123b17d7cc2c0c9e4ab.css" integrity="sha256-iH&#43;h2ep&#43;3UAAbgXZAtboMFKzjYbhx9EjsX18wsDJ5Ks=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/favicon-32x32.png">
@@ -115,7 +115,8 @@
 </script>
 </head>
 
-<body class="" id="top">
+<body class="" id="
+    top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -219,6 +220,75 @@
   <footer class="post-footer">
     <ul class="post-tags">
     </ul>
+
+
+
+
+<div class="giscus">
+
+    <script>
+        function getGiscusTheme() {
+            
+            const preferredTheme = localStorage.getItem("pref-theme");
+            
+            let giscusTheme;
+            switch (preferredTheme) {
+                case "light":
+                    giscusTheme = "no_border_light";
+                    break;
+                case "dark":
+                    giscusTheme = "noborder_gray";
+                    break;
+                default:
+                    giscusTheme = "noborder_gray"; 
+            }
+            return giscusTheme;
+        }
+
+        function setGiscusTheme() {
+            function sendMessage(message) {
+                const iframe = document.querySelector('iframe.giscus-frame');
+                if (!iframe) return;
+                iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            }
+            
+            sendMessage({
+                setConfig: {
+                    theme: getGiscusTheme(),
+                },
+            });
+        }
+
+        const attrs = {
+            "src": "https://giscus.app/client.js",
+            "data-repo": "JingyiWu-codespace/blog_comments",
+            "data-repo-id": "R_kgDOLPpadg",
+            "data-category": "Announcements",
+            "data-category-id": "DIC_kwDOLPpads4CdEvR",
+            "data-mapping": "pathname",
+            "data-strict": "0",
+            "data-reactions-enabled": "1",
+            "data-emit-metadata": "0",
+            "data-input-position": "bottom",
+            "data-theme": getGiscusTheme(), 
+            "data-lang": "en",
+            "crossorigin": "anonymous",
+            "async": ""
+        };
+
+        const giscusScript = document.createElement("script");
+        Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+        document.body.appendChild(giscusScript);
+
+        
+        const toggle = document.querySelector('#theme-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', setGiscusTheme);
+        }
+    </script>
+
+    <noscript>Please enable JavaScript to view the comments</noscript>
+</div>
   </footer>
 </article>
     </main>
