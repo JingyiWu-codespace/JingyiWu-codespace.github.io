@@ -207,7 +207,7 @@
       <div class="archive-entry">
         <h3 class="archive-entry-title entry-hint-parent">TripSpain
         </h3>
-        <div class="archive-meta"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span>&nbsp;·&nbsp;Jingyi Wu</div>
+        <div class="archive-meta"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Jingyi Wu</div>
         <a class="entry-link" aria-label="post link to TripSpain" href="https://jingyiwu-codespace.github.io/en/posts/life/tripspain/"></a>
       </div>
     </div>
@@ -234,21 +234,6 @@
     </span>
 
     
-    <div>Number of visitors: <div id="stats"></div>
-    </div>
-    <script>
-        var r = new XMLHttpRequest();
-        r.addEventListener('load', function () {
-            var count = JSON.parse(this.responseText).count_unique;
-            if (count !== undefined) {
-                document.querySelector('#stats').innerText = count;
-            } else {
-                document.querySelector('#stats').innerText = 'Unavailable';
-            }
-        });
-        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
-        r.send();
-    </script>
 
 
 </footer>

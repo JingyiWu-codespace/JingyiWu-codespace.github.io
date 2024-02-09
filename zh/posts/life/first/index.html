@@ -217,11 +217,9 @@
     </li>
 </ul>
 
-      <div class="meta-item">&nbsp·&nbsp
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <meta name="referrer" content="no-referrer-when-downgrade">
-        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
-      </div></div>
+
+
+    </div>
   </header> 
   <div class="post-content"><p>&ldquo;双语博客初次搭建！&rdquo;</p>
 
@@ -321,21 +319,6 @@
     </span>
 
     
-    <div>Number of visitors: <div id="stats"></div>
-    </div>
-    <script>
-        var r = new XMLHttpRequest();
-        r.addEventListener('load', function () {
-            var count = JSON.parse(this.responseText).count_unique;
-            if (count !== undefined) {
-                document.querySelector('#stats').innerText = count;
-            } else {
-                document.querySelector('#stats').innerText = 'Unavailable';
-            }
-        });
-        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
-        r.send();
-    </script>
 
 
 </footer>
