@@ -234,17 +234,14 @@
 
 
 
+<details class="comments">
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <summary class="ctr pokey">
+            <strong>View/hide comments</strong>
+        </summary>
+        <script nonce="${nonce}">
 
-
-
-
-<details class="comments nScrHidden" id="data-comments" data-pagefind-ignore>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
-    <summary data-pagefind-ignore aria-label="Toggle for viewing or hiding comments">
-        <span id="legend-comments" class="legend">View comments</span>
-    </summary>
-    <div class="giscus-comments" id="giscus-comments">
-        <script>
             function getGiscusTheme() {
                 
                 const preferredTheme = localStorage.getItem("pref-theme");
@@ -262,13 +259,13 @@
                 }
                 return giscusTheme;
             }
-
             function setGiscusTheme() {
                 function sendMessage(message) {
                     const iframe = document.querySelector('iframe.giscus-frame');
                     if (!iframe) return;
                     iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
                 }
+                
                 sendMessage({
                     setConfig: {
                         theme: getGiscusTheme(),
@@ -276,56 +273,41 @@
                 });
             }
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const giscusAttributes = {
-                    "src": "https://giscus.app/client.js",
-                    "data-repo": "JingyiWu-codespace/blog_comments",
-                    "data-repo-id": "R_kgDOLPpadg",
-                    "data-category": "Announcements",
-                    "data-category-id": "DIC_kwDOLPpads4CdEvR",
-                    "data-mapping": "pathname",
-                    "data-strict": "1",
-                    "data-reactions-enabled": "1",
-                    "data-emit-metadata": "0",
-                    "data-input-position": "bottom",
-                    "data-theme": getGiscusTheme(),
-                    "data-lang": "en",
-                    "crossorigin": "anonymous",
-                    "data-loading": "lazy",
-                    "async": "",
-                };
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
 
-                
-                const giscusScript = document.createElement("script");
-                Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-                let divToAdd = document.querySelector('.giscus-comments');
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
 
-                
-                let detailsGiscus = document.getElementById('data-comments');
-                let commentsLegend = document.getElementById('legend-comments');
-                detailsGiscus.addEventListener("toggle", toggleDetails);
-                function toggleDetails() {
-                    divToAdd.appendChild(giscusScript);
-                    if (commentsLegend.innerHTML === 'View comments') {
-                        commentsLegend.innerHTML = 'Hide comments';
-                    } else {
-                        commentsLegend.innerHTML = 'View comments';
-                    }
-                }
-                
-                const buttonLight = document.getElementById("lightMode");
-                const buttonAuto = document.getElementById("autoMode");
-                const buttonDark = document.getElementById("darkMode");
-                buttonLight.addEventListener('click', setGiscusTheme);
-                buttonAuto.addEventListener('click', setGiscusTheme);
-                buttonDark.addEventListener('click', setGiscusTheme);
-            });
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
         </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
     </div>
 </details>
-<noscript>
-    <p class="ctr legal">Commenting feature requires activation of JavaScript.</p>
-</noscript>
+
+
+
+
   </footer>
 
 </article>
