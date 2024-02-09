@@ -10,7 +10,7 @@
 <meta name="description" content="Content coming soon.">
 <meta name="author" content="">
 <link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/resume/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.887fa1d9ea7edd40006e05d902d6e83052b38d86e1c7d123b17d7cc2c0c9e4ab.css" integrity="sha256-iH&#43;h2ep&#43;3UAAbgXZAtboMFKzjYbhx9EjsX18wsDJ5Ks=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ea57507a012c68149026f3e4cbad8d0faababa80f7b9fa50c3cee4025266c501.css" integrity="sha256-6ldQegEsaBSQJvPky62ND6q6uoD3ufpQw87kAlJmxQE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/favicon-32x32.png">
@@ -190,6 +190,7 @@
 <article class="post-single">
   <header class="post-header">
     
+
     <h1 class="post-title entry-hint-parent">
       简历
     </h1>
@@ -199,7 +200,6 @@
         <a href="https://jingyiwu-codespace.github.io/en/resume/">En</a>
     </li>
 </ul>
-
 </div>
   </header> 
   <div class="post-content"><p>Content coming soon.</p>
@@ -214,76 +214,100 @@
 
 
 
-<div class="giscus">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
 
-    <script nonce="${nonce}">
 
-        function getGiscusTheme() {
-            
-            const preferredTheme = localStorage.getItem("pref-theme");
-            
-            let giscusTheme;
-            switch (preferredTheme) {
-                case "light":
-                    giscusTheme = "no_border_light";
-                    break;
-                case "dark":
-                    giscusTheme = "noborder_gray";
-                    break;
-                default:
-                    giscusTheme = "noborder_gray"; 
+
+<details class="comments nScrHidden" id="data-comments" data-pagefind-ignore>
+    <meta http-equiv="Content-Security-Policy"
+        content="script-src 'unsafe-eval'; object-src 'none';style-src 'unsafe-eval' ">
+    <summary data-pagefind-ignore aria-label="Toggle for viewing or hiding comments">
+        <span id="legend-comments" class="legend">View comments</span>
+    </summary>
+    <div class="giscus-comments" id="giscus-comments">
+        <script>
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "no_border_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
             }
-            return giscusTheme;
-        }
 
-        function setGiscusTheme() {
-            function sendMessage(message) {
-                const iframe = document.querySelector('iframe.giscus-frame');
-                if (!iframe) return;
-                iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
             }
-            
-            sendMessage({
-                setConfig: {
-                    theme: getGiscusTheme(),
-                },
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const giscusAttributes = {
+                    "src": "https://giscus.app/client.js",
+                    "data-repo": "JingyiWu-codespace/blog_comments",
+                    "data-repo-id": "R_kgDOLPpadg",
+                    "data-category": "Announcements",
+                    "data-category-id": "DIC_kwDOLPpads4CdEvR",
+                    "data-mapping": "pathname",
+                    "data-strict": "1",
+                    "data-reactions-enabled": "1",
+                    "data-emit-metadata": "0",
+                    "data-input-position": "bottom",
+                    "data-theme": getGiscusTheme(),
+                    "data-lang": "en",
+                    "crossorigin": "anonymous",
+                    "data-loading": "lazy",
+                    "async": "",
+                };
+
+                
+                const giscusScript = document.createElement("script");
+                Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+                let divToAdd = document.querySelector('.giscus-comments');
+
+                
+                let detailsGiscus = document.getElementById('data-comments');
+                let commentsLegend = document.getElementById('legend-comments');
+                detailsGiscus.addEventListener("toggle", toggleDetails);
+                function toggleDetails() {
+                    divToAdd.appendChild(giscusScript);
+                    if (commentsLegend.innerHTML === 'View comments') {
+                        commentsLegend.innerHTML = 'Hide comments';
+                    } else {
+                        commentsLegend.innerHTML = 'View comments';
+                    }
+                }
+                
+                const buttonLight = document.getElementById("lightMode");
+                const buttonAuto = document.getElementById("autoMode");
+                const buttonDark = document.getElementById("darkMode");
+                buttonLight.addEventListener('click', setGiscusTheme);
+                buttonAuto.addEventListener('click', setGiscusTheme);
+                buttonDark.addEventListener('click', setGiscusTheme);
             });
-        }
-
-        const attrs = {
-            "src": "https://giscus.app/client.js",
-            "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
-            "data-repo-id": "R_kgDOLEfUzQ",
-            "data-category": "Announcements",
-            "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
-            "data-mapping": "pathname",
-            "data-strict": "0",
-            "data-reactions-enabled": "1",
-            "data-emit-metadata": "0",
-            "data-input-position": "bottom",
-            "data-theme": getGiscusTheme(), 
-            "data-lang": "en",
-            "crossorigin": "anonymous",
-            "async": ""
-        };
-
-        const giscusScript = document.createElement("script");
-        Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-        document.body.appendChild(giscusScript);
-
-        
-        const toggle = document.querySelector('#theme-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', setGiscusTheme);
-        }
-    </script>
-
-    <noscript>Please enable JavaScript to view the comments</noscript>
-</div>
-
-
+        </script>
+    </div>
+</details>
+<noscript>
+    <p class="ctr legal">Commenting feature requires activation of JavaScript.</p>
+</noscript>
   </footer>
+
 </article>
     </main>
     
