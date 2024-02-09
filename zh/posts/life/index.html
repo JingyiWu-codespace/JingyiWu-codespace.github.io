@@ -178,7 +178,7 @@
     <div class="entry-content">
       <p>“双语博客初次搭建！”</p>
     </div>
-    <footer class="entry-footer"><span title='2024-02-05 00:00:00 +0000 UTC'>二月 5, 2024</span>&nbsp;·&nbsp;23 字&nbsp;·&nbsp;JingyiWu</footer>
+    <footer class="entry-footer"><span title='2024-02-05 00:00:00 +0000 UTC'>二月 5, 2024</span>&nbsp;·&nbsp;JingyiWu</footer>
   </div> 
   <a class="entry-link" aria-label="post link to 中文 !" href="https://jingyiwu-codespace.github.io/zh/posts/life/first/"></a>
 </article>
@@ -197,11 +197,17 @@
     <script>
         var r = new XMLHttpRequest();
         r.addEventListener('load', function () {
-            document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
-        })
-        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
-        r.send()
+            var count = JSON.parse(this.responseText).count_unique;
+            if (count !== undefined) {
+                document.querySelector('#stats').innerText = count;
+            } else {
+                document.querySelector('#stats').innerText = 'Unavailable';
+            }
+        });
+        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
+        r.send();
     </script>
+
 
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
