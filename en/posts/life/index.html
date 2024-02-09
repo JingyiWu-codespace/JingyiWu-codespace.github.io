@@ -178,7 +178,7 @@
     <div class="entry-content">
       <p>Travel Road: Sevilla -&gt; Granada -&gt; Barcelona Vocation Spend</p>
     </div>
-    <footer class="entry-footer"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span>&nbsp;·&nbsp;Jingyi Wu</footer>
+    <footer class="entry-footer"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span>&nbsp;·&nbsp;9 words&nbsp;·&nbsp;Jingyi Wu</footer>
   </div> 
 <figure class="entry-cover"><img loading="lazy" src="https://jingyiwu-codespace.github.io/img/1.png" alt="">
 </figure>
@@ -195,7 +195,7 @@
     <div class="entry-content">
       <p>“While I frequently face confusion over which path to choose, I am certain that the determination to do my best lies within me.”</p>
     </div>
-    <footer class="entry-footer"><span title='2024-01-14 20:48:45 +0100 CET'>January 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;JingyiWu</footer>
+    <footer class="entry-footer"><span title='2024-01-14 20:48:45 +0100 CET'>January 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;23 words&nbsp;·&nbsp;JingyiWu</footer>
   </div> 
 <figure class="entry-cover"><img loading="lazy" src="https://jingyiwu-codespace.github.io/img/orb.png" alt="">
 </figure>
@@ -209,6 +209,19 @@
         2024
         <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
     </span>
+
+    
+    <div>Number of visitors: <div id="stats"></div>
+    </div>
+    <script>
+        var r = new XMLHttpRequest();
+        r.addEventListener('load', function () {
+            document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
+        })
+        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+        r.send()
+    </script>
+
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

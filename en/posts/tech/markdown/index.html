@@ -209,8 +209,13 @@
     <h1 class="post-title entry-hint-parent">
       Markdown Grammer Tips  !
     </h1>
-    <div class="post-meta"><span title='2024-02-07 00:00:00 +0000 UTC'>February 7, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;JingyiWu
-</div>
+    <div class="post-meta"><span title='2024-02-07 00:00:00 +0000 UTC'>February 7, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;21 words&nbsp;·&nbsp;JingyiWu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div></div>
   </header> <div class="toc">
         <details >
             <summary accesskey="c" title="(Alt + C)">
@@ -314,6 +319,14 @@
 
 
 
+<nav class="paginav">
+  <a class="next" href="https://jingyiwu-codespace.github.io/en/posts/life/tripspain/">
+    <span class="title">Next »</span>
+    <br>
+    <span>TripSpain</span>
+  </a>
+</nav>
+
   </footer>
 
 </article>
@@ -325,6 +338,19 @@
         2024
         <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
     </span>
+
+    
+    <div>Number of visitors: <div id="stats"></div>
+    </div>
+    <script>
+        var r = new XMLHttpRequest();
+        r.addEventListener('load', function () {
+            document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
+        })
+        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+        r.send()
+    </script>
+
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
