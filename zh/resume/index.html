@@ -194,13 +194,18 @@
     <h1 class="post-title entry-hint-parent">
       简历
     </h1>
-    <div class="post-meta"><span title='2024-01-14 00:00:00 +0000 UTC'>一月 14, 2024</span>&nbsp;|&nbsp;语言:
+    <div class="post-meta"><span title='2024-01-14 00:00:00 +0000 UTC'>一月 14, 2024</span>&nbsp;·&nbsp;3 字&nbsp;|&nbsp;语言:
 <ul class="i18n_list">
     <li>
         <a href="https://jingyiwu-codespace.github.io/en/resume/">En</a>
     </li>
 </ul>
-</div>
+
+      <div class="meta-item">&nbsp·&nbsp
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div></div>
   </header> 
   <div class="post-content"><p>Content coming soon.</p>
 
@@ -286,6 +291,7 @@
 
 
 
+
   </footer>
 
 </article>
@@ -297,6 +303,19 @@
         2024
         <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
     </span>
+
+    
+    <div>Number of visitors: <div id="stats"></div>
+    </div>
+    <script>
+        var r = new XMLHttpRequest();
+        r.addEventListener('load', function () {
+            document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
+        })
+        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+        r.send()
+    </script>
+
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
