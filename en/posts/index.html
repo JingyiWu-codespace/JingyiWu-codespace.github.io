@@ -172,7 +172,7 @@
     <div class="entry-content">
       <p></p>
     </div>
-    <footer class="entry-footer"><span title='2024-02-07 00:00:00 +0000 UTC'>February 7, 2024</span>&nbsp;·&nbsp;0 words</footer>
+    <footer class="entry-footer"><span title='2024-02-07 00:00:00 +0000 UTC'>February 7, 2024</span></footer>
   </div> 
   <a class="entry-link" aria-label="post link to 💻 Tech" href="https://jingyiwu-codespace.github.io/en/posts/tech/"></a>
 </article>
@@ -187,7 +187,7 @@
     <div class="entry-content">
       <p></p>
     </div>
-    <footer class="entry-footer"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span>&nbsp;·&nbsp;0 words</footer>
+    <footer class="entry-footer"><span title='2024-02-05 20:29:08 +0100 CET'>February 5, 2024</span></footer>
   </div> 
   <a class="entry-link" aria-label="post link to 🏖️ Life" href="https://jingyiwu-codespace.github.io/en/posts/life/"></a>
 </article>
@@ -202,7 +202,7 @@
     <div class="entry-content">
       <p></p>
     </div>
-    <footer class="entry-footer">0 words</footer>
+    <footer class="entry-footer"></footer>
   </div> 
   <a class="entry-link" aria-label="post link to 📄 Projects" href="https://jingyiwu-codespace.github.io/en/posts/projects/"></a>
 </article>
@@ -217,7 +217,7 @@
     <div class="entry-content">
       <p></p>
     </div>
-    <footer class="entry-footer">0 words</footer>
+    <footer class="entry-footer"></footer>
   </div> 
   <a class="entry-link" aria-label="post link to 📖 Read" href="https://jingyiwu-codespace.github.io/en/posts/read/"></a>
 </article>
@@ -236,11 +236,17 @@
     <script>
         var r = new XMLHttpRequest();
         r.addEventListener('load', function () {
-            document.querySelector('#stats').innerText = JSON.parse(this.responseText).count_unique
-        })
-        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
-        r.send()
+            var count = JSON.parse(this.responseText).count_unique;
+            if (count !== undefined) {
+                document.querySelector('#stats').innerText = count;
+            } else {
+                document.querySelector('#stats').innerText = 'Unavailable';
+            }
+        });
+        r.open('GET', 'https://jingyiwu-codespace.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json');
+        r.send();
     </script>
+
 
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
