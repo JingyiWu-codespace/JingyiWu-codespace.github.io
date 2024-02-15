@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/tech/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/categories/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -41,8 +41,21 @@
                 href="https://jingyiwu-codespace.github.io/en/categories/"
                 />
   </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/cooja/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/tags/cooja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/tags/cooja/"
+                />
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -54,17 +67,47 @@
                 href="https://jingyiwu-codespace.github.io/en/"
                 />
   </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/tags/markdown/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <loc>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/"
+                />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/categories/tech/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/categories/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/categories/tech/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/vub/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/tags/vub/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/tags/vub/"
+                />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/tags/</loc>
-    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn-CN"
@@ -76,14 +119,50 @@
                 href="https://jingyiwu-codespace.github.io/en/tags/"
                 />
   </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/markdown/</loc>
+    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</loc>
+    <lastmod>2024-02-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/categories/life/</loc>
     <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/categories/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/categories/life/"
+                />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/tags/trip/</loc>
     <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/tags/trip/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/tags/trip/"
+                />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</loc>
     <lastmod>2024-02-05T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn-CN"
+                href="https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://jingyiwu-codespace.github.io/en/posts/life/tripspain/"
+                />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/life/</loc>
     <lastmod>2024-02-05T20:29:08+01:00</lastmod>

@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>💻 Tech on Home</title>
-    <link>https://jingyiwu-codespace.github.io/en/posts/tech/</link>
-    <description>Recent content in 💻 Tech on Home</description>
+    <title>VUB on Home</title>
+    <link>https://jingyiwu-codespace.github.io/en/tags/vub/</link>
+    <description>Recent content in VUB on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jingyiwu-codespace.github.io/en/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jingyiwu-codespace.github.io/en/tags/vub/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solution: Cooja Displays Resource Busy</title>
       <link>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</guid>
       <description>When running cooja for port listening, there will be two processes. We must kill one, then cooja run successfully.</description>
-    </item>
-    <item>
-      <title>Markdown Grammer Tips  !</title>
-      <link>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</link>
-      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</guid>
-      <description>markdown 语法</description>
     </item>
   </channel>
 </rss>

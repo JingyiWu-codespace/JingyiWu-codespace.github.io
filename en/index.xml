@@ -6,8 +6,15 @@
     <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solution: Cooja Displays Resource Busy</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</guid>
+      <description>When running cooja for port listening, there will be two processes. We must kill one, then cooja run successfully.</description>
+    </item>
     <item>
       <title>Markdown Grammer Tips  !</title>
       <link>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</link>
@@ -16,7 +23,7 @@
       <description>markdown 语法</description>
     </item>
     <item>
-      <title>TripSpain</title>
+      <title>Trip Spain</title>
       <link>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</link>
       <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
       <guid>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</guid>
