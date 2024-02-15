@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>🏖️ 生活 on Home</title>
-    <link>https://jingyiwu-codespace.github.io/zh/posts/life/</link>
-    <description>Recent content in 🏖️ 生活 on Home</description>
+    <title>Trip on Home</title>
+    <link>https://jingyiwu-codespace.github.io/zh/tags/trip/</link>
+    <description>Recent content in Trip on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-CN</language>
     <lastBuildDate>Mon, 05 Feb 2024 20:29:08 +0100</lastBuildDate>
-    <atom:link href="https://jingyiwu-codespace.github.io/zh/posts/life/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/trip/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🇪🇸 去西班牙旅游 !!</title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</link>
       <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</guid>
       <description>非常开心的一周，那段时间比利时太折磨人了</description>
-    </item>
-    <item>
-      <title>ε≡٩(๑&gt;₃&lt;)۶</title>
-      <link>https://jingyiwu-codespace.github.io/zh/posts/life/first/</link>
-      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/zh/posts/life/first/</guid>
-      <description>新空间 新起点</description>
     </item>
   </channel>
 </rss>

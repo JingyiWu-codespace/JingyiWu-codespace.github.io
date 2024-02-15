@@ -6,8 +6,22 @@
     <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-CN</language>
-    <lastBuildDate>Mon, 05 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决: Cooja 端口显示资源繁忙</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
+      <description>每次运行Cooja的端口监听，总显示资源繁忙，可能是端口已经被占用了，只要给其中一个进程干掉就好了.</description>
+    </item>
+    <item>
+      <title>🇪🇸 去西班牙旅游 !!</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</guid>
+      <description>非常开心的一周，那段时间比利时太折磨人了</description>
+    </item>
     <item>
       <title>ε≡٩(๑&gt;₃&lt;)۶</title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/life/first/</link>
