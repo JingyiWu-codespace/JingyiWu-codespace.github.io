@@ -13,7 +13,7 @@
       <link>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
-      <description>每次运行Cooja的端口监听，总显示资源繁忙，可能是端口已经被占用了，只要给其中一个进程干掉就好了.</description>
+      <description>每次运行Cooja的端口监听，显示资源繁忙，可能是端口已经被占用，只要给其中一个进程干掉就好.</description>
     </item>
   </channel>
 </rss>

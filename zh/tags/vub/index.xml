@@ -6,14 +6,21 @@
     <description>Recent content in VUB on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-CN</language>
-    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/vub/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习: JavaScript</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</link>
+      <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</guid>
+      <description>开始学习JavaScript!! 课程来自于 Udemy+Bilibili</description>
+    </item>
     <item>
       <title>解决: Cooja 端口显示资源繁忙</title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
-      <description>每次运行Cooja的端口监听，总显示资源繁忙，可能是端口已经被占用了，只要给其中一个进程干掉就好了.</description>
+      <description>每次运行Cooja的端口监听，显示资源繁忙，可能是端口已经被占用，只要给其中一个进程干掉就好.</description>
     </item>
   </channel>
 </rss>
