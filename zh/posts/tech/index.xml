@@ -6,10 +6,17 @@
     <description>Recent content in 💻 技术 on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn-CN</language>
-    <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/posts/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>学习: JavaScript</title>
+      <title>学习: JavaScript WebAPIs篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</guid>
+      <description>JavaScript WebApi!! 程序媛养成之路</description>
+    </item>
+    <item>
+      <title>学习: JavaScript基础篇</title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</link>
       <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</guid>
