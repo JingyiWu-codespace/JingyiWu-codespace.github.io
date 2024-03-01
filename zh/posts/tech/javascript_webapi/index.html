@@ -129,8 +129,8 @@ if (!doNotTrack) {
   "keywords": [
     "Javascript"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "WebAPIs DOM BOM Day1 变量声明 var、 let 、const\n在使用中应该优先使用const\nconst 语义化更好 很多变量在声明时表示标量不会更改 实际开发中，react框架，基本const 如果事后发现需要被更改，再改为let 案例:\n以下案例可不可以把let改外const ?\nlet name = '刘德华' let song = '忘情水' document.write(name + song) //可以，因为值没有被改变 let num1 = +prompt('请输入第一个数值: ') let num2 = +prompt('请输入第二个数值: ') alert(`两者相加的结果是：${num1} + ${num2} `) //可以，因为值没有被改变 let num = 1 num = num + 1 //不可以，值被改变了 //如下同理 for (let i = 0;i \u003c nums.length; i++){ document.write(nums[i]) } //i的值一直被改变 let arr = ['red','green'] arr.push('pink') // 可以，因为arr的地址没有变，只是内容发生了变化 let person = { uname: 'pink老师', age: 18, gender:'女' } person.address = '武汉黑马' // 也可以 ，同理地址没变，只是内容发生了变化 const 声明的值不能更改，而且const声明变量的时候需要提前初始化 但对于引用数据类型, const声明变量，里面存的不是值，而是地址 const names = [] names = [1, 2, 3] // 不可以！！！，因为 [1,2,3]意味着是新的数组，新的地址 const obj = {} obj = { uname: 'pink老师' } // 不可以！！ obj 已经是{},不能再次新建{} // obj.name = 'pink老师' 可以通过这种形式 为什么const声明的对象可以修改里面的属性？\n因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错 建议数组和对象使用const来声明 什么时候使用let声明变量？\n如果基本数据类型的值或者引用类型的地址发生变化的时候 比如 一个变量进行加减运算，比如for循环中的i++ 作用及分类 使用 JS 去操作 html 和 浏览器\nDAM(文档对象模型)\nBOM(浏览器对象模型)\nDOM ( Document Object Model ) 用来呈现以及任意 html 或 xml 文档交互的API\nDOM 是浏览器提供的一套专门操作网页内容的功能\n开发网页内容特效和实现用户交互 DOM树 将HTML文档以树状结构直观的表现出来，称为DOM树 描述网页内容关系的名词 作用： DOM树直观的体现了标签之间的关系 DOM 对象 浏览器根据 html 标签生成 JS对象\n所有的标签属性都能在这个对象上面找到 修改这个对象的属性会自动映射到标签身上 DOM 的核心思想 将网页当作对象处理 const div = document.querySelector('div') // typeof div 为dom对象 object document 对象 是 DOM 里提供的一个对象, DOM里面最大的对象\n所以他提供的属性和方法都是用来访问和操作网页内容的\ndocument.write ( )\n网页的所有内容都在document里面\n获取 DOM 元素 根据 CSS 选择器来获取 DOM 元素 （重点）\n语法 1. 选择匹配一个元素 // 获取匹配的第一个元素 document.querySelector('css选择器') // example // 用标签获取 const box1 = document.querySelector('tag') // 用class获取 const box2 = document.querySelector ('.class') // 用id获取 const box3 = document.querySelector ('#id') // 嵌套标签 const box4 = document.querySelector ('ul li') const box4 = document.querySelector ('ul li:first-child') 2. 选择匹配多个元素 document.querySelecorAll ('css选择器') 参数 包含一个或多个有效的 css 选择器 字符串 返回值 document.querySelector()\nCSS 选择器匹配的第一个元素 (HTMLElement 对象)\ndocument.querySelectorAll('ul li')\nCSS 选择器匹配的 NodeList 对象集合\n!! NodeList 是伪数组\n有长度、有索引 但没有pop(), push()等数组方法 想要得到里面的每个对象，需要遍历(for)的方式获得，注意数组的遍历用for，对象的遍历用 for in\n总结 获取一个DOM元素使用querySelector(), 可以直接修改 获取多个DOM元素使用querySelectorAll( ), 通过遍历的方式修改 其他获取DOM元素方法 (了解)\ndocument.getElementById('nav') document.getElementsByTagName('div') document.getElementsByClassName('w') 操作元素内容 能够修改元素的文本，更换内容\nDOM 对象都是根据标签生成，所以操作标签，本质上是操作DOM对象\n操作对象使用 的点语法\n如果想要修改标签元素里面的内容，则可以使用如下几种方式：\nobj.innerText-\u003e 属性\nobj.innerHTML-\u003e 属性\n元素innerText属性 将文本内容添加/更新到任意标签位置 显示纯文本，不解析标签 元素innerHTML属性 与上方innerText大致相同，但是解析html标签 \u003cbody\u003e \u003cdiv class = \"box\"\u003e 我是文字内容 \u003c/div\u003e \u003cscript\u003e const box = document.querySelector('.box') console.log(box.innerText) //获取文字内容 box.innerText = '我是一个盒子' //修改文字内容 box.innerText = ' 我是一个盒子 ' // strong 会按照文本形式输出，不会解析为加粗 //innerHTML console.log(box.innerHTML) //获取内容 box.innerHTML = ' 我是一个盒子 ' //会变粗，解析html标签 \u003c/script\u003e \u003c/body\u003e 操作元素属性 操作元素常用属性 通过 JS 设置/修改标签元素属性，比如通过src更换图片\n常见属性：href、title、src\n语法: obj.attribute = value\n//1. 获取元素 const pic = document.querySelector('img') //2. 操作元素 pic.src = '/images/b-2.ipg' pic.title = '刘德华黑马演唱会' //3. body不需要获取，直接选择 document.body = '....' 操作元素样式属性 还可以通过 JS 设置/修改标签元素的样式属性\n轮播图小圆点自动更换样式颜色\n点击按钮可以滚动图片，移动图片位置等等\nstyle属性操作CSS 语法\nobj.style.attribute = value\nCSS 样式 \u003cstyle\u003e div{ width: 200px; height: 200px; background-color: pink; } \u003c/style\u003e \u003cbody\u003e \u003cdiv class = 'box'\u003e\u003c/div\u003e \u003cscript\u003e // 1. 获取元素 const box = document.querySelector('.box')、 // 2. 修改样式 对象.style.样式属性 = '值' 记得+单位 // style 关键词是固定不变的！！！ box.style.width = '300px' // css多组单词， background-color 转换成小驼峰命名法 box.style.backgroundColor = 'hotpink' box.style.border = '2px solid blue' box.style.borderTop = '2px solid red' \u003c/script\u003e \u003c/body\u003e 总结\n设置/修改元素样式属性通过 style属性引出来\n如果修改div盒子的样式，比如padding-left，如何写？\nElement.style.paddingLeft = ‘300px’ 小驼峰命名法\n因为我们是样式属性，大部分数字方面需要➕单位px\n类名className操作CSS 如果修改的样式比较多，直接通过style属性修改比较繁琐，我们可以通过借助css类名的形式\n语法\n元素.className = 'css里面的类名' 由于class是保留词、关键字，所以使用className去代替\nclassName是使用新值换旧值\n\u003chead\u003e \u003cstyle\u003e div { width: 200px; height:200px; background-color: pink; } .nav{ color: red } .box{ width: 300px; height: 300px; background-color: skyblue; margin: 100px auto; } \u003c/style\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv class = 'nav'\u003e 123 \u003c/div\u003e // nav class会被 js 覆盖掉,换成box，样式也会被替换 \u003cscript\u003e const div = document.querySelector('div') // 把div的class设置为box，这样可以更换样式 div.className = 'box' //如果我两个类名的样式都想保留 div.className = 'nav box' \u003c/script\u003e \u003c/body\u003e 常用!! classList -\u003e 操作类控制CSS 为了解决className容易覆盖以前的类名，通过classList方式追加和删除类名 语法 // 追加一个类 元素.classList.add('类名') // 删除一个类 元素.classList.remove('类名') //切换一个类 元素.classList.toggle('类名') 案例 \u003chead\u003e \u003cstyle\u003e .box { width: 200px; height: 200px; color: #333 } .active { color: red; background } \u003c/style\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv class = 'box '\u003e 文字 \u003c/div\u003e \u003cscript\u003e // 通过classList添加 // 1. 获取元素 const box = document.querySlector('.box') // 2.1 修改样式-\u003e追加 box.classList.add('active') // 2.2 修改样式-\u003e移除 box.classList.remove('box') // 2.3 修改样式-\u003e切换 // 先查看此类有还是没有，有就删掉，没有就添加,像是开关 box.classList.toggle('active') \u003c/script\u003e \u003c/body\u003e 总结：使用className 和 classList区别\n修改样式方便 classList 是追加、删除不影响之前的类名 操作表单元素属性 用value提取内容，不能是使用innerHTML 用type切换文本和密码的展现形式 \u003cbody\u003e \u003cinput type = \"text\" value = \"电脑\"\u003e \u003cscript\u003e const uname = document.querySelector('input') uname.value //电脑 uname.value //设置表单value值 // 设置密码形式 uname.type = 'password' \u003c/script\u003e \u003c/body\u003e 表单属性中添加就有效果，移除没有效果，使用布尔值来表示 true -\u003e 添加钙属性，false -\u003e 移除该属性 disable /checked/ selected \u003cinput type = \"checkbox\" name = '' id = \"\" checked\u003e //属性与值相同，可省略 \u003cscript\u003e // 获取 const ipt = document.querySelector('input') console.ipt(ipt.checked) //true // 修改check的状态 ipt.checked = true //更改为勾选状态，布尔值不加“” \u003c/script\u003e 自定义属性 标准属性： 自带的属性 class、 id、 title等等，可以直接使用 点语法操作\ndisabled checked selected\n自定义属性：\nHTML 5 退出来专门data的自定义属性\n标签上一律以data-开头\n在DOM对象上一律以dataset对象方式获取\n\u003cbody\u003e \u003cdiv class = \"box\" data-id = \"10\"\u003e盒子\u003c/div\u003e \u003cscript\u003e const box = documet.querySelector('.box') console.log(box.dataset.id) \u003c/script\u003e \u003c/body\u003e 间歇函数-定时器 定时器函数可以开启和关闭定时器\n开启定时器\n定时器的返回值是，定时器独有的 ID 号\nsetInterval(函数/函数名，间隔时间) // 间歇函数一旦开启，永不停歇 // 案例 // 使用匿名函数 setInterval (function(){console.log('一秒执行一次')},1000) // 使用指定函数 function fn(){ console.log('一秒执行一次') } setInterval (fn, 1000) // 因为fn()表示立即调用函数，不符合每隔一秒钟调用 // 定时器又开有关，在内存中可能会用变化，使用let声明 let n = setInterval (fn, 1000) console,log(n) // id = 2 关闭定时器 作用： 每隔一段时间调用这个函数 间隔单位是毫秒 let 变量名 = setInterval(函数，间隔时间) clearInterval(变量名) //一般不会刚创建就停止，而是满足了一定条件再停止 //案例 let timer = setInterval(function(){ console.log('hi!!!~~~'), 1000 }) clearInterval(timer) Day2 能够给DOM元素添加事件监听​\n什么是事件？\n事件是编程时系统内发生的动作或者发生的事情\n比如用户在网页上单击一个按钮\n什么是事件监听？\n让程序检测是否有事件产生，一旦有时间触发，立即调用一个函数做出响应，称为绑定事件或者注册事件。比如鼠标经过显示下拉菜单，如果点击可以播放轮播图等等\n事件监听 语法 元素对象.addEventListener('事件类型'，要执行的函数)\n三要素 事件源：被事件触发的dom元素 事件类型： 用什么方式触发，比如鼠标单击 click, 鼠标经过mouseover 等等 事件调用函数： 要做什么事 \u003cbutton\u003e \u003cscript\u003e const btn = document.querySelector('.btn') //修改元素样式 //注意事件类型必须是字符串形式 //此函数是，点击之后再去执行，每次点击都会执行一次 btn.addEventListener('click',function(){ alert('点击了～～') }) \u003c/script\u003e \u003c/button\u003e 事件类型 鼠标事件 焦点事件 键盘事件 文本事件 鼠标触发 表单获得光标 键盘触发 表单输入触发 click 鼠标点击 focus 获得焦点 keydown 键盘按下 input用户输入事件 mouseenter 鼠标经过 blur 失去焦点 keyup 键盘抬起触发 mouseleave 鼠标离开 事件对象 ​\t事件对象是什么？\n有事件触发时的相关信息\n例如： 鼠标点击事件中，事件对象存储了鼠标点的位置信息等等\n使用场景\n可以判断用户按下拿个键，比如按下回车键可以发布新闻\n可以判断鼠标点击了哪个元素，从而做相应的操作\n语法 在事件绑定的回调函数的第一个参数就是事件对象\n一般命名为 event ev e\n部分常用属性\n补充 str.trim() -\u003e去除字符串两侧空格\n属性 描述 type 获取当前的事件类型 clientX / clientY 获取光标相对于浏览器可见窗口左上角的位置 offsetX / offsetY 获取光标相对于当前DOM元素左上角的位置 key 用户按下的键盘的值 元素.addEventListener('click', function(e)){} // e就是事件对象 // 案例 const input = document.querySelector('input') input.addEventListener('keyup',function(e){ if (e.key === 'Enter'){ console.log('我按下了回撤键盘') } }) 环境对象 能够分析判断函数运行在不同环境中 this 所指代的对象\n定义：指的是函数内部特殊的变量this，代表着当前函数运行时所处的环境。\n简单一点，this 指的是函数的调用者 直接调用函数，相当于window.函数，所以this指代window const btn = document.querySelector('button') btn.addEventListener('click', function(){ //先前的写法 btn.style.color = 'red' //this 版本 this.style.color = 'red' }) 回调函数 被当作参数的函数，此函数就叫 call function 回调函数\n如果将函数A作为参数传递给函数B，我们称函数A 为回调函数\nfunction fn(){ console.log('我是回调函数!!') } //fn 传递给了setInterval，fn就是回调函数 setInterval(fn,1000) //事件点击的本身也是回调函数 box.addEventListener('click', function(){ console.log('也是回调函数!!') }) 总结\n将函数当作另一个函数的参数传递，此函数叫回调函数 回调函数本质还是函数，只不过把它当成参数 使用匿名函数作为回调函数比较常见 ​\n",
+  "wordCount" : "4589",
   "inLanguage": "zh",
   "datePublished": "2024-02-27T00:00:00Z",
   "dateModified": "2024-02-27T00:00:00Z",
@@ -233,7 +233,7 @@ if (!doNotTrack) {
     <h1 class="post-title entry-hint-parent">
       学习: JavaScript WebAPIs篇
     </h1>
-    <div class="post-meta"><span title='2024-02-27 00:00:00 +0000 UTC'>二月 27, 2024</span>&nbsp;·&nbsp;0 分钟&nbsp;·&nbsp;Jingyi Wu
+    <div class="post-meta"><span title='2024-02-27 00:00:00 +0000 UTC'>二月 27, 2024</span>&nbsp;·&nbsp;10 分钟&nbsp;·&nbsp;Jingyi Wu
 
       <div class="meta-item">&nbsp·&nbsp
         <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
@@ -241,7 +241,761 @@ if (!doNotTrack) {
 
 
     </div>
-  </header> 
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#webapis-dom-bom" aria-label="WebAPIs DOM BOM">WebAPIs DOM BOM</a></li>
+                    <li>
+                        <a href="#day1" aria-label="Day1">Day1</a><ul>
+                                
+                    <li>
+                        <a href="#%e5%8f%98%e9%87%8f%e5%a3%b0%e6%98%8e" aria-label="变量声明">变量声明</a></li>
+                    <li>
+                        <a href="#%e4%bd%9c%e7%94%a8%e5%8f%8a%e5%88%86%e7%b1%bb" aria-label="作用及分类">作用及分类</a></li>
+                    <li>
+                        <a href="#dom--document-object-model-" aria-label="DOM ( Document Object Model )">DOM ( Document Object Model )</a><ul>
+                                
+                    <li>
+                        <a href="#dom%e6%a0%91" aria-label="DOM树">DOM树</a></li>
+                    <li>
+                        <a href="#dom-%e5%af%b9%e8%b1%a1" aria-label="DOM 对象">DOM 对象</a></li>
+                    <li>
+                        <a href="#dom-%e7%9a%84%e6%a0%b8%e5%bf%83%e6%80%9d%e6%83%b3" aria-label="DOM 的核心思想">DOM 的核心思想</a></li>
+                    <li>
+                        <a href="#document-%e5%af%b9%e8%b1%a1" aria-label="document 对象">document 对象</a></li>
+                    <li>
+                        <a href="#%e8%8e%b7%e5%8f%96-dom-%e5%85%83%e7%b4%a0" aria-label="获取 DOM 元素">获取 DOM 元素</a><ul>
+                                
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95" aria-label="语法">语法</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e9%80%89%e6%8b%a9%e5%8c%b9%e9%85%8d%e4%b8%80%e4%b8%aa%e5%85%83%e7%b4%a0" aria-label="1. 选择匹配一个元素">1. 选择匹配一个元素</a></li>
+                    <li>
+                        <a href="#2-%e9%80%89%e6%8b%a9%e5%8c%b9%e9%85%8d%e5%a4%9a%e4%b8%aa%e5%85%83%e7%b4%a0" aria-label="2. 选择匹配多个元素">2. 选择匹配多个元素</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%8f%82%e6%95%b0" aria-label="参数">参数</a></li>
+                    <li>
+                        <a href="#%e8%bf%94%e5%9b%9e%e5%80%bc" aria-label="返回值">返回值</a></li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e5%85%83%e7%b4%a0%e5%86%85%e5%ae%b9" aria-label="操作元素内容">操作元素内容</a><ul>
+                                
+                    <li>
+                        <a href="#%e5%85%83%e7%b4%a0innertext%e5%b1%9e%e6%80%a7" aria-label="元素innerText属性">元素innerText属性</a></li>
+                    <li>
+                        <a href="#%e5%85%83%e7%b4%a0innerhtml%e5%b1%9e%e6%80%a7" aria-label="元素innerHTML属性">元素innerHTML属性</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7" aria-label="操作元素属性">操作元素属性</a><ul>
+                                
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e5%85%83%e7%b4%a0%e5%b8%b8%e7%94%a8%e5%b1%9e%e6%80%a7" aria-label="操作元素常用属性">操作元素常用属性</a></li>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e5%85%83%e7%b4%a0%e6%a0%b7%e5%bc%8f%e5%b1%9e%e6%80%a7" aria-label="操作元素样式属性">操作元素样式属性</a><ul>
+                                
+                    <li>
+                        <a href="#style%e5%b1%9e%e6%80%a7%e6%93%8d%e4%bd%9ccss" aria-label="style属性操作CSS">style属性操作CSS</a></li>
+                    <li>
+                        <a href="#%e7%b1%bb%e5%90%8dclassname%e6%93%8d%e4%bd%9ccss" aria-label="类名className操作CSS">类名className操作CSS</a></li>
+                    <li>
+                        <a href="#%e5%b8%b8%e7%94%a8-classlist---%e6%93%8d%e4%bd%9c%e7%b1%bb%e6%8e%a7%e5%88%b6css" aria-label="常用!! classList -&gt; 操作类控制CSS">常用!! classList -&gt; 操作类控制CSS</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e8%a1%a8%e5%8d%95%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7" aria-label="操作表单元素属性">操作表单元素属性</a></li>
+                    <li>
+                        <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%b1%9e%e6%80%a7" aria-label="自定义属性">自定义属性</a></li>
+                    <li>
+                        <a href="#%e9%97%b4%e6%ad%87%e5%87%bd%e6%95%b0-%e5%ae%9a%e6%97%b6%e5%99%a8" aria-label="间歇函数-定时器">间歇函数-定时器</a></li></ul>
+                    </li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#day2" aria-label="Day2">Day2</a><ul>
+                                
+                    <li>
+                        <a href="#%e4%ba%8b%e4%bb%b6%e7%9b%91%e5%90%ac" aria-label="事件监听">事件监听</a><ul>
+                                
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95-1" aria-label="语法">语法</a></li>
+                    <li>
+                        <a href="#%e4%b8%89%e8%a6%81%e7%b4%a0" aria-label="三要素">三要素</a></li>
+                    <li>
+                        <a href="#%e4%ba%8b%e4%bb%b6%e7%b1%bb%e5%9e%8b" aria-label="事件类型">事件类型</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e4%ba%8b%e4%bb%b6%e5%af%b9%e8%b1%a1" aria-label="事件对象">事件对象</a><ul>
+                                
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95-2" aria-label="语法">语法</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e7%8e%af%e5%a2%83%e5%af%b9%e8%b1%a1" aria-label="环境对象">环境对象</a></li>
+                    <li>
+                        <a href="#%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0" aria-label="回调函数">回调函数</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="webapis-dom-bom">WebAPIs DOM BOM<a hidden class="anchor" aria-hidden="true" href="#webapis-dom-bom">#</a></h1>
+<h1 id="day1">Day1<a hidden class="anchor" aria-hidden="true" href="#day1">#</a></h1>
+<h2 id="变量声明">变量声明<a hidden class="anchor" aria-hidden="true" href="#变量声明">#</a></h2>
+<blockquote>
+<p><!-- raw HTML omitted -->var、 let 、const<!-- raw HTML omitted --></p>
+</blockquote>
+<p>在使用中应该优先使用const</p>
+<ul>
+<li>const 语义化更好</li>
+<li>很多变量在声明时表示标量不会更改</li>
+<li>实际开发中，react框架，基本const</li>
+<li>如果事后发现需要被更改，再改为let</li>
+</ul>
+<p>案例:</p>
+<p>以下案例可不可以把let改外const ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">name</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;刘德华&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">song</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;忘情水&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#d7827e">name</span> <span style="color:#797593">+</span> <span style="color:#d7827e">song</span><span style="color:#797593">)</span> <span style="color:#9893a5">//可以，因为值没有被改变
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">num1</span> <span style="color:#797593">=</span> <span style="color:#797593">+</span><span style="color:#d7827e">prompt</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;请输入第一个数值: &#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">num2</span> <span style="color:#797593">=</span> <span style="color:#797593">+</span><span style="color:#d7827e">prompt</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;请输入第二个数值: &#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">`两者相加的结果是：</span><span style="color:#ea9d34">${</span><span style="color:#d7827e">num1</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34"> + </span><span style="color:#ea9d34">${</span><span style="color:#d7827e">num2</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34"> `</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//可以，因为值没有被改变
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#d7827e">num</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span> <span style="color:#9893a5">//不可以，值被改变了
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//如下同理
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">;</span><span style="color:#d7827e">i</span> <span style="color:#797593">&lt;</span> <span style="color:#d7827e">nums</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">++</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#d7827e">nums</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>  
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//i的值一直被改变
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;red&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;green&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">push</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;pink&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 可以，因为arr的地址没有变，只是内容发生了变化
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">person</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span><span style="color:#797593">:</span> <span style="color:#ea9d34">18</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">gender</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;女&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">person</span><span style="color:#797593">.</span><span style="color:#d7827e">address</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;武汉黑马&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 也可以 ，同理地址没变，只是内容发生了变化
+</span></span></span></code></pre></div><ul>
+<li>const 声明的值不能更改，而且const声明变量的时候需要提前初始化</li>
+<li>但对于引用数据类型,   const声明变量，里面存的不是值，而是地址</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">names</span> <span style="color:#797593">=</span> <span style="color:#797593">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">names</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span> <span style="color:#ea9d34">2</span><span style="color:#797593">,</span> <span style="color:#ea9d34">3</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 不可以！！！，因为 [1,2,3]意味着是新的数组，新的地址
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 不可以！！ obj 已经是{},不能再次新建{}
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// obj.name = &#39;pink老师&#39; 可以通过这种形式
+</span></span></span></code></pre></div><p><!-- raw HTML omitted -->为什么const声明的对象可以修改里面的属性？<!-- raw HTML omitted --></p>
+<ul>
+<li>因为对象是引用类型，里面存储的是地址，只要地址不变，就不会报错</li>
+<li>建议数组和对象使用const来声明</li>
+</ul>
+<blockquote>
+<p>什么时候使用let声明变量？</p>
+</blockquote>
+<ul>
+<li>如果基本数据类型的值或者引用类型的地址发生变化的时候</li>
+<li>比如 一个变量进行加减运算，比如for循环中的i++</li>
+</ul>
+<h2 id="作用及分类">作用及分类<a hidden class="anchor" aria-hidden="true" href="#作用及分类">#</a></h2>
+<ul>
+<li>
+<p>使用 JS 去操作 html 和 浏览器</p>
+</li>
+<li>
+<p>DAM(文档对象模型)</p>
+<p>BOM(浏览器对象模型)</p>
+</li>
+</ul>
+<h2 id="dom--document-object-model-">DOM ( Document Object Model )<a hidden class="anchor" aria-hidden="true" href="#dom--document-object-model-">#</a></h2>
+<blockquote>
+<p>用来呈现以及任意 html 或 xml 文档交互的API</p>
+<p>DOM 是浏览器提供的一套专门操作网页内容的功能</p>
+<ul>
+<li>开发网页内容特效和实现用户交互</li>
+</ul>
+</blockquote>
+<h3 id="dom树">DOM树<a hidden class="anchor" aria-hidden="true" href="#dom树">#</a></h3>
+<ul>
+<li>将HTML文档以树状结构直观的表现出来，称为DOM树</li>
+<li>描述网页内容关系的名词</li>
+<li>作用： DOM树直观的体现了标签之间的关系</li>
+</ul>
+<h3 id="dom-对象">DOM 对象<a hidden class="anchor" aria-hidden="true" href="#dom-对象">#</a></h3>
+<blockquote>
+<p>浏览器根据 html 标签生成 JS对象</p>
+</blockquote>
+<ul>
+<li>所有的标签属性都能在这个对象上面找到</li>
+<li>修改这个对象的属性会自动映射到标签身上</li>
+</ul>
+<h3 id="dom-的核心思想">DOM 的核心思想<a hidden class="anchor" aria-hidden="true" href="#dom-的核心思想">#</a></h3>
+<ul>
+<li>将网页当作对象处理</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">div</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;div&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// typeof div  为dom对象 object
+</span></span></span></code></pre></div><h3 id="document-对象">document 对象<a hidden class="anchor" aria-hidden="true" href="#document-对象">#</a></h3>
+<ul>
+<li>
+<p>是 DOM 里提供的一个对象, DOM里面最大的对象</p>
+</li>
+<li>
+<p>所以他提供的属性和方法都是用来访问和操作网页内容的</p>
+<blockquote>
+<p>document.write ( )</p>
+</blockquote>
+</li>
+<li>
+<p>网页的所有内容都在document里面</p>
+</li>
+</ul>
+<h3 id="获取-dom-元素">获取 DOM 元素<a hidden class="anchor" aria-hidden="true" href="#获取-dom-元素">#</a></h3>
+<p><!-- raw HTML omitted -->根据 CSS 选择器来获取 DOM 元素 （重点）<!-- raw HTML omitted --></p>
+<h4 id="语法">语法<a hidden class="anchor" aria-hidden="true" href="#语法">#</a></h4>
+<h5 id="1-选择匹配一个元素">1. 选择匹配一个元素<a hidden class="anchor" aria-hidden="true" href="#1-选择匹配一个元素">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 获取匹配的第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;css选择器&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// example
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 用标签获取
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">box1</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;tag&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 用class获取
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">box2</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.class&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 用id获取
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">box3</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;#id&#39;</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 嵌套标签
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">box4</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;ul li&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">box4</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;ul li:first-child&#39;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h5 id="2-选择匹配多个元素">2. 选择匹配多个元素<a hidden class="anchor" aria-hidden="true" href="#2-选择匹配多个元素">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelecorAll</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;css选择器&#39;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h4 id="参数">参数<a hidden class="anchor" aria-hidden="true" href="#参数">#</a></h4>
+<ul>
+<li>包含一个或多个有效的 css 选择器 字符串</li>
+</ul>
+<h4 id="返回值">返回值<a hidden class="anchor" aria-hidden="true" href="#返回值">#</a></h4>
+<ul>
+<li>
+<p><code>document.querySelector()</code></p>
+<p>CSS 选择器匹配的第一个元素 (HTMLElement 对象)</p>
+</li>
+<li>
+<p><code>document.querySelectorAll('ul li')</code></p>
+<p>CSS 选择器匹配的 NodeList 对象集合</p>
+<p>!! <!-- raw HTML omitted -->NodeList 是伪数组<!-- raw HTML omitted --></p>
+<ol>
+<li>有长度、有索引</li>
+<li>但没有pop(), push()等数组方法</li>
+</ol>
+<p>想要得到里面的每个对象，需要<!-- raw HTML omitted -->遍历(for)的方式<!-- raw HTML omitted -->获得，注意数组的遍历用for，对象的遍历用 for in</p>
+</li>
+</ul>
+<h4 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h4>
+<ul>
+<li>获取一个DOM元素使用querySelector(), 可以直接修改</li>
+<li>获取多个DOM元素使用querySelectorAll( ), 通过遍历的方式修改</li>
+</ul>
+<p><!-- raw HTML omitted -->其他获取DOM元素方法 (了解)<!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">getElementById</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;nav&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">getElementsByTagName</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;div&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">getElementsByClassName</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;w&#39;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h3 id="操作元素内容">操作元素内容<a hidden class="anchor" aria-hidden="true" href="#操作元素内容">#</a></h3>
+<blockquote>
+<p>能够修改元素的文本，更换内容</p>
+</blockquote>
+<ul>
+<li>
+<p>DOM 对象都是根据标签生成，所以操作标签，本质上是操作DOM对象</p>
+</li>
+<li>
+<p>操作对象使用 的点语法</p>
+</li>
+<li>
+<p>如果想要修改标签元素里面的内容，则可以使用如下几种方式：</p>
+<p><code>obj.innerText</code>-&gt; 属性</p>
+<p><code>obj.innerHTML</code>-&gt; 属性</p>
+</li>
+</ul>
+<h4 id="元素innertext属性">元素innerText属性<a hidden class="anchor" aria-hidden="true" href="#元素innertext属性">#</a></h4>
+<ul>
+<li>将文本内容添加/更新到任意标签位置</li>
+<li>显示纯文本，不解析标签</li>
+</ul>
+<h4 id="元素innerhtml属性">元素innerHTML属性<a hidden class="anchor" aria-hidden="true" href="#元素innerhtml属性">#</a></h4>
+<ul>
+<li>与上方innerText大致相同，但是解析html标签</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;box&#34;</span><span style="color:#797593">&gt;</span> 我是文字内容 <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">box</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.box&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">innerText</span><span style="color:#797593">)</span> <span style="color:#9893a5">//获取文字内容
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">innerText</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;我是一个盒子&#39;</span> <span style="color:#9893a5">//修改文字内容
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">innerText</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;&lt;strong&gt; 我是一个盒子 &lt;/strong&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// strong 会按照文本形式输出，不会解析为加粗
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//innerHTML
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">innerHTML</span><span style="color:#797593">)</span> <span style="color:#9893a5">//获取内容
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;&lt;strong&gt; 我是一个盒子 &lt;/strong&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//会变粗，解析html标签
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h3 id="操作元素属性">操作元素属性<a hidden class="anchor" aria-hidden="true" href="#操作元素属性">#</a></h3>
+<h4 id="操作元素常用属性">操作元素常用属性<a hidden class="anchor" aria-hidden="true" href="#操作元素常用属性">#</a></h4>
+<ul>
+<li>
+<p>通过 JS 设置/修改标签元素属性，比如通过src更换图片</p>
+</li>
+<li>
+<p>常见属性：href、title、src</p>
+</li>
+<li>
+<p>语法: <code>obj.attribute = value</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">//1. 获取元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">pic</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;img&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//2. 操作元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">pic</span><span style="color:#797593">.</span><span style="color:#d7827e">src</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;/images/b-2.ipg&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">pic</span><span style="color:#797593">.</span><span style="color:#d7827e">title</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;刘德华黑马演唱会&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//3. body不需要获取，直接选择
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">body</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;....&#39;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="操作元素样式属性">操作元素样式属性<a hidden class="anchor" aria-hidden="true" href="#操作元素样式属性">#</a></h4>
+<ul>
+<li>
+<p>还可以通过 JS 设置/修改标签元素的样式属性</p>
+<blockquote>
+<p>轮播图小圆点自动更换样式颜色</p>
+<p>点击按钮可以滚动图片，移动图片位置等等</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="style属性操作css">style属性操作CSS<a hidden class="anchor" aria-hidden="true" href="#style属性操作css">#</a></h5>
+<p>语法</p>
+<p><code>obj.style.attribute = value</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>CSS 样式
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">div</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">width</span><span style="color:#797593">:</span> <span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">height</span><span style="color:#797593">:</span> <span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">background-color</span><span style="color:#797593">:</span> <span style="color:#286983">pink</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;box&#39;</span><span style="color:#797593">&gt;&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 1. 获取元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">const</span> <span style="color:#d7827e">box</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.box&#39;</span><span style="color:#797593">)</span><span style="color:#b4637a">、</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 2. 修改样式 对象.style.样式属性 = &#39;值&#39;  记得+单位
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">//    style 关键词是固定不变的！！！
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">width</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;300px&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// css多组单词， background-color 转换成小驼峰命名法
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">backgroundColor</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;hotpink&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">border</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;2px solid blue&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">borderTop</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;2px solid red&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted -->总结<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p>设置/修改元素样式属性通过 <!-- raw HTML omitted -->style属性引出来<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>如果修改div盒子的样式，比如padding-left，如何写？</p>
+<p>Element.style.paddingLeft = &lsquo;300px&rsquo; <!-- raw HTML omitted -->小驼峰命名法<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>因为我们是样式属性，大部分数字方面需要➕单位px</p>
+</li>
+</ul>
+<h5 id="类名classname操作css">类名className操作CSS<a hidden class="anchor" aria-hidden="true" href="#类名classname操作css">#</a></h5>
+<ul>
+<li>
+<p>如果修改的样式比较多，直接通过style属性修改比较繁琐，我们可以通过借助css类名的形式</p>
+</li>
+<li>
+<p>语法</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">元素</span><span style="color:#797593">.</span><span style="color:#d7827e">className</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;css里面的类名&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>由于class是保留词、关键字，所以使用className去代替</p>
+</li>
+<li>
+<p>className是使用新值换旧值</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">head</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#797593">&lt;</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#d7827e">div</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">width</span><span style="color:#797593">:</span> <span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">height</span><span style="color:#797593">:</span><span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">background-color</span><span style="color:#797593">:</span> <span style="color:#286983">pink</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">.</span><span style="color:#56949f">nav</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">color</span><span style="color:#797593">:</span> <span style="color:#286983">red</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#797593">.</span><span style="color:#56949f">box</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">width</span><span style="color:#797593">:</span> <span style="color:#ea9d34">300</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">height</span><span style="color:#797593">:</span> <span style="color:#ea9d34">300</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">background-color</span><span style="color:#797593">:</span> <span style="color:#286983">skyblue</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#286983">margin</span><span style="color:#797593">:</span> <span style="color:#ea9d34">100</span><span style="color:#286983">px</span> <span style="color:#286983">auto</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">head</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;nav&#39;</span><span style="color:#797593">&gt;</span> 123 <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    // nav class会被 js 覆盖掉,换成box，样式也会被替换
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">div</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;div&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 把div的class设置为box，这样可以更换样式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">div</span><span style="color:#797593">.</span><span style="color:#d7827e">className</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;box&#39;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//如果我两个类名的样式都想保留
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">div</span><span style="color:#797593">.</span><span style="color:#d7827e">className</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;nav box&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h5 id="常用-classlist---操作类控制css">常用!! classList -&gt; 操作类控制CSS<a hidden class="anchor" aria-hidden="true" href="#常用-classlist---操作类控制css">#</a></h5>
+<ul>
+<li>为了解决className容易覆盖以前的类名，通过classList方式追加和删除类名</li>
+<li>语法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 追加一个类
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">元素</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">add</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;类名&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 删除一个类
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">元素</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">remove</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;类名&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//切换一个类
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">元素</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">toggle</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;类名&#39;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><ul>
+<li>案例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">head</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">.</span><span style="color:#56949f">box</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">width</span><span style="color:#797593">:</span> <span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">height</span><span style="color:#797593">:</span> <span style="color:#ea9d34">200</span><span style="color:#286983">px</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">color</span><span style="color:#797593">:</span> <span style="color:#ea9d34">#333</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">.</span><span style="color:#56949f">active</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#286983">color</span><span style="color:#797593">:</span> <span style="color:#286983">red</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#b4637a">background</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">style</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">head</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;box &#39;</span><span style="color:#797593">&gt;</span> 文字 <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 通过classList添加
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">// 1. 获取元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">const</span> <span style="color:#d7827e">box</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySlector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.box&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 2.1 修改样式-&gt;追加
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">add</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;active&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 2.2 修改样式-&gt;移除
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">remove</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;box&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 2.3 修改样式-&gt;切换
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">// 先查看此类有还是没有，有就删掉，没有就添加,像是开关
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">classList</span><span style="color:#797593">.</span><span style="color:#d7827e">toggle</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;active&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted -->总结<!-- raw HTML omitted -->：使用className 和 classList区别</p>
+<ul>
+<li>修改样式方便</li>
+<li>classList 是追加、删除不影响之前的类名</li>
+</ul>
+<h4 id="操作表单元素属性">操作表单元素属性<a hidden class="anchor" aria-hidden="true" href="#操作表单元素属性">#</a></h4>
+<ul>
+<li>用value提取内容，不能是使用innerHTML</li>
+<li>用type切换文本和密码的展现形式</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">input</span> <span style="color:#d7827e">type </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;text&#34;</span> <span style="color:#d7827e">value </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;电脑&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">uname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;input&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span><span style="color:#797593">.</span><span style="color:#d7827e">value</span> <span style="color:#9893a5">//电脑
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">uname</span><span style="color:#797593">.</span><span style="color:#d7827e">value</span> <span style="color:#9893a5">//设置表单value值
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        
+</span></span><span style="display:flex;"><span>	<span style="color:#9893a5">// 设置密码形式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">uname</span><span style="color:#797593">.</span><span style="color:#d7827e">type</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;password&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><ul>
+<li>表单属性中添加就有效果，移除没有效果，使用布尔值来表示</li>
+<li><code>true -&gt; 添加钙属性</code>，<code>false -&gt; 移除该属性</code></li>
+<li><code>disable /checked/ selected</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">input</span> <span style="color:#d7827e">type </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;checkbox&#34;</span> <span style="color:#d7827e">name </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;&#39;</span> <span style="color:#d7827e">id </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;&#34;</span> <span style="color:#d7827e">checked</span><span style="color:#797593">&gt;</span> 
+</span></span><span style="display:flex;"><span>	//属性与值相同，可省略
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 获取
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#286983">const</span> <span style="color:#d7827e">ipt</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;input&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">ipt</span><span style="color:#797593">(</span><span style="color:#d7827e">ipt</span><span style="color:#797593">.</span><span style="color:#d7827e">checked</span><span style="color:#797593">)</span> <span style="color:#9893a5">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 修改check的状态
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">ipt</span><span style="color:#797593">.</span><span style="color:#d7827e">checked</span> <span style="color:#797593">=</span> <span style="color:#286983">true</span> <span style="color:#9893a5">//更改为勾选状态，布尔值不加“”
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h4 id="自定义属性">自定义属性<a hidden class="anchor" aria-hidden="true" href="#自定义属性">#</a></h4>
+<ul>
+<li>
+<p>标准属性： 自带的属性 class、 id、 title等等，可以直接使用 点语法操作</p>
+<p><code>disabled checked selected</code></p>
+</li>
+<li>
+<p>自定义属性：</p>
+<p>HTML 5 退出来专门data的自定义属性</p>
+<p>标签上一律以<code>data-</code>开头</p>
+<p>在DOM对象上一律以<code>dataset</code>对象方式获取</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;box&#34;</span> <span style="color:#d7827e">data-id </span><span style="color:#797593">=</span> <span style="color:#ea9d34">&#34;10&#34;</span><span style="color:#797593">&gt;</span>盒子<span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">box</span> <span style="color:#797593">=</span> <span style="color:#d7827e">documet</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.box&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">dataset</span><span style="color:#797593">.</span><span style="color:#d7827e">id</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">body</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h4 id="间歇函数-定时器">间歇函数-定时器<a hidden class="anchor" aria-hidden="true" href="#间歇函数-定时器">#</a></h4>
+<blockquote>
+<p>定时器函数可以开启和关闭定时器</p>
+</blockquote>
+<ol>
+<li>
+<p>开启定时器</p>
+<blockquote>
+<p>定时器的返回值是，定时器独有的 ID 号</p>
+</blockquote>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">setInterval</span><span style="color:#797593">(</span><span style="color:#d7827e">函数</span><span style="color:#797593">/</span><span style="color:#d7827e">函数名</span><span style="color:#b4637a">，</span><span style="color:#d7827e">间隔时间</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 间歇函数一旦开启，永不停歇
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 案例
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 使用匿名函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">setInterval</span> <span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(){</span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;一秒执行一次&#39;</span><span style="color:#797593">)},</span><span style="color:#ea9d34">1000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 使用指定函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;一秒执行一次&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">setInterval</span> <span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">,</span> <span style="color:#ea9d34">1000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 因为fn()表示立即调用函数，不符合每隔一秒钟调用
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 定时器又开有关，在内存中可能会用变化，使用let声明
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">n</span> <span style="color:#797593">=</span> <span style="color:#d7827e">setInterval</span> <span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">,</span> <span style="color:#ea9d34">1000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">,</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">n</span><span style="color:#797593">)</span>  <span style="color:#9893a5">// id = 2
+</span></span></span></code></pre></div><ol start="2">
+<li>关闭定时器</li>
+</ol>
+<ul>
+<li>作用： 每隔一段时间调用这个函数</li>
+<li>间隔单位是毫秒</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">变量名</span> <span style="color:#797593">=</span> <span style="color:#d7827e">setInterval</span><span style="color:#797593">(</span><span style="color:#d7827e">函数</span><span style="color:#b4637a">，</span><span style="color:#d7827e">间隔时间</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">clearInterval</span><span style="color:#797593">(</span><span style="color:#d7827e">变量名</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//一般不会刚创建就停止，而是满足了一定条件再停止
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//案例
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">timer</span> <span style="color:#797593">=</span> <span style="color:#d7827e">setInterval</span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;hi!!!~~~&#39;</span><span style="color:#797593">),</span> <span style="color:#ea9d34">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">clearInterval</span><span style="color:#797593">(</span><span style="color:#d7827e">timer</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h1 id="day2">Day2<a hidden class="anchor" aria-hidden="true" href="#day2">#</a></h1>
+<blockquote>
+<p>能够给DOM元素添加事件监听​</p>
+</blockquote>
+<ol>
+<li>
+<p>什么是事件？</p>
+<p>事件是编程时系统内发生的动作或者发生的事情</p>
+<p>比如用户在网页上单击一个按钮</p>
+</li>
+<li>
+<p>什么是事件监听？</p>
+<p>让程序检测是否有事件产生，一旦有时间触发，立即调用一个函数做出响应，称为绑定事件或者注册事件。比如鼠标经过显示下拉菜单，如果点击可以播放轮播图等等</p>
+</li>
+</ol>
+<h2 id="事件监听">事件监听<a hidden class="anchor" aria-hidden="true" href="#事件监听">#</a></h2>
+<h3 id="语法-1">语法<a hidden class="anchor" aria-hidden="true" href="#语法-1">#</a></h3>
+<p><code>元素对象.addEventListener('事件类型'，要执行的函数)</code></p>
+<h3 id="三要素">三要素<a hidden class="anchor" aria-hidden="true" href="#三要素">#</a></h3>
+<ul>
+<li>事件源：被事件触发的dom元素</li>
+<li>事件类型： 用什么方式触发，比如鼠标单击 <!-- raw HTML omitted -->click<!-- raw HTML omitted -->,  鼠标经过<!-- raw HTML omitted -->mouseover<!-- raw HTML omitted --> 等等</li>
+<li>事件调用函数： 要做什么事</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">btn</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.btn&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//修改元素样式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">//注意事件类型必须是字符串形式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">//此函数是，点击之后再去执行，每次点击都会执行一次
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span><span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;点击了～～&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h3 id="事件类型">事件类型<a hidden class="anchor" aria-hidden="true" href="#事件类型">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">鼠标事件</th>
+<th style="text-align:center">焦点事件</th>
+<th style="text-align:center">键盘事件</th>
+<th style="text-align:center">文本事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->鼠标触发<!-- raw HTML omitted --></td>
+<td style="text-align:center"><!-- raw HTML omitted -->表单获得光标<!-- raw HTML omitted --></td>
+<td style="text-align:center"><!-- raw HTML omitted -->键盘触发<!-- raw HTML omitted --></td>
+<td style="text-align:center"><!-- raw HTML omitted -->表单输入触发<!-- raw HTML omitted --></td>
+</tr>
+<tr>
+<td style="text-align:center">click 鼠标点击</td>
+<td style="text-align:center">focus 获得焦点</td>
+<td style="text-align:center">keydown 键盘按下</td>
+<td style="text-align:center">input用户输入事件</td>
+</tr>
+<tr>
+<td style="text-align:center">mouseenter 鼠标经过</td>
+<td style="text-align:center">blur 失去焦点</td>
+<td style="text-align:center">keyup 键盘抬起触发</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">mouseleave 鼠标离开</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="事件对象">事件对象<a hidden class="anchor" aria-hidden="true" href="#事件对象">#</a></h2>
+<p>​	事件对象是什么？</p>
+<ul>
+<li>
+<p>有事件触发时的相关信息</p>
+<p>例如： 鼠标点击事件中，事件对象存储了鼠标点的位置信息等等</p>
+</li>
+<li>
+<p>使用场景</p>
+<p>可以判断用户按下拿个键，比如按下回车键可以发布新闻</p>
+<p>可以判断鼠标点击了哪个元素，从而做相应的操作</p>
+</li>
+</ul>
+<h3 id="语法-2">语法<a hidden class="anchor" aria-hidden="true" href="#语法-2">#</a></h3>
+<ul>
+<li>
+<p>在事件绑定的回调函数的第一个参数就是事件对象</p>
+</li>
+<li>
+<p>一般命名为 <code>event  ev  e</code></p>
+</li>
+<li>
+<p>部分常用属性</p>
+</li>
+<li>
+<p>补充 <code>str.trim()</code> -&gt;去除字符串两侧空格</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>获取当前的事件类型</td>
+</tr>
+<tr>
+<td>clientX / clientY</td>
+<td>获取光标相对于浏览器可见窗口左上角的位置</td>
+</tr>
+<tr>
+<td>offsetX / offsetY</td>
+<td>获取光标相对于当前DOM元素左上角的位置</td>
+</tr>
+<tr>
+<td>key</td>
+<td>用户按下的键盘的值</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">元素</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span> <span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">e</span><span style="color:#797593">)){}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// e就是事件对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 案例
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">input</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;input&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">input</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;keyup&#39;</span><span style="color:#797593">,</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">e</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">e</span><span style="color:#797593">.</span><span style="color:#d7827e">key</span> <span style="color:#797593">===</span> <span style="color:#ea9d34">&#39;Enter&#39;</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;我按下了回撤键盘&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><h2 id="环境对象">环境对象<a hidden class="anchor" aria-hidden="true" href="#环境对象">#</a></h2>
+<blockquote>
+<p>能够分析判断函数运行在不同环境中 this 所指代的对象</p>
+</blockquote>
+<p>定义：指的是函数内部特殊的<!-- raw HTML omitted -->变量this<!-- raw HTML omitted -->，代表着当前函数运行时所处的环境。</p>
+<ul>
+<li>简单一点，this 指的是函数的调用者</li>
+<li>直接调用函数，相当于window.函数，所以this指代window</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">btn</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;button&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//先前的写法
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">color</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;red&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//this 版本
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#286983">this</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">color</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;red&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><h2 id="回调函数">回调函数<a hidden class="anchor" aria-hidden="true" href="#回调函数">#</a></h2>
+<blockquote>
+<p>被当作参数的函数，此函数就叫 call function 回调函数</p>
+</blockquote>
+<p>如果将函数A作为参数传递给函数B，我们称函数A 为回调函数</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;我是回调函数!!&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//fn 传递给了setInterval，fn就是回调函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">setInterval</span><span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">,</span><span style="color:#ea9d34">1000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//事件点击的本身也是回调函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">box</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;也是回调函数!!&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>总结</p>
+<ul>
+<li>将函数当作另一个函数的参数传递，此函数叫回调函数</li>
+<li>回调函数本质还是函数，只不过把它当成参数</li>
+<li>使用匿名函数作为回调函数比较常见</li>
+</ul>
+<p>​</p>
+
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
