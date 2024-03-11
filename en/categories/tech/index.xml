@@ -15,12 +15,5 @@
       <guid>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</guid>
       <description>When running cooja for port listening, there will be two processes. We must kill one, then cooja run successfully.</description>
     </item>
-    <item>
-      <title>Markdown Grammer Tips  !</title>
-      <link>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</link>
-      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/en/posts/tech/markdown/</guid>
-      <description>Markdown Grammer for Typora</description>
-    </item>
   </channel>
 </rss>
