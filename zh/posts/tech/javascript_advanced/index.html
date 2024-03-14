@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh" dir=" auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>学习: JavaScript 进阶篇 | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="Javascript">
+<meta name="description" content="JavaScript 进阶篇!! 学习完看框架啦!!">
+<meta name="author" content="Jingyi Wu">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.29eeca31dacaf61f7267fb407e083db36bda35d93b038de7273180fcbbbfb135.css" integrity="sha256-Ke7KMdrK9h9yZ/tAfgg9s2vaNdk7A43nJzGA/Lu/sTU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-7TPHQR7CHS', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="学习: JavaScript 进阶篇" />
+<meta property="og:description" content="JavaScript 进阶篇!! 学习完看框架啦!!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-14T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习: JavaScript 进阶篇"/>
+<meta name="twitter:description" content="JavaScript 进阶篇!! 学习完看框架啦!!"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "学习: JavaScript 进阶篇",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学习: JavaScript 进阶篇",
+  "name": "学习: JavaScript 进阶篇",
+  "description": "JavaScript 进阶篇!! 学习完看框架啦!!",
+  "keywords": [
+    "Javascript"
+  ],
+  "articleBody": "Day1 1. 作用域 了解作用域对程序执行的影响及作用域链查找机制。使用不饱函数 创建隔离作用域避免全局变量污染\n作用域 (scope) 规定了变量能够被访问的 “范围”， 离开了这个“范围”变量便不能访问\n1.1 局部作用域 函数作用域 ：\n在函数内部声明的变量只能在函数内部被访问，外部无法直接访问\na. 函数内部声明的变量，在函数外部无法被访问\nb. 函数的参数也是函数内部的局部变量\nc. 不同函数内部声明的变量无法访问\nd. 函数执行完毕后，函数内部的变量实际被清空了\n块作用域：\n在JavaScript中使用{ }包裹的代码称为代码块，代码块内部声明的变量外部将 [有可能] 无法被访问（因为var是全局变量）\na. let 声明的变量会产生块作用域, var不会产生作用域\nb. const 声明的敞亮也会产生块作用域\nc. 不同代码块之间的变量无法相互访问\nd. 推荐使用let 或 const\n1.2 全局作用域 ",
+  "wordCount" : "5505",
+  "inLanguage": "zh",
+  "datePublished": "2024-03-14T00:00:00Z",
+  "dateModified": "2024-03-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jingyi Wu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="
+    top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jingyiwu-codespace.github.io/en/" title="English"
+                            aria-label="English">En</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
+
+    <h1 class="post-title entry-hint-parent">
+      学习: JavaScript 进阶篇
+    </h1>
+    <div class="post-meta"><span title='2024-03-14 00:00:00 +0000 UTC'>三月 14, 2024</span>&nbsp;·&nbsp;11 分钟&nbsp;·&nbsp;Jingyi Wu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#day1" aria-label="Day1">Day1</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="1. 作用域">1. 作用域</a><ul>
+                                
+                    <li>
+                        <a href="#11-%e5%b1%80%e9%83%a8%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="1.1 局部作用域">1.1 局部作用域</a></li>
+                    <li>
+                        <a href="#12-%e5%85%a8%e5%b1%80%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="1.2 全局作用域">1.2 全局作用域</a></li>
+                    <li>
+                        <a href="#13-%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be" aria-label="1.3 作用域链">1.3 作用域链</a></li>
+                    <li>
+                        <a href="#14-%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e6%9c%ba%e5%88%b6" aria-label="1.4 垃圾回收机制">1.4 垃圾回收机制</a><ul>
+                                
+                    <li>
+                        <a href="#141-%e5%86%85%e5%ad%98%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" aria-label="1.4.1 内存的生命周期">1.4.1 内存的生命周期</a></li>
+                    <li>
+                        <a href="#142-%e5%86%85%e5%ad%98%e6%b3%84%e6%bc%8f" aria-label="1.4.2 内存泄漏">1.4.2 内存泄漏</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#15-%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e6%9c%ba%e5%88%b6%e7%ae%97%e6%b3%95%e8%af%b4%e6%98%8e" aria-label="1.5 垃圾回收机制算法说明">1.5 垃圾回收机制算法说明</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e5%a0%86%e6%a0%88%e7%9a%84%e7%a9%ba%e9%97%b4%e5%88%86%e9%85%8d" aria-label="1. 堆/栈的空间分配">1. 堆/栈的空间分配</a></li>
+                    <li>
+                        <a href="#2-%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e7%ae%97%e6%b3%95" aria-label="2. 垃圾回收算法">2. 垃圾回收算法</a><ul>
+                                
+                    <li>
+                        <a href="#a-%e5%bc%95%e7%94%a8%e8%ae%a1%e6%95%b0%e6%b3%95" aria-label="a. 引用计数法">a. 引用计数法</a></li>
+                    <li>
+                        <a href="#b-%e6%a0%87%e8%ae%b0%e6%b8%85%e9%99%a4%e6%b3%95-%e5%b8%b8%e7%94%a8" aria-label="b. 标记清除法 (常用)">b. 标记清除法 (常用)</a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#16-%e9%97%ad%e5%8c%85-closure" aria-label="1.6 闭包 closure">1.6 闭包 closure</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e7%ae%80%e5%8d%95%e7%90%86%e8%a7%a3-%e9%97%ad%e5%8c%85--%e5%86%85%e5%ad%98%e5%87%bd%e6%95%b0%e5%a4%96%e5%b1%82%e5%87%bd%e6%95%b0%e7%9a%84%e5%8f%98%e9%87%8f" aria-label="1. 简单理解： 闭包 = 内存函数&#43;外层函数的变量">1. 简单理解： 闭包 = 内存函数+外层函数的变量</a></li>
+                    <li>
+                        <a href="#2-%e9%97%ad%e5%8c%85%e5%9f%ba%e6%9c%ac%e6%a0%bc%e5%bc%8f" aria-label="2. 闭包基本格式">2. 闭包基本格式</a></li>
+                    <li>
+                        <a href="#3-%e9%97%ad%e5%8c%85%e5%ba%94%e7%94%a8" aria-label="3. 闭包应用">3. 闭包应用</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%8f%98%e9%87%8f%e6%8f%90%e5%8d%87" aria-label="变量提升">变量提升</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#2-%e5%87%bd%e6%95%b0%e8%bf%9b%e9%98%b6" aria-label="2. 函数进阶">2. 函数进阶</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e5%87%bd%e6%95%b0%e6%8f%90%e5%8d%87" aria-label="1. 函数提升">1. 函数提升</a><ul>
+                                
+                    <li>
+                        <a href="#%e5%8f%af%e4%bb%a5%e5%b0%86%e5%87%bd%e6%95%b0%e5%a3%b0%e6%98%8e%e6%8f%90%e5%8d%87%e5%88%b0%e5%bd%93%e5%89%8d%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e5%89%8d%e9%9d%a2%e5%8f%aa%e6%8f%90%e5%8d%87%e5%87%bd%e6%95%b0%e5%a3%b0%e6%98%8e" aria-label="可以将函数声明提升到当前作用域的前面，只提升函数声明">可以将函数声明提升到当前作用域的前面，只提升函数声明</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#2-%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0" aria-label="2. 函数参数">2. 函数参数</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e5%8a%a8%e6%80%81%e5%8f%82%e6%95%b0" aria-label="1. 动态参数">1. 动态参数</a></li>
+                    <li>
+                        <a href="#2-%e5%89%a9%e4%bd%99%e5%8f%82%e6%95%b0" aria-label="2. 剩余参数">2. 剩余参数</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#3-%e7%ae%ad%e5%a4%b4%e5%87%bd%e6%95%b0" aria-label="3. 箭头函数">3. 箭头函数</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" aria-label="1. 基本语法">1. 基本语法</a><ul>
+                                
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%951" aria-label="语法1">语法1</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
+                    <li>
+                        <a href="#2-%e7%ae%ad%e5%a4%b4%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0" aria-label="2. 箭头函数参数">2. 箭头函数参数</a></li>
+                    <li>
+                        <a href="#3-%e7%ae%ad%e5%a4%b4%e5%87%bd%e6%95%b0-this" aria-label="3. 箭头函数 this">3. 箭头函数 this</a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#3-%e8%a7%a3%e6%9e%84%e8%b5%8b%e5%80%bc" aria-label="3. 解构赋值">3. 解构赋值</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e6%95%b0%e7%bb%84%e8%a7%a3%e6%9e%84" aria-label="1. 数组解构">1. 数组解构</a><ul>
+                                
+                    <li>
+                        <a href="#%e5%bc%95%e5%85%a5" aria-label="引入">引入</a></li>
+                    <li>
+                        <a href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" aria-label="基本语法">基本语法</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#2-%e5%af%b9%e8%b1%a1%e8%a7%a3%e6%9e%84" aria-label="2. 对象解构">2. 对象解构</a><ul>
+                                
+                    <li>
+                        <a href="#1-%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95-1" aria-label="1. 基本语法">1. 基本语法</a></li>
+                    <li>
+                        <a href="#2-%e8%a7%a3%e6%9e%84%e7%9a%84%e5%b1%9e%e6%80%a7%e6%94%b9%e5%90%8d" aria-label="2. 解构的属性改名">2. 解构的属性改名</a></li>
+                    <li>
+                        <a href="#3-%e8%a7%a3%e6%9e%84%e6%95%b0%e7%bb%84%e5%af%b9%e8%b1%a1" aria-label="3. 解构数组对象">3. 解构数组对象</a></li>
+                    <li>
+                        <a href="#4-%e5%a4%9a%e7%ba%a7%e5%af%b9%e8%b1%a1%e8%a7%a3%e6%9e%84" aria-label="4. 多级对象解构">4. 多级对象解构</a></li>
+                    <li>
+                        <a href="#foreach" aria-label="forEach()">forEach()</a><ul>
+                                
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95" aria-label="语法">语法</a></li>
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95-1" aria-label="语法">语法</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="day1">Day1<a hidden class="anchor" aria-hidden="true" href="#day1">#</a></h1>
+<h2 id="1-作用域">1. 作用域<a hidden class="anchor" aria-hidden="true" href="#1-作用域">#</a></h2>
+<blockquote>
+<p>了解作用域对程序执行的影响及作用域链查找机制。使用不饱函数 创建隔离作用域避免全局变量污染</p>
+</blockquote>
+<p>作用域 (scope) 规定了变量能够被访问的 “范围”， 离开了这个“范围”变量便不能访问</p>
+<h3 id="11-局部作用域">1.1 局部作用域<a hidden class="anchor" aria-hidden="true" href="#11-局部作用域">#</a></h3>
+<ol>
+<li>
+<p>函数作用域 ：</p>
+<p>在函数内部声明的变量只能在函数内部被访问，外部无法直接访问</p>
+<p>a.  函数内部声明的变量，在函数外部无法被访问</p>
+<p>b.  函数的参数也是函数内部的局部变量</p>
+<p>c. 不同函数内部声明的变量无法访问</p>
+<p>d. 函数执行完毕后，函数内部的变量实际被清空了</p>
+</li>
+<li>
+<p>块作用域：</p>
+<p>在<code>JavaScript</code>中使用<code>{ }</code>包裹的代码称为代码块，代码块内部声明的变量外部将 <code>[有可能]</code> 无法被访问（因为var是全局变量）</p>
+<p>a. <code>let </code>声明的变量会产生块作用域, <code>var</code>不会产生作用域</p>
+<p>b. <code>const</code> 声明的敞亮也会产生块作用域</p>
+<p>c. 不同代码块之间的变量无法相互访问</p>
+<p>d. 推荐使用<code>let</code> 或 <code>const</code></p>
+</li>
+</ol>
+<h3 id="12-全局作用域">1.2 全局作用域<a hidden class="anchor" aria-hidden="true" href="#12-全局作用域">#</a></h3>
+<p><code>&lt;script&gt;</code> 标签 和<code> .js</code> 文件的 [ 最外层 ] 就是所谓的全局作用域，在此声明的变量在函数内部也可以被访问。</p>
+<p>全局作用域中声明的变量，任何其他作用域都可以被访问</p>
+<ul>
+<li>为 window 对象动态添加的属性默认也是全局的，不推荐!!</li>
+<li>函数中未使用任何关键词声明的变量为全局变量，不推荐!!</li>
+<li>尽可能少的声明全局变量，防止全局变量污染</li>
+</ul>
+<h3 id="13-作用域链">1.3 作用域链<a hidden class="anchor" aria-hidden="true" href="#13-作用域链">#</a></h3>
+<p>作用域链本质上是底层的变量查找机制</p>
+<ul>
+<li>函数被执行时，会优先查找当前函数作用域中查找变量</li>
+<li>如果当前作用域查找不到会依次逐级查找父级作用域直到全局作用域</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>嵌套关系的作用域串联起来形成了作用域链</li>
+<li>相同作用域链按照从小到大的规则查找变量</li>
+<li>子作用域能够访问作用域，父级作用域无法访问子级作用域</li>
+</ul>
+<h3 id="14-垃圾回收机制">1.4 垃圾回收机制<a hidden class="anchor" aria-hidden="true" href="#14-垃圾回收机制">#</a></h3>
+<p>垃圾回收机制（Garbage Collection）</p>
+<p>JS 中内存的分配和回收都是自动完成的，内存在不使用的时候会被垃圾回收器自动回收</p>
+<h4 id="141-内存的生命周期">1.4.1 内存的生命周期<a hidden class="anchor" aria-hidden="true" href="#141-内存的生命周期">#</a></h4>
+<ul>
+<li>内存分配： 当我们声明变量、函数、对象的时候，系统会自动为他们分配内存</li>
+<li>内存使用：读写内存，也就是使用变量、函数等等</li>
+<li>内存回收：使用完毕，由垃圾回收器自动回收不再使用的内存</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>全局变量一般不会被回收（关闭页面回收）</li>
+<li>一般情况下局部变量的值，不用会被自动回收掉</li>
+</ul>
+<h4 id="142-内存泄漏">1.4.2 内存泄漏<a hidden class="anchor" aria-hidden="true" href="#142-内存泄漏">#</a></h4>
+<p>程序中分配的内存由于某种原因程序未释放或无法释放叫内存泄漏</p>
+<h3 id="15-垃圾回收机制算法说明">1.5 垃圾回收机制算法说明<a hidden class="anchor" aria-hidden="true" href="#15-垃圾回收机制算法说明">#</a></h3>
+<h4 id="1-堆栈的空间分配">1. 堆/栈的空间分配<a hidden class="anchor" aria-hidden="true" href="#1-堆栈的空间分配">#</a></h4>
+<ul>
+<li>栈 （操作系统）：由操作系统自动分配释放函数的参数值、局部变量、基本数据类型放到栈里面</li>
+<li>堆 （操作系统）：一般由程序员分配释放，若程序员不释放，由垃圾回收机制回收。复杂数据类型放在堆内。（数组、对象都在堆内）</li>
+</ul>
+<h4 id="2-垃圾回收算法">2. 垃圾回收算法<a hidden class="anchor" aria-hidden="true" href="#2-垃圾回收算法">#</a></h4>
+<h5 id="a-引用计数法">a. 引用计数法<a hidden class="anchor" aria-hidden="true" href="#a-引用计数法">#</a></h5>
+<p>IE采用的引用计数算法，定义“内存不再使用”，就是看一个对象是否有指向它的引用，没有引用就回收对象。</p>
+<ul>
+<li>跟踪记录被引用的次数</li>
+<li>如果被引用了一次，那么记录次数1，多次引用会累加 ++</li>
+<li>如果减少一个引用就减1 &ndash;</li>
+<li>如果引用次数是0，则释放内存</li>
+</ul>
+<p><!-- raw HTML omitted -->缺点<!-- raw HTML omitted --></p>
+<ul>
+<li>嵌套引用 （循环引用）</li>
+<li>如果两个对象相互引用，尽管他们已不再使用，垃圾回收器不会进行回收，导致内存泄漏</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">funcion</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">o1</span> <span style="color:#797593">=</span> <span style="color:#797593">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">o2</span> <span style="color:#797593">=</span> <span style="color:#797593">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">o1</span><span style="color:#797593">.</span><span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#d7827e">o2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">o2</span><span style="color:#797593">.</span><span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#d7827e">o1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#ea9d34">&#39;引用计数无法回收&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 他们的引用次数永远不会为0，这样相互引用会导致内存泄漏
+</span></span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240313215653582.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240313215758285.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 普通
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#286983">null</span>
+</span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240313214658670.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240313214726431.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">person</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">18</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">name</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;佩奇&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#d7827e">person</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">person</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span> 
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#286983">null</span>
+</span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240313215008884.png" alt=""  />
+</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240313215028983.png" alt="image-20240313215028983"  />
+</p>
+<h5 id="b-标记清除法-常用">b. 标记清除法 (常用)<a hidden class="anchor" aria-hidden="true" href="#b-标记清除法-常用">#</a></h5>
+<ul>
+<li>标记清除算法将“不再使用的对象”定义为“无法达到的对象”</li>
+<li>从根部（在JS中就是全局对象）出发定时扫描内存中的对象。凡是能从根部到达的对象，都还是需要使用</li>
+<li>无法由根部出发触及到的对象标记为不再使用，稍后进行回收</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240313220153403.png" alt=""  />
+</p>
+<h3 id="16-闭包-closure">1.6 闭包 closure<a hidden class="anchor" aria-hidden="true" href="#16-闭包-closure">#</a></h3>
+<h4 id="1-简单理解-闭包--内存函数外层函数的变量">1. 简单理解： 闭包 = 内存函数+外层函数的变量<a hidden class="anchor" aria-hidden="true" href="#1-简单理解-闭包--内存函数外层函数的变量">#</a></h4>
+<blockquote>
+<p>上案例：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">outer</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">function</span> <span style="color:#d7827e">f</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 内部函数使用外层函数的变量, 二者捆绑在一起
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">f</span><span style="color:#797593">()</span><span style="color:#9893a5">// 调用一下，不然没使用函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">outer</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240313220956773.png" alt=""  />
+</p>
+<h4 id="2-闭包基本格式">2. 闭包基本格式<a hidden class="anchor" aria-hidden="true" href="#2-闭包基本格式">#</a></h4>
+<ul>
+<li>外部可以访问函数内部的变量. （正常情况下内部变量为局部变量，不能使用）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">outer</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">fn</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 返回一个函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">outer</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 所以outer() === fn === function fn(){}
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 新增一个外部函数,fun()可以直接输出outer内部的值
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 外层函数使用内部函数的变量
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fun</span> <span style="color:#797593">=</span> <span style="color:#d7827e">outer</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fun</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><h4 id="3-闭包应用">3. 闭包应用<a hidden class="anchor" aria-hidden="true" href="#3-闭包应用">#</a></h4>
+<blockquote>
+<p>实现数据私有</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 非闭包
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">i</span><span style="color:#797593">++</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">`函数被调用</span><span style="color:#ea9d34">${</span><span style="color:#d7827e">i</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34">`</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 这时候 i是全局变量，容易被修改，
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 太像java的getter setter方法了
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 闭包版
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">function</span> <span style="color:#d7827e">count</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">i</span><span style="color:#797593">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">`函数被调用</span><span style="color:#ea9d34">${</span><span style="color:#d7827e">i</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34">`</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">fn</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">fun</span> <span style="color:#797593">=</span> <span style="color:#d7827e">count</span><span style="color:#797593">()</span> <span style="color:#9893a5">// 全局变量，当页面关闭时才回收，引用count()中的fn()函数，不会回收
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 这时没有人可以影响函数中的i值，但是闭包也存在内存泄漏的风险
+</span></span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240313222507900.png" alt=""  />
+</p>
+<p>总结：</p>
+<ol>
+<li>
+<p>怎么理解闭包？</p>
+<p>闭包 = 内层函数 + 外层函数的变量</p>
+</li>
+<li>
+<p>闭包的作用？</p>
+<p>封闭数据，实现数据私有，外部也可以访问函数内部变量</p>
+<p>闭包很有用，因为它允许将函数与其操作的某些数据（环境）关联起来</p>
+</li>
+<li>
+<p>闭包的问题？</p>
+<p>内存泄漏</p>
+</li>
+</ol>
+<h3 id="变量提升">变量提升<a hidden class="anchor" aria-hidden="true" href="#变量提升">#</a></h3>
+<blockquote>
+<p>变量提升是JavaScript中比较 奇怪 的现象，允许在变量声明之前被访问 (仅存在于var声明变量)</p>
+</blockquote>
+<p>代码执行前，检查当前作用域下，所有var声明的变量，他会把var声明的所有变量提到 <!-- raw HTML omitted -->当前作用域的最前面<!-- raw HTML omitted -->。但是!!! 只提升声明不提升赋值!!!</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">num</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">&#39;件&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">var</span> <span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">10</span> <span style="color:#9893a5">// undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 所以上方两行代码 等于以下代码
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">var</span> <span style="color:#d7827e">num</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">num</span> <span style="color:#797593">+</span><span style="color:#ea9d34">&#39;件&#39;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><p>注意：</p>
+<ul>
+<li>变量在未声明就被访问时，会报错</li>
+<li>变量在var声明之前被访问，变量值为undefined</li>
+<li>let/const声明的变量不存在变量提升</li>
+<li>变量提升出现在相同作用域中</li>
+<li>实际开发中推荐先声明再访问变量</li>
+</ul>
+<h2 id="2-函数进阶">2. 函数进阶<a hidden class="anchor" aria-hidden="true" href="#2-函数进阶">#</a></h2>
+<h3 id="1-函数提升">1. 函数提升<a hidden class="anchor" aria-hidden="true" href="#1-函数提升">#</a></h3>
+<p>函数提升 和 变量提升有些类似</p>
+<h4 id="可以将函数声明提升到当前作用域的前面只提升函数声明">可以将函数声明提升到当前作用域的前面，只提升函数声明<a hidden class="anchor" aria-hidden="true" href="#可以将函数声明提升到当前作用域的前面只提升函数声明">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;函数提升&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 两种情况都一样
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;函数提升&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 但是这种形式 不一样！！函数表达式(赋值),函数表达式必须先声明赋值 再调用，否则报错
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fun</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">var</span> <span style="color:#d7827e">fun</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span> <span style="color:#797593">(</span><span style="color:#ea9d34">&#39;函数提升&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><p>总结：</p>
+<ul>
+<li>函数提升能够使函数的声明调用更灵活</li>
+<li>函数表达式不存在提升的现象</li>
+<li>函数提升出现在相同的作用域中</li>
+</ul>
+<h3 id="2-函数参数">2. 函数参数<a hidden class="anchor" aria-hidden="true" href="#2-函数参数">#</a></h3>
+<h4 id="1-动态参数">1. 动态参数<a hidden class="anchor" aria-hidden="true" href="#1-动态参数">#</a></h4>
+<p>arguments 是函数内部内置的伪数组变量，包含了调用函数时传入的所有实参</p>
+<ul>
+<li>arguments 是一个伪数组，只存在于函数中</li>
+<li>arguments 的作用是动态获取函数的实参</li>
+<li>可以通过for循环一次得到传递过来的实参</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 不管用户传入几个参数，都要接受
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">function</span> <span style="color:#d7827e">getSum</span><span style="color:#797593">(){</span><span style="color:#9893a5">// 不知道用户传多少参数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// arguments 动态参数 只存在函数里
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// arguments 是伪数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arguments</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">sum</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">&lt;</span><span style="color:#d7827e">argument</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">++</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">sum</span><span style="color:#797593">+=</span><span style="color:#d7827e">arguments</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">sum</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">getSum</span> <span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h4 id="2-剩余参数">2. 剩余参数<a hidden class="anchor" aria-hidden="true" href="#2-剩余参数">#</a></h4>
+<ul>
+<li>剩余参数允许我们将一个不定数量的参数表示为一个数组</li>
+<li><code>...</code>是语法符号，置于最末函数形参之前，用于获取多余的实参</li>
+<li>借助<code>...</code> 获取的剩余实参，是个真数组</li>
+<li>开发中，提倡多使用剩余实参</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">getSum</span><span style="color:#797593">(...</span><span style="color:#d7827e">arr</span><span style="color:#797593">){</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// ... 就是剩余参数的语法符号 arr随便写
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 第二种用法
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">function</span> <span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span> <span style="color:#797593">...</span><span style="color:#d7827e">arr</span><span style="color:#797593">){</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// ... 就是剩余参数的语法符号 arr随便写
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">)</span> <span style="color:#9893a5">// arr = 3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><p>补充：</p>
+<p>展开运算符（不要和剩余参数搞混）</p>
+<blockquote>
+<p>展开运算符 (&hellip;) 讲一个数组进行展开</p>
+</blockquote>
+<p>一个在函数里，一个在数组/对象里&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">,</span><span style="color:#ea9d34">5</span><span style="color:#797593">,</span><span style="color:#ea9d34">8</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">]</span> <span style="color:#9893a5">// 数组 对象都能用
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(...</span><span style="color:#d7827e">arr</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1 4 5 8 2
+</span></span></span></code></pre></div><ul>
+<li>
+<p>不会修改原数组</p>
+</li>
+<li>
+<p>运用场景，数组最值</p>
+<p><code>console.log(Math.max(...arr))</code></p>
+</li>
+<li>
+<p>运用场景，合并数组</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">arr2</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">,</span><span style="color:#ea9d34">5</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 合并数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[...</span><span style="color:#d7827e">arr1</span><span style="color:#797593">,</span> <span style="color:#797593">...</span><span style="color:#d7827e">arr2</span><span style="color:#797593">]</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="3-箭头函数">3. 箭头函数<a hidden class="anchor" aria-hidden="true" href="#3-箭头函数">#</a></h3>
+<p>目的： 引入箭头函数可以使用更简短的函数写法并且不绑定<code>this</code>,箭头函数的语法比函数表达式更简洁</p>
+<p>使用场景： 箭头函数更适用于本来需要匿名函数的地方</p>
+<h4 id="1-基本语法">1. 基本语法<a hidden class="anchor" aria-hidden="true" href="#1-基本语法">#</a></h4>
+<h5 id="语法1">语法1<a hidden class="anchor" aria-hidden="true" href="#语法1">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 普通函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;我是普通函数&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 箭头函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#797593">()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;我是普通函数&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span>	
+</span></span></code></pre></div><p>语法2: 只有一个参数可以省略小括号</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">//普通函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//箭头函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#d7827e">x</span> <span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">))</span>
+</span></span></code></pre></div><p>语法3:  如果函数体只有一行代码，可以写到一行上，省略大括号，并且无需写return直接放回值</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 普通函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">,</span><span style="color:#d7827e">y</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">))</span> <span style="color:#9893a5">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 箭头函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">,</span><span style="color:#d7827e">y</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">))</span> <span style="color:#9893a5">//3
+</span></span></span></code></pre></div><p>实际中的写法</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">form</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;form&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">form</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">ev</span> <span style="color:#797593">=&gt;</span> <span style="color:#d7827e">ev</span><span style="color:#797593">.</span><span style="color:#d7827e">preventDefault</span><span style="color:#797593">())</span>
+</span></span></code></pre></div><p>语法4:  加括号的函数体返回对象字面量的表达式</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">fn1</span> <span style="color:#797593">=</span> <span style="color:#d7827e">uname</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">({</span><span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#d7827e">uname</span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">fn1</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#797593">))</span>
+</span></span></code></pre></div><h4 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h4>
+<ul>
+<li>箭头函数属于表达式函数，因此不存在函数提升</li>
+<li>箭头函数只有一个参数时可以省略圆括号<code>( )</code></li>
+<li>箭头函数的函数体只有一行代码时，可以省略花括号<code>{}</code>, 并自动作为返回值被返回</li>
+<li>加括号的函数体返回对象字面量表达式 <code>uname =&gt;({uname:uname})</code></li>
+</ul>
+<h4 id="2-箭头函数参数">2. 箭头函数参数<a hidden class="anchor" aria-hidden="true" href="#2-箭头函数参数">#</a></h4>
+<ol>
+<li>普通函数有arguments动态参数</li>
+<li>箭头函数没有arguments动态参数，但是有剩余参数 <code>...args</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">getSum</span> <span style="color:#797593">=</span> <span style="color:#797593">(...</span><span style="color:#d7827e">args</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">let</span> <span style="color:#d7827e">sum</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">&lt;</span><span style="color:#d7827e">args</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">;</span><span style="color:#d7827e">i</span><span style="color:#797593">++</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">sum</span> <span style="color:#797593">+=</span> <span style="color:#d7827e">args</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">sum</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 注意函数体有多行代码时需要return
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 大括号也不能省
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">))</span>
+</span></span></code></pre></div><h4 id="3-箭头函数-this">3. 箭头函数 this<a hidden class="anchor" aria-hidden="true" href="#3-箭头函数-this">#</a></h4>
+<p>以前<code>this</code>的指向：谁调用这个函数，<code>this</code>就指向谁</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span> <span style="color:#9893a5">//此处为window
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">sayHi</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">cnosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#9893a5">// 普通函数指向调用者，此处为window
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span><span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 当前this，指向btn
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>箭头函数不会创建自己的<code>this</code>,只会从自己的作用域链的上一层沿用<code>this</code>. （说简单点，父亲的this就是箭头函数的this ）</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#797593">()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span> <span style="color:#9893a5">//window
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 因为箭头函数没有this!!, 所以会调用父亲window的this
+</span></span></span></code></pre></div><p>对象方法箭头函数<code>this</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#b4637a">，</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">sayHi</span> <span style="color:#797593">:</span> <span style="color:#797593">()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span> <span style="color:#9893a5">//this指向谁？window
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">sayHi</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 因为sayHi()方法中没有this，沿用上一级obj的this， window 调用obj，所以this指向window
+</span></span></span></code></pre></div><p>​	复杂一点的案例</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">user</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">name</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;小明&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">sayHi</span><span style="color:#797593">:</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// 注意这是普通函数，this指向函数的调用者
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span> <span style="color:#9893a5">//user
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">10</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">count</span> <span style="color:#797593">=</span> <span style="color:#797593">()</span> <span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span> <span style="color:#9893a5">//user
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">count</span><span style="color:#797593">()</span> <span style="color:#9893a5">// user
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">// 因为箭头函数的作用域中没有this，所以指向上层作用域的this
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><p>在开发中 【 使用箭头函数前需要考虑函数中的this值 】，事件回调函数使用箭头函数时，this为全局的window，因此DOM事件回调函数为了简便，不推荐使用箭头函数</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// DOM 节点
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">btn</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.btn&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 箭头函数，此时this指向window
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,()</span> <span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 普通函数，此时this指向了DOM对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,</span><span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">this</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>总结：</p>
+<ul>
+<li>
+<p>箭头函数里面有<code>this</code>吗？</p>
+<p>箭头函数不会创建自己的<code>this,</code> 它只会从自己的作用域链的上一层沿用<code>this</code></p>
+</li>
+<li>
+<p><code>DOM</code> 事件回调函数推荐使用箭头函数吗？</p>
+<p>不推荐，特别是需要用到<code>this</code>的时候</p>
+<p>事件回调函数使用箭头函数时，<code>this</code>为全局的<code>window</code></p>
+</li>
+</ul>
+<h2 id="3-解构赋值">3. 解构赋值<a hidden class="anchor" aria-hidden="true" href="#3-解构赋值">#</a></h2>
+<h3 id="1-数组解构">1. 数组解构<a hidden class="anchor" aria-hidden="true" href="#1-数组解构">#</a></h3>
+<p>数组解构是将数组的单元值快速批量赋值给一系列变量的简洁语法</p>
+<h4 id="引入">引入<a hidden class="anchor" aria-hidden="true" href="#引入">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 普通写法
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">100</span><span style="color:#797593">,</span><span style="color:#ea9d34">60</span><span style="color:#797593">,</span><span style="color:#ea9d34">80</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">max</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">min</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">avg</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">2</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">max</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">min</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">avg</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 解构赋值版本
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">max</span><span style="color:#797593">,</span> <span style="color:#d7827e">min</span><span style="color:#797593">,</span> <span style="color:#d7827e">avg</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">100</span><span style="color:#797593">,</span> <span style="color:#ea9d34">60</span><span style="color:#797593">,</span> <span style="color:#ea9d34">80</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">max</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">min</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">avg</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h4 id="基本语法">基本语法<a hidden class="anchor" aria-hidden="true" href="#基本语法">#</a></h4>
+<ol>
+<li>
+<p>赋值运算符 = 左侧的 <code>[]</code> 用于批量声明变量，右侧数组的单元值被赋值给左侧的变量</p>
+</li>
+<li>
+<p>变量的顺序对应数组单元值的位置依次进行赋值操作</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 普通的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 批量声明变量 a,b,c
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 同时将数组单元值1，2，3 依次赋值给变量a b c
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">c</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">c</span><span style="color:#797593">)</span> <span style="color:#9893a5">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 再来一个
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">max</span><span style="color:#797593">,</span><span style="color:#d7827e">min</span><span style="color:#797593">,</span><span style="color:#d7827e">avg</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span>
+</span></span></code></pre></div><p>交换变量应用</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">b</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">2</span><span style="color:#797593">;</span> <span style="color:#9893a5">//必须加分号
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">[</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">a</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">]</span> 
+</span></span></code></pre></div></li>
+<li>
+<p>变量多，单元值少的情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">c</span><span style="color:#797593">,</span><span style="color:#d7827e">d</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">c</span><span style="color:#797593">)</span> <span style="color:#9893a5">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">d</span><span style="color:#797593">)</span> <span style="color:#9893a5">//undefined
+</span></span></span></code></pre></div></li>
+<li>
+<p>变量少，单元值多的情况</p>
+<p>使用剩余参数解决变量少，单元值多的情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">c</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">,</span><span style="color:#ea9d34">5</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">c</span><span style="color:#797593">)</span> <span style="color:#9893a5">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 剩余参数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,...</span><span style="color:#d7827e">c</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">c</span><span style="color:#797593">)</span> <span style="color:#9893a5">//[3,4] 真数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 防止undefined传递,给了默认参数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">=</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;手机&#39;</span><span style="color:#797593">,</span> <span style="color:#d7827e">b</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#39;华为&#39;</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;小米&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//小米
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//华为
+</span></span></span></code></pre></div></li>
+<li>
+<p>按需导入复制</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,,</span><span style="color:#d7827e">d</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">b</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">d</span><span style="color:#797593">)</span> <span style="color:#9893a5">//4
+</span></span></span></code></pre></div></li>
+<li>
+<p>支持多维数组解构</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,[</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">])</span> <span style="color:#9893a5">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">2</span><span style="color:#797593">])</span> <span style="color:#9893a5">//[3,4]
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">2</span><span style="color:#797593">][</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span> <span style="color:#9893a5">//[3]
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 解构
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">c</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,[</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">,[</span><span style="color:#d7827e">c</span><span style="color:#797593">,</span><span style="color:#d7827e">d</span><span style="color:#797593">]]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,[</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">]]</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>注意： JS 必须加分号的情况<code>;</code></p>
+<ol>
+<li>立即执行函数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#797593">(</span><span style="color:#286983">function</span> <span style="color:#d7827e">t</span><span style="color:#797593">(){})();</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 或者
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">;(</span><span style="color:#286983">function</span> <span style="color:#d7827e">t</span><span style="color:#797593">(){})()</span>
+</span></span></code></pre></div><ol start="2">
+<li>数组解构</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 数组开头的，特别是前面有语句的一定要注意加分号
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">;[</span><span style="color:#d7827e">b</span><span style="color:#797593">,</span><span style="color:#d7827e">a</span><span style="color:#797593">]</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">]</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>数组解构赋值的作用是什么？</p>
+<p>将数组的单元值快速批量赋值给一系列变量的简洁语法</p>
+</li>
+<li>
+<p>JS 前面有有哪两种情况必须要加分号?</p>
+<p>立即执行函数 和 数组开头的情况</p>
+</li>
+<li>
+<p>变量的数量大于单元值数量时，多余变量将被赋值为<code>undefined</code></p>
+</li>
+<li>
+<p>变量的数量小于单元值数量时，可以通过剩余参数获取剩余单元值，但只能置于最末位</p>
+</li>
+</ol>
+<h3 id="2-对象解构">2. 对象解构<a hidden class="anchor" aria-hidden="true" href="#2-对象解构">#</a></h3>
+<p>对象解构是将对象属性和方法快速批量赋值给一系列变量的简洁语法</p>
+<h4 id="1-基本语法-1">1. 基本语法<a hidden class="anchor" aria-hidden="true" href="#1-基本语法-1">#</a></h4>
+<ul>
+<li>赋值运算符 = 左侧的<code>{}</code>用于批量声明变量，右侧对象的属性值将赋值给左侧的变量</li>
+<li>对象属性的值将被赋值给与属性名相同的变量</li>
+<li>注意解构的变量不要和外面的变量名冲突，否则报错</li>
+<li>对象中找不到与变量名一致的属性时变量为<code>undefined</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 对象解构
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#797593">{</span><span style="color:#d7827e">uname</span><span style="color:#797593">,</span><span style="color:#d7827e">age</span><span style="color:#797593">}</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 等价于 const uname = obj.name
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">uname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">uname</span>
+</span></span></code></pre></div><h4 id="2-解构的属性改名">2. 解构的属性改名<a hidden class="anchor" aria-hidden="true" href="#2-解构的属性改名">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink老师&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">{</span><span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#d7827e">username</span><span style="color:#797593">,</span><span style="color:#d7827e">age</span><span style="color:#797593">}</span> <span style="color:#797593">=</span> <span style="color:#d7827e">obj</span>
+</span></span></code></pre></div><h4 id="3-解构数组对象">3. 解构数组对象<a hidden class="anchor" aria-hidden="true" href="#3-解构数组对象">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">pig</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pig&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">age</span><span style="color:#797593">:</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span><span style="color:#797593">[{</span><span style="color:#d7827e">uname</span><span style="color:#797593">,</span> <span style="color:#d7827e">age</span><span style="color:#797593">}]</span>  <span style="color:#797593">=</span> <span style="color:#d7827e">pig</span>
+</span></span></code></pre></div><h4 id="4-多级对象解构">4. 多级对象解构<a hidden class="anchor" aria-hidden="true" href="#4-多级对象解构">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">pig</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">name</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;佩奇&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">family</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">mother</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;猪妈妈&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">father</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;猪爸爸&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">sister</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;乔治&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span><span style="color:#797593">:</span><span style="color:#ea9d34">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#797593">{</span><span style="color:#d7827e">name</span><span style="color:#797593">,</span> <span style="color:#d7827e">family</span><span style="color:#797593">{</span><span style="color:#d7827e">mother</span><span style="color:#797593">,</span><span style="color:#d7827e">father</span><span style="color:#797593">,</span> <span style="color:#d7827e">sister</span><span style="color:#797593">},</span><span style="color:#d7827e">age</span><span style="color:#797593">}</span> <span style="color:#797593">=</span> <span style="color:#d7827e">pig</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">name</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">mother</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">father</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">sister</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">age</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><p>再来一个案例, 数组+对象</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">people</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">name</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;佩奇&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">family</span> <span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d7827e">mother</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;猪妈妈&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#d7827e">father</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;猪爸爸&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        	<span style="color:#d7827e">sister</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;乔治&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">6</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>  
+</span></span><span style="display:flex;"><span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span><span style="color:#797593">[{</span><span style="color:#d7827e">name</span><span style="color:#797593">,</span><span style="color:#d7827e">family</span><span style="color:#797593">:</span><span style="color:#797593">{</span><span style="color:#d7827e">mother</span><span style="color:#797593">,</span><span style="color:#d7827e">father</span><span style="color:#797593">,</span><span style="color:#d7827e">sister</span><span style="color:#797593">},</span><span style="color:#d7827e">age</span><span style="color:#797593">}]</span> <span style="color:#797593">=</span> <span style="color:#d7827e">people</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">name</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">mother</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">father</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">sister</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">age</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h4 id="foreach">forEach()<a hidden class="anchor" aria-hidden="true" href="#foreach">#</a></h4>
+<blockquote>
+<p>用于调用数组的每个元素，并将元素传递给回调函数。 只遍历数组，不能遍历对象。</p>
+<p>使用场景： 遍历数组的每个元素</p>
+<p>只遍历，不返回数组</p>
+</blockquote>
+<h5 id="语法">语法<a hidden class="anchor" aria-hidden="true" href="#语法">#</a></h5>
+<ul>
+<li><code>forEach</code> 主要遍历数组，适合于遍历数组对象!!</li>
+<li>参数中，当前元素数组<code>item</code>是必须要写的，索引号<code>index</code>可选</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#d7827e">被遍历的数组</span><span style="color:#797593">.</span><span style="color:#d7827e">forEach</span><span style="color:#797593">(</span><span style="color:#d7827e">function</span><span style="color:#797593">(</span><span style="color:#d7827e">当前数组元素</span><span style="color:#b4637a">，</span><span style="color:#d7827e">当前元素所引号</span><span style="color:#797593">)){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 函数体</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;red&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;green&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;pink&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">forEach</span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span><span style="color:#797593">,</span> <span style="color:#d7827e">index</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span><span style="color:#797593">)</span> <span style="color:#9893a5">// red green pink
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">index</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 0，1，2
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>####filter() 重点</p>
+<ol>
+<li>
+<p>filter() 方法创建一个新的数组，新数组中元素是通过检查指定数组中符合的所有元素</p>
+</li>
+<li>
+<p>使用场景：筛选数组符合条件的元素，并返回筛选之后元素的新数组</p>
+</li>
+</ol>
+<h5 id="语法-1">语法<a hidden class="anchor" aria-hidden="true" href="#语法-1">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">被遍历的数组</span><span style="color:#797593">.</span><span style="color:#d7827e">filter</span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span><span style="color:#797593">,</span><span style="color:#d7827e">value</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">筛选条件</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>也是数组方法，和<code>map()</code>更像，有返回值。</p>
+<p>但是只能<code>return</code> 后面只能写 <code>&gt;=, &lt;=, &lt;, &gt;, =</code>等比较运算符</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">10</span><span style="color:#797593">,</span><span style="color:#ea9d34">20</span><span style="color:#797593">,</span><span style="color:#ea9d34">30</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">newArr</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">filter</span> <span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span><span style="color:#797593">,</span><span style="color:#d7827e">index</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">index</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">item</span><span style="color:#797593">&gt;=</span><span style="color:#ea9d34">20</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 返回新数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">newArr</span> <span style="color:#9893a5">// [20,30]
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 箭头函数 简介版
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">newArr</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">filter</span><span style="color:#797593">(</span><span style="color:#d7827e">item</span> <span style="color:#797593">=&gt;</span> <span style="color:#d7827e">item</span><span style="color:#797593">&gt;=</span><span style="color:#ea9d34">20</span><span style="color:#797593">)</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/javascript/">Javascript</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "no_border_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>学习: JavaScript WebAPIs篇</span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>
