@@ -1,0 +1,809 @@
+<html lang="zh" dir=" auto">
+
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>学习：AJAX  | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="AJAX">
+<meta name="description" content="AJAX &#43; Node.js &#43; webpack &#43; git">
+<meta name="author" content="Jingyi Wu">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b5be4b60141bbacb7cefa4417e48b14d532b319b79ee1c5cbde9160417fe5b01.css" integrity="sha256-tb5LYBQbust876RBfkixTVMrMZt57hxcvekWBBf&#43;WwE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-7TPHQR7CHS', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="学习：AJAX " />
+<meta property="og:description" content="AJAX &#43; Node.js &#43; webpack &#43; git" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-23T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习：AJAX "/>
+<meta name="twitter:description" content="AJAX &#43; Node.js &#43; webpack &#43; git"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "学习：AJAX ",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学习：AJAX ",
+  "name": "学习：AJAX ",
+  "description": "AJAX + Node.js + webpack + git",
+  "keywords": [
+    "AJAX"
+  ],
+  "articleBody": "Day 1 1. AJAX 导入 什么是AJAX ? 异步的 JavaScript 和 XML (Asynchronous JavaScript And XML)\n使用XMLHttpRequest 对象与服务器通信，可以使用JSON/ XML/ HTML/ text 文本等格式发送和接受数据。\nAJAX 有异步特性，在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面\n使用 AJAX 使用 axios 库，与服务器进行数据通信\n将XMLHttpRequest封装，代码简单\nVue React 项目中都会使用 axios\naxios({ url: 'http://hmajax.itheima.net/api/province' //'请求的服务器连接' }).then(result)=\u003e{ // 对服务器返回的数据做后续处理 } 学习XMLHttpRequest对象，了解AJAX底层原理\n2. URL http协议： 超文本传输协议，规定浏览器和服务器之间传输数据的格式\n网址： http://hmajax.itheima.net/api/province\n网址：协议://域名/资源路径\n名称 网址 作用 协议 http 规定传输数据的格式 域名 hmajax.itheima.net 标记服务器在互联网中的方位 资源路径 /api/province 标记资源在服务器下的具体位置 URL 查询参数\n浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据\n​\thttp://xxxx.com/xxx/xxx?param1 = value \u0026\u0026 param2 = value2\n​\tAxios 查询参数\naxios 提供 params 选项 axios({ url:' http://hmajax.itheima.net' params: { pname:'河北省' } }).then(result=\u003e{ // 处理后续code }) 常用的请求方法 对服务器资源，执行的操作\n请求方法 操作 GET 获取数据 POST 提交数据 PUT 修改数据 (全部) DELETE 删除数据 PATCH 修改数据 (部分) axios 请求配置\nurl：请求URL网址\nmethod：请求方法，GET可以省略（不区分大小写）\ndata：提交的数据\naxios({ url : '目标资源地址', method : '请求方法', data :{ params ：value } }).then((result)=\u003e{ }) 总结：\n请求方法表明对服务器资源的操作，POST 提交数据 GET查询数据\naxios 核心配置\nurl ：请求URL网址\nmethod : 请求方法， get可以省略\nparams ： 查询参数\ndata ： 提交数据, 请求体\n在 axios的使用中，发现data后面时对象的格式，会自动转换成json格式 浏览器发送至服务器 叫做 请求体， 在network -\u003e playload中可以查看 服务器返回给浏览器 叫做 响应体， 在 network -\u003e 响应中可以查看 3. axios错误处理 Axios 会在控制台返回错误信息， 为了增加用户体验，开发人员可以讲错误信息以探矿的形式展现给用户\n语法： 在 then 方法的后面，通过点语法调用 catch 方法，传入回调函数并定义形参\naxios({ // 请求选项 }).then(result=\u003e{ }).catch(error=\u003e{ }) axios({ url: 'http://hmajax.itheima.net/api/register', method: 'post', data: { 'username': 'itheima789', 'password': '123456' } }).then(result =\u003e { console.log(result) }).catch(error =\u003e { console.log(error) console.log(error.response.data.message) // 错误信息存放的位置 alert（error.response.data.message） }) 4. HTTP协议 - 请求报文 HTTP 协议： 规定了浏览器发送服务器返回内容的格式 请求报文：浏览器按照HTTP 协议要求的格式，发送给服务器的内容。所以请求报文就是遵守格式的内容集合 请求报文的组成部分 请求行： 请求方法， URL， 协议\n请求头： 以键值对的格式携带的附加信息 Content-Type: application/json\n空行： 分隔请求头，空行之后是发送给服务器的资源\n请求体： 浏览器发送的资源\n5. HTTP协议 - 响应报文 HTTP 协议： 规定了浏览器发送及服务器返回内容的格式 响应报文： 服务器按照HTTP协议要求的格式，返回给浏览器的内容 响应报文的组成部分\n响应行（状态行）：协议、HTTP响应状态码、状态信息\n状态码 说明 1xx 信息 2xx 成功 3xx 重定向消息 4xx 客户端错误 5xx 服务端错误 响应头：以键值对的格式携带的附加信息 Content-Type:Application/JSON\n空行： 分隔响应头，空行之后的是服务器返回的资源\n响应体：返回的资源\n6. 接口文档 描述接口的文章\n接口是什么？\n使用AJAX和服务器通讯时，使用的URL, 请求方法，以及参数\n7. form-serialize 插件 快速收集表单元素的值\nconst form = document.querySelector('.example-form') const data = serialize(form, {hash: true, empty:true}) 使用解读：\n参数1：要获取哪个表单的数据\n表单元素设置name属性，值会作为对象的属性名。建议name属性的值，最好与接口文档参数名一致\n参数2: 配置对象\nhash 设置获取数据结构\ntrue： JS 对象（推荐）一般请求体提交至服务器的格式。 false：查询字符串 empty 设置是否获取空值\ntrue：获取空值（推荐）数据结构和标签结构一致 false：不获取空值 8. API要求请求体FormData() 文件选择元素 -\u003e 使用change改变事件，使用files获取监听事件的文件列表 使用FormData()传输文件 document.querySelector('.upload').addEventListener('change',e=\u003e{ //1. 获取图片文件,使用files获取监听事件的文件列表 console.log(e.target.files[0]) const fd = new FormData() fd.append('img',e.target.files[0]) axios({ // api url:'', method:'post', data:fd }).then(result=\u003e{ console.log(result) const imgUrl = result.data.data.url document.querySelector('.img').src = imgUrl }) } ",
+  "wordCount" : "1631",
+  "inLanguage": "zh",
+  "datePublished": "2024-03-23T00:00:00Z",
+  "dateModified": "2024-03-23T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jingyi Wu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" class=" top" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jingyiwu-codespace.github.io/en/" title="English"
+                            aria-label="English">En</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/msg" title="留言板">
+                    <span>留言板</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
+
+    <h1 class="post-title entry-hint-parent">
+      学习：AJAX 
+    </h1>
+    <div class="post-meta"><span title='2024-03-23 00:00:00 +0000 UTC'>三月 23, 2024</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Jingyi Wu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#day-1" aria-label="Day 1">Day 1</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-ajax-%e5%af%bc%e5%85%a5" aria-label="1. AJAX 导入">1. AJAX 导入</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e4%bb%80%e4%b9%88%e6%98%afajax-" aria-label="什么是AJAX ?">什么是AJAX ?</a></li>
+                    <li>
+                        <a href="#%e4%bd%bf%e7%94%a8-ajax" aria-label="使用 AJAX">使用 AJAX</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#2-url" aria-label="2. URL">2. URL</a></li>
+                    <li>
+                        <a href="#3-axios%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" aria-label="3. axios错误处理">3. axios错误处理</a></li>
+                    <li>
+                        <a href="#4-http%e5%8d%8f%e8%ae%ae---%e8%af%b7%e6%b1%82%e6%8a%a5%e6%96%87" aria-label="4. HTTP协议 - 请求报文">4. HTTP协议 - 请求报文</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e8%af%b7%e6%b1%82%e6%8a%a5%e6%96%87%e7%9a%84%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86" aria-label="请求报文的组成部分">请求报文的组成部分</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#5-http%e5%8d%8f%e8%ae%ae---%e5%93%8d%e5%ba%94%e6%8a%a5%e6%96%87" aria-label="5. HTTP协议 - 响应报文">5. HTTP协议 - 响应报文</a></li>
+                    <li>
+                        <a href="#6-%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3" aria-label="6. 接口文档">6. 接口文档</a></li>
+                    <li>
+                        <a href="#7-form-serialize-%e6%8f%92%e4%bb%b6" aria-label="7. form-serialize 插件">7. form-serialize 插件</a></li>
+                    <li>
+                        <a href="#8-api%e8%a6%81%e6%b1%82%e8%af%b7%e6%b1%82%e4%bd%93formdata" aria-label="8. API要求请求体FormData()">8. API要求请求体FormData()</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="day-1">Day 1<a hidden class="anchor" aria-hidden="true" href="#day-1">#</a></h1>
+<h2 id="1-ajax-导入">1. AJAX 导入<a hidden class="anchor" aria-hidden="true" href="#1-ajax-导入">#</a></h2>
+<h3 id="什么是ajax-">什么是AJAX ?<a hidden class="anchor" aria-hidden="true" href="#什么是ajax-">#</a></h3>
+<ul>
+<li>
+<p>异步的 JavaScript 和 XML (Asynchronous JavaScript And XML)</p>
+</li>
+<li>
+<p>使用<code>XMLHttpRequest</code> 对象与服务器通信，可以使用<code>JSON/ XML/ HTML/ text </code> 文本等格式发送和接受数据。</p>
+</li>
+<li>
+<p>AJAX 有异步特性，在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面</p>
+</li>
+</ul>
+<h3 id="使用-ajax">使用 AJAX<a hidden class="anchor" aria-hidden="true" href="#使用-ajax">#</a></h3>
+<ul>
+<li>
+<p>使用 <code>axios</code> 库，与服务器进行数据通信</p>
+<p>将<code>XMLHttpRequest</code>封装，代码简单</p>
+<p>Vue React 项目中都会使用 <code>axios</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/province&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//&#39;请求的服务器连接&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 对服务器返回的数据做后续处理
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>学习<code>XMLHttpRequest</code>对象，了解AJAX底层原理</p>
+</li>
+</ul>
+<h2 id="2-url">2. URL<a hidden class="anchor" aria-hidden="true" href="#2-url">#</a></h2>
+<ol>
+<li>
+<p>http协议： 超文本传输协议，规定浏览器和服务器之间传输数据的格式</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240323121243815.png" alt="image-20240323121243815"  />
+</p>
+<p>网址： <a href="http://hmajax.itheima.net/api/province">http://hmajax.itheima.net/api/province</a></p>
+<p>网址：协议://域名/资源路径</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>网址</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议</td>
+<td>http</td>
+<td>规定传输数据的格式</td>
+</tr>
+<tr>
+<td>域名</td>
+<td>hmajax.itheima.net</td>
+<td>标记服务器在互联网中的方位</td>
+</tr>
+<tr>
+<td>资源路径</td>
+<td>/api/province</td>
+<td>标记资源在服务器下的具体位置</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>URL 查询参数</p>
+</li>
+</ol>
+<blockquote>
+<p>浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据</p>
+</blockquote>
+<p>​	 <a href="http://xxxx.com/xxx/xxx?param1">http://xxxx.com/xxx/xxx?param1</a> = value &amp;&amp; param2 = value2</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240323221541982.png" alt="image-20240323221541982"  />
+</p>
+<p>​	Axios 查询参数</p>
+<ul>
+<li>axios 提供 <code>params</code> 选项</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39; http://hmajax.itheima.net&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">params</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">pname</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;河北省&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 处理后续code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span></code></pre></div><ol start="3">
+<li>常用的请求方法</li>
+</ol>
+<blockquote>
+<p>对服务器资源，执行的操作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>请求方法</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>获取数据</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>提交数据</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>修改数据 (全部)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>删除数据</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>修改数据 (部分)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>axios 请求配置</p>
+<p><code>url</code>：请求URL网址</p>
+<p><code>method</code>：请求方法，GET可以省略（不区分大小写）</p>
+<p><code>data</code>：提交的数据</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;目标资源地址&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">method</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;请求方法&#39;</span><span style="color:#797593">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">data</span> <span style="color:#797593">:</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">params</span> <span style="color:#b4637a">：</span><span style="color:#d7827e">value</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">((</span><span style="color:#d7827e">result</span><span style="color:#797593">)=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>请求方法表明对服务器资源的操作，POST 提交数据 GET查询数据</p>
+</li>
+<li>
+<p>axios 核心配置</p>
+<p>url ：请求URL网址</p>
+<p>method : 请求方法， get可以省略</p>
+<p>params ： 查询参数</p>
+<p>data ： 提交数据, 请求体</p>
+</li>
+</ol>
+<ul>
+<li><strong>在 axios的使用中，发现data后面时对象的格式，会自动转换成json格式</strong></li>
+<li>浏览器发送至服务器 叫做 请求体， 在network -&gt; playload中可以查看</li>
+<li>服务器返回给浏览器 叫做 响应体， 在 network -&gt; 响应中可以查看</li>
+</ul>
+<h2 id="3-axios错误处理">3. axios错误处理<a hidden class="anchor" aria-hidden="true" href="#3-axios错误处理">#</a></h2>
+<blockquote>
+<p>Axios 会在控制台返回错误信息， 为了增加用户体验，开发人员可以讲错误信息以探矿的形式展现给用户</p>
+</blockquote>
+<p>语法： 在 <code>then</code> 方法的后面，通过点语法调用 <code>catch</code> 方法，传入回调函数并定义形参</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 请求选项
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/register&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">method</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;post&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ea9d34">&#39;username&#39;</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;itheima789&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ea9d34">&#39;password&#39;</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;123456&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 错误信息存放的位置
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">alert</span><span style="color:#b4637a">（</span><span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span><span style="color:#b4637a">）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span></code></pre></div><h2 id="4-http协议---请求报文">4. HTTP协议 - 请求报文<a hidden class="anchor" aria-hidden="true" href="#4-http协议---请求报文">#</a></h2>
+<ul>
+<li>HTTP 协议： 规定了浏览器发送服务器返回内容的格式</li>
+<li>请求报文：浏览器按照HTTP 协议要求的格式，发送给服务器的内容。所以请求报文就是遵守格式的内容集合</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240323234251464.png" alt="image-20240323234251464"  />
+</p>
+<h3 id="请求报文的组成部分">请求报文的组成部分<a hidden class="anchor" aria-hidden="true" href="#请求报文的组成部分">#</a></h3>
+<ol>
+<li>
+<p>请求行： 请求方法， URL， 协议</p>
+</li>
+<li>
+<p>请求头： 以键值对的格式携带的附加信息 <code>Content-Type: application/json</code></p>
+</li>
+<li>
+<p>空行： 分隔请求头，空行之后是发送给服务器的资源</p>
+</li>
+<li>
+<p>请求体： 浏览器发送的资源</p>
+</li>
+</ol>
+<h2 id="5-http协议---响应报文">5. HTTP协议 - 响应报文<a hidden class="anchor" aria-hidden="true" href="#5-http协议---响应报文">#</a></h2>
+<ul>
+<li>HTTP 协议： 规定了浏览器发送及服务器返回内容的格式</li>
+<li>响应报文： 服务器按照HTTP协议要求的格式，返回给浏览器的内容</li>
+</ul>
+<ol>
+<li>
+<p>响应报文的组成部分</p>
+<ol>
+<li>
+<p>响应行（状态行）：协议、HTTP响应状态码、状态信息</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>信息</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向消息</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端错误</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务端错误</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>响应头：以键值对的格式携带的附加信息 <code>Content-Type:Application/JSON</code></p>
+</li>
+<li>
+<p>空行： 分隔响应头，空行之后的是服务器返回的资源</p>
+</li>
+<li>
+<p>响应体：返回的资源</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="6-接口文档">6. 接口文档<a hidden class="anchor" aria-hidden="true" href="#6-接口文档">#</a></h2>
+<blockquote>
+<p>描述接口的文章</p>
+</blockquote>
+<p>接口是什么？</p>
+<blockquote>
+<p>使用AJAX和服务器通讯时，使用的URL, 请求方法，以及参数</p>
+</blockquote>
+<h2 id="7-form-serialize-插件">7. form-serialize 插件<a hidden class="anchor" aria-hidden="true" href="#7-form-serialize-插件">#</a></h2>
+<blockquote>
+<p>快速收集表单元素的值</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">form</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.example-form&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">data</span> <span style="color:#797593">=</span> <span style="color:#d7827e">serialize</span><span style="color:#797593">(</span><span style="color:#d7827e">form</span><span style="color:#797593">,</span> <span style="color:#797593">{</span><span style="color:#d7827e">hash</span><span style="color:#797593">:</span> <span style="color:#286983">true</span><span style="color:#797593">,</span> <span style="color:#d7827e">empty</span><span style="color:#797593">:</span><span style="color:#286983">true</span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>使用解读：</p>
+<ul>
+<li>
+<p>参数1：要获取哪个表单的数据</p>
+<p>表单元素设置name属性，值会作为对象的属性名。建议name属性的值，最好与接口文档参数名一致</p>
+</li>
+<li>
+<p>参数2:   配置对象</p>
+<p>hash 设置获取数据结构</p>
+<ul>
+<li>true： JS 对象（推荐）一般请求体提交至服务器的格式。</li>
+<li>false：查询字符串</li>
+</ul>
+<p>empty 设置是否获取空值</p>
+<ul>
+<li>true：获取空值（推荐）数据结构和标签结构一致</li>
+<li>false：不获取空值</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-api要求请求体formdata">8. API要求请求体FormData()<a hidden class="anchor" aria-hidden="true" href="#8-api要求请求体formdata">#</a></h2>
+<ul>
+<li>文件选择元素 -&gt; 使用change改变事件，使用files获取监听事件的文件列表</li>
+<li>使用FormData()传输文件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.upload&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;change&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">e</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//1. 获取图片文件,使用files获取监听事件的文件列表
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">e</span><span style="color:#797593">.</span><span style="color:#d7827e">target</span><span style="color:#797593">.</span><span style="color:#d7827e">files</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">fd</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">FormData</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">fd</span><span style="color:#797593">.</span><span style="color:#d7827e">append</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;img&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">e</span><span style="color:#797593">.</span><span style="color:#d7827e">target</span><span style="color:#797593">.</span><span style="color:#d7827e">files</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// api
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">method</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;post&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">data</span><span style="color:#797593">:</span><span style="color:#d7827e">fd</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">imgUrl</span> <span style="color:#797593">=</span> <span style="color:#d7827e">result</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">url</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.img&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">src</span> <span style="color:#797593">=</span> <span style="color:#d7827e">imgUrl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/ajax/">AJAX</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "noborder_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>学习: JavaScript 进阶篇</span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>

@@ -131,8 +131,8 @@ if (!doNotTrack) {
   "keywords": [
     "cooja", "resource busy", "MacBook Pro"
   ],
-  "articleBody": "在终端中干掉进程 1. 检查有没有僵尸进程: 在终端中使用👇的语句.\nps aux | grep 'Z'\n2. 检查端口的使用情况: 在终端中使用👇的语句.\nsudo lsof -i :60001\n60001 是端口名称, 输入一下语句之后，就能看到进程的ID了. (方便直接干掉它)\n3. 关键一步：干掉进程 kill [PID] kill -9 [PID]\n最后一个 -9 是强制停止\n4. 再检查一遍端口的使用情况 我遇到的问题是我的计算机总是有两个进程，一个来自 Java，一个来自 sudo。所以我需要杀死 sudo，因为 cooja 在 Java 中运行. 如果kill进程失败了, 尝试使用sudo kill [PID]\n",
-  "wordCount" : "216",
+  "articleBody": "在终端中干掉进程 1. 检查有没有僵尸进程 在终端中使用👇的语句.\nps aux | grep 'Z'\n2. 检查端口的使用情况 在终端中使用👇的语句.\nsudo lsof -i :60001\n60001 是端口名称, 输入一下语句之后，就能看到进程的ID了. (方便直接干掉它)\n3. 关键一步：干掉进程 kill [PID] kill -9 [PID]\n最后一个 -9 是强制停止\n4. 再检查一遍端口的使用情况 我遇到的问题是我的计算机总是有两个进程，一个来自 Java，一个来自 sudo。所以我需要杀死 sudo，因为 cooja 在 Java 中运行. 如果kill进程失败了, 尝试使用sudo kill [PID]\n",
+  "wordCount" : "214",
   "inLanguage": "zh",
   "datePublished": "2024-02-15T00:00:00Z",
   "dateModified": "2024-02-15T00:00:00Z",
@@ -261,18 +261,21 @@ if (!doNotTrack) {
             <div class="inner"><ul>
                     <li>
                         <a href="#%e5%9c%a8%e7%bb%88%e7%ab%af%e4%b8%ad%e5%b9%b2%e6%8e%89%e8%bf%9b%e7%a8%8b" aria-label="在终端中干掉进程">在终端中干掉进程</a><ul>
-                                <ul>
+
                                 
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
                     <li>
-                        <a href="#1-%e6%a3%80%e6%9f%a5%e6%9c%89%e6%b2%a1%e6%9c%89%e5%83%b5%e5%b0%b8%e8%bf%9b%e7%a8%8b" aria-label="1. 检查有没有僵尸进程:">1. 检查有没有僵尸进程:</a></li>
+                        <a href="#1-%e6%a3%80%e6%9f%a5%e6%9c%89%e6%b2%a1%e6%9c%89%e5%83%b5%e5%b0%b8%e8%bf%9b%e7%a8%8b" aria-label="1. 检查有没有僵尸进程">1. 检查有没有僵尸进程</a></li>
                     <li>
-                        <a href="#2-%e6%a3%80%e6%9f%a5%e7%ab%af%e5%8f%a3%e7%9a%84%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5" aria-label="2. 检查端口的使用情况:">2. 检查端口的使用情况:</a></li>
+                        <a href="#2-%e6%a3%80%e6%9f%a5%e7%ab%af%e5%8f%a3%e7%9a%84%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5" aria-label="2. 检查端口的使用情况">2. 检查端口的使用情况</a></li>
                     <li>
                         <a href="#3-%e5%85%b3%e9%94%ae%e4%b8%80%e6%ad%a5%e5%b9%b2%e6%8e%89%e8%bf%9b%e7%a8%8b" aria-label="3. 关键一步：干掉进程">3. 关键一步：干掉进程</a></li>
                     <li>
                         <a href="#4-%e5%86%8d%e6%a3%80%e6%9f%a5%e4%b8%80%e9%81%8d%e7%ab%af%e5%8f%a3%e7%9a%84%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5" aria-label="4. 再检查一遍端口的使用情况">4. 再检查一遍端口的使用情况</a>
                     </li>
-                </ul>
                 </ul>
                 </li>
                 </ul>
@@ -280,24 +283,24 @@ if (!doNotTrack) {
         </details>
     </div>
   <div class="post-content"><h1 id="在终端中干掉进程">在终端中干掉进程<a hidden class="anchor" aria-hidden="true" href="#在终端中干掉进程">#</a></h1>
-<h3 id="1-检查有没有僵尸进程">1. 检查有没有僵尸进程:<a hidden class="anchor" aria-hidden="true" href="#1-检查有没有僵尸进程">#</a></h3>
+<h2 id="1-检查有没有僵尸进程">1. 检查有没有僵尸进程<a hidden class="anchor" aria-hidden="true" href="#1-检查有没有僵尸进程">#</a></h2>
 <p>在终端中使用👇的语句.</p>
 <blockquote>
 <p><code>ps aux | grep 'Z'</code></p>
 </blockquote>
-<h3 id="2-检查端口的使用情况">2. 检查端口的使用情况:<a hidden class="anchor" aria-hidden="true" href="#2-检查端口的使用情况">#</a></h3>
+<h2 id="2-检查端口的使用情况">2. 检查端口的使用情况<a hidden class="anchor" aria-hidden="true" href="#2-检查端口的使用情况">#</a></h2>
 <p>在终端中使用👇的语句.</p>
 <blockquote>
 <p><code>sudo lsof -i :60001</code></p>
 </blockquote>
 <p>60001 是端口名称, 输入一下语句之后，就能看到进程的ID了. (方便直接干掉它)</p>
-<h3 id="3-关键一步干掉进程">3. 关键一步：干掉进程<a hidden class="anchor" aria-hidden="true" href="#3-关键一步干掉进程">#</a></h3>
+<h2 id="3-关键一步干掉进程">3. 关键一步：干掉进程<a hidden class="anchor" aria-hidden="true" href="#3-关键一步干掉进程">#</a></h2>
 <blockquote>
 <p><code>kill [PID]</code>
 <code>kill -9 [PID]</code></p>
 </blockquote>
 <p>最后一个 -9 是强制停止</p>
-<h3 id="4-再检查一遍端口的使用情况">4. 再检查一遍端口的使用情况<a hidden class="anchor" aria-hidden="true" href="#4-再检查一遍端口的使用情况">#</a></h3>
+<h2 id="4-再检查一遍端口的使用情况">4. 再检查一遍端口的使用情况<a hidden class="anchor" aria-hidden="true" href="#4-再检查一遍端口的使用情况">#</a></h2>
 <blockquote>
 <p>我遇到的问题是我的计算机总是有两个进程，一个来自 <!-- raw HTML omitted -->Java<!-- raw HTML omitted -->，一个来自 <!-- raw HTML omitted -->sudo<!-- raw HTML omitted -->。所以我需要杀死 sudo，因为 cooja 在 Java 中运行. 如果kill进程失败了, 尝试使用sudo kill [PID]</p>
 </blockquote>

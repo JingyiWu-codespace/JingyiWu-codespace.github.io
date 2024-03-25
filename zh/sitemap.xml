@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jingyiwu-codespace.github.io/zh/msg/</loc>
-    <lastmod>2024-03-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -31,8 +28,11 @@
                 href="https://jingyiwu-codespace.github.io/zh/posts/"
                 />
   </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/tags/ajax/</loc>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/categories/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,13 +45,10 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/frontend/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/zh/tags/javascript/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -64,7 +61,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/categories/tech/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -77,7 +74,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/vub/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -90,7 +87,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/</loc>
-    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -101,6 +98,15 @@
                 hreflang="zh"
                 href="https://jingyiwu-codespace.github.io/zh/tags/"
                 />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</loc>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/msg/</loc>
+    <lastmod>2024-03-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/tags/javascript/</loc>
+    <lastmod>2024-03-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/</loc>
     <lastmod>2024-03-22T00:00:00+00:00</lastmod>
