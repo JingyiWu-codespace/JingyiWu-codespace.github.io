@@ -43,5 +43,12 @@
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
       <description>每次运行Cooja的端口监听，显示资源繁忙，可能是端口已经被占用，只要给其中一个进程干掉就好.</description>
     </item>
+    <item>
+      <title></title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/</guid>
+      <description>旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should</description>
+    </item>
   </channel>
 </rss>
