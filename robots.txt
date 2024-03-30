@@ -1,3 +1,10 @@
 User-agent: *
-Disallow:
+Disallow: /zh/tags/
+Disallow: /zh/about/
+Disallow: /en/tags/
+Disallow: /en/about/
+Disallow: /zh/search/
+Disallow: /zh/archives/
+Disallow: /en/search/
+Disallow: /en/archives/
 Sitemap: https://jingyiwu-codespace.github.io/sitemap.xml

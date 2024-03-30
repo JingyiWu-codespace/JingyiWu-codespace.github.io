@@ -210,18 +210,6 @@
                 href="https://jingyiwu-codespace.github.io/en/about/"
                 />
   </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/posts/projects/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://jingyiwu-codespace.github.io/zh/posts/projects/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jingyiwu-codespace.github.io/en/posts/projects/"
-                />
-  </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/search/</loc>
     <xhtml:link
                 rel="alternate"
@@ -244,6 +232,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jingyiwu-codespace.github.io/en/archives/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/projects/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/projects/"
                 />
   </url>
 </urlset>
