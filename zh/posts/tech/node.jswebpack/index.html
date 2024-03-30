@@ -6,11 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>ε≡٩(๑&gt;₃&lt;)۶ | Jingyi&#39;s Blog</title>
-<meta name="keywords" content="">
-<meta name="description" content="新空间 新起点">
+<title>学习：Node.js &amp; Webpack  | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="Webpack, Node.js">
+<meta name="description" content="Basic understanding of front-end engineering">
 <meta name="author" content="Jingyi Wu">
-<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/life/first/">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb17103716ce748824407fb65cb4ad0bab7144d7fdd69db82838a008c55e484e.css" integrity="sha256-uxcQNxbOdIgkQH&#43;2XLStC6txRNf91p24KDigCMVeSE4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
@@ -19,8 +19,7 @@
 <link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/life/first/">
-<link rel="alternate" hreflang="en" href="https://jingyiwu-codespace.github.io/en/posts/life/first/">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,18 +82,16 @@ if (!doNotTrack) {
 	gtag('config', 'G-7TPHQR7CHS', { 'anonymize_ip': false });
 }
 </script>
-<meta property="og:title" content="ε≡٩(๑&gt;₃&lt;)۶" />
-<meta property="og:description" content="新空间 新起点" />
+<meta property="og:title" content="学习：Node.js &amp; Webpack " />
+<meta property="og:description" content="Basic understanding of front-end engineering" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/life/first/" />
-<meta property="og:image" content="https://jingyiwu-codespace.github.io/img/notion-avatar-resized.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-02-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-02-05T00:00:00+00:00" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-30T00:00:00+00:00" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://jingyiwu-codespace.github.io/img/notion-avatar-resized.png" />
-<meta name="twitter:title" content="ε≡٩(๑&gt;₃&lt;)۶"/>
-<meta name="twitter:description" content="新空间 新起点"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习：Node.js &amp; Webpack "/>
+<meta name="twitter:description" content="Basic understanding of front-end engineering"/>
 
 
 <script type="application/ld+json">
@@ -111,14 +108,14 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🏖️ 生活",
-      "item": "https://jingyiwu-codespace.github.io/zh/posts/life/"
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "ε≡٩(๑\u003e₃\u003c)۶",
-      "item": "https://jingyiwu-codespace.github.io/zh/posts/life/first/"
+      "name": "学习：Node.js \u0026 Webpack ",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/"
     }
   ]
 }
@@ -127,24 +124,24 @@ if (!doNotTrack) {
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "ε≡٩(๑\u003e₃\u003c)۶",
-  "name": "ε≡٩(๑\u003e₃\u003c)۶",
-  "description": "新空间 新起点",
+  "headline": "学习：Node.js \u0026 Webpack ",
+  "name": "学习：Node.js \u0026 Webpack ",
+  "description": "Basic understanding of front-end engineering",
   "keywords": [
-    
+    "Webpack", "Node.js"
   ],
-  "articleBody": " 成为更好的人｜｜慢慢前进\n啊喂!! 什么情况只能听30s!!! 插入一段无广b站食用!!! \u003c!DOCTYPE HTML\u003e ",
-  "wordCount" : "44",
+  "articleBody": "Day1 1. 什么是Node.js? Node.js 是一个跨平台 JavaScript运行环境，使开发者可以搭建服务端的JavaScript的应用程序\n作用：使用Node.js 便携服务器端程序\n编写数据接口，提供网页资源浏览功能等等 前端工程化：为后续学习Vue和React做铺垫 2. 什么是前端工程化？ 开发项目直到上线，过程中继承的所有工具和技术\n压缩工具 -\u003e 体积更小，更流畅 转换工具 -\u003e less 转 css， 转高版本JS 格式化工具 打包工具 -\u003e 整合前端代码 脚手架工具 自动化部署 node.js 可以主动读取前端代码的内容，对前端代码进行相应的处理\n3. Node.js 为何能执行 JS ? 首先：浏览器能执行 JS 代码，依靠的是内核中的V8引擎 （C++程序） 其次： Node.js 是基于 Chrome V8 引擎进行封装 （运行环境） 4. Node.js 安装 下载 node-v16.19.0 msi 安装程序 (指定版本：兼容vue-admin-template模版)，我不太想下载之前版本的Node.js, 发现 https://juejin.cn/post/7204454572889980965 这个教程中有切换版本的选项。\n总结： Node.js 是什么？\n基于Chrome的V8引擎，独立执行JavaScript代码环境\nNode.js 与 浏览器环境的 JS 最大区别？\nNode.js 环境中没有 BOM 和 DOM\nNode.js 有什么用？\n编写后端程序： 提供数据和网页资源等等\n前端工程化：集成各种开发使用的工具和技术\nNode.js 如何执行代码?\n在VSCode终端输入： node xxx.js 回车即可（注意路径）\n",
+  "wordCount" : "518",
   "inLanguage": "zh",
-  "image":"https://jingyiwu-codespace.github.io/img/notion-avatar-resized.png","datePublished": "2024-02-05T00:00:00Z",
-  "dateModified": "2024-02-05T00:00:00Z",
+  "datePublished": "2024-03-30T00:00:00Z",
+  "dateModified": "2024-03-30T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "Jingyi Wu"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://jingyiwu-codespace.github.io/zh/posts/life/first/"
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/"
   },
   "publisher": {
     "@type": "Organization",
@@ -236,17 +233,12 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/life/">🏖️ 生活</a></div>
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
 
     <h1 class="post-title entry-hint-parent">
-      ε≡٩(๑&gt;₃&lt;)۶
+      学习：Node.js &amp; Webpack 
     </h1>
-    <div class="post-meta"><span title='2024-02-05 00:00:00 +0000 UTC'>二月 5, 2024</span>&nbsp;·&nbsp;Jingyi Wu&nbsp;|&nbsp;翻译:
-<ul class="i18n_list">
-    <li>
-        <a href="https://jingyiwu-codespace.github.io/en/posts/life/first/">En</a>
-    </li>
-</ul>
+    <div class="post-meta"><span title='2024-03-30 00:00:00 +0000 UTC'>三月 30, 2024</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Jingyi Wu
 
       <div class="meta-item">&nbsp·&nbsp
         <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
@@ -254,163 +246,100 @@ if (!doNotTrack) {
 
 
     </div>
-  </header> 
-<figure class="entry-cover1"><img loading="eager" src="https://jingyiwu-codespace.github.io/img/notion-avatar-resized.png" alt="">
-        
-</figure>
-  <div class="post-content"><h1 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h1>
-<p>成为更好的人｜｜慢慢前进</p>
-<h1 id="heading-1"><a hidden class="anchor" aria-hidden="true" href="#heading-1">#</a></h1>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<style type="text/css">
-    .dark-theme .aplayer {
-        background: #212121
-    }
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#day1" aria-label="Day1">Day1</a><ul>
 
-    .dark-theme .aplayer.aplayer-withlist .aplayer-info {
-        border-bottom-color: #5c5c5c
-    }
-
-    .dark-theme .aplayer.aplayer-fixed .aplayer-list {
-        border-color: #5c5c5c
-    }
-
-    .dark-theme .aplayer .aplayer-body {
-        background-color: #212121
-    }
-
-    .dark-theme .aplayer .aplayer-info {
-        border-top-color: #212121
-    }
-
-    .dark-theme .aplayer .aplayer-info .aplayer-music .aplayer-title {
-        color: #fff
-    }
-
-    .dark-theme .aplayer .aplayer-info .aplayer-music .aplayer-author {
-        color: #fff
-    }
-
-    .dark-theme .aplayer .aplayer-info .aplayer-controller .aplayer-time {
-        color: #eee
-    }
-
-    .dark-theme .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
-        fill: #eee
-    }
-
-    .dark-theme .aplayer .aplayer-list {
-        background-color: #212121
-    }
-
-    .dark-theme .aplayer .aplayer-list::-webkit-scrollbar-thumb {
-        background-color: #999
-    }
-
-    .dark-theme .aplayer .aplayer-list::-webkit-scrollbar-thumb:hover {
-        background-color: #bbb
-    }
-
-    .dark-theme .aplayer .aplayer-list li {
-        color: #fff;
-        border-top-color: #666
-    }
-
-    .dark-theme .aplayer .aplayer-list li:hover {
-        background: #4e4e4e
-    }
-
-    .dark-theme .aplayer .aplayer-list li.aplayer-list-light {
-        background: #6c6c6c
-    }
-
-    .dark-theme .aplayer .aplayer-list li .aplayer-list-index {
-        color: #ddd
-    }
-
-    .dark-theme .aplayer .aplayer-list li .aplayer-list-author {
-        color: #ddd
-    }
-
-    .dark-theme .aplayer .aplayer-lrc {
-        text-shadow: -1px -1px 0 #666
-    }
-
-    .dark-theme .aplayer .aplayer-lrc:before {
-        background: -moz-linear-gradient(top, #212121 0%, rgba(33, 33, 33, 0) 100%);
-        background: -webkit-linear-gradient(top, #212121 0%, rgba(33, 33, 33, 0) 100%);
-        background: linear-gradient(to bottom, #212121 0%, rgba(33, 33, 33, 0) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#212121', endColorstr='#00212121', GradientType=0)
-    }
-
-    .dark-theme .aplayer .aplayer-lrc:after {
-        background: -moz-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.8) 100%);
-        background: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.8) 100%);
-        background: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.8) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00212121', endColorstr='#cc212121', GradientType=0)
-    }
-
-    .dark-theme .aplayer .aplayer-lrc p {
-        color: #fff
-    }
-
-    .dark-theme .aplayer .aplayer-miniswitcher {
-        background: #484848
-    }
-
-    .dark-theme .aplayer .aplayer-miniswitcher .aplayer-icon path {
-        fill: #eee
-    }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="song" id="22463223"
-    theme="#2980b9"></meting-js>
-<h1 id="heading-2"><a hidden class="anchor" aria-hidden="true" href="#heading-2">#</a></h1>
-<p>啊喂!! 什么情况只能听30s!!! 插入一段无广b站食用!!!
-<!DOCTYPE HTML>
-<html lang="en">
-
-<head>
-    <style type="text/css">
-        .bilibili_shortcodes {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 66%;
-            margin: auto;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .bilibili_shortcodes iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-        }
-    </style>
-    <title></title>
-</head>
-
-<body>
-    <div class="bilibili_shortcodes">
-        <iframe
-            src="https://player.bilibili.com/player.html?bvid=BV1Fy4y1D7g8&page=1&high_quality=1&danmaku=0&as_wide=0"
-            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-        </iframe>
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e4%bb%80%e4%b9%88%e6%98%afnodejs" aria-label="1. 什么是Node.js?">1. 什么是Node.js?</a></li>
+                    <li>
+                        <a href="#2-%e4%bb%80%e4%b9%88%e6%98%af%e5%89%8d%e7%ab%af%e5%b7%a5%e7%a8%8b%e5%8c%96" aria-label="2. 什么是前端工程化？">2. 什么是前端工程化？</a></li>
+                    <li>
+                        <a href="#3-nodejs-%e4%b8%ba%e4%bd%95%e8%83%bd%e6%89%a7%e8%a1%8c-js-" aria-label="3. Node.js 为何能执行 JS ?">3. Node.js 为何能执行 JS ?</a></li>
+                    <li>
+                        <a href="#4-nodejs-%e5%ae%89%e8%a3%85" aria-label="4. Node.js 安装">4. Node.js 安装</a></li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结：">总结：</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
     </div>
-</body>
-
-</html></p>
+  <div class="post-content"><h1 id="day1">Day1<a hidden class="anchor" aria-hidden="true" href="#day1">#</a></h1>
+<h2 id="1-什么是nodejs">1. 什么是Node.js?<a hidden class="anchor" aria-hidden="true" href="#1-什么是nodejs">#</a></h2>
+<blockquote>
+<p>Node.js 是一个跨平台 JavaScript运行环境，使开发者可以搭建服务端的JavaScript的应用程序</p>
+</blockquote>
+<p>作用：使用Node.js 便携服务器端程序</p>
+<ul>
+<li>编写数据接口，提供网页资源浏览功能等等</li>
+<li>前端工程化：为后续学习Vue和React做铺垫</li>
+</ul>
+<h2 id="2-什么是前端工程化">2. 什么是前端工程化？<a hidden class="anchor" aria-hidden="true" href="#2-什么是前端工程化">#</a></h2>
+<blockquote>
+<p>开发项目直到上线，过程中继承的所有工具和技术</p>
+</blockquote>
+<ul>
+<li>压缩工具 -&gt; 体积更小，更流畅</li>
+<li>转换工具 -&gt; less 转 css， 转高版本JS</li>
+<li>格式化工具</li>
+<li>打包工具 -&gt; 整合前端代码</li>
+<li>脚手架工具</li>
+<li>自动化部署</li>
+</ul>
+<p>node.js 可以主动读取前端代码的内容，对前端代码进行相应的处理</p>
+<h2 id="3-nodejs-为何能执行-js-">3. Node.js 为何能执行 JS ?<a hidden class="anchor" aria-hidden="true" href="#3-nodejs-为何能执行-js-">#</a></h2>
+<ul>
+<li>首先：浏览器能执行 JS 代码，依靠的是内核中的V8引擎 （C++程序）</li>
+<li>其次： Node.js 是基于 Chrome V8 引擎进行封装 （运行环境）</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240330231551295.png" alt="image-20240330231551295"  />
+</p>
+<h2 id="4-nodejs-安装">4. Node.js 安装<a hidden class="anchor" aria-hidden="true" href="#4-nodejs-安装">#</a></h2>
+<p>下载 node-v16.19.0 msi 安装程序 (指定版本：兼容vue-admin-template模版)，我不太想下载之前版本的Node.js, 发现 <a href="https://juejin.cn/post/7204454572889980965">https://juejin.cn/post/7204454572889980965</a> 这个教程中有切换版本的选项。</p>
+<h2 id="总结">总结：<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<ol>
+<li>
+<p>Node.js 是什么？</p>
+<p>基于Chrome的V8引擎，独立执行JavaScript代码环境</p>
+</li>
+<li>
+<p>Node.js 与 浏览器环境的 JS 最大区别？</p>
+<p>Node.js 环境中没有 BOM 和 DOM</p>
+</li>
+<li>
+<p>Node.js 有什么用？</p>
+<p>编写后端程序： 提供数据和网页资源等等</p>
+<p>前端工程化：集成各种开发使用的工具和技术</p>
+</li>
+<li>
+<p>Node.js 如何执行代码?</p>
+<p>在VSCode终端输入： <code>node xxx.js</code> 回车即可（注意路径）</p>
+</li>
+</ol>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/node.js/">Node.js</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/webpack/">Webpack</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
     </ul>
 
 
@@ -489,10 +418,10 @@ if (!doNotTrack) {
 
 
 <nav class="paginav">
-  <a class="prev" href="https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/">
-    <span class="title">« 上一页</span>
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/">
+    <span class="title">下一页 »</span>
     <br>
-    <span>🇪🇸 去西班牙旅游 !!</span>
+    <span>学习：AJAX </span>
   </a>
 </nav>
 

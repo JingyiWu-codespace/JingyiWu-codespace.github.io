@@ -6,27 +6,41 @@
     <description>Recent content in 🏷️ 标签合集 on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 23 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AJAX</title>
-      <link>https://jingyiwu-codespace.github.io/zh/tags/ajax/</link>
-      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/zh/tags/ajax/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Frontend</title>
       <link>https://jingyiwu-codespace.github.io/zh/tags/frontend/</link>
-      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/tags/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Node.js</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/node.js/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/node.js/</guid>
       <description></description>
     </item>
     <item>
       <title>VUB</title>
       <link>https://jingyiwu-codespace.github.io/zh/tags/vub/</link>
-      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/tags/vub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webpack</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/webpack/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/webpack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AJAX</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/ajax/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/ajax/</guid>
       <description></description>
     </item>
     <item>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,11 +28,8 @@
                 href="https://jingyiwu-codespace.github.io/zh/posts/"
                 />
   </url><url>
-    <loc>https://jingyiwu-codespace.github.io/zh/tags/ajax/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/categories/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,10 +42,10 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/frontend/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -60,8 +57,11 @@
                 href="https://jingyiwu-codespace.github.io/zh/"
                 />
   </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/tags/node.js/</loc>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/categories/tech/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -74,7 +74,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/vub/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -86,8 +86,11 @@
                 href="https://jingyiwu-codespace.github.io/zh/tags/vub/"
                 />
   </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/tags/webpack/</loc>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/tags/</loc>
-    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -98,6 +101,12 @@
                 hreflang="zh"
                 href="https://jingyiwu-codespace.github.io/zh/tags/"
                 />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/</loc>
+    <lastmod>2024-03-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/zh/tags/ajax/</loc>
+    <lastmod>2024-03-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</loc>
     <lastmod>2024-03-23T00:00:00+00:00</lastmod>
@@ -234,18 +243,16 @@
                 href="https://jingyiwu-codespace.github.io/zh/resume/"
                 />
   </url><url>
-    <loc>https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/</loc>
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/zh/posts/projects/</loc>
+    <loc>https://jingyiwu-codespace.github.io/zh/projects/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://jingyiwu-codespace.github.io/en/posts/projects/"
+                href="https://jingyiwu-codespace.github.io/en/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://jingyiwu-codespace.github.io/zh/posts/projects/"
+                href="https://jingyiwu-codespace.github.io/zh/projects/"
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/zh/archives/</loc>

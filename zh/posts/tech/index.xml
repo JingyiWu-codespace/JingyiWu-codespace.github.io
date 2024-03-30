@@ -6,14 +6,21 @@
     <description>Recent content in 💻 技术 on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 23 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习：Node.js &amp; Webpack </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/</guid>
+      <description>Basic understanding of front-end engineering</description>
+    </item>
     <item>
       <title>学习：AJAX </title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</link>
       <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</guid>
-      <description>AJAX + Node.js + webpack + git</description>
+      <description>axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop,</description>
     </item>
     <item>
       <title>学习: JavaScript 进阶篇</title>
@@ -42,13 +49,6 @@
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
       <description>每次运行Cooja的端口监听，显示资源繁忙，可能是端口已经被占用，只要给其中一个进程干掉就好.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/</guid>
-      <description>旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should</description>
     </item>
   </channel>
 </rss>
