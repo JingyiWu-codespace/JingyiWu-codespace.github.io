@@ -130,8 +130,8 @@ if (!doNotTrack) {
   "keywords": [
     "Vue"
   ],
-  "articleBody": " 最近比较沉迷mermaid感觉简单干净又好看, 用mermaid展现一下\ngantt title Vue Learning Process dateFormat YYYY-MM-DD section Vue Learning Vue 2:active, 2024-04-05, 5d Vue Project:, 2024-04-10, 3d Vue 3: 2024-04-14, 7d Day1 Vue 快速上手 1. Vue 概念 是一个用于构建用户界面的渐进式框架\n1: 构建用户界面 指的是 基于数据渲染出用户看到\n2: 循序渐进： 声明式渲染 - Vue.js 核心包 - 组件系统 - 客户端路由 (VueRouter) - 大规模状态管理(Vuex) - 构建工具(Webpack/Vite)\n3: 框架：一套完整的项目解决方案\nVue 的两种使用方式：\nVue 核心包开发\n场景：局部模块改造\nVue 核心包 \u0026 Vue 插件 工程化开发\n场景：整站开发\n2. 创建Vue实例，初始化渲染 构建用户界面 -\u003e 创建Vue实例初始化渲染\ngraph LR; 构建用户界面--\u003e创建Vue实例初始化渲染; 创建Vue实例初始化渲染--\u003eID1[1.准备容器]; 创建Vue实例初始化渲染--\u003eID2[2.官网引包dev production]; 创建Vue实例初始化渲染--\u003eID3[3.创建Vue实例]; 创建Vue实例初始化渲染--\u003eID4[4.指定配置项]; ID4 --\u003e el指定挂载点 ID4 --\u003e data提供数据 代码案例：\n\u003cdiv id=\"app\"\u003e {{ msg }} \u003c/div\u003e \u003cscript src=\"url.js\"\u003e\u003c/script\u003e \u003cscript\u003e const app = new Vue({ // 通过el配置选择器，指定Vue管理的盒子 el: '#app', // 通过data提供数据 data:{ msg:'Hello World' // 变量提供数据 } }) \u003c/script\u003e 总结 创建Vue实例，初始化渲染的核心步骤\n准备容器\n引包 (官网) -开发版本/生产版本\n创建Vue实例 new Vue()\n指定配置项 el data 渲染数据\nel 指定挂载点，选择器指定控制盒子\ndata 提供数据\n3. Vue 插值表达式 插值表达式是一种Vue的模版语法 {{ }}\n作用：利用表达式进行插值，渲染到页面中\n表达式：JS引擎将其返回结果的代码\nmoney + 100 money - 100 money * 10 money / 10 price \u003e= 100? 'greater':'ok' obj.name arr[0] fn() obj.fn() 语法 ： {{ 表达式 }} \u003ch3\u003e{{ title }}\u003c/h3\u003e \u003cp\u003e{{ nickname.toUpperCase() }}\u003c/p\u003e \u003cp\u003e{{ age\u003e=18 ? '成年':'未成年' }}\u003c/p\u003e \u003cp\u003e{{ obj.name }}\u003c/p\u003e 注意事项\n使用的数据必须在data内声明\n支持表达式，但不支持语句，所以可以写三元表达式，但不能写 if for\n不能在标签属性中使用 {{ }} 插值\n这里可以使用插值 总结\n插值表达式的作用？\n利用表达式进行插值，将数据渲染到页面中\n语法格式？\n{{ 表达式 }}\n插值表达式的注意点\n使用的数据要存在\n支持表达式，而不是语句\n不能在标签属性中使用\n4. Vue响应式特性 数据变化，视图自动更新\ndata 中的数据会被添加到实例上\n访问数据: 实例.属性名 app.msg 修改数据: 实例.属性名 = value app.msg = '您好 Vue' \u003cdiv id=\"app\"\u003e {{ msg }} \u003c/div\u003e \u003cscript src=\"url.js\"\u003e\u003c/script\u003e \u003cscript\u003e const app = new Vue({ // 通过el配置选择器，指定Vue管理的盒子 el: '#app', // 通过data提供数据 data:{ msg:'Hello World' // 变量提供数据 count:100 } }) \u003c/script\u003e 5. 开发者工具 Devtools 6. Vue 指令 Vue 会根据不同的 【指令】，针对标签实现不同的【功能】\n指令： 带有 v-的特殊标签属性，大约14个，常用10个，文档可查\nv-html 示例代码：\n\u003cdiv v-html = 'str'\u003e\u003c/div\u003e \u003cdiv class = \"box\"\u003e...\u003c/div\u003e \u003cdiv title = \"校长\"\u003e ...\u003c/div\u003e v-show 作用：控制元素显示隐藏 语法：v-show ='表达式'，表达式值为true显示，false隐藏 底层原理：核心是控制元素的css属性，控制属性是否显示style = \"display:none\" 场景：频繁切换显示隐藏的场景 v-if 作用：控制元素显示隐藏（条件渲染） 语法：v-if ='表达式'，表达式值为true显示，false隐藏 底层原理：核心是根据判断条件控制元素的创建和移除。一旦为false，对应标签会消失 场景：要么显示，要么隐藏，不频繁切换的场景 \u003cbody\u003e \u003cdiv id=\"app\"\u003e \u003cdiv v-show=\"flag\" class=\"box\"\u003e我是v-show控制的盒子 我是v-if控制的盒子 ",
-  "wordCount" : "2964",
+  "articleBody": " 最近比较沉迷mermaid感觉简单干净又好看, 用mermaid展现一下\ngantt title Vue Learning Process dateFormat M-D axisFormat %m-%d section Vue Vue 2:active, 2024-04-05, 5d Vue Project:, 2024-04-10, 3d Vue 3: 2024-04-14, 7d Day1 Vue 快速上手 1. Vue 概念 是一个用于构建用户界面的渐进式框架\n1: 构建用户界面 指的是 基于数据渲染出用户看到\n2: 循序渐进： 声明式渲染 - Vue.js 核心包 - 组件系统 - 客户端路由 (VueRouter) - 大规模状态管理(Vuex) - 构建工具(Webpack/Vite)\n3: 框架：一套完整的项目解决方案\nVue 的两种使用方式：\nVue 核心包开发\n场景：局部模块改造\nVue 核心包 \u0026 Vue 插件 工程化开发\n场景：整站开发\n2. 创建Vue实例，初始化渲染 构建用户界面 -\u003e 创建Vue实例初始化渲染\ngraph LR; 构建用户界面--\u003e创建Vue实例初始化渲染; 创建Vue实例初始化渲染--\u003eID1[1.准备容器]; 创建Vue实例初始化渲染--\u003eID2[2.官网引包dev production]; 创建Vue实例初始化渲染--\u003eID3[3.创建Vue实例]; 创建Vue实例初始化渲染--\u003eID4[4.指定配置项]; ID4 --\u003e el指定挂载点 ID4 --\u003e data提供数据 代码案例：\n\u003cdiv id=\"app\"\u003e {{ msg }} \u003c/div\u003e \u003cscript src=\"url.js\"\u003e\u003c/script\u003e \u003cscript\u003e const app = new Vue({ // 通过el配置选择器，指定Vue管理的盒子 el: '#app', // 通过data提供数据 data:{ msg:'Hello World' // 变量提供数据 } }) \u003c/script\u003e 总结 创建Vue实例，初始化渲染的核心步骤\n准备容器\n引包 (官网) -开发版本/生产版本\n创建Vue实例 new Vue()\n指定配置项 el data 渲染数据\nel 指定挂载点，选择器指定控制盒子\ndata 提供数据\n3. Vue 插值表达式 插值表达式是一种Vue的模版语法 {{ }}\n作用：利用表达式进行插值，渲染到页面中\n表达式：JS引擎将其返回结果的代码\nmoney + 100 money - 100 money * 10 money / 10 price \u003e= 100? 'greater':'ok' obj.name arr[0] fn() obj.fn() 语法 ： {{ 表达式 }} \u003ch3\u003e{{ title }}\u003c/h3\u003e \u003cp\u003e{{ nickname.toUpperCase() }}\u003c/p\u003e \u003cp\u003e{{ age\u003e=18 ? '成年':'未成年' }}\u003c/p\u003e \u003cp\u003e{{ obj.name }}\u003c/p\u003e 注意事项\n使用的数据必须在data内声明\n支持表达式，但不支持语句，所以可以写三元表达式，但不能写 if for\n不能在标签属性中使用 {{ }} 插值\n这里可以使用插值 总结\n插值表达式的作用？\n利用表达式进行插值，将数据渲染到页面中\n语法格式？\n{{ 表达式 }}\n插值表达式的注意点\n使用的数据要存在\n支持表达式，而不是语句\n不能在标签属性中使用\n4. Vue响应式特性 数据变化，视图自动更新\ndata 中的数据会被添加到实例上\n访问数据: 实例.属性名 app.msg 修改数据: 实例.属性名 = value app.msg = '您好 Vue' \u003cdiv id=\"app\"\u003e {{ msg }} \u003c/div\u003e \u003cscript src=\"url.js\"\u003e\u003c/script\u003e \u003cscript\u003e const app = new Vue({ // 通过el配置选择器，指定Vue管理的盒子 el: '#app', // 通过data提供数据 data:{ msg:'Hello World' // 变量提供数据 count:100 } }) \u003c/script\u003e 5. 开发者工具 Devtools 6. Vue 指令 Vue 会根据不同的 【指令】，针对标签实现不同的【功能】\n指令： 带有 v-的特殊标签属性，大约14个，常用10个，文档可查\nv-html 示例代码：\n\u003cdiv v-html = 'str'\u003e\u003c/div\u003e \u003cdiv class = \"box\"\u003e...\u003c/div\u003e \u003cdiv title = \"校长\"\u003e ...\u003c/div\u003e v-show 作用：控制元素显示隐藏 语法：v-show ='表达式'，表达式值为true显示，false隐藏 底层原理：核心是控制元素的css属性，控制属性是否显示style = \"display:none\" 场景：频繁切换显示隐藏的场景 v-if 作用：控制元素显示隐藏（条件渲染） 语法：v-if ='表达式'，表达式值为true显示，false隐藏 底层原理：核心是根据判断条件控制元素的创建和移除。一旦为false，对应标签会消失 场景：要么显示，要么隐藏，不频繁切换的场景 \u003cbody\u003e \u003cdiv id=\"app\"\u003e \u003cdiv v-show=\"flag\" class=\"box\"\u003e我是v-show控制的盒子 我是v-if控制的盒子 ",
+  "wordCount" : "4927",
   "inLanguage": "zh",
   "datePublished": "2024-04-05T00:00:00Z",
   "dateModified": "2024-04-05T00:00:00Z",
@@ -171,34 +171,36 @@ if (!doNotTrack) {
     <nav class="nav">
         <div class="logo">
             <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="https://jingyiwu-codespace.github.io/en/" title="English"
-                            aria-label="English">En</a>
-                    </li>
-                </ul>
-            </div>
+                    <div class="logo-switches">
+                        <button id="theme-toggle" accesskey="t" title="(Alt + T)"
+                            onclick="javascript:location.reload();">
+                            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+                        <ul class="lang-switch"><li>|</li>
+                            <li>
+                                <a href="https://jingyiwu-codespace.github.io/en/"
+                                    title="English"
+                                    aria-label="English">En</a>
+                            </li>
+                        </ul>
+                    </div>
         </div>
         <ul id="menu">
             <li>
@@ -228,8 +230,7 @@ if (!doNotTrack) {
             </li>
         </ul>
     </nav>
-</header>
-<main class="main">
+</header><main class="main">
 
 <article class="post-single">
   <header class="post-header">
@@ -238,7 +239,7 @@ if (!doNotTrack) {
     <h1 class="post-title entry-hint-parent">
       学习：Vue2 &amp; Vue3 
     </h1>
-    <div class="post-meta"><span title='2024-04-05 00:00:00 +0000 UTC'>四月 5, 2024</span>&nbsp;·&nbsp;6 分钟&nbsp;·&nbsp;Jingyi Wu
+    <div class="post-meta"><span title='2024-04-05 00:00:00 +0000 UTC'>四月 5, 2024</span>&nbsp;·&nbsp;10 分钟&nbsp;·&nbsp;Jingyi Wu
 
       <div class="meta-item">&nbsp·&nbsp
         <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
@@ -298,11 +299,43 @@ if (!doNotTrack) {
                     <li>
                         <a href="#v-on" aria-label="v-on">v-on</a></li>
                     <li>
-                        <a href="#v-bind" aria-label="v-bind">v-bind</a></li>
+                        <a href="#v-bind" aria-label="v-bind">v-bind</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#v-bind-%e5%af%b9%e4%ba%8e%e6%a0%b7%e5%bc%8f%e6%8e%a7%e5%88%b6%e7%9a%84%e5%a2%9e%e5%bc%ba" aria-label="v-bind 对于样式控制的增强">v-bind 对于样式控制的增强</a></li></ul>
+
+                    </li>
                     <li>
                         <a href="#v-for" aria-label="v-for">v-for</a></li>
                     <li>
-                        <a href="#v-model" aria-label="v-model">v-model</a>
+                        <a href="#v-model" aria-label="v-model">v-model</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#7-%e6%8c%87%e4%bb%a4%e4%bf%ae%e9%a5%b0%e7%ac%a6" aria-label="7. 指令修饰符">7. 指令修饰符</a></li>
+                    <li>
+                        <a href="#8-%e8%ae%a1%e7%ae%97%e5%b1%9e%e6%80%a7" aria-label="8. 计算属性">8. 计算属性</a></li>
+                    <li>
+                        <a href="#9-watch-%e4%be%a6%e5%90%ac%e5%99%a8%e7%9b%91%e5%90%ac%e5%99%a8" aria-label="9. watch 侦听器（监听器）">9. watch 侦听器（监听器）</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e7%ae%80%e5%86%99" aria-label="简写：">简写：</a></li>
+                    <li>
+                        <a href="#%e5%ae%8c%e6%95%b4%e5%86%99%e6%b3%95%e6%b7%bb%e5%8a%a0%e9%a2%9d%e5%a4%96%e9%85%8d%e7%bd%ae%e9%a1%b9" aria-label="完整写法：添加额外配置项">完整写法：添加额外配置项</a></li>
+                    <li>
+                        <a href="#watch%e4%be%a6%e5%90%ac%e5%99%a8%e7%9a%84%e8%af%ad%e6%b3%95%e6%9c%89%e4%b8%a4%e7%a7%8d" aria-label="watch侦听器的语法有两种">watch侦听器的语法有两种</a></li>
+                    <li>
+                        <a href="#%e6%a1%88%e4%be%8b%e6%8a%80%e6%9c%af%e6%80%bb%e7%bb%93" aria-label="案例技术总结：">案例技术总结：</a>
                     </li>
                 </ul>
                 </li>
@@ -319,11 +352,13 @@ if (!doNotTrack) {
 </blockquote>
 <pre class="mermaid">gantt
    title Vue Learning Process
-   dateFormat  YYYY-MM-DD
-   section Vue Learning
+   dateFormat  M-D
+   axisFormat  %m-%d
+   section Vue
    Vue 2:active, 2024-04-05, 5d
    Vue Project:, 2024-04-10, 3d
    Vue 3: 2024-04-14, 7d
+ 
 </pre>
 <h1 id="day1">Day1<a hidden class="anchor" aria-hidden="true" href="#day1">#</a></h1>
 <h2 id="vue-快速上手">Vue 快速上手<a hidden class="anchor" aria-hidden="true" href="#vue-快速上手">#</a></h2>
@@ -643,7 +678,77 @@ if (!doNotTrack) {
 <p><code>简写版本  &lt;img :src=&quot;imgUrl&quot; :title=&quot;msg&quot;&gt;</code></p>
 </li>
 </ol>
-<h4 id="v-for">v-for<a hidden class="anchor" aria-hidden="true" href="#v-for">#</a></h4>
+<h5 id="v-bind-对于样式控制的增强">v-bind 对于样式控制的增强<a hidden class="anchor" aria-hidden="true" href="#v-bind-对于样式控制的增强">#</a></h5>
+<ol>
+<li>
+<p>操作 class</p>
+<p>语法： class = &ldquo;对象&rdquo;</p>
+<ol>
+<li>对象 -&gt; 键就是类名，值是布尔值。如果值为<code>true</code>，有这个类，否则没有这个类</li>
+</ol>
+<p><code>&lt;div class = &quot;box&quot; :class = &quot;{类名1: 布尔值， 类名2:布尔值}&quot;&gt;&lt;/div&gt;</code></p>
+<ol start="2">
+<li>数组 -&gt; 数组中所有的类，都会添加到盒子上，本质是class列表</li>
+</ol>
+<p><code>&lt;div class=&quot;box&quot; :class&quot;[类名1， 类名2， 类名3]&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">id</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;app&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">&lt;!--</span><span style="color:#797593">-</span><span style="color:#d7827e">使用</span> <span style="color:#797593">:</span><span style="color:#286983">class</span> <span style="color:#d7827e">对象</span> <span style="color:#d7827e">绑定</span> <span style="color:#d7827e">类名</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;box&#34;</span> <span style="color:#d7827e">:class</span><span style="color:#ea9d34">=&#34;{pink:true,big:true}&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">黑马程序员</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">&lt;!--</span><span style="color:#797593">-</span><span style="color:#d7827e">使用</span> <span style="color:#797593">:</span><span style="color:#286983">class</span> <span style="color:#d7827e">列表</span> <span style="color:#d7827e">绑定</span> <span style="color:#d7827e">类名</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;box&#34;</span> <span style="color:#d7827e">:class</span><span style="color:#ea9d34">=&#34;[&#39;pink&#39;,&#39;big&#39;]&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">黑马程序员</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span> <span style="color:#d7827e">src</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;</span><span style="color:#797593">&gt;&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">app</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Vue</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">el</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;#app&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<p>操作 style -&gt; 方便控制单个属性的变化</p>
+<p>语法： <code>:style = &quot;样式对象&quot;</code></p>
+<p><code>&lt;div class = &quot;box&quot; :style=&quot;{css属性名1:css属性值，css属性名2:css属性值}&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">id</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;app&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#9893a5">&lt;!--</span><span style="color:#797593">-</span><span style="color:#d7827e">使用</span> <span style="color:#797593">:</span><span style="color:#d7827e">style</span> <span style="color:#d7827e">对象</span> <span style="color:#d7827e">绑定</span> <span style="color:#d7827e">样式</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;box&#34;</span> <span style="color:#797593">:</span><span style="color:#d7827e">style</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;{width:&#39;400px&#39;,height:&#39;200px&#39;,backgroundColor = &#39;green&#39;}&#34;</span><span style="color:#797593">&gt;&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span> <span style="color:#d7827e">src</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;</span><span style="color:#797593">&gt;&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">app</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Vue</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">el</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;#app&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">id</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;app&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;progress&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">&lt;</span><span style="color:#d7827e">div</span> <span style="color:#d7827e">class</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;inner&#34;</span> <span style="color:#797593">:</span><span style="color:#d7827e">style</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;{width:percent + &#39;%&#39;}&#34;</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">&lt;</span><span style="color:#d7827e">span</span><span style="color:#797593">&gt;{{</span><span style="color:#d7827e">percent</span><span style="color:#797593">}}</span><span style="color:#797593">%</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">span</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">button</span> <span style="color:#b4637a">@</span><span style="color:#d7827e">click</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;percent = 25&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">设置25</span><span style="color:#797593">%</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">button</span> <span style="color:#b4637a">@</span><span style="color:#d7827e">click</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;percent = 50&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">设置50</span><span style="color:#797593">%</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">button</span> <span style="color:#b4637a">@</span><span style="color:#d7827e">click</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;percent = 75&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">设置75</span><span style="color:#797593">%</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span><span style="color:#d7827e">button</span> <span style="color:#b4637a">@</span><span style="color:#d7827e">click</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;percent = 100&#34;</span><span style="color:#797593">&gt;</span><span style="color:#d7827e">设置100</span><span style="color:#797593">%</span><span style="color:#797593">&lt;/</span><span style="color:#d7827e">button</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">div</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span> <span style="color:#d7827e">src</span><span style="color:#797593">=</span><span style="color:#ea9d34">&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;</span><span style="color:#797593">&gt;&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">app</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Vue</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">el</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;#app&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">percent</span><span style="color:#797593">:</span> <span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
+</span></span></code></pre></div><h4 id="v-for">v-for<a hidden class="anchor" aria-hidden="true" href="#v-for">#</a></h4>
 <ol>
 <li>
 <p>作用：基于数据循环，多次渲染整个元素 -&gt; 数组、对象、数字&hellip;</p>
@@ -720,15 +825,195 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">&lt;/</span><span style="color:#d7827e">script</span><span style="color:#797593">&gt;</span>		
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>v-model 应用于其他表单元素</p>
+<p>常见的表单元素都可以用 <code>v-model</code>绑定关联，快速获取或设置表单元素的值，它会根据控件类型自动选取正确的方法来更新元素</p>
+<table>
+<thead>
+<tr>
+<th>表单类型</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入框 input:text</td>
+<td>value</td>
+</tr>
+<tr>
+<td>文本域 textarea</td>
+<td>value</td>
+</tr>
+<tr>
+<td>复选框 input:checkbox</td>
+<td>checked</td>
+</tr>
+<tr>
+<td>单选框 input:radio</td>
+<td>checked</td>
+</tr>
+<tr>
+<td>下拉菜单 select</td>
+<td>value</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="7-指令修饰符">7. 指令修饰符<a hidden class="anchor" aria-hidden="true" href="#7-指令修饰符">#</a></h3>
+<blockquote>
+<p>通过 “ . ” 指明一些指令 后缀，不同后缀封装了不同的处理操作 —&gt; 简化操作</p>
+</blockquote>
+<ol>
+<li>
+<p>按键修饰符</p>
+<p><code>@keyup.enter </code> —&gt; 键盘回车监听</p>
+</li>
+<li>
+<p>v-model 修饰符</p>
+<p><code>v-model.trim</code> —&gt; 去除首尾空格</p>
+<p><code>v-model.number </code> –&gt; 转数字</p>
+</li>
+<li>
+<p>事件修饰符</p>
+<p><code>@事件名.stop</code> —&gt; 阻止冒泡</p>
+<p><code>@事件名.prevent</code> —&gt; 阻止默认行为</p>
+</li>
+</ol>
+<h3 id="8-计算属性">8. 计算属性<a hidden class="anchor" aria-hidden="true" href="#8-计算属性">#</a></h3>
+<blockquote>
+<p>基于现有的数据，计算出新的属性。依赖的数据变化，自动重新计算</p>
+</blockquote>
+<p><strong>语法</strong>：</p>
+<ol>
+<li>声明在 computed 配置项中，一个计算属性对应一个函数。computed 与 data 同级</li>
+<li>使用起来和普通属性一样使用 <code>{{ 计算属性名 }}</code></li>
+<li>计算属性 -&gt; 就是将求值还输封装</li>
+</ol>
+<p><strong>注意</strong>：使用计算属性时不用加小括号，会导致报错</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>computed :{
+</span></span><span style="display:flex;"><span>    计算属性名(){
+</span></span><span style="display:flex;"><span>        基于现有数据，编写求值逻辑
+</span></span><span style="display:flex;"><span>        return 结果
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>缓存特性(提升性能)</strong></p>
+<ol>
+<li>计算属性会对计算出来的结果缓存，再次使用直接读取缓存，依赖项变化了，会自动重新计算 -&gt; 并再次缓存</li>
+</ol>
+<p>与 methods方法对比：</p>
+<ol>
+<li>
+<p>作用：methods给实例提供一个方法，调用以处理业务逻辑</p>
+</li>
+<li>
+<p>语法：写在methods配置项中</p>
+<p>作为方法，需要调用 -&gt; <code>this.方法名() {{ 方法名() }} @事件名=“方法名”</code></p>
+</li>
+</ol>
+<p>计算属性的修改：</p>
+<ol>
+<li>计算属性默认的简写，只能读取访问，不能修改。如果要修改需要写计算属性的完整写法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#9893a5">&lt;!--</span><span style="color:#d7827e">简写版本</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">computed</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">计算属性名</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">一段代码逻辑</span><span style="color:#797593">(</span><span style="color:#d7827e">计算逻辑</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#286983">return</span> <span style="color:#d7827e">结果</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">&lt;!--</span><span style="color:#d7827e">完整版本</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">computed</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#d7827e">计算属性名</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">&lt;!--</span><span style="color:#d7827e">get</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">get</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">一段代码逻辑</span><span style="color:#797593">(</span><span style="color:#d7827e">计算逻辑</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#286983">return</span> <span style="color:#d7827e">结果</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#797593">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">&lt;!--</span><span style="color:#d7827e">set</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">set</span><span style="color:#797593">(</span><span style="color:#d7827e">修改的值</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">一段代码逻辑</span> <span style="color:#797593">(</span><span style="color:#d7827e">修改逻辑</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h3 id="9-watch-侦听器监听器">9. watch 侦听器（监听器）<a hidden class="anchor" aria-hidden="true" href="#9-watch-侦听器监听器">#</a></h3>
+<h4 id="简写">简写：<a hidden class="anchor" aria-hidden="true" href="#简写">#</a></h4>
+<ol>
+<li>作用： 监视数据变化，执行一些业务逻辑或异步操作</li>
+<li>语法：
+<ol>
+<li>简单写法： 简单类型数据，直接监视</li>
+<li>完整写法： 添加额外配置项</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">words</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;苹果&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">obj</span><span style="color:#797593">:</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">word</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;苹果&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span><span style="color:#b4637a">，</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">watch</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#9893a5">&lt;!--</span> <span style="color:#d7827e">该方法会在数据变化时触发执行</span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">newValue</span> <span style="color:#d7827e">新值</span> <span style="color:#d7827e">oldValue老值</span> <span style="color:#797593">(</span><span style="color:#d7827e">一般不用</span><span style="color:#797593">)</span><span style="color:#b4637a">，</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">所以有时只写newValue一个参数</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d7827e">数据属性名</span> <span style="color:#797593">(</span><span style="color:#d7827e">newValue</span><span style="color:#797593">,</span> <span style="color:#d7827e">oldValue</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">一些逻辑</span> <span style="color:#9893a5">// 异步操作
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>	<span style="color:#797593">},</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#9893a5">&lt;!--</span> <span style="color:#d7827e">对象里面的子属性记得加</span> <span style="color:#d7827e">引号</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ea9d34">&#39;对象.属性名&#39;</span><span style="color:#797593">(</span><span style="color:#d7827e">newValue</span><span style="color:#797593">,</span><span style="color:#d7827e">oldValue</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#d7827e">一些逻辑</span> <span style="color:#9893a5">// 异步操作
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>	<span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h4 id="完整写法添加额外配置项">完整写法：添加额外配置项<a hidden class="anchor" aria-hidden="true" href="#完整写法添加额外配置项">#</a></h4>
+<ol>
+<li><code>deep: true</code> 对复杂类型深度监视，任何对象的修改都可以监视到，<code>handle</code>是执行的方法</li>
+<li><code>immediate: true</code> 初始化立刻执行一次 <code>handler</code> 方法。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#d7827e">watch</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">fruitList</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">deep</span><span style="color:#797593">:</span> <span style="color:#286983">true</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">immediate</span><span style="color:#797593">:</span> <span style="color:#286983">true</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#9893a5">&lt;!--</span><span style="color:#d7827e">将变化后的newValue存入本地</span><span style="color:#797593">--&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">handler</span><span style="color:#797593">(</span><span style="color:#d7827e">newValue</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">newValue</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d7827e">localStorage</span><span style="color:#797593">.</span><span style="color:#d7827e">setItem</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;list&#39;</span><span style="color:#797593">,</span> <span style="color:#d7827e">JSON</span><span style="color:#797593">.</span><span style="color:#d7827e">stringify</span><span style="color:#797593">(</span><span style="color:#d7827e">newValue</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span></code></pre></div><h4 id="watch侦听器的语法有两种">watch侦听器的语法有两种<a hidden class="anchor" aria-hidden="true" href="#watch侦听器的语法有两种">#</a></h4>
+<ol>
+<li>简单写法： 监视简单类型的变化</li>
+<li>完整写法：添加额外的配置项（深度监视复杂类型，立刻执行）</li>
+</ol>
+<h4 id="案例技术总结">案例技术总结：<a hidden class="anchor" aria-hidden="true" href="#案例技术总结">#</a></h4>
+<ol>
+<li>渲染功能： <code>v-if/v-else   v-for遍历  :class绑定样式</code></li>
+<li>删除功能：点击传参 <code>filter 过滤覆盖原数组</code></li>
+<li>修改个数：点击传参 <code>find</code></li>
+<li>全选反选：计算属性<code>computed</code> 完整写法 <code>get/set</code></li>
+<li>统计选中的总价和总数量：计算属性<code>computed reduce</code>条件求和</li>
+<li>持久化到本地：<code>watch</code>监视，<code>localStorage</code> ,<code>JSON.stringify</code>, <code>JSON.parse</code></li>
+</ol>
+
 
   </div>
 
   
+
+  
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+    let mermaidTheme = "default";
+    if (localStorage.getItem("pref-theme") === "dark") {
+      mermaidTheme = "dark";
+    }
+    mermaid.initialize({ startOnLoad: true, theme: mermaidTheme, });
+
   </script>
   
 
