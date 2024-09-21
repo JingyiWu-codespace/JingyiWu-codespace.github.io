@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Javascript on Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/zh/tags/javascript/</link>
+    <description>Recent content in Javascript on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习: JavaScript 进阶篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/</guid>
+      <description>JavaScript 进阶篇!! 学习完看框架啦!!</description>
+    </item>
+    <item>
+      <title>学习: JavaScript WebAPIs篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</guid>
+      <description>JavaScript WebApi!! 程序媛养成之路</description>
+    </item>
+    <item>
+      <title>学习: JavaScript 基础篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</link>
+      <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</guid>
+      <description>开始学习JavaScript!! 课程来自于 Udemy+Bilibili</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🏷️ 标签合集 on Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/zh/tags/</link>
+    <description>Recent content in 🏷️ 标签合集 on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 05 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Frontend</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/frontend/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/git/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VUB</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/vub/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/vub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vue</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/vue/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/vue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Node.js</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/node.js/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/node.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webpack</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/webpack/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/webpack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AJAX</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/ajax/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/ajax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/javascript/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cooja</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/cooja/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/cooja/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trip</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/trip/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/trip/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

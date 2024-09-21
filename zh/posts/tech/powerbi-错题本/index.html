@@ -1,0 +1,936 @@
+<html lang="zh" dir=" auto">
+
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Jingyi&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should">
+<meta name="author" content="">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb17103716ce748824407fb65cb4ad0bab7144d7fdd69db82838a008c55e484e.css" integrity="sha256-uxcQNxbOdIgkQH&#43;2XLStC6txRNf91p24KDigCMVeSE4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-7TPHQR7CHS', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="" />
+<meta property="og:description" content="旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/" /><meta property="article:section" content="posts" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "旨在通过PL-300考试，试题来源于微软官网和examtopics1. You have multiple Excel files stored in a folder synced with OneDrive for Business. You need to import data from the files. The solution must NOT use a data gateway. Which type of connector should",
+  "keywords": [
+    
+  ],
+  "articleBody": " 旨在通过PL-300考试，试题来源于微软官网和examtopics1.\nYou have multiple Excel files stored in a folder synced with OneDrive for Business.\nYou need to import data from the files. The solution must NOT use a data gateway.\nWhich type of connector should you use?\nExcel workbook\nFolder\nSharePoint folder\nSharePoint list\nExplanation:\nA SharePoint folder is the only connector that will allow the import of multiple Excel (or CSV) files stored in a OneDrive for Business folder, without using a data gateway. While you can connect to the folder on an on-premises device, it would require a data gateway to refresh in the service. An Excel workbook would only connect to a single Excel file and would also require a data gateway. A SharePoint list connector only connects to SharePoint lists and cannot connect to Excel files.\nYou plan to publish a dataset from Power BI Desktop.\nYou need to ensure that a server name can be changed after the dataset has been published to the Power BI Service.\nWhich two actions should you perform? Each correct answer presents part of the solution.\nCreate a parameter.\nCreate a query for the server name.\nFrom the Data source settings, update the server source to use a parameter.\nUpdate the Source applied step of all related queries to reference the server name query.\nA parameter is the only part of a query that can be updated or changed in the Power BI service, by accessing the dataset settings. Updating the server source to use a parameter will update all existing queries pointing to the current server to instead use a parameter with that server name. This parameter can now be changed once this dataset is published to the Power BI service.\nFrom Power BI Desktop, you create a data source by importing an Excel file.\nYou plan to identify data anomalies within the data source.\nWhich interface should you use to display the column distribution and column quality graphs?\nAdvanced Editor in Power Query Editor\nthe Data view\nthe Model view\nPower Query Editor\nPower Query Editor provides the ability to display the column distribution and column quality graphs. Data view provides access to data within a dataset. Model view provides access to the data model of a dataset. Advanced Editor of Power Query Editor provides the ability to work with the M code used for shaping data in Power Query Editor.\nYou are analyzing query data by using Power Query Editor.\nYou need to ensure that the Column statistics are based on an analysis of the entire dataset.\nWhat should you do?\nChange the query connection type from Import to DirectQuery.\nFrom the status bar, change profiling status to entire dataset.\nIn Power Query Editor, enable column profiling from the View ribbon.\nLoad the data into the data model.\nBy default, column profiling is only based on the first 1000 rows of the preview. Changing the column profile status to entire dataset will query the entire dataset for the column profiling information.\nFrom the Power Query Editor, you import data from a .csv file. The data includes a column named ZIP that contains postal codes from the United States.\nYou notice that Power Query Editor automatically applies the Whole Number data type to the ZIP column.\nYou need to ensure that the ZIP column uses the Text data type and that all values remain 5 characters long.\nWhat should you do?\nSelect only one answer.\nFrom the data view in Power BI Desktop, change the column data type from number to text.\nFrom Power Query Editor, add a new applied step at the end of the query to convert the ZIP column from number back to text.\nFrom Power Query Editor, delete the changed type step.\nFrom Power Query Editor, update the current changed type step and replace convert from number to text for the ZIP column.\nTo correctly update the data to text you need to replace the number type conversion with a text conversion, and to keep all other data type column transformations. This needs to be done in the Power Query Editor. Adding a new applied step at the end of the query would result in loosing zip codes that start with 0. Changing the data type in Data View is equivalent to adding an applied step at the end of the query and would not preserve leading zeros. Deleting the changed type step would not set the data type to Text.\nYou have a table that contains a column named ProductID.\nThe ProductID column contains values that have a prefix of PD followed by five numbers. For example: pd15332.\nYou plan to convert the ProductID values to numbers (integer).\nYou need to remove the leading two letters from the current ProductID values.\nWhich command should you use?\nRemove Rows\nReplace Errors\nReplace Values\nTrim\nOnly the Replace Values command allows the removal of leading characters, such as “pd” from the column values. Trim removes leading and trailing whitespace. Remove Rows doesn’t affect the values in a column, only the included rows. The prefix of PD is not an error, so Replace Errors cannot remove the string.\nYou have a Power BI data source that contains the following tables:\nProductCategory: Lists the product category ID and category name ProductSubcategory: Lists the product subcategory ID, subcategory name, and the related category ID ProductList: Lists the product ID, name, and subcategory ID You need to optimize the data to create a dimension for use in a star schema data model.\nHow should the tables be transformed before loading into the model?\nSelect only one answer.\nImport all three tables into the data model and connect them using relationships.\nImport only the ProductName table into the model.\nMerge the queries to create a single loaded table for Product.\nUse the append command to create a single loaded table for product.\nA star schema should have a single table for each dimension or product, so using the combine command is what is required to create a single product table and aim towards a star schema design.\nYou connect Power Query Editor to a database table.\nYou need to remove the Row ID column. Your solution must ensure that new columns do NOT display in the table model during a scheduled refresh in the future.\nWhat transformation should you use?\nSelect only one answer.\nSelect Row ID, then use the Remove Other Columns command. Use the Remove Column command on the Row ID column. Use the Select Columns command and chose the columns to keep. Use the Transpose command, then filter the rows to remove Row ID. Only the Select Columns command will let you choose columns to keep, delete the columns you do not want, and prevent new columns from showing up in the table in the future.\nYou need to prevent hidden date tables from being auto generated by Power BI Desktop for every date or datetime data type column in a dataset.\nWhat two tasks should you perform? Each correct answer presents a complete solution\nSelect all answers that apply.\nEnable Mark as date table for the Calendar table.\nFrom the Current File options in Power BI Desktop, disable Auto Date/Time\nFrom the Global options in Power BI Desktop, disable Auto Date/Time for new files.\nSet the Data Category to None for all Date and DateTime fields.\nDisabling Auto Date/Time for new files from the Current File options will disable all Auto Date/Time tables in this dataset. Enabling Mark as date table for the Calendar table will also disable the auto datetime tables in the dataset. Disabling the Global option Auto Date/Time for new files means that new files will no longer have Auto Date/Time enabled, but the file containing the current dataset will still have it enabled until it is disabled. Changing the data category will not impact the auto date table feature.\nIn Power BI Desktop, you need to create a measure.\nWhich two interfaces can you use? Each correct answer presents a complete the solution.\nSelect all answers that apply.\nData view\nPage view\nPower Query Editor\nReport View\nThe Report view provides the ability to create measures. To create a measure, use the context sensitive menu of the Fields list or the Calculations section of the ribbon. The Data view provides access to data within a dataset and includes the option to create a measure in the Calculations section of the ribbon. Page view and Power Query Editor do not include the option to create a measure.\nYou need to use DAX quick measures to generate results to use in a report.\nWhich type of DAX quick measure calculations will NOT work against a DirectQuery table?\nSelect only one answer.\naggregate per category\nmathematical operations\ntime intelligence\nX-functions\nTime intelligence functions have performance implications and are disabled for quick measures against DirectQuery tables. Mathematical operations, aggregate per category, and X-functions are all supported against DirectQuery.\nYou plan to run Power BI Desktop Performance Analyzer.\nYou need to ensure that the data engine cache will NOT impact the test results without restarting Power BI Desktop.\nWhat should you do first?\nSelect only one answer.\nAdd a blank page to the .pbix file and select it.\nConnect DAX Studio to the data model.\nThis answer is correct.\nInvoke the Clear Cache function.\nThis answer is incorrect.\nInvoke the Refresh Metadata function.\nDAX Studio, once connected to the data model, can be used to clear the data engine cache. The Clear Cache function can be invoked from DAX Studio, once you connect it to the data model. The Refresh Metadata function can be invoked from DAX Studio to update the metadata of the currently selected model. Adding a blank page to the .pbix file and selecting it is the first step in clearing the visual cache, not the data engine cache.\nYou plan to optimize the performance of Power BI Desktop queries against a remote data source.\nYou need to disable the default behavior that automatically applies cross highlighting and filtering of visuals within the same report.\nWhich option should you configure in Power BI Desktop?\nSelect only one answer.\nthe Filters Query reduction settings\nthe Persistent filters of Report settings\nThis answer is incorrect.\nthe Reduce number of queries sent by Query reduction setting\nThis answer is correct.\nthe Slicers Query reduction settings\nThe Reduce number of queries sent by Query reduction setting disables the default behavior that automatically applies cross highlighting and filtering of visuals within the same report. The Slicers Query reduction settings allow you to instantly apply slicer changes and add an Apply button to each slicer. The Filters Query reduction settings allow you to instantly apply basic filter changes. The Persistent filters of Report settings allow you to prevent users from saving filters in the Power BI service.\nYou decide to start using variables when creating DAX formulas.\nWhat are two benefits of using variables in DAX measures over using original expressions? Each correct answer presents a complete solution.\nSelect all answers that apply.\nallows users to change the data source connection in the DAX measure\nhas additional functions that can be used in the DAX measure\nThis answer is incorrect.\nimproves the overall performance of the resulting DAX measure\nThis answer is correct.\nimproves the overall readability of the resulting DAX measure\nThis answer is correct.\nVariable names are often shorter than the original expressions, and the final variable returned at the end of the measure will be more readable with variable names included. Variables cache the defined calculation, allowing it to be referenced multiple times without additional impacts from recalculations. The functions in DAX are universal, and there are no specific functions that can only be used within variables. The data source connection is set in the model and cannot be changed from within a DAX measure.\nYou have a Power BI Desktop PBIX file that contains a single page report with multiple visuals.\nYou plan to use Performance Analyzer to evaluate the performance of the visuals.\nYou need to eliminate the impact of visual caching during the evaluation.\nWhat should you do first?\nSelect only one answer.\nAdd a blank page to the PBIX file.\nThis answer is correct.\nConnect DAX Studio to the data model.\nThis answer is incorrect.\nReopen the PBIX file.\nStart recording.\nTo eliminate the impact of visual caching during a performance evaluation when using Performance Analyzer to evaluate the visuals, you must first add a blank page to the report, select that page, and then reopen the PBIX file. Connecting DAX Studio to the data model is the first step to clear the data engine cache. Recording should not be started until both the visual cache and the data engine cache are cleared.\nYou are creating a report in a Power BI Desktop by using a dataset that contains sales data.\nYou need to create a measure that always provides the value of total sales for the year 2022, regardless of which year is selected in any visual in the same report.\nWhich DAX function should you use in combination with the SUM function to override the context and provide the result?\nSelect only one answer.\nCALCULATE This answer is correct.\nFILTER This answer is incorrect.\nIGNORE SUMX The CALCULATE function provides the result of the calculation with the ability to override the context. The IGNORE function modifies the behavior of the SUMMARIZECOLUMNS function by omitting specific expressions from the BLANK/NULL evaluation. The FILTER function returns a table that represents a subset of another table or expression. The SUMX function returns the sum of an expression evaluated for each row in a table.\nYou have created a Power BI dataset and need to create multiple reports.\nWhat is a benefit of using a Power BI dataset as a data source for multiple reports compared to each report having a separate dataset?\nSelect only one answer.\nIt increases the number of scheduled refreshes that can be configured for the Power BI dataset.\nIt increases the speed of the reports and visuals connected to the Power BI datasets.\nThis answer is incorrect.\nIt prevents sensitive data from being shared with report consumers.\nIt reduces the number of datasets, refreshes, and storage requirements in the Power BI service.\nThis answer is correct.\nWhen multiple reports use the same Power BI dataset vs each having their own import model, you reduce the number of datasets that are needed to be published to the Power BI service. Fewer datasets mean fewer refreshes, less storage space requirements, and less overhead for admins.\nYou plan to create a report in Power BI Desktop.\nYou need to create a visualization to display a running total. The solution must meet the following requirements:\nThe initial and the final value columns must start on the horizontal axis. The intermediate values must be floating columns. Which type of visualization should you use?\nSelect only one answer.\ncombo\nfunnel\nscatter\nThis answer is incorrect.\nwaterfall\nThis answer is correct.\nA waterfall visualization is a chart that displays a running total, with the initial and the final value columns starting on the horizontal axis while the intermediate values are floating columns. A combo visualization is a chart that combines a column chart and a line chart and can have one or two Y axes. A funnel visualization is a chart that has sequential connected stages, where items flow sequentially from one stage to the next. A scatter visualization is a chart with two value axes, with one set of numerical data along a horizontal axis and another set of numerical values along a vertical axis.\nYou need to create a bookmark that toggles the visibility of a visual.\nThis bookmark must only toggle the visibility state and perform no other action.\nWhich three configurations should you make? Each correct answer presents part of the solution.\nSelect all answers that apply.\nDisable the Data option.\nThis answer is correct.\nDisable the Current Page option.\nThis answer is correct.\nDisable the Display option.\nEnable the Current Page option.\nThis answer is incorrect.\nEnable the Data option.\nEnable the Display option.\nThis answer is correct.\nThe current page capture allows the bookmark to navigate back to the page of capture. The data capture updates filters and drillthrough which should not occur for this bookmark. The display capture updates visual visibility on the report page.\nYou need to create a visual that displays sales by employees, trending over months.\nThe visual must clearly show how employees are performing against each other and have a ranking for each period.\nWhich visual should you use?\nSelect only one answer.\nclustered bar chart\nThis answer is incorrect.\nribbon chart\nThis answer is correct.\nscatterplot\ntreemap\nA ribbon chart places the highest (ranked) value at the top of the stacked column each month and shows those ranked changes over time. A treemap is not meant for displaying changes over time and wouldn’t easily show ranked comparisons between employees. The clustered bar chart can be used to show changes over time, and a clustered bar chart will show comparisons between employees, but no ranking data is provided between employees. A scatterplot is typically used to compare a relationship between two (or more) calculations and their categorical distribution between each other.\nYou are modifying a report in Power BI Desktop. The report contains a single report page that has three card visuals and one clustered bar chart.\nYou need to create a bookmark that displays only the clustered bar chart and hides the cards. The solution must minimize development effort.\nWhat should you do first?\nSelect only one answer.\nAdd a bookmark in the Bookmarks Pane.\nThis answer is incorrect.\nHide the three cards in the Selection Pane.\nThis answer is correct.\nPublish the report to the Power BI Service.\nSelect the Spotlight option on the clustered bar chart.\nBefore you create a bookmark, you need to configure the report page to show the state you want to capture in the bookmark. Visuals are visible by default, therefore, you must mark them as hidden. To add a bookmark, you first need to update the bookmark after hiding the visuals. Bookmarks can be created in Power BI without publishing to the Power BI service. While spotlight does focus on the clustered bar chart, it does not completely hide the cards.\nFrom Power BI Desktop, you open a Power BI report that contains three pages named Main, Error Rate, and On-time Rate.\nYou add a button to the Main page for navigation.\nYou need to implement a solution that meets the following requirements:\nThe navigation destination must change based on the output of a DAX measure named [Error Rate]. If [Error Rate] is greater than 5%, the button must display the text “Error Rate” and navigate to the Error Rate page. Otherwise, the button must display the text “On-time Rate” and navigate to the On-Time Rate page. What three actions should you perform? Each correct answer presents part of the solution.\nSelect all answers that apply.\nCreate a DAX measure that outputs the correct page name based on the value of [Error Rate].\nThis answer is correct.\nSet the button type to Page Navigation and then use conditional formatting to specify the destination.\nThis answer is correct.\nSet the button type to Bookmark and then use conditional formatting to specify the destination.\nSet the navigation destination to the Error Rate page.\nThis answer is incorrect.\nUse conditional formatting to set the button text.\nThis answer is correct.\nTo configure a button for conditional page navigation, you need to create a DAX measure that outputs the correct destination page name. Then configure the button to use page navigation and use the newly created DAX measure to specify the navigation destination. To change the button text to match the page name, conditional formatting must be used to set the text to equal the newly created DAX measure. No bookmarks are necessary. It is not necessary to set the destination to a specific page since conditional formatting is used to specify the destination.\nYou plan to use Power BI Desktop to analyze sales data of your company.\nYou need to identify two types of data you will be able to use for creating bins that group the sales data.\nWhich two data types should you identify? Each correct answer presents a complete solution.\nSelect all answers that apply.\nBinary\nDate/time\nThis answer is correct.\nNumeric\nThis answer is correct.\nText\nThis answer is incorrect.\nTrue/false\nThis answer is incorrect.\nDate/time and numeric data types support bins-based grouping. Binary, Boolean, and text data types do not support bins-based grouping.\nYou need to create a histogram that will display ranges of integers in groups.\nWhich two resources do you need to create the histogram? Each correct answer presents part of the solution.\nSelect all answers that apply.\na Bin group type\nThis answer is correct.\na Date/time column\na List group type\nThis answer is incorrect.\na Numerical column\nThis answer is correct.\nThe group is created against a numerical column using bins.\nThe Bin group type is an auto grouping of items into bucketed bins (groups). It will display well as a histogram. A DateTime column isn’t required to display histogram type data against a numerical column. A List group type is a manual grouping of items into new group names/categories. It doesn’t create auto (binned) groups.\nYou need to add an analytics line to a visual. The value for the line must equal the result of a DAX measure that always returns a consistent single value. The DAX measure must only be used to populate the analytics line. Which type of analytics line should you use?\nSelect only one answer.\nAverage line\nThis answer is incorrect.\nConstant line\nThis answer is correct.\nMax line\nMin line\nEither the X- or Y-axis constant line allows a DAX measure to be used to provide this value for the visual. The Min line populates the minimum value for a series already present in the visual. The Max line populates the maximum value for a series already present in the visual. The Average line populates the average value for a series already present in the visual.\nYou plan to build a Power BI dashboard and set up alerts that will notify you when data presented in the visuals on the dashboard reach specific thresholds.\nWhich three types of visuals support the alert functionality? Each correct answer presents a complete solution.\nSelect all answers that apply.\ncard\nThis answer is correct.\ngauge\nThis answer is correct.\nKPI\nThis answer is correct.\ntreemap\nwaterfall\nThis answer is incorrect.\nAlerts are available with KPI visuals, gauges, and cards. Treemaps and waterfall visuals do not support alerts.\nYou upload reports to the Power BI service and pin several visuals to a dashboard.\nYou plan to create alerts rules for several visuals.\nWhat are two locations you can view the alerts? Each correct answer presents a complete solution.\nSelect all answers that apply.\na report\nThis answer is incorrect.\nan email\nThis answer is correct.\nMicrosoft Teams\nthe Notification Center\nThis answer is correct.\nBy default, notifications are available in the notification center. You also have the option of sending notifications via email. A dashboard, Microsoft Teams channel, and a report are not available as the locations of alerts.\nYou manage a Power BI workspace in shared capacity. The workspace contains a dataset named DS1. You plan to schedule the refresh of DS1.\nWhat is the maximum number of data refreshes per day?\nSelect only one answer.\n1\n4\n8\nThis answer is correct.\n24\nThis answer is incorrect.\nThe maximum number of refreshes per day for a Power BI workspace in a shared capacity is 8.\nYou manage a Power BI workspace in a shared capacity. The workspace contains a dataset named DS1. You plan to schedule a refresh of DS1.\nWhat is the number of consecutive refresh failures of DS1 that will automatically disable the refresh schedule?\nSelect only one answer.\n2\n4\nThis answer is correct.\n16\nThis answer is incorrect.\n64\nIf there are 4 consecutive data set refresh failures, the refresh schedule will be automatically disabled.\nYou have a collection of datasets and reports.\nYou need to share the datasets and report together. This solution must NOT send any email notifications to internal users after sharing.\nWhat should you create in the Power BI Service?\nSelect only one answer.\na deployment pipeline\nThis answer is incorrect.\na workspace\nan app\nThis answer is correct.\nmetrics\nWorkspace apps can be installed automatically for any user in an organization, and without requiring notifications of installation. Deployment pipelines are used for moving artifacts between test, development, and production environments. Metrics are where you can create goals based off existing datasets. You can add members to a workspace, but they receive a notification that they’ve been added to the workspace.\nYou have a Power BI Premium per user workspace.\nWhat is the maximum number of refreshes that can be scheduled each day?\nSelect only one answer.\n1\n8\n16\nThis answer is incorrect.\n48\nThis answer is correct.\nIn a Premium per user workspace the limit is 48 refreshes per day for a dataset.\n",
+  "wordCount" : "4292",
+  "inLanguage": "zh",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/powerbi-%E9%94%99%E9%A2%98%E6%9C%AC/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" class=" top" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jingyiwu-codespace.github.io/en/" title="English"
+                            aria-label="English">En</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/msg" title="留言板">
+                    <span>留言板</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>旨在通过PL-300考试，试题来源于微软官网和examtopics1.</p>
+</blockquote>
+<ol>
+<li>
+<p>You have multiple Excel files stored in a folder synced with OneDrive for Business.</p>
+<p>You need to import data from the files. The solution must <strong>NOT</strong> use a data gateway.</p>
+<p>Which type of connector should you use?</p>
+<ul>
+<li>
+<p>Excel workbook</p>
+</li>
+<li>
+<p>Folder</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> SharePoint folder</p>
+</li>
+<li>
+<p>SharePoint list</p>
+</li>
+</ul>
+<p>Explanation:</p>
+<p>A SharePoint folder is the only connector that will allow the import of multiple Excel (or CSV) files stored in a OneDrive for Business folder, without using a data gateway. While you can connect to the folder on an on-premises device, it would require a data gateway to refresh in the service. An Excel workbook would only connect to a single Excel file and would also require a data gateway. A SharePoint list connector only connects to SharePoint lists and cannot connect to Excel files.</p>
+</li>
+<li>
+<p>You plan to publish a dataset from Power BI Desktop.</p>
+<p>You need to ensure that a server name can be changed after the dataset has been published to the Power BI Service.</p>
+<p>Which two actions should you perform? Each correct answer presents part of the solution.</p>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Create a parameter.</p>
+</li>
+<li>
+<p>Create a query for the server name.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> From the Data source settings, update the server source to use a parameter.</p>
+</li>
+<li>
+<p>Update the Source applied step of all related queries to reference the server name query.</p>
+</li>
+</ul>
+<p>A parameter is the only part of a query that can be updated or changed in the Power BI service, by accessing the dataset settings. Updating the server source to use a parameter will update all existing queries pointing to the current server to instead use a parameter with that server name. This parameter can now be changed once this dataset is published to the Power BI service.</p>
+</li>
+<li>
+<p>From Power BI Desktop, you create a data source by importing an Excel file.</p>
+<p>You plan to identify data anomalies within the data source.</p>
+<p>Which interface should you use to display the column distribution and column quality graphs?</p>
+<ul>
+<li>
+<p>Advanced Editor in Power Query Editor</p>
+</li>
+<li>
+<p>the Data view</p>
+</li>
+<li>
+<p>the Model view</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Power Query Editor</p>
+</li>
+</ul>
+<p>Power Query Editor provides the ability to display the column distribution and column quality graphs. Data view provides access to data within a dataset. Model view provides access to the data model of a dataset. Advanced Editor of Power Query Editor provides the ability to work with the M code used for shaping data in Power Query Editor.</p>
+</li>
+<li>
+<p>You are analyzing query data by using Power Query Editor.</p>
+<p>You need to ensure that the Column statistics are based on an analysis of the entire dataset.</p>
+<p>What should you do?</p>
+<ul>
+<li>
+<p>Change the query connection type from Import to DirectQuery.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> From the status bar, change profiling status to entire dataset.</p>
+</li>
+<li>
+<p>In Power Query Editor, enable column profiling from the View ribbon.</p>
+</li>
+<li>
+<p>Load the data into the data model.</p>
+</li>
+</ul>
+<p>By default, column profiling is only based on the first 1000 rows of the preview. Changing the column profile status to entire dataset will query the entire dataset for the column profiling information.</p>
+</li>
+<li>
+<p>From the Power Query Editor, you import data from a .csv file. The data includes a column named ZIP that contains postal codes from the United States.</p>
+<p>You notice that Power Query Editor automatically applies the Whole Number data type to the ZIP column.</p>
+<p>You need to ensure that the ZIP column uses the Text data type and that all values remain 5 characters long.</p>
+<p>What should you do?</p>
+<p>Select only one answer.</p>
+<ul>
+<li>
+<p>From the data view in Power BI Desktop, change the column data type from number to text.</p>
+</li>
+<li>
+<p>From Power Query Editor, add a new applied step at the end of the query to convert the ZIP column from number back to text.</p>
+</li>
+<li>
+<p>From Power Query Editor, delete the changed type step.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> From Power Query Editor, update the current changed type step and replace convert from number to text for the ZIP column.</p>
+</li>
+</ul>
+<p>To correctly update the data to text you need to replace the number type conversion with a text conversion, and to keep all other data type column transformations. This needs to be done in the Power Query Editor. Adding a new applied step at the end of the query would result in loosing zip codes that start with 0. Changing the data type in Data View is equivalent to adding an applied step at the end of the query and would not preserve leading zeros. Deleting the changed type step would not set the data type to Text.</p>
+</li>
+<li>
+<p>You have a table that contains a column named ProductID.</p>
+<p>The ProductID column contains values that have a prefix of PD followed by five numbers. For example: pd15332.</p>
+<p>You plan to convert the ProductID values to numbers (integer).</p>
+<p>You need to remove the leading two letters from the current ProductID values.</p>
+<p>Which command should you use?</p>
+<ul>
+<li>
+<p>Remove Rows</p>
+</li>
+<li>
+<p>Replace Errors</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Replace Values</p>
+</li>
+<li>
+<p>Trim</p>
+</li>
+</ul>
+<p>Only the Replace Values command allows the removal of leading characters, such as “pd” from the column values. Trim removes leading and trailing whitespace. Remove Rows doesn’t affect the values in a column, only the included rows. The prefix of PD is not an error, so Replace Errors cannot remove the string.</p>
+</li>
+<li>
+<p>You have a Power BI data source that contains the following tables:</p>
+<ul>
+<li>ProductCategory: Lists the product category ID and category name</li>
+<li>ProductSubcategory: Lists the product subcategory ID, subcategory name, and the related category ID</li>
+<li>ProductList: Lists the product ID, name, and subcategory ID</li>
+</ul>
+<p>You need to optimize the data to create a dimension for use in a star schema data model.</p>
+<p>How should the tables be transformed before loading into the model?</p>
+<p>Select only one answer.</p>
+<ul>
+<li>
+<p>Import all three tables into the data model and connect them using relationships.</p>
+</li>
+<li>
+<p>Import only the ProductName table into the model.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Merge the queries to create a single loaded table for Product.</p>
+</li>
+<li>
+<p>Use the append command to create a single loaded table for product.</p>
+</li>
+</ul>
+<p>A star schema should have a single table for each dimension or product, so using the combine command is what is required to create a single product table and aim towards a star schema design.</p>
+</li>
+<li>
+<p>You connect Power Query Editor to a database table.</p>
+<p>You need to remove the Row ID column. Your solution must ensure that new columns do NOT display in the table model during a scheduled refresh in the future.</p>
+<p>What transformation should you use?</p>
+<p>Select only one answer.</p>
+<ul>
+<li>Select <strong>Row ID</strong>, then use the <strong>Remove Other Columns</strong> command.</li>
+<li>Use the <strong>Remove Column</strong> command on the Row ID column.</li>
+<li><input checked="" disabled="" type="checkbox"> Use the <strong>Select Columns</strong> command and chose the columns to keep.</li>
+<li>Use the <strong>Transpose</strong> command, then filter the rows to remove <strong>Row ID</strong>.</li>
+</ul>
+<p>Only the <strong>Select Columns</strong> command will let you choose columns to keep, delete the columns you do not want, and prevent new columns from showing up in the table in the future.</p>
+</li>
+<li>
+<p>You need to prevent hidden date tables from being auto generated by Power BI Desktop for every date or datetime data type column in a dataset.</p>
+<p>What two tasks should you perform? Each correct answer presents a complete solution</p>
+<p>Select all answers that apply.</p>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Enable Mark as date table for the Calendar table.</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> From the Current File options in Power BI Desktop, disable Auto Date/Time</p>
+</li>
+<li>
+<p>From the Global options in Power BI Desktop, disable Auto Date/Time for new files.</p>
+</li>
+<li>
+<p>Set the Data Category to None for all Date and DateTime fields.</p>
+</li>
+</ul>
+<p>Disabling Auto Date/Time for new files from the Current File options will disable all Auto Date/Time tables in this dataset. Enabling Mark as date table for the Calendar table will also disable the auto datetime tables in the dataset. Disabling the Global option Auto Date/Time for new files means that new files will no longer have Auto Date/Time enabled, but the file containing the current dataset will still have it enabled until it is disabled. Changing the data category will not impact the auto date table feature.</p>
+</li>
+<li>
+<p>In Power BI Desktop, you need to create a measure.</p>
+</li>
+</ol>
+<p>Which two interfaces can you use? Each correct answer presents a complete the solution.</p>
+<p>Select all answers that apply.</p>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Data view</p>
+</li>
+<li>
+<p>Page view</p>
+</li>
+<li>
+<p>Power Query Editor</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> Report View</p>
+</li>
+</ul>
+<p>The Report view provides the ability to create measures. To create a measure, use the context sensitive menu of the Fields list or the Calculations section of the ribbon. The Data view provides access to data within a dataset and includes the option to create a measure in the Calculations section of the ribbon. Page view and Power Query Editor do not include the option to create a measure.</p>
+<ol start="11">
+<li>
+<p>You need to use DAX quick measures to generate results to use in a report.</p>
+<p>Which type of DAX quick measure calculations will <strong>NOT</strong> work against a DirectQuery table?</p>
+<p>Select only one answer.</p>
+<ul>
+<li>
+<p>aggregate per category</p>
+</li>
+<li>
+<p>mathematical operations</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> time intelligence</p>
+</li>
+<li>
+<p>X-functions</p>
+</li>
+</ul>
+<p>Time intelligence functions have performance implications and are disabled for quick measures against DirectQuery tables. Mathematical operations, aggregate per category, and X-functions are all supported against DirectQuery.</p>
+</li>
+<li>
+<p>You plan to run Power BI Desktop Performance Analyzer.</p>
+<p>You need to ensure that the data engine cache will NOT impact the test results without restarting Power BI Desktop.</p>
+<p>What should you do first?</p>
+<p>Select only one answer.</p>
+<p>Add a blank page to the .pbix file and select it.</p>
+<p>Connect DAX Studio to the data model.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Invoke the Clear Cache function.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Invoke the Refresh Metadata function.</p>
+<p>DAX Studio, once connected to the data model, can be used to clear the data engine cache. The Clear Cache function can be invoked from DAX Studio, once you connect it to the data model. The Refresh Metadata function can be invoked from DAX Studio to update the metadata of the currently selected model. Adding a blank page to the .pbix file and selecting it is the first step in clearing the visual cache, not the data engine cache.</p>
+</li>
+<li>
+<p>You plan to optimize the performance of Power BI Desktop queries against a remote data source.</p>
+<p>You need to disable the default behavior that automatically applies cross highlighting and filtering of visuals within the same report.</p>
+<p>Which option should you configure in Power BI Desktop?</p>
+<p>Select only one answer.</p>
+<p>the Filters Query reduction settings</p>
+<p>the Persistent filters of Report settings</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>the Reduce number of queries sent by Query reduction setting</p>
+<p><strong>This answer is correct.</strong></p>
+<p>the Slicers Query reduction settings</p>
+<p>The Reduce number of queries sent by Query reduction setting disables the default behavior that automatically applies cross highlighting and filtering of visuals within the same report. The Slicers Query reduction settings allow you to instantly apply slicer changes and add an Apply button to each slicer. The Filters Query reduction settings allow you to instantly apply basic filter changes. The Persistent filters of Report settings allow you to prevent users from saving filters in the Power BI service.</p>
+</li>
+<li>
+<p>You decide to start using variables when creating DAX formulas.</p>
+<p>What are two benefits of using variables in DAX measures over using original expressions? Each correct answer presents a complete solution.</p>
+<p>Select all answers that apply.</p>
+<p>allows users to change the data source connection in the DAX measure</p>
+<p>has additional functions that can be used in the DAX measure</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>improves the overall performance of the resulting DAX measure</p>
+<p><strong>This answer is correct.</strong></p>
+<p>improves the overall readability of the resulting DAX measure</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Variable names are often shorter than the original expressions, and the final variable returned at the end of the measure will be more readable with variable names included. Variables cache the defined calculation, allowing it to be referenced multiple times without additional impacts from recalculations. The functions in DAX are universal, and there are no specific functions that can only be used within variables. The data source connection is set in the model and cannot be changed from within a DAX measure.</p>
+</li>
+<li>
+<p>You have a Power BI Desktop PBIX file that contains a single page report with multiple visuals.</p>
+<p>You plan to use Performance Analyzer to evaluate the performance of the visuals.</p>
+<p>You need to eliminate the impact of visual caching during the evaluation.</p>
+<p>What should you do first?</p>
+<p>Select only one answer.</p>
+<p>Add a blank page to the PBIX file.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Connect DAX Studio to the data model.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Reopen the PBIX file.</p>
+<p>Start recording.</p>
+<p>To eliminate the impact of visual caching during a performance evaluation when using Performance Analyzer to evaluate the visuals, you must first add a blank page to the report, select that page, and then reopen the PBIX file. Connecting DAX Studio to the data model is the first step to clear the data engine cache. Recording should not be started until both the visual cache and the data engine cache are cleared.</p>
+</li>
+<li>
+<p>You are creating a report in a Power BI Desktop by using a dataset that contains sales data.</p>
+<p>You need to create a measure that always provides the value of total sales for the year 2022, regardless of which year is selected in any visual in the same report.</p>
+<p>Which DAX function should you use in combination with the <code>SUM</code> function to override the context and provide the result?</p>
+<p>Select only one answer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>CALCULATE
+</span></span></code></pre></div><p><strong>This answer is correct.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FILTER
+</span></span></code></pre></div><p><strong>This answer is incorrect.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>IGNORE
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>SUMX
+</span></span></code></pre></div><p>The <code>CALCULATE</code> function provides the result of the calculation with the ability to override the context. The <code>IGNORE</code> function modifies the behavior of the <code>SUMMARIZECOLUMNS</code> function by omitting specific expressions from the <code>BLANK/NULL</code> evaluation. The <code>FILTER</code> function returns a table that represents a subset of another table or expression. The <code>SUMX</code> function returns the sum of an expression evaluated for each row in a table.</p>
+</li>
+<li>
+<p>You have created a Power BI dataset and need to create multiple reports.</p>
+<p>What is a benefit of using a Power BI dataset as a data source for multiple reports compared to each report having a separate dataset?</p>
+<p>Select only one answer.</p>
+<p>It increases the number of scheduled refreshes that can be configured for the Power BI dataset.</p>
+<p>It increases the speed of the reports and visuals connected to the Power BI datasets.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>It prevents sensitive data from being shared with report consumers.</p>
+<p>It reduces the number of datasets, refreshes, and storage requirements in the Power BI service.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>When multiple reports use the same Power BI dataset vs each having their own import model, you reduce the number of datasets that are needed to be published to the Power BI service. Fewer datasets mean fewer refreshes, less storage space requirements, and less overhead for admins.</p>
+</li>
+<li>
+<p>You plan to create a report in Power BI Desktop.</p>
+<p>You need to create a visualization to display a running total. The solution must meet the following requirements:</p>
+<ul>
+<li>The initial and the final value columns must start on the horizontal axis.</li>
+<li>The intermediate values must be floating columns.</li>
+</ul>
+<p>Which type of visualization should you use?</p>
+<p>Select only one answer.</p>
+<p>combo</p>
+<p>funnel</p>
+<p>scatter</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>waterfall</p>
+<p><strong>This answer is correct.</strong></p>
+<p>A waterfall visualization is a chart that displays a running total, with the initial and the final value columns starting on the horizontal axis while the intermediate values are floating columns. A combo visualization is a chart that combines a column chart and a line chart and can have one or two Y axes. A funnel visualization is a chart that has sequential connected stages, where items flow sequentially from one stage to the next. A scatter visualization is a chart with two value axes, with one set of numerical data along a horizontal axis and another set of numerical values along a vertical axis.</p>
+</li>
+<li>
+<p>You need to create a bookmark that toggles the visibility of a visual.</p>
+<p>This bookmark must only toggle the visibility state and perform no other action.</p>
+<p>Which three configurations should you make? Each correct answer presents part of the solution.</p>
+<p>Select all answers that apply.</p>
+<p>Disable the Data option.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Disable the Current Page option.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Disable the Display option.</p>
+<p>Enable the Current Page option.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Enable the Data option.</p>
+<p>Enable the Display option.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>The current page capture allows the bookmark to navigate back to the page of capture. The data capture updates filters and drillthrough which should not occur for this bookmark. The display capture updates visual visibility on the report page.</p>
+</li>
+<li>
+<p>You need to create a visual that displays sales by employees, trending over months.</p>
+<p>The visual must clearly show how employees are performing against each other and have a ranking for each period.</p>
+<p>Which visual should you use?</p>
+<p>Select only one answer.</p>
+<p>clustered bar chart</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>ribbon chart</p>
+<p><strong>This answer is correct.</strong></p>
+<p>scatterplot</p>
+<p>treemap</p>
+<p>A ribbon chart places the highest (ranked) value at the top of the stacked column each month and shows those ranked changes over time. A treemap is not meant for displaying changes over time and wouldn’t easily show ranked comparisons between employees. The clustered bar chart can be used to show changes over time, and a clustered bar chart will show comparisons between employees, but no ranking data is provided between employees. A scatterplot is typically used to compare a relationship between two (or more) calculations and their categorical distribution between each other.</p>
+</li>
+<li>
+<p>You are modifying a report in Power BI Desktop. The report contains a single report page that has three card visuals and one clustered bar chart.</p>
+<p>You need to create a bookmark that displays only the clustered bar chart and hides the cards. The solution must minimize development effort.</p>
+<p>What should you do first?</p>
+<p>Select only one answer.</p>
+<p>Add a bookmark in the Bookmarks Pane.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Hide the three cards in the Selection Pane.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Publish the report to the Power BI Service.</p>
+<p>Select the Spotlight option on the clustered bar chart.</p>
+<p>Before you create a bookmark, you need to configure the report page to show the state you want to capture in the bookmark. Visuals are visible by default, therefore, you must mark them as hidden. To add a bookmark, you first need to update the bookmark after hiding the visuals. Bookmarks can be created in Power BI without publishing to the Power BI service. While spotlight does focus on the clustered bar chart, it does not completely hide the cards.</p>
+</li>
+<li>
+<p>From Power BI Desktop, you open a Power BI report that contains three pages named Main, Error Rate, and On-time Rate.</p>
+<p>You add a button to the Main page for navigation.</p>
+<p>You need to implement a solution that meets the following requirements:</p>
+<ul>
+<li>The navigation destination must change based on the output of a DAX measure named [Error Rate].</li>
+<li>If [Error Rate] is greater than 5%, the button must display the text “Error Rate” and navigate to the Error Rate page.</li>
+<li>Otherwise, the button must display the text “On-time Rate” and navigate to the On-Time Rate page.</li>
+</ul>
+<p>What three actions should you perform? Each correct answer presents part of the solution.</p>
+<p>Select all answers that apply.</p>
+<p>Create a DAX measure that outputs the correct page name based on the value of [Error Rate].</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Set the button type to Page Navigation and then use conditional formatting to specify the destination.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Set the button type to Bookmark and then use conditional formatting to specify the destination.</p>
+<p>Set the navigation destination to the Error Rate page.</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Use conditional formatting to set the button text.</p>
+<p><strong>This answer is correct.</strong></p>
+<p>To configure a button for conditional page navigation, you need to create a DAX measure that outputs the correct destination page name. Then configure the button to use page navigation and use the newly created DAX measure to specify the navigation destination. To change the button text to match the page name, conditional formatting must be used to set the text to equal the newly created DAX measure. No bookmarks are necessary. It is not necessary to set the destination to a specific page since conditional formatting is used to specify the destination.</p>
+</li>
+<li>
+<p>You plan to use Power BI Desktop to analyze sales data of your company.</p>
+<p>You need to identify two types of data you will be able to use for creating bins that group the sales data.</p>
+<p>Which two data types should you identify? Each correct answer presents a complete solution.</p>
+<p>Select all answers that apply.</p>
+<p>Binary</p>
+<p>Date/time</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Numeric</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Text</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>True/false</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Date/time and numeric data types support bins-based grouping. Binary, Boolean, and text data types do not support bins-based grouping.</p>
+</li>
+<li>
+<p>You need to create a histogram that will display ranges of integers in groups.</p>
+<p>Which two resources do you need to create the histogram? Each correct answer presents part of the solution.</p>
+<p>Select all answers that apply.</p>
+<p>a Bin group type</p>
+<p><strong>This answer is correct.</strong></p>
+<p>a Date/time column</p>
+<p>a List group type</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>a Numerical column</p>
+<p><strong>This answer is correct.</strong></p>
+<p>The group is created against a numerical column using bins.</p>
+<p>The Bin group type is an auto grouping of items into bucketed bins (groups). It will display well as a histogram. A DateTime column isn’t required to display histogram type data against a numerical column. A List group type is a manual grouping of items into new group names/categories. It doesn’t create auto (binned) groups.</p>
+<ol start="25">
+<li>You need to add an analytics line to a visual. The value for the line must equal the result of a DAX measure that always returns a consistent single value. The DAX measure must only be used to populate the analytics line.</li>
+</ol>
+<p>Which type of analytics line should you use?</p>
+<p>Select only one answer.</p>
+<p>Average line</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Constant line</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Max line</p>
+<p>Min line</p>
+<p>Either the X- or Y-axis constant line allows a DAX measure to be used to provide this value for the visual.  The Min line populates the minimum value for a series already present in the visual. The Max line populates the maximum value for a series already present in the visual. The Average line populates the average value for a series already present in the visual.</p>
+</li>
+<li>
+<p>You plan to build a Power BI dashboard and set up alerts that will notify you when data presented in the visuals on the dashboard reach specific thresholds.</p>
+<p>Which three types of visuals support the alert functionality? Each correct answer presents a complete solution.</p>
+<p>Select all answers that apply.</p>
+<p>card</p>
+<p><strong>This answer is correct.</strong></p>
+<p>gauge</p>
+<p><strong>This answer is correct.</strong></p>
+<p>KPI</p>
+<p><strong>This answer is correct.</strong></p>
+<p>treemap</p>
+<p>waterfall</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>Alerts are available with KPI visuals, gauges, and cards. Treemaps and waterfall visuals do not support alerts.</p>
+</li>
+<li>
+<p>You upload reports to the Power BI service and pin several visuals to a dashboard.</p>
+<p>You plan to create alerts rules for several visuals.</p>
+<p>What are two locations you can view the alerts? Each correct answer presents a complete solution.</p>
+<p>Select all answers that apply.</p>
+<p>a report</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>an email</p>
+<p><strong>This answer is correct.</strong></p>
+<p>Microsoft Teams</p>
+<p>the Notification Center</p>
+<p><strong>This answer is correct.</strong></p>
+<p>By default, notifications are available in the notification center. You also have the option of sending notifications via email. A dashboard, Microsoft Teams channel, and a report are not available as the locations of alerts.</p>
+</li>
+<li>
+<p>You manage a Power BI workspace in shared capacity. The workspace contains a dataset named DS1. You plan to schedule the refresh of DS1.</p>
+<p>What is the maximum number of data refreshes per day?</p>
+<p>Select only one answer.</p>
+<p>1</p>
+<p>4</p>
+<p>8</p>
+<p><strong>This answer is correct.</strong></p>
+<p>24</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>The maximum number of refreshes per day for a Power BI workspace in a shared capacity is 8.</p>
+</li>
+<li>
+<p>You manage a Power BI workspace in a shared capacity. The workspace contains a dataset named DS1. You plan to schedule a refresh of DS1.</p>
+<p>What is the number of consecutive refresh failures of DS1 that will automatically disable the refresh schedule?</p>
+<p>Select only one answer.</p>
+<p>2</p>
+<p>4</p>
+<p><strong>This answer is correct.</strong></p>
+<p>16</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>64</p>
+<p>If there are 4 consecutive data set refresh failures, the refresh schedule will be automatically disabled.</p>
+</li>
+<li>
+<p>You have a collection of datasets and reports.</p>
+<p>You need to share the datasets and report together. This solution must <strong>NOT</strong> send any email notifications to internal users after sharing.</p>
+<p>What should you create in the Power BI Service?</p>
+<p>Select only one answer.</p>
+<p>a deployment pipeline</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>a workspace</p>
+<p>an app</p>
+<p><strong>This answer is correct.</strong></p>
+<p>metrics</p>
+<p>Workspace apps can be installed automatically for any user in an organization, and without requiring notifications of installation. Deployment pipelines are used for moving artifacts between test, development, and production environments. Metrics are where you can create goals based off existing datasets. You can add members to a workspace, but they receive a notification that they’ve been added to the workspace.</p>
+</li>
+<li>
+<p>You have a Power BI Premium per user workspace.</p>
+<p>What is the maximum number of refreshes that can be scheduled each day?</p>
+<p>Select only one answer.</p>
+<p>1</p>
+<p>8</p>
+<p>16</p>
+<p><strong>This answer is incorrect.</strong></p>
+<p>48</p>
+<p><strong>This answer is correct.</strong></p>
+<p>In a Premium per user workspace the limit is 48 refreshes per day for a dataset.</p>
+</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "noborder_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="prev" href="https://jingyiwu-codespace.github.io/zh/posts/life/first/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>ε≡٩(๑&gt;₃&lt;)۶</span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>

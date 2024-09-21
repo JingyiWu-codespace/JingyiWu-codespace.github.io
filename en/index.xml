@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/en/</link>
+    <description>Recent content on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 Apr 2024 20:29:08 +0100</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notepad by Vue</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</link>
+      <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</guid>
+      <description>Add/Delect tasks, One-click clear, Multiple Language Mode, Persistence storage</description>
+    </item>
+    <item>
+      <title>Solution: Cooja Displays Resource Busy</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/tech/cooja_kill_process/</guid>
+      <description>When running cooja for port listening, there will be two processes. We must kill one, then cooja run successfully.</description>
+    </item>
+    <item>
+      <title>Trip Spain</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/life/tripspain/</guid>
+      <description>Trip about Spain, A very happy week</description>
+    </item>
+    <item>
+      <title>ε≡٩(๑&gt;₃&lt;)۶</title>
+      <link>https://jingyiwu-codespace.github.io/en/posts/life/first/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/posts/life/first/</guid>
+      <description>New space, New starting point</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>https://jingyiwu-codespace.github.io/en/resume/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/resume/</guid>
+      <description>&lt;!DOCTYPE html&gt; Title </description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://jingyiwu-codespace.github.io/en/about/</link>
+      <pubDate>Thu, 01 Jan 1970 08:33:44 +0800</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/about/</guid>
+      <description>class Me: def __init__(self): self.name = &amp;#34;Jingyi Wu&amp;#34; self.prefer_name = &amp;#34;Jennie&amp;#34; self.born_year = 1999 self.MBTI = &amp;#34;ISFJ&amp;#34; self.constellation = &amp;#34;Capricorn&amp;#34; self.curr_location = &amp;#34;Brussels｜ BE&amp;#34; self.grad_school = &amp;#34;Hong Kong Baptist University&amp;#34; self.undergrad_school = &amp;#34;NENU&amp;#34;</description>
+    </item>
+  </channel>
+</rss>

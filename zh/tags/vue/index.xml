@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vue on Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/zh/tags/vue/</link>
+    <description>Recent content in Vue on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 05 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习：Vue2 &amp; Vue3 </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/vue/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/vue/</guid>
+      <description>Vue2 + Vue3</description>
+    </item>
+  </channel>
+</rss>

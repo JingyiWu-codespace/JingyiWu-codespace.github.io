@@ -1,0 +1,1550 @@
+<html lang="zh" dir=" auto">
+
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>学习：AJAX  | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="AJAX">
+<meta name="description" content="axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop,">
+<meta name="author" content="Jingyi Wu">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb17103716ce748824407fb65cb4ad0bab7144d7fdd69db82838a008c55e484e.css" integrity="sha256-uxcQNxbOdIgkQH&#43;2XLStC6txRNf91p24KDigCMVeSE4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7TPHQR7CHS');
+        }
+      </script>
+    
+  
+
+<meta property="og:title" content="学习：AJAX " />
+<meta property="og:description" content="axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-23T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习：AJAX "/>
+<meta name="twitter:description" content="axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop,"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "学习：AJAX ",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学习：AJAX ",
+  "name": "学习：AJAX ",
+  "description": "axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop,",
+  "keywords": [
+    "AJAX"
+  ],
+  "articleBody": "Day 1 1. AJAX 导入 什么是AJAX ? 异步的 JavaScript 和 XML (Asynchronous JavaScript And XML)\n使用XMLHttpRequest 对象与服务器通信，可以使用JSON/ XML/ HTML/ text 文本等格式发送和接受数据。\nAJAX 有异步特性，在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面\n使用 AJAX 使用 axios 库，与服务器进行数据通信\n将XMLHttpRequest封装，代码简单\nVue React 项目中都会使用 axios\naxios({ url: 'http://hmajax.itheima.net/api/province' //'请求的服务器连接' }).then(result)=\u003e{ // 对服务器返回的数据做后续处理 } 学习XMLHttpRequest对象，了解AJAX底层原理\n2. URL http协议： 超文本传输协议，规定浏览器和服务器之间传输数据的格式\n网址： http://hmajax.itheima.net/api/province\n网址：协议://域名/资源路径\n名称 网址 作用 协议 http 规定传输数据的格式 域名 hmajax.itheima.net 标记服务器在互联网中的方位 资源路径 /api/province 标记资源在服务器下的具体位置 URL 查询参数\n浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据\n​\thttp://xxxx.com/xxx/xxx?param1 = value \u0026\u0026 param2 = value2\n​\tAxios 查询参数\naxios 提供 params 选项 axios({ url:' http://hmajax.itheima.net' params: { pname:'河北省' } }).then(result=\u003e{ // 处理后续code }) 常用的请求方法 对服务器资源，执行的操作\n请求方法 操作 GET 获取数据 POST 提交数据 PUT 修改数据 (全部) DELETE 删除数据 PATCH 修改数据 (部分) axios 请求配置\nurl：请求URL网址\nmethod：请求方法，GET可以省略（不区分大小写）\ndata：提交的数据\nheader: 请求头数据，通常用于传递token，可以在axios中的请求拦截器中设置公共的 headers 选项\naxios({ url : '目标资源地址', method : '请求方法', data :{ params ：value } }).then((result)=\u003e{ }) axios({ url:'', headers: { Authorization: `Bearer ${token}` // Bearer是授权类型 } }) axios 请求拦截器：本质是配置函数，在发起请求之前触发，对请求参数进行额外配置。一般放在基地址.baseURL的.js内 axios.interceptor.request.use(function (config) { const token = location.getItem('token') token \u0026\u0026 config.headers.Authorization = `Bearer ${token}` // 在发送请求之前做些什么 return config }, function (error) { // 对请求错误做些什么 return Promise.reject(error) }) Axios 响应拦截器\n响应(response)回到 then/catch之前，触发的拦截函数，对响应结果统一处理，例如身份验证失败，统一判断并作处理；如果成功设置返回数据对象里的某个属性，在其他操作中更加简洁。一般放在基地址.baseURL的.js内\n// 添加响应拦截器 axios.interceptors.response.use(function (response) { // 2xx 范围内的状态码都会触发该函数 // 对响应数据 返回对象中的 data属性 const result = response.data // 不用写 response.data.data这么繁琐 return result; }, function (error) { if (error?.response?.status === 401) { // 这是一个条件语句，首先检查 error 对象是否存在，如果存在则继续检查其 response 属性是否存在， // 最后再检查 response 对象中的 status 属性是否等于 401。这里使用了可选链操作符 ?. // 以避免当某些属性为 null 或 undefined 时引发错误。 alert('登录状态过期，请重新登录') localStorage.clear() location.href = 'login/index.html' } return Promise.reject(error); }); 总结：\n请求方法表明对服务器资源的操作，POST 提交数据 GET查询数据\naxios 核心配置\nurl ：请求URL网址\nmethod : 请求方法， get可以省略\nparams ： 查询参数\ndata ： 提交数据, 请求体\naxios 是一个调用函数，对请求参数进行设置\n在公共配置和设置是，统一设置在请求拦截器中\n在 axios的使用中，发现data后面时对象的格式，会自动转换成json格式\n浏览器发送至服务器 叫做 请求体， 在network -\u003e playload中可以查看\n服务器返回给浏览器 叫做 响应体， 在 network -\u003e 响应中可以查看\n3. axios错误处理 Axios 会在控制台返回错误信息， 为了增加用户体验，开发人员可以讲错误信息以探矿的形式展现给用户\n语法： 在 then 方法的后面，通过点语法调用 catch 方法，传入回调函数并定义形参\naxios({ // 请求选项 }).then(result=\u003e{ }).catch(error=\u003e{ }) axios({ url: 'http://hmajax.itheima.net/api/register', method: 'post', data: { 'username': 'itheima789', 'password': '123456' } }).then(result =\u003e { console.log(result) }).catch(error =\u003e { console.log(error) console.log(error.response.data.message) // 错误信息存放的位置 alert（error.response.data.message） }) 4. HTTP协议 - 请求报文 HTTP 协议： 规定了浏览器发送服务器返回内容的格式 请求报文：浏览器按照HTTP 协议要求的格式，发送给服务器的内容。所以请求报文就是遵守格式的内容集合 请求报文的组成部分 请求行： 请求方法， URL， 协议\n请求头： 以键值对的格式携带的附加信息 Content-Type: application/json\n空行： 分隔请求头，空行之后是发送给服务器的资源\n请求体： 浏览器发送的资源\n5. HTTP协议 - 响应报文 HTTP 协议： 规定了浏览器发送及服务器返回内容的格式 响应报文： 服务器按照HTTP协议要求的格式，返回给浏览器的内容 响应报文的组成部分\n响应行（状态行）：协议、HTTP响应状态码、状态信息\n状态码 说明 1xx 信息 2xx 成功 3xx 重定向消息 4xx 客户端错误 5xx 服务端错误 响应头：以键值对的格式携带的附加信息 Content-Type:Application/JSON\n空行： 分隔响应头，空行之后的是服务器返回的资源\n响应体：返回的资源\n6. 接口文档 描述接口的文章\n接口是什么？\n使用AJAX和服务器通讯时，使用的URL, 请求方法，以及参数\n7. form-serialize 插件 快速收集表单元素的值\nconst form = document.querySelector('.example-form') const data = serialize(form, {hash: true, empty:true}) 使用解读：\n参数1：要获取哪个表单的数据\n表单元素设置name属性，值会作为对象的属性名。建议name属性的值，最好与接口文档参数名一致\n参数2: 配置对象\nhash 设置获取数据结构\ntrue： JS 对象（推荐）一般请求体提交至服务器的格式。 false：查询字符串 empty 设置是否获取空值\ntrue：获取空值（推荐）数据结构和标签结构一致 false：不获取空值 8. API要求请求体FormData() 文件选择元素 -\u003e 使用change改变事件，使用files获取监听事件的文件列表 使用FormData()传输文件 document.querySelector('.upload').addEventListener('change',e=\u003e{ //1. 获取图片文件,使用files获取监听事件的文件列表 console.log(e.target.files[0]) const fd = new FormData() fd.append('img',e.target.files[0]) axios({ // api url:'', method:'post', data:fd }).then(result=\u003e{ console.log(result) const imgUrl = result.data.data.url document.querySelector('.img').src = imgUrl }) } Day3 1. AJAX 原理 - XMLHttpRequest XMLHttpRequest （XHR）对象用于与服务器交互。通过XMLHttpRequest 可以在不刷新页面的情况下请求特定的URL，获取数据。\n这允许网页在不影响用户操作的情况下，更新页面的局部内容。\nXMLHttpRequest 在AJAX编程中被大量使用\n关系：axios 内部采用 XMLHttpRequest与服务器交互\n1. 使用 XMLHttpRequest 步骤\u0026语法\nconst xhr = new XMLHttpRequest() xhr.open('请求方法','请求url网址') xhr.addEventListener('loadend',()=\u003e{ // 响应结果 console.log(xhr.response) // 接受服务端的响应 }) xhr.send() // 给服务端发送请求 // 再来一个案例 const xhr = new XMLHttpRequest() xhr.open('get', 'http://hmajax.itheima.net/api/province') xhr.addEventListener('loadend', () =\u003e { // 无论成功或失败，都会返回数据 // 返回json字符串， axios帮忙转成了js对象 console.log(xhr.response) // 转换成js对象 const data = JSON.parse(xhr.response) // 转换成字符串 console.log(data.list.join('\n')) }) // 发起请求 xhr.send() 总结：\nAJAX原理\nXMLHttpRequest 对象\n为什么学习 XHR？\n了解axios内部原理\n了解服务器数据通信的方式\nXHR使用步骤？\n创建XHR对象\n调用open方法，设置url和请求方法\n监听loadend事件，接收结果\n调用send方法，发起请求\n2. XMLHttpRequest -查询参数 定义： 浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据\n语法：http://xxxx.com/xxx/xxx?参数名1=值1 \u0026 参数名2=值2\n3. URLSearchParams() 用来生成查询参数\nconst paramsObj = new URLSearchParams({ 参数名1:值1, 参数名2:值2 }) const queryString = paramsObj.toString() 4. XMLHttpRequest() 数据提交 请求头设置 Content-Type：application/json\n请求体携带JSON 字符串\n在开发者控制台的 网络-\u003e Fetch/XHR-\u003e选择调用的接口\nconst xhr = new XML HttpRequest() xhr.open('请求方法'，'请求url网址') xhr.addEventListener('loadend',()=\u003e( console.log(xhr.response) )) // 提交时，设置请求头 xhr.setRequestHeader('content-type','application/json') const user = {username:'itheima007',password:'7654321'} // 转换成json const userJson = JSON.stringify(user) xhr.send(userJson) 2. Promise对象 定义： Promise 对象用于表示一个异步操作的最终完成（或失败）及其结果值\n目前学过的异步：AJAX, setTimeout(), setTimeInterval()\n1. 了解 优势：\n逻辑更清晰 了解axios 函数内部运作机制 能解决回调函数地狱问题 // 创建Promise对象 const p = new Promise((resolve, reject)=\u003e{ // 执行一步任务并传递结果 // 成功调用： resolve(值)触发 then()执行 // 失败调用： reject(值)触发 catch()执行 }) p.then(result=\u003e{ // 成功 }).catch(error=\u003e{ // 失败 }) 总结：\n什么是Promise? 管理一个异步操作最终状态和结果的值的对象\n为什么学习Promise？\n成功和失败状态，可以关联对应处理程序\n了解axios内部原理\nPromise使用步骤\n创建对象 定义两个形参并执行回调函数，执行异步代码 成功和失败执行不同的函数 在.then() .catch()方法中捕捉成功或失败的结果 2. Promise 三种状态 作用： 了解Promise对象如何关联和处理函数，以及代码执行顺序\n概念： 一个Promise对象，必然处于以下几种状态之一\n待定 (pending)： 初始状态，即没有被兑现，也没有被拒绝 已兑现 (fulfilled)： 操作成功完成 已拒绝 (rejected)：操作失败 注意： Promise 对象一旦被兑现/拒绝，此状态无法被改变\n// 1. 创建Promise对象 （pending - 待定状态） const p = new Promise((resolve, reject) =\u003e { console.log('Promise对象内开始执行') // Promise对象被创建时，代码立刻执行 // 2. 执行异步代码 setTimeout(() =\u003e { // 当resolve()=\u003e被调用时，Promise的状态会更改为‘fulfilled 已兑现’ // 导致then()中的回调函数执行 resolve('模拟ajax请求成功') // 当reject()=\u003e被调用时，Promise的状态会更改为‘rejected 已拒绝’ // 导致catch()中的回调函数执行 // reject(new Error('失败！')) }, 2000) }) p.then(result =\u003e { console.log(result); }).catch(error =\u003e { console.log(error) }) 总结：\nPromise 对象有哪三种状态？\n待定 pending\n已兑现 fulfilled\n已拒绝 rejected\nPromise 状态有什么用？\n状态改变后，调用关联的处理函数\n案例： Promise 和 XMLHttpRequest 的结合\nconst p = new Promise((resolve, reject) =\u003e { const xhr = new XMLHttpRequest() xhr.open('GET', 'http://hmajax.itheima.net/api/provincedhdhdh') xhr.addEventListener('loadend', () =\u003e { // xhr使用响应码判断 响应成功还是失败 2xx开头都是成功 4xx都是错 // 响应码 console.log(xhr.status) console.log(xhr.response) if (xhr.status \u003e= 200 \u0026\u0026 xhr.status \u003c 300) { resolve(JSON.parse(xhr.response)) } else { reject(new Error(xhr.response)) } }) xhr.send() }) p.then(result =\u003e { document.querySelector('.my-p').innerHTML = result.list.join('\n') }).catch(error =\u003e { // 错误对象要用console.dir详细打印 console.dir(error) console.log(error) document.querySelector('.my-p').innerHTML = error.message }) Day4 1. 同步代码\u0026异步代码 同步代码\n实际上浏览器按照我们书写代码的顺序一行一行地执行程序。浏览器会等待代码的解析和工作，在上一行完成后才会执行下一行。这样就很有必要，因为每一行新的代码都是建立在前面的代码的基础之上的。\n这也使得它成为一个同步程序\n异步代码\n异步编程技术使你的程序可以执行一个可能长期运行的任务同时继续对其他事件做出反应而不必等待任务完成。与此同时，你的程序也将在任务完成后显示结果\n总结：\n同步代码：逐行执行，需要在原地等待结果，才能继续向下执行 异步代码：调用后耗时，不阻塞代码继续执行（不必原地等待），在将来完成后触发一个回调函数。异步代码接收结果，使用回调函数 // 数字打印顺序 const result = 0+1 console.log(result) //1 setTimeout(()=\u003e{ console.log(2) },2000) //2 // 事件相关的代码都是异步，因为不会阻塞代码执行 document.querySelector('.btn').addEventListener('click',()=\u003e{ console.log(3) }) document.body.style.backgroundColor = 'pink' console.log(4) // 打印顺序应该是 1 4 2 总结：\n什么是同步代码？ 逐行执行，原地等待结果，才继续向下执行其他的代码\n什么是异步代码？调用后耗时，不阻塞代码执行，将来完成后触发回调函数\nJS 中有哪些异步代码 ?\nsetTimeout/setInterval\n事件\nAJAX\n异步代码如何接收结果？依靠回调函数来接收\n2. 回调函数地狱 在回调函数中 嵌套回调函数，一直嵌套下去就形成了回调函数地狱\n缺点： 可读性差，异常无法捕获，耦合性严重，牵一发动全身\n3. Promise - 链式调用 概念： 依靠 then()方法会返回一个新生成的 Promise对象特性，继续串联下一环任务，直到结束\n细节：then()回调函数中的返回值，会影响新生成Promise对象最终状态和结果\n好处： 通过链式调用，解决回调函数嵌套问题\nsetTimeout 被用来模拟一个耗时 2 秒的异步操作。当这个异步操作完成后（即 2 秒后），resolve 被调用，并传递了字符串 '上海市' 作为参数。这会导致 Promise 对象 p 的状态变为 fulfilled，并且 '上海市' 这个值会被传递给 p.then 中注册的回调函数，并被打印出来。\n/** * 目标：掌握Promise的链式调用 * 需求：把省市的嵌套结构，改成链式调用的线性结构 */ // 1. 创建Promise对象 const p = new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve('上海市') }, 2000) }) // 获取省份名称 const p2 = p.then(result =\u003e { console.log(result) // 上海市 // 3， 创建Promise对象 模拟请求城市名字 return new Promise((resolve, reject) =\u003e { setTimeout(() =\u003e { resolve(result + '上海市' + '城市') }, 2000) }) }) // 获取城市名字 p2.then(result =\u003e { // 这个result里面是 上一个resolve中传递进来的参数 console.log(result) }) // 会发现 p 和 p2 并不全等,就意味着then()返回一个新的对象 console.log(p2 === p) 总结：\n什么是 Promise 的链式调用？\n使用 then()返回新的Promise对象，一直串联下去\nthen 回调函数中， return 的值会传给哪里？\n传给then函数生成的新 Promise对象\nPromise 链式调用 解决了 回调函数嵌套问题\n4. async函数和await 1. 定义 async() 使用async关键字声明的函数。async函数是AsyncFunction构造函数的实例，并且其中允许使用await关键字。async和await关键字让我们可以使用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise\n2. 案例 async function getDefaultArea(){ const pObj = await axios({url:'http://hmajax.itheima.net/api/province'}) const pname = pObj.data.list[0] const cObj = await axios({url:'http://hmajax.itheima.net/api/city',params:{pname}}) const cname = cObj.data.list[0] const aObj = await axios({url:'http://hmajax.itheima.net/api/city',params:{pname,cname}}) const aname = aObj.data.list[0] document.querySelector('.province').innerHTML = pname document.querySelector('.city').innerHTML = cname document.querySelector('.area').innerHTML = aname } getDefaultArea() 3. 步骤 概念： 在 async 函数内，使用await关键字取代then函数，等待获取promise对象成功状态\nasync 修饰函数，使普通函数变为异步函数 await 后面增加异步任务 await 后面成功的结果 赋给 左边的变量 5. async函数和await 捕获错误 1. try…catch ​ 一旦在try这个代码块中出现错误，下面的函数都无法执行\nasync function getDefaultData() { try { // 1. try 可能产生错误的代码 const pObj = await axios({ url: 'http://hmajax.itheima.net/api/province' }) const pname = pObj.data.list[0] const cObj = await axios({ url: 'http://hmajax.itheima.net/api/city', params: { pname } }) const cname = cObj.data.list[0] const aObj = await axios({ url: 'http://hmajax.itheima.net/api/area', params: { pname, cname } }) const aname = aObj.data.list[0] document.querySelector('.province').innerHTML = pname document.querySelector('.city').innerHTML = cname document.querySelector('.area').innerHTML = aname } catch (error) { // 2. 接着调用catch块，接收错误信息 // 如果try某行代码报错后，try中剩余的代码不会执行 cosole.dir(error.response.data.message) } } 6. 事件循环 (EventLoop) 1. 概念 JavaScript 有一个__基于事件循环的并发模型__，事件循环负责执行代码、收集和处理事件以及执行队列中的子任务。这个模型与其他语言中的模型截然不同，比如C和Java\n2. 原因 JavaScript单线程（某一刻只能执行一行代码），为了让耗时代码不阻塞其他代码运行，设计了事件循环模型\n3. 执行过程 console.log(1) // 调用栈 setTimeout(()=\u003e{ console.log(2) },0) // 宿主环境 console.log(3) setTimeout(()=\u003e{ console.log(4) },2000) console.log(5) // 控制台输出： 1 3 5 2 4 还是看一下老师的视频讲解，比较清晰。大致步骤是：普通的非异步函数（立即执行函数）在调用栈内执行；异步函数在宿主环境（浏览器）中等待执行并加入任务队列，如果调用栈内任务执行完毕， 会循环反复的查找任务队列的回调函数执行。\n\u003c!DOCTYPE HTML\u003e 4. 总结 什么是事件循环？\n执行代码和收集异步任务，在调用栈空闲时，反复调用任务队列里回调函数执行机制\n为什么有事件循环？\nJavaScript 是单线程，为了不阻塞JS引擎，设计执行代码的模型\nJavaScript 内代码如何执行？\n执行同步代码，遇到异步代码交给宿主浏览器环境执行\n异步有了结果后，把回调函数放入任务队列排队\n当调用栈空闲后，反复调用任务队列里面的回调函数\n7. 宏任务与微任务 ES6 之后引入Promise对象，让JS引擎也可以发起异步任务\n异步任务分为：\n宏任务： 由浏览器环境执行的异步代码 微任务：由 JS 引擎环境执行的异步代码 任务（代码） 执行所在环境 JS 脚本执行事件 (script) 浏览器 setTimeour/setInterval 浏览器 AJAX 请求完成事件 浏览器 用户交互事件等等 浏览器 Promise对象.then() JS引擎 Promise 本身是同步的，而then 和 catch 回调函数是异步的\nconsole.log(1) setTimeout(()=\u003e{ console.log(2) },0) const p 1. 总结 什么是宏任务？\n浏览器执行的异步代码\n例如： JS 执行脚本事件 setTimeout/setInterva，AJAX请求完成事件，用户交互事件等等\n什么是微任务？\nJS 引擎执行的异步代码\n例如： Promise对象.then() 的回调\nJavaScript 内部代码如何执行？\n执行第一个script脚本事件宏任务里面的同步代码\n遇到宏任务/微任务 交给宿主环境（浏览器/JS引擎），执行后的回调函数分别放在 【微任务队列/宏任务队列】\n当执行栈空闲时，清空微任务队列，再执行下一个宏任务….\n8. Promise.all 静态方法 1. 概念： 合并多个Promise对象，等待所有同时成功完成（或某一个失败），做后续逻辑\nconst p = Promise.all([Promise对象, Promise对象, ...]) p.then(result =\u003e { // result 结果：[Promise对象成功结果, Promise对象成功结果, ...] }).catch(error =\u003e { // 失败的promise对象 抛出的异常 }) 补充 验证码流程 1. token 访问权限令牌，本质是一串字符串\n创建： 正确登录后，由后端签发返回 作用：判断是否有登录状态等，控制访问权限 注意： 前端智能判断 token 是否存在，而后端才能判断token的有效性\n",
+  "wordCount" : "6460",
+  "inLanguage": "zh",
+  "datePublished": "2024-03-23T00:00:00Z",
+  "dateModified": "2024-03-23T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jingyi Wu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" class=" top" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+                    <div class="logo-switches">
+                        <button id="theme-toggle" accesskey="t" title="(Alt + T)"
+                            onclick="javascript:location.reload();">
+                            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+                        <ul class="lang-switch"><li>|</li>
+                            <li>
+                                <a href="https://jingyiwu-codespace.github.io/en/"
+                                    title="English"
+                                    aria-label="English">En</a>
+                            </li>
+                        </ul>
+                    </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/msg" title="留言板">
+                    <span>留言板</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header><main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
+
+    <h1 class="post-title entry-hint-parent">
+      学习：AJAX 
+    </h1>
+    <div class="post-meta"><span title='2024-03-23 00:00:00 +0000 UTC'>三月 23, 2024</span>&nbsp;·&nbsp;13 分钟&nbsp;·&nbsp;Jingyi Wu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#day-1" aria-label="Day 1">Day 1</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-ajax-%e5%af%bc%e5%85%a5" aria-label="1. AJAX 导入">1. AJAX 导入</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e4%bb%80%e4%b9%88%e6%98%afajax-" aria-label="什么是AJAX ?">什么是AJAX ?</a></li>
+                    <li>
+                        <a href="#%e4%bd%bf%e7%94%a8-ajax" aria-label="使用 AJAX">使用 AJAX</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#2-url" aria-label="2. URL">2. URL</a></li>
+                    <li>
+                        <a href="#3-axios%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" aria-label="3. axios错误处理">3. axios错误处理</a></li>
+                    <li>
+                        <a href="#4-http%e5%8d%8f%e8%ae%ae---%e8%af%b7%e6%b1%82%e6%8a%a5%e6%96%87" aria-label="4. HTTP协议 - 请求报文">4. HTTP协议 - 请求报文</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e8%af%b7%e6%b1%82%e6%8a%a5%e6%96%87%e7%9a%84%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86" aria-label="请求报文的组成部分">请求报文的组成部分</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#5-http%e5%8d%8f%e8%ae%ae---%e5%93%8d%e5%ba%94%e6%8a%a5%e6%96%87" aria-label="5. HTTP协议 - 响应报文">5. HTTP协议 - 响应报文</a></li>
+                    <li>
+                        <a href="#6-%e6%8e%a5%e5%8f%a3%e6%96%87%e6%a1%a3" aria-label="6. 接口文档">6. 接口文档</a></li>
+                    <li>
+                        <a href="#7-form-serialize-%e6%8f%92%e4%bb%b6" aria-label="7. form-serialize 插件">7. form-serialize 插件</a></li>
+                    <li>
+                        <a href="#8-api%e8%a6%81%e6%b1%82%e8%af%b7%e6%b1%82%e4%bd%93formdata" aria-label="8. API要求请求体FormData()">8. API要求请求体FormData()</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#day3" aria-label="Day3">Day3</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-ajax-%e5%8e%9f%e7%90%86---xmlhttprequest" aria-label="1. AJAX 原理 - XMLHttpRequest">1. AJAX 原理 - XMLHttpRequest</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e4%bd%bf%e7%94%a8-xmlhttprequest" aria-label="1. 使用 XMLHttpRequest">1. 使用 XMLHttpRequest</a></li>
+                    <li>
+                        <a href="#2-xmlhttprequest---%e6%9f%a5%e8%af%a2%e5%8f%82%e6%95%b0" aria-label="2. XMLHttpRequest  -查询参数">2. XMLHttpRequest  -查询参数</a></li>
+                    <li>
+                        <a href="#3-urlsearchparams" aria-label="3. URLSearchParams()">3. URLSearchParams()</a></li>
+                    <li>
+                        <a href="#4-xmlhttprequest-%e6%95%b0%e6%8d%ae%e6%8f%90%e4%ba%a4" aria-label="4. XMLHttpRequest() 数据提交">4. XMLHttpRequest() 数据提交</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#2-promise%e5%af%b9%e8%b1%a1" aria-label="2. Promise对象">2. Promise对象</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e4%ba%86%e8%a7%a3" aria-label="1. 了解">1. 了解</a></li>
+                    <li>
+                        <a href="#2-promise-%e4%b8%89%e7%a7%8d%e7%8a%b6%e6%80%81" aria-label="2. Promise 三种状态">2. Promise 三种状态</a></li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#day4" aria-label="Day4">Day4</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e5%90%8c%e6%ad%a5%e4%bb%a3%e7%a0%81%e5%bc%82%e6%ad%a5%e4%bb%a3%e7%a0%81" aria-label="1. 同步代码&amp;异步代码">1. 同步代码&amp;异步代码</a></li>
+                    <li>
+                        <a href="#2-%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0%e5%9c%b0%e7%8b%b1" aria-label="2. 回调函数地狱">2. 回调函数地狱</a></li>
+                    <li>
+                        <a href="#3-promise---%e9%93%be%e5%bc%8f%e8%b0%83%e7%94%a8" aria-label="3. Promise - 链式调用">3. Promise - 链式调用</a></li>
+                    <li>
+                        <a href="#4-async%e5%87%bd%e6%95%b0%e5%92%8cawait" aria-label="4. async函数和await">4. async函数和await</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e5%ae%9a%e4%b9%89" aria-label="1. 定义">1. 定义</a></li>
+                    <li>
+                        <a href="#2-%e6%a1%88%e4%be%8b" aria-label="2. 案例">2. 案例</a></li>
+                    <li>
+                        <a href="#3-%e6%ad%a5%e9%aa%a4" aria-label="3. 步骤">3. 步骤</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#5-async%e5%87%bd%e6%95%b0%e5%92%8cawait-%e6%8d%95%e8%8e%b7%e9%94%99%e8%af%af" aria-label="5. async函数和await 捕获错误">5. async函数和await 捕获错误</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-trycatch" aria-label="1. try&hellip;catch">1. try&hellip;catch</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#6-%e4%ba%8b%e4%bb%b6%e5%be%aa%e7%8e%af-eventloop" aria-label="6. 事件循环 (EventLoop)">6. 事件循环 (EventLoop)</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e6%a6%82%e5%bf%b5" aria-label="1. 概念">1. 概念</a></li>
+                    <li>
+                        <a href="#2-%e5%8e%9f%e5%9b%a0" aria-label="2. 原因">2. 原因</a></li>
+                    <li>
+                        <a href="#3-%e6%89%a7%e8%a1%8c%e8%bf%87%e7%a8%8b" aria-label="3. 执行过程">3. 执行过程</a></li>
+                    <li>
+                        <a href="#4-%e6%80%bb%e7%bb%93" aria-label="4. 总结">4. 总结</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#7-%e5%ae%8f%e4%bb%bb%e5%8a%a1%e4%b8%8e%e5%be%ae%e4%bb%bb%e5%8a%a1" aria-label="7. 宏任务与微任务">7. 宏任务与微任务</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e6%80%bb%e7%bb%93" aria-label="1. 总结">1. 总结</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#8-promiseall-%e9%9d%99%e6%80%81%e6%96%b9%e6%b3%95" aria-label="8. Promise.all 静态方法">8. Promise.all 静态方法</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e6%a6%82%e5%bf%b5-1" aria-label="1. 概念：">1. 概念：</a></li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e8%a1%a5%e5%85%85-%e9%aa%8c%e8%af%81%e7%a0%81%e6%b5%81%e7%a8%8b" aria-label="补充 验证码流程">补充 验证码流程</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-token" aria-label="1. token">1. token</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="day-1">Day 1<a hidden class="anchor" aria-hidden="true" href="#day-1">#</a></h1>
+<h2 id="1-ajax-导入">1. AJAX 导入<a hidden class="anchor" aria-hidden="true" href="#1-ajax-导入">#</a></h2>
+<h3 id="什么是ajax-">什么是AJAX ?<a hidden class="anchor" aria-hidden="true" href="#什么是ajax-">#</a></h3>
+<ul>
+<li>
+<p>异步的 JavaScript 和 XML (Asynchronous JavaScript And XML)</p>
+</li>
+<li>
+<p>使用<code>XMLHttpRequest</code> 对象与服务器通信，可以使用<code>JSON/ XML/ HTML/ text </code> 文本等格式发送和接受数据。</p>
+</li>
+<li>
+<p>AJAX 有异步特性，在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面</p>
+</li>
+</ul>
+<h3 id="使用-ajax">使用 AJAX<a hidden class="anchor" aria-hidden="true" href="#使用-ajax">#</a></h3>
+<ul>
+<li>
+<p>使用 <code>axios</code> 库，与服务器进行数据通信</p>
+<p>将<code>XMLHttpRequest</code>封装，代码简单</p>
+<p>Vue React 项目中都会使用 <code>axios</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/province&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//&#39;请求的服务器连接&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 对服务器返回的数据做后续处理
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>学习<code>XMLHttpRequest</code>对象，了解AJAX底层原理</p>
+</li>
+</ul>
+<h2 id="2-url">2. URL<a hidden class="anchor" aria-hidden="true" href="#2-url">#</a></h2>
+<ol>
+<li>
+<p>http协议： 超文本传输协议，规定浏览器和服务器之间传输数据的格式</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240323121243815.png" alt="image-20240323121243815"  />
+</p>
+<p>网址： <a href="http://hmajax.itheima.net/api/province">http://hmajax.itheima.net/api/province</a></p>
+<p>网址：协议://域名/资源路径</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>网址</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议</td>
+<td>http</td>
+<td>规定传输数据的格式</td>
+</tr>
+<tr>
+<td>域名</td>
+<td>hmajax.itheima.net</td>
+<td>标记服务器在互联网中的方位</td>
+</tr>
+<tr>
+<td>资源路径</td>
+<td>/api/province</td>
+<td>标记资源在服务器下的具体位置</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>URL 查询参数</p>
+</li>
+</ol>
+<blockquote>
+<p>浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据</p>
+</blockquote>
+<p>​	 <a href="http://xxxx.com/xxx/xxx?param1">http://xxxx.com/xxx/xxx?param1</a> = value &amp;&amp; param2 = value2</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240323221541982.png" alt="image-20240323221541982"  />
+</p>
+<p>​	Axios 查询参数</p>
+<ul>
+<li>axios 提供 <code>params</code> 选项</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39; http://hmajax.itheima.net&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">params</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">pname</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;河北省&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 处理后续code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span></code></pre></div><ol start="3">
+<li>常用的请求方法</li>
+</ol>
+<blockquote>
+<p>对服务器资源，执行的操作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>请求方法</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>获取数据</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>提交数据</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>修改数据 (全部)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>删除数据</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>修改数据 (部分)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>axios 请求配置</p>
+<p><code>url</code>：请求URL网址</p>
+<p><code>method</code>：请求方法，GET可以省略（不区分大小写）</p>
+<p><code>data</code>：提交的数据</p>
+<p><code>header</code>: 请求头数据，通常用于传递<code>token</code>，可以在axios中的请求拦截器中设置公共的 headers 选项</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;目标资源地址&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">method</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;请求方法&#39;</span><span style="color:#797593">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">data</span> <span style="color:#797593">:</span><span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">params</span> <span style="color:#b4637a">：</span><span style="color:#d7827e">value</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">((</span><span style="color:#d7827e">result</span><span style="color:#797593">)=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">headers</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">Authorization</span><span style="color:#797593">:</span> <span style="color:#ea9d34">`Bearer </span><span style="color:#ea9d34">${</span><span style="color:#d7827e">token</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34">`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// Bearer是授权类型
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><ul>
+<li>axios 请求拦截器：本质是配置函数，在发起请求之前触发，对请求参数进行额外配置。一般放在基地址<code>.baseURL</code>的<code>.js</code>内</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">.</span><span style="color:#d7827e">interceptor</span><span style="color:#797593">.</span><span style="color:#d7827e">request</span><span style="color:#797593">.</span><span style="color:#d7827e">use</span><span style="color:#797593">(</span><span style="color:#286983">function</span> <span style="color:#797593">(</span><span style="color:#d7827e">config</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">const</span> <span style="color:#d7827e">token</span> <span style="color:#797593">=</span> <span style="color:#d7827e">location</span><span style="color:#797593">.</span><span style="color:#d7827e">getItem</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;token&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#d7827e">token</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#d7827e">config</span><span style="color:#797593">.</span><span style="color:#d7827e">headers</span><span style="color:#797593">.</span><span style="color:#d7827e">Authorization</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">`Bearer </span><span style="color:#ea9d34">${</span><span style="color:#d7827e">token</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34">`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#9893a5">// 在发送请求之前做些什么
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>  <span style="color:#286983">return</span> <span style="color:#d7827e">config</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span> <span style="color:#286983">function</span> <span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 对请求错误做些什么
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>  <span style="color:#286983">return</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">.</span><span style="color:#d7827e">reject</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Axios 响应拦截器</p>
+<p>响应(response)回到 <code>then/catch</code>之前，触发的拦截函数，对响应结果统一处理，例如身份验证失败，统一判断并作处理；如果成功设置返回数据对象里的某个属性，在其他操作中更加简洁。一般放在基地址<code>.baseURL</code>的<code>.js</code>内</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 添加响应拦截器
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">axios</span><span style="color:#797593">.</span><span style="color:#d7827e">interceptors</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">use</span><span style="color:#797593">(</span><span style="color:#286983">function</span> <span style="color:#797593">(</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#9893a5">// 2xx 范围内的状态码都会触发该函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>  <span style="color:#9893a5">// 对响应数据 返回对象中的 data属性
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>  <span style="color:#286983">const</span> <span style="color:#d7827e">result</span> <span style="color:#797593">=</span> <span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#9893a5">// 不用写 response.data.data这么繁琐
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>  <span style="color:#286983">return</span> <span style="color:#d7827e">result</span><span style="color:#797593">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span> <span style="color:#286983">function</span> <span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">?</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">?</span><span style="color:#797593">.</span><span style="color:#d7827e">status</span> <span style="color:#797593">===</span> <span style="color:#ea9d34">401</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 这是一个条件语句，首先检查 error 对象是否存在，如果存在则继续检查其 response 属性是否存在，
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 最后再检查 response 对象中的 status 属性是否等于 401。这里使用了可选链操作符 ?.
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 以避免当某些属性为 null 或 undefined 时引发错误。
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;登录状态过期，请重新登录&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">localStorage</span><span style="color:#797593">.</span><span style="color:#d7827e">clear</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">location</span><span style="color:#797593">.</span><span style="color:#d7827e">href</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;login/index.html&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">return</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">.</span><span style="color:#d7827e">reject</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">});</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>请求方法表明对服务器资源的操作，POST 提交数据 GET查询数据</p>
+</li>
+<li>
+<p>axios 核心配置</p>
+<p>url ：请求URL网址</p>
+<p>method : 请求方法， get可以省略</p>
+<p>params ： 查询参数</p>
+<p>data ： 提交数据, 请求体</p>
+</li>
+<li>
+<p>axios 是一个调用函数，对请求参数进行设置</p>
+<p>在公共配置和设置是，统一设置在请求拦截器中</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>在 axios的使用中，发现data后面时对象的格式，会自动转换成json格式</strong></p>
+</li>
+<li>
+<p>浏览器发送至服务器 叫做 请求体， 在network -&gt; playload中可以查看</p>
+</li>
+<li>
+<p>服务器返回给浏览器 叫做 响应体， 在 network -&gt; 响应中可以查看</p>
+</li>
+</ul>
+<h2 id="3-axios错误处理">3. axios错误处理<a hidden class="anchor" aria-hidden="true" href="#3-axios错误处理">#</a></h2>
+<blockquote>
+<p>Axios 会在控制台返回错误信息， 为了增加用户体验，开发人员可以讲错误信息以探矿的形式展现给用户</p>
+</blockquote>
+<p>语法： 在 <code>then</code> 方法的后面，通过点语法调用 <code>catch</code> 方法，传入回调函数并定义形参</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 请求选项
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/register&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">method</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;post&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">data</span><span style="color:#797593">:</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ea9d34">&#39;username&#39;</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;itheima789&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ea9d34">&#39;password&#39;</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;123456&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 错误信息存放的位置
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">alert</span><span style="color:#b4637a">（</span><span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span><span style="color:#b4637a">）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span></code></pre></div><h2 id="4-http协议---请求报文">4. HTTP协议 - 请求报文<a hidden class="anchor" aria-hidden="true" href="#4-http协议---请求报文">#</a></h2>
+<ul>
+<li>HTTP 协议： 规定了浏览器发送服务器返回内容的格式</li>
+<li>请求报文：浏览器按照HTTP 协议要求的格式，发送给服务器的内容。所以请求报文就是遵守格式的内容集合</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240323234251464.png" alt="image-20240323234251464"  />
+</p>
+<h3 id="请求报文的组成部分">请求报文的组成部分<a hidden class="anchor" aria-hidden="true" href="#请求报文的组成部分">#</a></h3>
+<ol>
+<li>
+<p>请求行： 请求方法， URL， 协议</p>
+</li>
+<li>
+<p>请求头： 以键值对的格式携带的附加信息 <code>Content-Type: application/json</code></p>
+</li>
+<li>
+<p>空行： 分隔请求头，空行之后是发送给服务器的资源</p>
+</li>
+<li>
+<p>请求体： 浏览器发送的资源</p>
+</li>
+</ol>
+<h2 id="5-http协议---响应报文">5. HTTP协议 - 响应报文<a hidden class="anchor" aria-hidden="true" href="#5-http协议---响应报文">#</a></h2>
+<ul>
+<li>HTTP 协议： 规定了浏览器发送及服务器返回内容的格式</li>
+<li>响应报文： 服务器按照HTTP协议要求的格式，返回给浏览器的内容</li>
+</ul>
+<ol>
+<li>
+<p>响应报文的组成部分</p>
+<ol>
+<li>
+<p>响应行（状态行）：协议、HTTP响应状态码、状态信息</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>信息</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向消息</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端错误</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务端错误</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>响应头：以键值对的格式携带的附加信息 <code>Content-Type:Application/JSON</code></p>
+</li>
+<li>
+<p>空行： 分隔响应头，空行之后的是服务器返回的资源</p>
+</li>
+<li>
+<p>响应体：返回的资源</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="6-接口文档">6. 接口文档<a hidden class="anchor" aria-hidden="true" href="#6-接口文档">#</a></h2>
+<blockquote>
+<p>描述接口的文章</p>
+</blockquote>
+<p>接口是什么？</p>
+<blockquote>
+<p>使用AJAX和服务器通讯时，使用的URL, 请求方法，以及参数</p>
+</blockquote>
+<h2 id="7-form-serialize-插件">7. form-serialize 插件<a hidden class="anchor" aria-hidden="true" href="#7-form-serialize-插件">#</a></h2>
+<blockquote>
+<p>快速收集表单元素的值</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">form</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.example-form&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">data</span> <span style="color:#797593">=</span> <span style="color:#d7827e">serialize</span><span style="color:#797593">(</span><span style="color:#d7827e">form</span><span style="color:#797593">,</span> <span style="color:#797593">{</span><span style="color:#d7827e">hash</span><span style="color:#797593">:</span> <span style="color:#286983">true</span><span style="color:#797593">,</span> <span style="color:#d7827e">empty</span><span style="color:#797593">:</span><span style="color:#286983">true</span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p>使用解读：</p>
+<ul>
+<li>
+<p>参数1：要获取哪个表单的数据</p>
+<p>表单元素设置name属性，值会作为对象的属性名。建议name属性的值，最好与接口文档参数名一致</p>
+</li>
+<li>
+<p>参数2:   配置对象</p>
+<p>hash 设置获取数据结构</p>
+<ul>
+<li>true： JS 对象（推荐）一般请求体提交至服务器的格式。</li>
+<li>false：查询字符串</li>
+</ul>
+<p>empty 设置是否获取空值</p>
+<ul>
+<li>true：获取空值（推荐）数据结构和标签结构一致</li>
+<li>false：不获取空值</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-api要求请求体formdata">8. API要求请求体FormData()<a hidden class="anchor" aria-hidden="true" href="#8-api要求请求体formdata">#</a></h2>
+<ul>
+<li>文件选择元素 -&gt; 使用change改变事件，使用files获取监听事件的文件列表</li>
+<li>使用FormData()传输文件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.upload&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;change&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">e</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//1. 获取图片文件,使用files获取监听事件的文件列表
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">e</span><span style="color:#797593">.</span><span style="color:#d7827e">target</span><span style="color:#797593">.</span><span style="color:#d7827e">files</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">fd</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">FormData</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">fd</span><span style="color:#797593">.</span><span style="color:#d7827e">append</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;img&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">e</span><span style="color:#797593">.</span><span style="color:#d7827e">target</span><span style="color:#797593">.</span><span style="color:#d7827e">files</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">axios</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// api
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">method</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;post&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">data</span><span style="color:#797593">:</span><span style="color:#d7827e">fd</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">imgUrl</span> <span style="color:#797593">=</span> <span style="color:#d7827e">result</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">url</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.img&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">src</span> <span style="color:#797593">=</span> <span style="color:#d7827e">imgUrl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h1 id="day3">Day3<a hidden class="anchor" aria-hidden="true" href="#day3">#</a></h1>
+<h2 id="1-ajax-原理---xmlhttprequest">1. AJAX 原理 - XMLHttpRequest<a hidden class="anchor" aria-hidden="true" href="#1-ajax-原理---xmlhttprequest">#</a></h2>
+<blockquote>
+<p>XMLHttpRequest （XHR）对象用于与服务器交互。通过XMLHttpRequest 可以在不刷新页面的情况下请求特定的URL，获取数据。</p>
+<p>这允许网页在不影响用户操作的情况下，更新页面的局部内容。</p>
+<p>XMLHttpRequest 在AJAX编程中被大量使用</p>
+</blockquote>
+<p>关系：axios 内部采用 <code>XMLHttpRequest</code>与服务器交互</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240326133541516.png" alt="image-20240326133541516"  />
+</p>
+<h3 id="1-使用-xmlhttprequest">1. 使用 XMLHttpRequest<a hidden class="anchor" aria-hidden="true" href="#1-使用-xmlhttprequest">#</a></h3>
+<p>步骤&amp;语法</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">xhr</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">XMLHttpRequest</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">open</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;请求方法&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;请求url网址&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;loadend&#39;</span><span style="color:#797593">,()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 响应结果
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 接受服务端的响应
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">send</span><span style="color:#797593">()</span> <span style="color:#9893a5">// 给服务端发送请求
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 再来一个案例
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">xhr</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">XMLHttpRequest</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">open</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;get&#39;</span><span style="color:#797593">,</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/province&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;loadend&#39;</span><span style="color:#797593">,</span> <span style="color:#797593">()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 无论成功或失败，都会返回数据
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#9893a5">// 返回json字符串， axios帮忙转成了js对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 转换成js对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#286983">const</span> <span style="color:#d7827e">data</span> <span style="color:#797593">=</span> <span style="color:#d7827e">JSON</span><span style="color:#797593">.</span><span style="color:#d7827e">parse</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 转换成字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">.</span><span style="color:#d7827e">join</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;&lt;br&gt;&#39;</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 发起请求
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">send</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>AJAX原理</p>
+<p>XMLHttpRequest 对象</p>
+</li>
+<li>
+<p>为什么学习 XHR？</p>
+<p>了解axios内部原理</p>
+<p>了解服务器数据通信的方式</p>
+</li>
+<li>
+<p>XHR使用步骤？</p>
+<p>创建XHR对象</p>
+<p>调用open方法，设置url和请求方法</p>
+<p>监听loadend事件，接收结果</p>
+<p>调用send方法，发起请求</p>
+</li>
+</ol>
+<h3 id="2-xmlhttprequest---查询参数">2. XMLHttpRequest  -查询参数<a hidden class="anchor" aria-hidden="true" href="#2-xmlhttprequest---查询参数">#</a></h3>
+<p>定义： 浏览器提供给服务器的额外信息，让服务器返回浏览器想要的数据</p>
+<p>语法：<code>http://xxxx.com/xxx/xxx?参数名1=值1 &amp; 参数名2=值2</code></p>
+<p><img loading="lazy" src="/img/Javascript/image-20240326134942164.png" alt="image-20240326134942164"  />
+</p>
+<h3 id="3-urlsearchparams">3. URLSearchParams()<a hidden class="anchor" aria-hidden="true" href="#3-urlsearchparams">#</a></h3>
+<blockquote>
+<p>用来生成查询参数</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">paramsObj</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">URLSearchParams</span><span style="color:#797593">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">参数名1</span><span style="color:#797593">:</span><span style="color:#d7827e">值1</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">参数名2</span><span style="color:#797593">:</span><span style="color:#d7827e">值2</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">queryString</span> <span style="color:#797593">=</span> <span style="color:#d7827e">paramsObj</span><span style="color:#797593">.</span><span style="color:#d7827e">toString</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><h3 id="4-xmlhttprequest-数据提交">4. XMLHttpRequest() 数据提交<a hidden class="anchor" aria-hidden="true" href="#4-xmlhttprequest-数据提交">#</a></h3>
+<p>请求头设置 Content-Type：application/json</p>
+<p>请求体携带JSON 字符串</p>
+<p>在开发者控制台的 网络-&gt; Fetch/XHR-&gt;选择调用的接口</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">xhr</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">XML</span> <span style="color:#d7827e">HttpRequest</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">open</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;请求方法&#39;</span><span style="color:#b4637a">，</span><span style="color:#ea9d34">&#39;请求url网址&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;loadend&#39;</span><span style="color:#797593">,()=&gt;(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 提交时，设置请求头
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">setRequestHeader</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;content-type&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;application/json&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">user</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span><span style="color:#d7827e">username</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;itheima007&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">password</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;7654321&#39;</span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 转换成json
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">userJson</span> <span style="color:#797593">=</span> <span style="color:#d7827e">JSON</span><span style="color:#797593">.</span><span style="color:#d7827e">stringify</span><span style="color:#797593">(</span><span style="color:#d7827e">user</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">send</span><span style="color:#797593">(</span><span style="color:#d7827e">userJson</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h2 id="2-promise对象">2. Promise对象<a hidden class="anchor" aria-hidden="true" href="#2-promise对象">#</a></h2>
+<blockquote>
+<p>定义： Promise 对象用于表示一个异步操作的最终完成（或失败）及其结果值</p>
+<p>目前学过的异步：AJAX, setTimeout(), setTimeInterval()</p>
+</blockquote>
+<h3 id="1-了解">1. 了解<a hidden class="anchor" aria-hidden="true" href="#1-了解">#</a></h3>
+<p>优势：</p>
+<ol>
+<li>逻辑更清晰</li>
+<li>了解axios 函数内部运作机制</li>
+<li>能解决回调函数地狱问题</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>    <span style="color:#9893a5">// 创建Promise对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">((</span><span style="color:#d7827e">resolve</span><span style="color:#797593">,</span> <span style="color:#d7827e">reject</span><span style="color:#797593">)=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 执行一步任务并传递结果
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 成功调用： resolve(值)触发 then()执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 失败调用： reject(值)触发 catch()执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">p</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 成功
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 失败
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">})</span>
+</span></span></code></pre></div><p><img loading="lazy" src="/img/Javascript/image-20240327145303599.png" alt="image-20240327145303599"  />
+</p>
+<p>总结：</p>
+<ol>
+<li>
+<p>什么是Promise? 管理一个异步操作最终状态和结果的值的对象</p>
+</li>
+<li>
+<p>为什么学习Promise？</p>
+<p>成功和失败状态，可以关联对应处理程序</p>
+<p>了解axios内部原理</p>
+</li>
+<li>
+<p>Promise使用步骤</p>
+<ol>
+<li>创建对象</li>
+<li>定义两个形参并执行回调函数，执行异步代码</li>
+<li>成功和失败执行不同的函数</li>
+<li>在.then() .catch()方法中捕捉成功或失败的结果</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-promise-三种状态">2. Promise 三种状态<a hidden class="anchor" aria-hidden="true" href="#2-promise-三种状态">#</a></h3>
+<p>作用： 了解Promise对象如何关联和处理函数，以及代码执行顺序</p>
+<p>概念： 一个Promise对象，必然处于以下几种状态之一</p>
+<ul>
+<li>待定 (pending)： 初始状态，即没有被兑现，也没有被拒绝</li>
+<li>已兑现 (fulfilled)： 操作成功完成</li>
+<li>已拒绝 (rejected)：操作失败</li>
+</ul>
+<p><strong>注意：</strong> Promise 对象一旦被兑现/拒绝，此状态无法被改变</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240327150915921.png" alt="image-20240327150915921"  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 1. 创建Promise对象 （pending - 待定状态）
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">((</span><span style="color:#d7827e">resolve</span><span style="color:#797593">,</span> <span style="color:#d7827e">reject</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;Promise对象内开始执行&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// Promise对象被创建时，代码立刻执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 2. 执行异步代码
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#9893a5">// 当resolve()=&gt;被调用时，Promise的状态会更改为‘fulfilled 已兑现’ 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>         <span style="color:#9893a5">// 导致then()中的回调函数执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">resolve</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;模拟ajax请求成功&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#9893a5">// 当reject()=&gt;被调用时，Promise的状态会更改为‘rejected 已拒绝’ 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>         <span style="color:#9893a5">// 导致catch()中的回调函数执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">// reject(new Error(&#39;失败！&#39;))
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">},</span> <span style="color:#ea9d34">2000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">p</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>Promise 对象有哪三种状态？</p>
+<p>待定 pending</p>
+<p>已兑现 fulfilled</p>
+<p>已拒绝 rejected</p>
+</li>
+<li>
+<p>Promise 状态有什么用？</p>
+<p>状态改变后，调用关联的处理函数</p>
+</li>
+</ol>
+<p>案例： Promise 和 XMLHttpRequest 的结合</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">((</span><span style="color:#d7827e">resolve</span><span style="color:#797593">,</span> <span style="color:#d7827e">reject</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#286983">const</span> <span style="color:#d7827e">xhr</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">XMLHttpRequest</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">open</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;GET&#39;</span><span style="color:#797593">,</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/provincedhdhdh&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;loadend&#39;</span><span style="color:#797593">,</span> <span style="color:#797593">()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">// xhr使用响应码判断 响应成功还是失败 2xx开头都是成功 4xx都是错
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#9893a5">// 响应码
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">status</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">status</span> <span style="color:#797593">&gt;=</span> <span style="color:#ea9d34">200</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">status</span> <span style="color:#797593">&lt;</span> <span style="color:#ea9d34">300</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">resolve</span><span style="color:#797593">(</span><span style="color:#d7827e">JSON</span><span style="color:#797593">.</span><span style="color:#d7827e">parse</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span> <span style="color:#286983">else</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">reject</span><span style="color:#797593">(</span><span style="color:#286983">new</span> <span style="color:#d7827e">Error</span><span style="color:#797593">(</span><span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">xhr</span><span style="color:#797593">.</span><span style="color:#d7827e">send</span><span style="color:#797593">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">p</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.my-p&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">result</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">.</span><span style="color:#d7827e">join</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;&lt;br&gt;&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 错误对象要用console.dir详细打印
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">dir</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.my-p&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span></code></pre></div><h1 id="day4">Day4<a hidden class="anchor" aria-hidden="true" href="#day4">#</a></h1>
+<h2 id="1-同步代码异步代码">1. 同步代码&amp;异步代码<a hidden class="anchor" aria-hidden="true" href="#1-同步代码异步代码">#</a></h2>
+<p>同步代码</p>
+<blockquote>
+<p>实际上浏览器按照我们书写代码的顺序一行一行地执行程序。浏览器会等待代码的解析和工作，在上一行完成后才会执行下一行。这样就很有必要，因为每一行新的代码都是建立在前面的代码的基础之上的。</p>
+<p>这也使得它成为一个同步程序</p>
+</blockquote>
+<p>异步代码</p>
+<blockquote>
+<p>异步编程技术使你的程序可以执行一个可能长期运行的任务同时继续对其他事件做出反应而不必等待任务完成。与此同时，你的程序也将在任务完成后显示结果</p>
+</blockquote>
+<p>总结：</p>
+<ul>
+<li>同步代码：逐行执行，需要在原地等待结果，才能继续向下执行</li>
+<li>异步代码：调用后耗时，不阻塞代码继续执行（不必原地等待），在将来完成后触发一个回调函数。异步代码接收结果，使用回调函数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 数字打印顺序
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">const</span> <span style="color:#d7827e">result</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">+</span><span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span> <span style="color:#9893a5">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span><span style="color:#ea9d34">2000</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 事件相关的代码都是异步，因为不会阻塞代码执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.btn&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">addEventListener</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;click&#39;</span><span style="color:#797593">,()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">3</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">body</span><span style="color:#797593">.</span><span style="color:#d7827e">style</span><span style="color:#797593">.</span><span style="color:#d7827e">backgroundColor</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;pink&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">4</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 打印顺序应该是 1 4 2 
+</span></span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>什么是同步代码？ 逐行执行，原地等待结果，才继续向下执行其他的代码</p>
+</li>
+<li>
+<p>什么是异步代码？调用后耗时，不阻塞代码执行，将来完成后触发回调函数</p>
+</li>
+<li>
+<p>JS 中有哪些异步代码 ?</p>
+<p>setTimeout/setInterval</p>
+<p>事件</p>
+<p>AJAX</p>
+</li>
+<li>
+<p>异步代码如何接收结果？依靠回调函数来接收</p>
+</li>
+</ol>
+<h2 id="2-回调函数地狱">2. 回调函数地狱<a hidden class="anchor" aria-hidden="true" href="#2-回调函数地狱">#</a></h2>
+<blockquote>
+<p>在回调函数中 嵌套回调函数，一直嵌套下去就形成了回调函数地狱</p>
+</blockquote>
+<p>缺点： 可读性差，异常无法捕获，耦合性严重，牵一发动全身</p>
+<h2 id="3-promise---链式调用">3. Promise - 链式调用<a hidden class="anchor" aria-hidden="true" href="#3-promise---链式调用">#</a></h2>
+<p>概念： 依靠 <code>then()</code>方法会返回一个新生成的 <code>Promise</code>对象特性，继续串联下一环任务，直到结束</p>
+<p>细节：<code>then()</code>回调函数中的返回值，会影响新生成<code>Promise</code>对象最终状态和结果</p>
+<p>好处： 通过链式调用，解决回调函数嵌套问题</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240327234206178.png" alt="image-20240327234206178"  />
+</p>
+<p><code>setTimeout</code> 被用来模拟一个耗时 2 秒的异步操作。当这个异步操作完成后（即 2 秒后），<code>resolve</code> 被调用，并传递了字符串 <code>'上海市'</code> 作为参数。这会导致 <code>Promise</code> 对象 <code>p</code> 的状态变为 <code>fulfilled</code>，并且 <code>'上海市'</code> 这个值会被传递给 <code>p.then</code> 中注册的回调函数，并被打印出来。</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> <span style="color:#9893a5">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">     * 目标：掌握Promise的链式调用
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">     * 需求：把省市的嵌套结构，改成链式调用的线性结构
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">    */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 1. 创建Promise对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#286983">const</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">((</span><span style="color:#d7827e">resolve</span><span style="color:#797593">,</span> <span style="color:#d7827e">reject</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">resolve</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;上海市&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">},</span> <span style="color:#ea9d34">2000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 获取省份名称
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#286983">const</span> <span style="color:#d7827e">p2</span> <span style="color:#797593">=</span> <span style="color:#d7827e">p</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 上海市
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#9893a5">// 3， 创建Promise对象 模拟请求城市名字
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#286983">return</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">((</span><span style="color:#d7827e">resolve</span><span style="color:#797593">,</span> <span style="color:#d7827e">reject</span><span style="color:#797593">)</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#d7827e">resolve</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">&#39;上海市&#39;</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">&#39;城市&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#797593">},</span> <span style="color:#ea9d34">2000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 获取城市名字
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">p2</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 这个result里面是 上一个resolve中传递进来的参数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>      <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 会发现 p 和 p2 并不全等,就意味着then()返回一个新的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">p2</span> <span style="color:#797593">===</span> <span style="color:#d7827e">p</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><p>总结：</p>
+<ol>
+<li>
+<p>什么是 <code>Promise</code> 的链式调用？</p>
+<p>使用 <code>then()</code>返回新的<code>Promise</code>对象，一直串联下去</p>
+</li>
+<li>
+<p><code>then</code> 回调函数中，<code> return</code> 的值会传给哪里？</p>
+<p>传给then函数生成的新 <code>Promise</code>对象</p>
+</li>
+<li>
+<p><code>Promise</code>  链式调用 解决了 回调函数嵌套问题</p>
+</li>
+</ol>
+<p><img loading="lazy" src="/img/Javascript/image-20240328131153325.png" alt="image-20240328131153325"  />
+</p>
+<h2 id="4-async函数和await">4. async函数和await<a hidden class="anchor" aria-hidden="true" href="#4-async函数和await">#</a></h2>
+<h3 id="1-定义">1. 定义<a hidden class="anchor" aria-hidden="true" href="#1-定义">#</a></h3>
+<p><code> async()</code> 使用<code>async</code>关键字声明的函数。async函数是<code>AsyncFunction</code>构造函数的实例，并且其中允许使用<code>await</code>关键字。<code>async</code>和<code>await</code>关键字让我们可以使用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用<code>promise</code></p>
+<h3 id="2-案例">2. 案例<a hidden class="anchor" aria-hidden="true" href="#2-案例">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">async</span> <span style="color:#286983">function</span> <span style="color:#d7827e">getDefaultArea</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">pObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span><span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/province&#39;</span><span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">pname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">pObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">cObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span><span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/city&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">params</span><span style="color:#797593">:</span><span style="color:#797593">{</span><span style="color:#d7827e">pname</span><span style="color:#797593">}})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">cname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">cObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">aObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span><span style="color:#d7827e">url</span><span style="color:#797593">:</span><span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/city&#39;</span><span style="color:#797593">,</span><span style="color:#d7827e">params</span><span style="color:#797593">:</span><span style="color:#797593">{</span><span style="color:#d7827e">pname</span><span style="color:#797593">,</span><span style="color:#d7827e">cname</span><span style="color:#797593">}})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">const</span> <span style="color:#d7827e">aname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">aObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.province&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">pname</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.city&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">cname</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.area&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">aname</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">getDefaultArea</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><h3 id="3-步骤">3. 步骤<a hidden class="anchor" aria-hidden="true" href="#3-步骤">#</a></h3>
+<p>概念： 在 async 函数内，使用await关键字取代then函数，等待获取promise对象成功状态</p>
+<ol>
+<li>async 修饰函数，使普通函数变为异步函数</li>
+<li>await 后面增加异步任务</li>
+<li>await 后面成功的结果 赋给 左边的变量</li>
+</ol>
+<h2 id="5-async函数和await-捕获错误">5. async函数和await 捕获错误<a hidden class="anchor" aria-hidden="true" href="#5-async函数和await-捕获错误">#</a></h2>
+<h3 id="1-trycatch">1. try&hellip;catch<a hidden class="anchor" aria-hidden="true" href="#1-trycatch">#</a></h3>
+<p>​      一旦在try这个代码块中出现错误，下面的函数都无法执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">async</span> <span style="color:#286983">function</span> <span style="color:#d7827e">getDefaultData</span><span style="color:#797593">()</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#286983">try</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#9893a5">// 1. try 可能产生错误的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">const</span> <span style="color:#d7827e">pObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span> <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/province&#39;</span> <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">pname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">pObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">cObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span> <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/city&#39;</span><span style="color:#797593">,</span> <span style="color:#d7827e">params</span><span style="color:#797593">:</span> <span style="color:#797593">{</span> <span style="color:#d7827e">pname</span> <span style="color:#797593">}</span> <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">cname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">cObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">aObj</span> <span style="color:#797593">=</span> <span style="color:#286983">await</span> <span style="color:#d7827e">axios</span><span style="color:#797593">({</span> <span style="color:#d7827e">url</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;http://hmajax.itheima.net/api/area&#39;</span><span style="color:#797593">,</span> <span style="color:#d7827e">params</span><span style="color:#797593">:</span> <span style="color:#797593">{</span> <span style="color:#d7827e">pname</span><span style="color:#797593">,</span> <span style="color:#d7827e">cname</span> <span style="color:#797593">}</span> <span style="color:#797593">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#286983">const</span> <span style="color:#d7827e">aname</span> <span style="color:#797593">=</span> <span style="color:#d7827e">aObj</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">list</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.province&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">pname</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.city&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">cname</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;.area&#39;</span><span style="color:#797593">).</span><span style="color:#d7827e">innerHTML</span> <span style="color:#797593">=</span> <span style="color:#d7827e">aname</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span> <span style="color:#286983">catch</span> <span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#9893a5">// 2. 接着调用catch块，接收错误信息
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>          <span style="color:#9893a5">// 如果try某行代码报错后，try中剩余的代码不会执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">cosole</span><span style="color:#797593">.</span><span style="color:#d7827e">dir</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span><span style="color:#797593">.</span><span style="color:#d7827e">response</span><span style="color:#797593">.</span><span style="color:#d7827e">data</span><span style="color:#797593">.</span><span style="color:#d7827e">message</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span></code></pre></div><h2 id="6-事件循环-eventloop">6. 事件循环 (EventLoop)<a hidden class="anchor" aria-hidden="true" href="#6-事件循环-eventloop">#</a></h2>
+<h3 id="1-概念">1. 概念<a hidden class="anchor" aria-hidden="true" href="#1-概念">#</a></h3>
+<p>JavaScript 有一个__基于事件循环的并发模型__，事件循环负责执行代码、收集和处理事件以及执行队列中的子任务。这个模型与其他语言中的模型截然不同，比如C和Java</p>
+<h3 id="2-原因">2. 原因<a hidden class="anchor" aria-hidden="true" href="#2-原因">#</a></h3>
+<p>JavaScript单线程（某一刻只能执行一行代码），为了让耗时代码不阻塞其他代码运行，设计了事件循环模型</p>
+<h3 id="3-执行过程">3. 执行过程<a hidden class="anchor" aria-hidden="true" href="#3-执行过程">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">)</span>  <span style="color:#9893a5">// 调用栈
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span><span style="color:#ea9d34">0</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 宿主环境
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">3</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">4</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span><span style="color:#ea9d34">2000</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">5</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 控制台输出： 1 3 5 2 4
+</span></span></span></code></pre></div><p>还是看一下老师的视频讲解，比较清晰。大致步骤是：普通的非异步函数（立即执行函数）在调用栈内执行；异步函数在宿主环境（浏览器）中等待执行并加入任务队列，如果调用栈内任务执行完毕， 会循环反复的查找任务队列的回调函数执行。</p>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        .bilibili_shortcodes {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 66%;
+            margin: auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .bilibili_shortcodes iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <div class="bilibili_shortcodes">
+        <iframe
+            src="https://player.bilibili.com/player.html?bvid=BV1MN411y7pw&page=1&high_quality=1&danmaku=0&as_wide=0"
+            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+        </iframe>
+    </div>
+</body>
+
+</html>
+<h3 id="4-总结">4. 总结<a hidden class="anchor" aria-hidden="true" href="#4-总结">#</a></h3>
+<ol>
+<li>
+<p>什么是事件循环？</p>
+<p>执行代码和收集异步任务，在调用栈空闲时，反复调用任务队列里回调函数执行机制</p>
+</li>
+<li>
+<p>为什么有事件循环？</p>
+<p>JavaScript 是单线程，为了不阻塞JS引擎，设计执行代码的模型</p>
+</li>
+<li>
+<p>JavaScript 内代码如何执行？</p>
+<ul>
+<li>
+<p>执行同步代码，遇到异步代码交给宿主浏览器环境执行</p>
+</li>
+<li>
+<p>异步有了结果后，把回调函数放入任务队列排队</p>
+</li>
+<li>
+<p>当调用栈空闲后，反复调用任务队列里面的回调函数</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-宏任务与微任务">7. 宏任务与微任务<a hidden class="anchor" aria-hidden="true" href="#7-宏任务与微任务">#</a></h2>
+<blockquote>
+<p>ES6 之后引入Promise对象，让JS引擎也可以发起异步任务</p>
+</blockquote>
+<p>异步任务分为：</p>
+<ul>
+<li>宏任务： 由浏览器环境执行的异步代码</li>
+<li>微任务：由 JS 引擎环境执行的异步代码</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240328161951410.png" alt="image-20240328161951410"  />
+</p>
+<table>
+<thead>
+<tr>
+<th>任务（代码）</th>
+<th>执行所在环境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JS 脚本执行事件 (script)</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>setTimeour/setInterval</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>AJAX 请求完成事件</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>用户交互事件等等</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>Promise对象.then()</td>
+<td>JS引擎</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Promise 本身是同步的，而then 和 catch 回调函数是异步的</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">setTimeout</span><span style="color:#797593">(()=&gt;{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">},</span><span style="color:#ea9d34">0</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">p</span> 
+</span></span></code></pre></div><h3 id="1-总结">1. 总结<a hidden class="anchor" aria-hidden="true" href="#1-总结">#</a></h3>
+<ol>
+<li>
+<p>什么是宏任务？</p>
+<p>浏览器执行的异步代码</p>
+<p>例如： JS 执行脚本事件  <code>setTimeout/setInterva</code>，AJAX请求完成事件，用户交互事件等等</p>
+</li>
+<li>
+<p>什么是微任务？</p>
+<p>JS 引擎执行的异步代码</p>
+<p>例如： Promise对象.then() 的回调</p>
+</li>
+<li>
+<p>JavaScript 内部代码如何执行？</p>
+<p>执行第一个script脚本事件宏任务里面的同步代码</p>
+<p>遇到宏任务/微任务 交给宿主环境（浏览器/JS引擎），执行后的回调函数分别放在 【微任务队列/宏任务队列】</p>
+<p>当执行栈空闲时，清空微任务队列，再执行下一个宏任务&hellip;.</p>
+</li>
+</ol>
+<h2 id="8-promiseall-静态方法">8. Promise.all 静态方法<a hidden class="anchor" aria-hidden="true" href="#8-promiseall-静态方法">#</a></h2>
+<h3 id="1-概念-1">1. 概念：<a hidden class="anchor" aria-hidden="true" href="#1-概念-1">#</a></h3>
+<p>合并多个Promise对象，等待所有同时成功完成（或某一个失败），做后续逻辑</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240328165206817.png" alt="image-20240328165206817"  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">p</span> <span style="color:#797593">=</span> <span style="color:#d7827e">Promise</span><span style="color:#797593">.</span><span style="color:#d7827e">all</span><span style="color:#797593">([</span><span style="color:#d7827e">Promise对象</span><span style="color:#797593">,</span> <span style="color:#d7827e">Promise对象</span><span style="color:#797593">,</span> <span style="color:#797593">...])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">p</span><span style="color:#797593">.</span><span style="color:#d7827e">then</span><span style="color:#797593">(</span><span style="color:#d7827e">result</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// result 结果：[Promise对象成功结果, Promise对象成功结果, ...]
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}).</span><span style="color:#286983">catch</span><span style="color:#797593">(</span><span style="color:#d7827e">error</span> <span style="color:#797593">=&gt;</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#9893a5">// 失败的promise对象 抛出的异常
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">})</span>
+</span></span></code></pre></div><h1 id="补充-验证码流程">补充 验证码流程<a hidden class="anchor" aria-hidden="true" href="#补充-验证码流程">#</a></h1>
+<p><img loading="lazy" src="/img/Javascript/image-20240329004645316.png" alt="image-20240329004645316"  />
+</p>
+<h2 id="1-token">1. token<a hidden class="anchor" aria-hidden="true" href="#1-token">#</a></h2>
+<blockquote>
+<p>访问权限令牌，本质是一串字符串</p>
+</blockquote>
+<ul>
+<li>创建： 正确登录后，由后端签发返回</li>
+<li>作用：判断是否有登录状态等，控制访问权限</li>
+</ul>
+<p>注意： 前端智能判断 token 是否存在，而后端才能判断token的有效性</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240329004928001.png" alt="image-20240329004928001"  />
+</p>
+
+
+  </div>
+
+  
+
+  
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/ajax/">AJAX</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "noborder_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="prev" href="https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>学习：Node.js &amp; Webpack </span>
+  </a>
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>学习: JavaScript 进阶篇</span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>

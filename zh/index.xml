@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/zh/</link>
+    <description>Recent content on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 10 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ε≡٩(๑&gt;₃&lt;)۶</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/life/summer_holiday_memo/</link>
+      <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/life/summer_holiday_memo/</guid>
+      <description>在比利时流浪一年，对我的影响和改变都有什么？</description>
+    </item>
+    <item>
+      <title>学习：Git </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/git/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/git/</guid>
+      <description>Git basic operation</description>
+    </item>
+    <item>
+      <title>学习：Vue2 &amp; Vue3 </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/vue/</link>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/vue/</guid>
+      <description>Vue2 + Vue3</description>
+    </item>
+    <item>
+      <title>学习：Node.js &amp; Webpack </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/</link>
+      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/node.jswebpack/</guid>
+      <description>Basic understanding of front-end engineering</description>
+    </item>
+    <item>
+      <title>学习：AJAX </title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/ajax/</guid>
+      <description>axios,API, XMLHttpRequest, asyn, await, Promise, EventLoop,</description>
+    </item>
+    <item>
+      <title>🧸 留言板碎碎念 </title>
+      <link>https://jingyiwu-codespace.github.io/zh/msg/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/msg/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>学习: JavaScript 进阶篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_advanced/</guid>
+      <description>JavaScript 进阶篇!! 学习完看框架啦!!</description>
+    </item>
+    <item>
+      <title>学习: JavaScript WebAPIs篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/</guid>
+      <description>JavaScript WebApi!! 程序媛养成之路</description>
+    </item>
+    <item>
+      <title>学习: JavaScript 基础篇</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</link>
+      <pubDate>Sat, 24 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/</guid>
+      <description>开始学习JavaScript!! 课程来自于 Udemy+Bilibili</description>
+    </item>
+    <item>
+      <title>解决: Cooja 端口显示资源繁忙</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/</guid>
+      <description>每次运行Cooja的端口监听，显示资源繁忙，可能是端口已经被占用，只要给其中一个进程干掉就好.</description>
+    </item>
+    <item>
+      <title>🇪🇸 去西班牙旅游 !!</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</link>
+      <pubDate>Mon, 05 Feb 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/life/tripspain/</guid>
+      <description>非常开心的一周，那段时间比利时太折磨人了</description>
+    </item>
+    <item>
+      <title>ε≡٩(๑&gt;₃&lt;)۶</title>
+      <link>https://jingyiwu-codespace.github.io/zh/posts/life/first/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/posts/life/first/</guid>
+      <description>新空间 新起点</description>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>https://jingyiwu-codespace.github.io/zh/about/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/about/</guid>
+      <description>class Me: def __init__(self): self.prefer_name = &amp;#34;小吴&amp;#34; self.born_year = 1999 self.MBTI = &amp;#34;ISFJ&amp;#34; self.constellation = &amp;#34;摩羯&amp;#34; self.curr_location = &amp;#34;布鲁塞尔｜ 比利时&amp;#34; self.grad_school = &amp;#34;香港浸会大</description>
+    </item>
+    <item>
+      <title>简历</title>
+      <link>https://jingyiwu-codespace.github.io/zh/resume/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/resume/</guid>
+      <description>&lt;!DOCTYPE html&gt; Title</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,1016 @@
+<html lang="zh" dir=" auto">
+
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>学习：Git  | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="Git">
+<meta name="description" content="Git basic operation">
+<meta name="author" content="Jingyi Wu">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/git/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb17103716ce748824407fb65cb4ad0bab7144d7fdd69db82838a008c55e484e.css" integrity="sha256-uxcQNxbOdIgkQH&#43;2XLStC6txRNf91p24KDigCMVeSE4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/git/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7TPHQR7CHS');
+        }
+      </script>
+    
+  
+
+<meta property="og:title" content="学习：Git " />
+<meta property="og:description" content="Git basic operation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/git/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-04-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习：Git "/>
+<meta name="twitter:description" content="Git basic operation"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "学习：Git ",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/git/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学习：Git ",
+  "name": "学习：Git ",
+  "description": "Git basic operation",
+  "keywords": [
+    "Git"
+  ],
+  "articleBody": "Git 分布式代码版本控制系统，帮助开发团队维护代码。实现记录代码内容，切换代码版本，多人开发时高效合并代码内容\n安装及配置 1.如何判断安装成功？ 打开bash终端 (git专用) 命令：git-v 查看版本号 2. Git 配置用户信息 用户名git config --global user.name \"用户名\"\n邮箱 git config --global user.email \"@gamil\"\nGit 仓库 Git 仓库 (repository): 记录文件状态内容的地方，存储修改历史记录\n如何创建：\n把本地文件夹转换成Git仓库： git init 从其他服务器上克隆Git仓库 Git 三个区域 工作区：实际开发时操作的文件夹 暂存区：保存之前的准备区域（暂存改动的文件） .git/index 版本库： 提交并保存暂存去中的内容，产生一个版本快照 .git/objects 命令 作用 git add 文件名 暂存指定文件 git add . 暂存所有改动文件 git commit -m “注释说明” 提交并保存，产生版本快照 git ls-files 看看暂存区有啥文件 git status -s 查看文件状态，并最终提交 Git文件状态 未跟踪： 新文件，从未被Git管理过 已跟踪：Git已经知道和管理文件 使用： 修改文件-\u003e 暂存-\u003e 提交保存记录\n文件状态 概念 场景 未跟踪 (U) 从未被Git管理过 新文件 新添加 (A) 第一次被Git暂存 之前版本记录无此文件 未修改 (’ ‘) 三个区域统一 提交保存后 已修改 (M) 工作区内容变化 修改了内容产生 git status -s\n第一列是暂存区的状态 第二列是工作区的状态 Git 暂存区使用 暂时存储，可以临时恢复代码内容，与版本库解藕\n暂存区 -\u003e 覆盖 -\u003e 工作区 git restore 目标文件 (注意：完全确认覆盖时使用) 从暂存区移除文件 git rm --cached 目标文件 Git 回退版本 把版本库某个版本对应的内容快照，恢复到工作区/暂存区\n查看提交历史 ： git log --oneline\n查看完整日志： git reflog --online\n回退命令： git reset –soft 版本号 (其他文件未跟踪)\n会尽可能保留 暂存区和工作区 里面的内容，都会变为未被 git 跟踪的状态\n回退命令： git reset –hard 版本号，只会看到回退的文件，其他全部删除\n回退命令： git reset –mixed 版本号 (git reset 默认模式)，暂存区只会看到回退的文件， 但是工作区会保留\n总结：\n什么是Git回退版本？\n将版本库某个版本对应的内容快照，回复到工作区/暂存区\n强制覆盖暂存区和工作区命令？\ngit reset --hard 版本号\n如何查看提交历史\ngit log --oneline\ngit reflog --oneline\nGit 删除文件 方法一\n手动在工作区中删除 -\u003e git add . 至暂存区 -\u003e git commite -m\"\"\n方法二\n手动在工作区中删除 -\u003e git rm --cached 目标文件 -\u003e git commite -m\"\"\nGit 忽略文件 .gitignore 文件可以让 git 彻底忽略跟踪指定文件\n目的： 让git仓库更小更快，避免重复无意义的文件管理。\n系统或软件自动生成的文件 编译产生的结果文件 运行时生成的日志文件，缓存文件，临时文件 涉密文件，密码，秘钥等文件 创建步骤：\n项目__根目录__新建 .gitignore 文件 填入相应配置来忽略指定文件 # 忽略 npm 下载的第三方包 node_modules # 忽略分发 文件夹 dist # 忽略 VSCode 配置文件 .vscode # 忽略秘钥文件 *.pem *.cer # 忽略日志文件 *.log Git 分支 本质是 指向提交节点的可变指针， 默认名字是master/main\n注意： HEAD指针影响工作区/暂存区的代码状态\n场景 开发新需求/修复Bug，保证主线代码随时可用，多人协助 保证主线业务的同时，新增content分支，继续增加新功能，但不影响主分支master的功能 在新分支中修复bug 步骤\u0026命令 创建分支 git branch 分支名\n切换分支 git checkout 分支名\n查看分支 git branch\n就是将 HEAD 指针指向 新的分支\n总结：\n什么是Git分支？\n指针，指向提交记录\nHEAD 指针的作用？\n影响暂存区和工作区的代码\n如何创建和切换指针？\ngit branch 分支名\ngit checkout 分支名\nGit 分支 - 合并与删除 把分支合并回`master，并删除分支\n切换回要合入的分支，如果要合并至master: git checkout master git merge 要合并的分支 删除合并后的分支指针： git branch -d 已合并的分支 Git 分支 - 合并与提交 发生于原分支产生了新的提交记录后，再合并回去时发生，自动使用多个快照记录合并后产生一次新的提交\n切回到要合入的分支 git checkout master 合并其他分支 git merge content 删除合并后的分支 git branch -d content Git 分支 - 合并冲突 在不同的分支中，对同一个文件的同一部分修改，Git无法干净的合并，产生合并冲突\n打开VSCode找到冲突文件并手动解决 解决后需要提交暂存，再次提交一次至版本库 删除合并后的分支 Git 常用命令总结 命令 作用 注意 git -v 查看git版本 git init 初始化git仓库 git add ‘文件标识’ 暂存某个文件 文件标识以终端为起始的相对路径 git add . 暂存所有文件 git commit -m ‘…’ 提交产生版本记录 每次提供，把暂存区内容快照一份 git status 查看文件状态 - 详细信息 git status -s 查看文件状态 - 简略信息 第一列是暂存区状态，第二列是工作区状态 git ls-files 查看暂存区文件列表 git restore ‘文件标识’ 从暂存区恢复到工作区 如果文件标识为，则恢复所有文件 git rm –cached 从暂存区移除文件 不让git跟踪文件变化 git log 查看提交记录- 详细 git log –oneline 查看提交记录- 简略信息 版本号 分支指针 提交时说明注释 git relog –oneline 查看完整历史 -简略消息 包括提交，切换，回退等所有记录 git reset 版本号 切换版本代码到暂存区和工作区 git branch 分支名 创建分支 git branch 查看本地分支 git branch -d 分支名 删除分支 确保记录已经合并到别的分支下，再删除分支 git checkout 分支名 切换分支 git checkout -b 分支名 创建并立刻切换分支 git merge 分支名 把分支提交历史记录合并到当前所在分支 Git 远程仓库 托管在网络中的项目版本库\n作用： 保存版本库的历史记录，多人协作\n创建： 公司自己的服务器/第三方托管平台 (Github)\n推送步骤 注册第三方平台账号(创建repo)\n新建仓库得到远程仓库 Git 地址\n本地 Git 仓库添加远程仓库原点地址\ngit remote add origin 仓库地址\n本地Git 仓库推送版本记录到远程残酷\ngit push -u 远程仓库别名 本地和远程分支名\ngit push -u origin master\n完整写法 git push --set-upstream origin master:master\n如果添加错了远程仓库，如何移除？\ngit remote remove origin\n克隆 clone 命令： git clone 'url' 会在运行命令的文件夹生成项目文件夹（包含版本库，并映射到暂存区和工作区） 注意：\nGit本地仓库已经建立好和远程仓库的连接，再次推送无需push 更新本地代码 pull 1.多人协同工作步骤\nA 开发代码 -\u003e 工作区 -\u003e 暂存区 -\u003e 提交 -\u003e 拉取 (可选) -\u003e 推送 B -\u003e 拉取（后续也可以开发代码 -\u003e … -\u003e 推送） 2.命令\ngit pull 远程仓库别名 本地和远程分支名 git pull origin/maste\ngit pull rebase prigin master 强制合并\nGit 远程仓库常用命令 命令 作用 注意 git remote add 远程仓库别名 远程仓库地址 添加远程仓库地址 别名唯一 git remote -v 查看远程仓库地址 git remote remove 远程仓库别名 删除远程仓库地址 git pull 远程仓库别名 远程仓库地址 拉去 等于 git fetch + git merge git push 推送 git pull –rebase 远程仓库别名 分支名 拉取合并 合并没有关系的记录 git clone 远程仓库地址 克隆 ",
+  "wordCount" : "2487",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-05T00:00:00Z",
+  "dateModified": "2024-04-05T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jingyi Wu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/git/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" class=" top" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+                    <div class="logo-switches">
+                        <button id="theme-toggle" accesskey="t" title="(Alt + T)"
+                            onclick="javascript:location.reload();">
+                            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+                        <ul class="lang-switch"><li>|</li>
+                            <li>
+                                <a href="https://jingyiwu-codespace.github.io/en/"
+                                    title="English"
+                                    aria-label="English">En</a>
+                            </li>
+                        </ul>
+                    </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/msg" title="留言板">
+                    <span>留言板</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header><main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
+
+    <h1 class="post-title entry-hint-parent">
+      学习：Git 
+    </h1>
+    <div class="post-meta"><span title='2024-04-05 00:00:00 +0000 UTC'>四月 5, 2024</span>&nbsp;·&nbsp;5 分钟&nbsp;·&nbsp;Jingyi Wu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#git" aria-label="Git">Git</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae" aria-label="安装及配置">安装及配置</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1%e5%a6%82%e4%bd%95%e5%88%a4%e6%96%ad%e5%ae%89%e8%a3%85%e6%88%90%e5%8a%9f" aria-label="1.如何判断安装成功？">1.如何判断安装成功？</a></li>
+                    <li>
+                        <a href="#2-git-%e9%85%8d%e7%bd%ae%e7%94%a8%e6%88%b7%e4%bf%a1%e6%81%af" aria-label="2. Git 配置用户信息">2. Git 配置用户信息</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#git-%e4%bb%93%e5%ba%93" aria-label="Git 仓库">Git 仓库</a></li>
+                    <li>
+                        <a href="#git-%e4%b8%89%e4%b8%aa%e5%8c%ba%e5%9f%9f" aria-label="Git 三个区域">Git 三个区域</a></li>
+                    <li>
+                        <a href="#git%e6%96%87%e4%bb%b6%e7%8a%b6%e6%80%81" aria-label="Git文件状态">Git文件状态</a></li>
+                    <li>
+                        <a href="#git-%e6%9a%82%e5%ad%98%e5%8c%ba%e4%bd%bf%e7%94%a8" aria-label="Git 暂存区使用">Git 暂存区使用</a></li>
+                    <li>
+                        <a href="#git-%e5%9b%9e%e9%80%80%e7%89%88%e6%9c%ac" aria-label="Git 回退版本">Git 回退版本</a></li>
+                    <li>
+                        <a href="#git-%e5%88%a0%e9%99%a4%e6%96%87%e4%bb%b6" aria-label="Git 删除文件">Git 删除文件</a></li>
+                    <li>
+                        <a href="#git-%e5%bf%bd%e7%95%a5%e6%96%87%e4%bb%b6" aria-label="Git 忽略文件">Git 忽略文件</a></li>
+                    <li>
+                        <a href="#git-%e5%88%86%e6%94%af" aria-label="Git 分支">Git 分支</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%9c%ba%e6%99%af" aria-label="场景">场景</a></li>
+                    <li>
+                        <a href="#%e6%ad%a5%e9%aa%a4%e5%91%bd%e4%bb%a4" aria-label="步骤&amp;命令">步骤&amp;命令</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#git-%e5%88%86%e6%94%af---%e5%90%88%e5%b9%b6%e4%b8%8e%e5%88%a0%e9%99%a4" aria-label="Git 分支 - 合并与删除">Git 分支 - 合并与删除</a></li>
+                    <li>
+                        <a href="#git-%e5%88%86%e6%94%af---%e5%90%88%e5%b9%b6%e4%b8%8e%e6%8f%90%e4%ba%a4" aria-label="Git 分支 - 合并与提交">Git 分支 - 合并与提交</a></li>
+                    <li>
+                        <a href="#git-%e5%88%86%e6%94%af---%e5%90%88%e5%b9%b6%e5%86%b2%e7%aa%81" aria-label="Git 分支 - 合并冲突">Git 分支 - 合并冲突</a></li>
+                    <li>
+                        <a href="#git-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4%e6%80%bb%e7%bb%93" aria-label="Git 常用命令总结">Git 常用命令总结</a></li>
+                    <li>
+                        <a href="#git-%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93" aria-label="Git 远程仓库">Git 远程仓库</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e6%8e%a8%e9%80%81%e6%ad%a5%e9%aa%a4" aria-label="推送步骤">推送步骤</a></li>
+                    <li>
+                        <a href="#%e5%85%8b%e9%9a%86-clone" aria-label="克隆 clone">克隆 clone</a></li>
+                    <li>
+                        <a href="#%e6%9b%b4%e6%96%b0%e6%9c%ac%e5%9c%b0%e4%bb%a3%e7%a0%81-pull" aria-label="更新本地代码 pull">更新本地代码 pull</a></li>
+                    <li>
+                        <a href="#git-%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="Git 远程仓库常用命令">Git 远程仓库常用命令</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="git">Git<a hidden class="anchor" aria-hidden="true" href="#git">#</a></h1>
+<blockquote>
+<p>分布式代码版本控制系统，帮助开发团队维护代码。实现记录代码内容，切换代码版本，多人开发时高效合并代码内容</p>
+</blockquote>
+<p><img loading="lazy" src="/img/Javascript/image-20240404212226415.png" alt="image-20240404212226415"  />
+</p>
+<h2 id="安装及配置">安装及配置<a hidden class="anchor" aria-hidden="true" href="#安装及配置">#</a></h2>
+<h3 id="1如何判断安装成功">1.如何判断安装成功？<a hidden class="anchor" aria-hidden="true" href="#1如何判断安装成功">#</a></h3>
+<ol>
+<li>打开bash终端 (git专用)</li>
+<li>命令：<code>git-v</code> 查看版本号</li>
+</ol>
+<h3 id="2-git-配置用户信息">2. Git 配置用户信息<a hidden class="anchor" aria-hidden="true" href="#2-git-配置用户信息">#</a></h3>
+<p>用户名<code>git config --global user.name &quot;用户名&quot;</code></p>
+<p>邮箱 <code>git config --global user.email &quot;@gamil&quot;</code></p>
+<h2 id="git-仓库">Git 仓库<a hidden class="anchor" aria-hidden="true" href="#git-仓库">#</a></h2>
+<p>Git 仓库 (repository): 记录文件状态内容的地方，存储修改历史记录</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240404213144948.png" alt="image-20240404213144948"  />
+</p>
+<p>如何创建：</p>
+<ol>
+<li>把本地文件夹转换成Git仓库： <code>git init</code></li>
+<li>从其他服务器上克隆Git仓库</li>
+</ol>
+<h2 id="git-三个区域">Git 三个区域<a hidden class="anchor" aria-hidden="true" href="#git-三个区域">#</a></h2>
+<ul>
+<li>工作区：实际开发时操作的文件夹</li>
+<li>暂存区：保存之前的准备区域（暂存改动的文件） .git/index</li>
+<li>版本库： 提交并保存暂存去中的内容，产生一个版本快照 .git/objects</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240404214549241.png" alt="image-20240404214549241"  />
+</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git add 文件名</td>
+<td>暂存指定文件</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>暂存所有改动文件</td>
+</tr>
+<tr>
+<td>git commit -m &ldquo;注释说明&rdquo;</td>
+<td>提交并保存，产生版本快照</td>
+</tr>
+<tr>
+<td>git ls-files</td>
+<td>看看暂存区有啥文件</td>
+</tr>
+<tr>
+<td>git status -s</td>
+<td>查看文件状态，并最终提交</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git文件状态">Git文件状态<a hidden class="anchor" aria-hidden="true" href="#git文件状态">#</a></h2>
+<ul>
+<li>未跟踪： 新文件，从未被Git管理过</li>
+<li>已跟踪：Git已经知道和管理文件</li>
+</ul>
+<p>使用： 修改文件-&gt; 暂存-&gt; 提交保存记录</p>
+<table>
+<thead>
+<tr>
+<th>文件状态</th>
+<th>概念</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未跟踪 (U)</td>
+<td>从未被Git管理过</td>
+<td>新文件</td>
+</tr>
+<tr>
+<td>新添加 (A)</td>
+<td>第一次被Git暂存</td>
+<td>之前版本记录无此文件</td>
+</tr>
+<tr>
+<td>未修改 (&rsquo; &lsquo;)</td>
+<td>三个区域统一</td>
+<td>提交保存后</td>
+</tr>
+<tr>
+<td>已修改 (M)</td>
+<td>工作区内容变化</td>
+<td>修改了内容产生</td>
+</tr>
+</tbody>
+</table>
+<p><code>git status -s</code></p>
+<ul>
+<li>第一列是暂存区的状态</li>
+<li>第二列是工作区的状态</li>
+</ul>
+<h2 id="git-暂存区使用">Git 暂存区使用<a hidden class="anchor" aria-hidden="true" href="#git-暂存区使用">#</a></h2>
+<blockquote>
+<p>暂时存储，可以临时恢复代码内容，与版本库解藕</p>
+</blockquote>
+<ul>
+<li>暂存区 -&gt; 覆盖 -&gt; 工作区 <code>git restore 目标文件</code>  (注意：完全确认覆盖时使用)</li>
+<li>从暂存区移除文件 <code>git rm --cached 目标文件</code></li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240404220949930.png" alt="image-20240404220949930"  />
+</p>
+<h2 id="git-回退版本">Git 回退版本<a hidden class="anchor" aria-hidden="true" href="#git-回退版本">#</a></h2>
+<blockquote>
+<p>把版本库某个版本对应的内容快照，恢复到工作区/暂存区</p>
+</blockquote>
+<p>查看提交历史 ： <code>git log --oneline</code></p>
+<p>查看完整日志： <code>git reflog --online</code></p>
+<p><strong>回退命令： git reset &ndash;soft 版本号 (其他文件未跟踪)</strong></p>
+<blockquote>
+<p>会尽可能保留 暂存区和工作区 里面的内容，都会变为未被 git 跟踪的状态</p>
+</blockquote>
+<p><img loading="lazy" src="/img/Javascript/image-20240404223530621.png" alt="image-20240404223530621"  />
+</p>
+<p><strong>回退命令： git reset &ndash;hard 版本号，只会看到回退的文件，其他全部删除</strong></p>
+<p><img loading="lazy" src="/img/Javascript/image-20240404223810396.png" alt="image-20240404223810396"  />
+</p>
+<p><strong>回退命令： git reset &ndash;mixed 版本号 (git reset 默认模式)，暂存区只会看到回退的文件， 但是工作区会保留</strong></p>
+<p><img loading="lazy" src="/img/Javascript/image-20240404223944859.png" alt="image-20240404223944859"  />
+</p>
+<p>总结：</p>
+<ol>
+<li>
+<p>什么是Git回退版本？</p>
+<p>将版本库某个版本对应的内容快照，回复到工作区/暂存区</p>
+</li>
+<li>
+<p>强制覆盖暂存区和工作区命令？</p>
+<p><code>git reset --hard 版本号</code></p>
+</li>
+<li>
+<p>如何查看提交历史</p>
+<p><code>git log --oneline</code></p>
+<p><code>git reflog --oneline</code></p>
+</li>
+</ol>
+<h2 id="git-删除文件">Git 删除文件<a hidden class="anchor" aria-hidden="true" href="#git-删除文件">#</a></h2>
+<ul>
+<li>
+<p>方法一</p>
+<p>手动在工作区中删除 -&gt; <code>git add . 至暂存区</code> -&gt; <code>git commite -m&quot;&quot;</code></p>
+</li>
+<li>
+<p>方法二</p>
+<p>手动在工作区中删除 -&gt; <code>git rm --cached 目标文件</code> -&gt; <code>git commite -m&quot;&quot;</code></p>
+</li>
+</ul>
+<h2 id="git-忽略文件">Git 忽略文件<a hidden class="anchor" aria-hidden="true" href="#git-忽略文件">#</a></h2>
+<blockquote>
+<p>.gitignore 文件可以让 git 彻底忽略跟踪指定文件</p>
+</blockquote>
+<p>目的： 让git仓库更小更快，避免重复无意义的文件管理。</p>
+<ul>
+<li>系统或软件自动生成的文件</li>
+<li>编译产生的结果文件</li>
+<li>运行时生成的日志文件，缓存文件，临时文件</li>
+<li>涉密文件，密码，秘钥等文件</li>
+</ul>
+<p>创建步骤：</p>
+<ul>
+<li>项目__根目录__新建 .gitignore 文件</li>
+<li>填入相应配置来忽略指定文件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#b4637a">#</span> <span style="color:#d7827e">忽略</span> <span style="color:#d7827e">npm</span> <span style="color:#d7827e">下载的第三方包</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">node_modules</span>
+</span></span><span style="display:flex;"><span><span style="color:#b4637a">#</span> <span style="color:#d7827e">忽略分发</span> <span style="color:#d7827e">文件夹</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">dist</span>
+</span></span><span style="display:flex;"><span><span style="color:#b4637a">#</span> <span style="color:#d7827e">忽略</span> <span style="color:#d7827e">VSCode</span> <span style="color:#d7827e">配置文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">.</span><span style="color:#d7827e">vscode</span>
+</span></span><span style="display:flex;"><span><span style="color:#b4637a">#</span> <span style="color:#d7827e">忽略秘钥文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">*</span><span style="color:#797593">.</span><span style="color:#d7827e">pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">*</span><span style="color:#797593">.</span><span style="color:#d7827e">cer</span>
+</span></span><span style="display:flex;"><span><span style="color:#b4637a">#</span> <span style="color:#d7827e">忽略日志文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">*</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span>
+</span></span></code></pre></div><h2 id="git-分支">Git 分支<a hidden class="anchor" aria-hidden="true" href="#git-分支">#</a></h2>
+<blockquote>
+<p>本质是 指向提交节点的可变指针， 默认名字是master/main</p>
+</blockquote>
+<p>注意： HEAD指针影响工作区/暂存区的代码状态</p>
+<h3 id="场景">场景<a hidden class="anchor" aria-hidden="true" href="#场景">#</a></h3>
+<ul>
+<li>开发新需求/修复Bug，保证主线代码随时可用，多人协助</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240404230422064.png" alt="image-20240404230422064"  />
+</p>
+<ul>
+<li>保证主线业务的同时，新增content分支，继续增加新功能，但不影响主分支master的功能</li>
+<li>在新分支中修复bug</li>
+</ul>
+<p><img loading="lazy" src="/img/Javascript/image-20240404230742486.png" alt="image-20240404230742486"  />
+</p>
+<h3 id="步骤命令">步骤&amp;命令<a hidden class="anchor" aria-hidden="true" href="#步骤命令">#</a></h3>
+<ol>
+<li>
+<p>创建分支 <code>git branch 分支名</code></p>
+</li>
+<li>
+<p>切换分支 <code>git checkout 分支名</code></p>
+</li>
+<li>
+<p>查看分支 <code>git branch</code></p>
+<p>就是将 HEAD 指针指向 新的分支</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240404231035481.png" alt="image-20240404231035481"  />
+</p>
+</li>
+</ol>
+<p>总结：</p>
+<ol>
+<li>
+<p>什么是Git分支？</p>
+<p>指针，指向提交记录</p>
+</li>
+<li>
+<p>HEAD 指针的作用？</p>
+<p>影响暂存区和工作区的代码</p>
+</li>
+<li>
+<p>如何创建和切换指针？</p>
+<p><code>git branch 分支名</code></p>
+<p><code>git checkout 分支名</code></p>
+</li>
+</ol>
+<h2 id="git-分支---合并与删除">Git 分支 - 合并与删除<a hidden class="anchor" aria-hidden="true" href="#git-分支---合并与删除">#</a></h2>
+<blockquote>
+<p>把分支合并回`master，并删除分支</p>
+</blockquote>
+<ol>
+<li>切换回要合入的分支，如果要合并至master: <code>git checkout master</code></li>
+<li><code>git merge 要合并的分支</code></li>
+</ol>
+<p><img loading="lazy" src="/img/Javascript/image-20240405001220514.png" alt="image-20240405001220514"  />
+</p>
+<ol start="3">
+<li>删除合并后的分支指针： <code>git branch -d 已合并的分支</code></li>
+</ol>
+<h2 id="git-分支---合并与提交">Git 分支 - 合并与提交<a hidden class="anchor" aria-hidden="true" href="#git-分支---合并与提交">#</a></h2>
+<blockquote>
+<p>发生于原分支产生了新的提交记录后，再合并回去时发生，自动使用多个快照记录合并后产生一次新的提交</p>
+</blockquote>
+<p><img loading="lazy" src="/img/Javascript/image-20240405001859735.png" alt="image-20240405001859735"  />
+</p>
+<ol>
+<li>切回到要合入的分支 <code>git checkout master</code></li>
+<li>合并其他分支 <code>git merge content</code></li>
+<li>删除合并后的分支 <code>git branch -d content</code></li>
+</ol>
+<h2 id="git-分支---合并冲突">Git 分支 - 合并冲突<a hidden class="anchor" aria-hidden="true" href="#git-分支---合并冲突">#</a></h2>
+<blockquote>
+<p>在不同的分支中，对同一个文件的同一部分修改，Git无法干净的合并，产生合并冲突</p>
+</blockquote>
+<ol>
+<li>打开VSCode找到冲突文件并手动解决</li>
+<li>解决后需要提交暂存，再次提交一次至版本库</li>
+<li>删除合并后的分支</li>
+</ol>
+<h2 id="git-常用命令总结">Git 常用命令总结<a hidden class="anchor" aria-hidden="true" href="#git-常用命令总结">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git -v</td>
+<td>查看git版本</td>
+<td></td>
+</tr>
+<tr>
+<td>git init</td>
+<td>初始化git仓库</td>
+<td></td>
+</tr>
+<tr>
+<td>git add &lsquo;文件标识&rsquo;</td>
+<td>暂存某个文件</td>
+<td>文件标识以终端为起始的相对路径</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>暂存所有文件</td>
+<td></td>
+</tr>
+<tr>
+<td>git commit -m &lsquo;&hellip;&rsquo;</td>
+<td>提交产生版本记录</td>
+<td>每次提供，把暂存区内容快照一份</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看文件状态 - 详细信息</td>
+<td></td>
+</tr>
+<tr>
+<td>git status -s</td>
+<td>查看文件状态 - 简略信息</td>
+<td>第一列是暂存区状态，第二列是工作区状态</td>
+</tr>
+<tr>
+<td>git ls-files</td>
+<td>查看暂存区文件列表</td>
+<td></td>
+</tr>
+<tr>
+<td>git restore &lsquo;文件标识&rsquo;</td>
+<td>从暂存区恢复到工作区</td>
+<td>如果文件标识为，则恢复所有文件</td>
+</tr>
+<tr>
+<td>git rm &ndash;cached</td>
+<td>从暂存区移除文件</td>
+<td>不让git跟踪文件变化</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看提交记录- 详细</td>
+<td></td>
+</tr>
+<tr>
+<td>git log &ndash;oneline</td>
+<td>查看提交记录- 简略信息</td>
+<td>版本号 分支指针 提交时说明注释</td>
+</tr>
+<tr>
+<td>git relog &ndash;oneline</td>
+<td>查看完整历史 -简略消息</td>
+<td>包括提交，切换，回退等所有记录</td>
+</tr>
+<tr>
+<td>git reset 版本号</td>
+<td>切换版本代码到暂存区和工作区</td>
+<td></td>
+</tr>
+<tr>
+<td>git branch 分支名</td>
+<td>创建分支</td>
+<td></td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看本地分支</td>
+<td></td>
+</tr>
+<tr>
+<td>git branch -d 分支名</td>
+<td>删除分支</td>
+<td>确保记录已经合并到别的分支下，再删除分支</td>
+</tr>
+<tr>
+<td>git checkout 分支名</td>
+<td>切换分支</td>
+<td></td>
+</tr>
+<tr>
+<td>git checkout -b 分支名</td>
+<td>创建并立刻切换分支</td>
+<td></td>
+</tr>
+<tr>
+<td>git merge 分支名</td>
+<td>把分支提交历史记录合并到当前所在分支</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-远程仓库">Git 远程仓库<a hidden class="anchor" aria-hidden="true" href="#git-远程仓库">#</a></h2>
+<blockquote>
+<p>托管在网络中的项目版本库</p>
+</blockquote>
+<p><strong>作用：</strong> 保存版本库的历史记录，多人协作</p>
+<p><strong>创建：</strong> 公司自己的服务器/第三方托管平台 (Github)</p>
+<p><img loading="lazy" src="/img/Javascript/image-20240405014842128.png" alt="image-20240405014842128"  />
+</p>
+<h3 id="推送步骤">推送步骤<a hidden class="anchor" aria-hidden="true" href="#推送步骤">#</a></h3>
+<ol>
+<li>
+<p>注册第三方平台账号(创建repo)</p>
+</li>
+<li>
+<p>新建仓库得到远程仓库 Git 地址</p>
+</li>
+<li>
+<p>本地 Git 仓库添加远程仓库原点地址</p>
+<p><code>git remote add origin 仓库地址</code></p>
+</li>
+<li>
+<p>本地Git 仓库推送版本记录到远程残酷</p>
+<p><code>git push -u 远程仓库别名 本地和远程分支名</code></p>
+<p><code>git push -u origin master</code></p>
+<p>完整写法 <code>git push --set-upstream origin master:master</code></p>
+</li>
+<li>
+<p>如果添加错了远程仓库，如何移除？</p>
+<p><code>git remote remove origin</code></p>
+</li>
+</ol>
+<h3 id="克隆-clone">克隆 clone<a hidden class="anchor" aria-hidden="true" href="#克隆-clone">#</a></h3>
+<ol>
+<li>命令： <code>git clone 'url'</code></li>
+<li>会在运行命令的文件夹生成项目文件夹（包含版本库，并映射到暂存区和工作区）</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>Git本地仓库已经建立好和远程仓库的连接，再次推送无需push</li>
+</ol>
+<h3 id="更新本地代码-pull">更新本地代码 pull<a hidden class="anchor" aria-hidden="true" href="#更新本地代码-pull">#</a></h3>
+<p>1.多人协同工作步骤</p>
+<ul>
+<li>A 开发代码 -&gt; 工作区 -&gt; 暂存区 -&gt; 提交 -&gt; 拉取 (可选) -&gt; 推送</li>
+<li>B -&gt; 拉取（后续也可以开发代码 -&gt; &hellip; -&gt; 推送）</li>
+</ul>
+<p>2.命令</p>
+<p><code>git pull 远程仓库别名 本地和远程分支名 </code></p>
+<p><code>git pull origin/maste</code></p>
+<p><code>git pull rebase prigin master</code> 强制合并</p>
+<h3 id="git-远程仓库常用命令">Git 远程仓库常用命令<a hidden class="anchor" aria-hidden="true" href="#git-远程仓库常用命令">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git remote add 远程仓库别名 远程仓库地址</td>
+<td>添加远程仓库地址</td>
+<td>别名唯一</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>查看远程仓库地址</td>
+<td></td>
+</tr>
+<tr>
+<td>git remote remove 远程仓库别名</td>
+<td>删除远程仓库地址</td>
+<td></td>
+</tr>
+<tr>
+<td>git pull 远程仓库别名 远程仓库地址</td>
+<td>拉去</td>
+<td>等于 git fetch + git merge</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>推送</td>
+<td></td>
+</tr>
+<tr>
+<td>git pull &ndash;rebase 远程仓库别名 分支名</td>
+<td>拉取合并</td>
+<td>合并没有关系的记录</td>
+</tr>
+<tr>
+<td>git clone 远程仓库地址</td>
+<td>克隆</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+  </div>
+
+  
+
+  
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/git/">Git</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "noborder_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="prev" href="https://jingyiwu-codespace.github.io/zh/posts/life/summer_holiday_memo/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>ε≡٩(๑&gt;₃&lt;)۶</span>
+  </a>
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/vue/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>学习：Vue2 &amp; Vue3 </span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>

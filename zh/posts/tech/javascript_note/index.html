@@ -1,0 +1,1827 @@
+<html lang="zh" dir=" auto">
+
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>学习: JavaScript 基础篇 | Jingyi&#39;s Blog</title>
+<meta name="keywords" content="Javascript">
+<meta name="description" content="开始学习JavaScript!! 课程来自于 Udemy&#43;Bilibili">
+<meta name="author" content="Jingyi Wu">
+<link rel="canonical" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb17103716ce748824407fb65cb4ad0bab7144d7fdd69db82838a008c55e484e.css" integrity="sha256-uxcQNxbOdIgkQH&#43;2XLStC6txRNf91p24KDigCMVeSE4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="apple-touch-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<link rel="mask-icon" href="https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><head>
+
+    <link href="https://fonts.cdnfonts.com/css/code-new-roman" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7TPHQR7CHS');
+    </script>
+    
+
+
+</head>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TPHQR7CHS"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7TPHQR7CHS');
+        }
+      </script>
+    
+  
+
+<meta property="og:title" content="学习: JavaScript 基础篇" />
+<meta property="og:description" content="开始学习JavaScript!! 课程来自于 Udemy&#43;Bilibili" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-24T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习: JavaScript 基础篇"/>
+<meta name="twitter:description" content="开始学习JavaScript!! 课程来自于 Udemy&#43;Bilibili"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "📝记录",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💻 技术",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "学习: JavaScript 基础篇",
+      "item": "https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "学习: JavaScript 基础篇",
+  "name": "学习: JavaScript 基础篇",
+  "description": "开始学习JavaScript!! 课程来自于 Udemy+Bilibili",
+  "keywords": [
+    "Javascript"
+  ],
+  "articleBody": "Day1 JavaScript输入输出 alert('comment') //浏览器弹出 prompt('comment:') //用户输入 console.log() //写出在控制台 document.write() Varible 变量 let 不允许==多次声明==一个变量， 和python不一样\nlet age = 18 age = 19 let 可以一次声明多个变量:\nlet age = 18, uname = 'Ali'\tArray 数组 数组的声明方式，数组有序\n可以存储任意类型数据\nlet arr1 = [1,2,3,4,5,6] let arr2 = ['Mon','Tue','Wed'] 数组索引方式\nconsole.log(arr[0]) 数组长度\nconsole.log(arr.length) Const 常量 const PI = 3.14 常量不可以改变，不可以复制，像是Java中的final static的性质。 常量声明的时候必须赋值。 常量命名最好大写。 Data type 数据类型 JavaScript 松散、弱数据类型语言\nJava\nint num = 10; JavaScript: 只有赋值之后才知道类型\nlet num = '二' 基本数据类型： 1. number 可以是整数、小数、正数、负数\n算数运算符： + - * / %\nNaN 数据类型的出现，表示计算错误，或计算机无法理解的结果。黏性属性，任何对NaN的操作返回都是NaN\n2. string + 数字相加，字符相连\nconsole.log(\"pink\"+'color'+num) 模版字符串\n语法：\n`` (反引号)\n内容拼接变量时，用${}包含变量\nlet age = 18 document.write(`${age}岁`) 3. boolean true false 4. undefined 只声明不赋值，变量默认值undefined 使用场景：开发时声明一个变量，接受数据，如果不确定数据是否传输成功，检测变量是否为undefined 5. null ​\tnull 和 undefined 的区别：\nundefined 表示没有赋值\nnull 表示赋值了，内容为空\nconsole.log(undefined + 1) //Nan console.log(null + 1 ) // 1 使用场景：\nnull作为尚未创建的对象。\n将变量里面存放一个对象，但对象还没创建好，先给null\n检测数据类型 typeof typeof 变量名 typeof (变量名) 引用数据类型 类型转换 1. 隐式转换 +号两边只要有一个字符串，两边都会转成字符串 除了+号以外的算术运算符，都会把数据转成数字类型 +号作为正号解析可以转换为数字型 任何数据和字符串相加结果都是字符串 ![image-20240224102913057](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240224102913057.png)\n2. 显示转换 Number(data) // 转化数字型 NaN也是number类型，代表非数字 ParseInt(data) // 只保留整数，不会四舍五入 ParseFloat(data) // 可以保留小数 Day 2 运算符 1. 一元运算符 一元运算符 —\u003e 自增运算、正负号\n前后置自增：\n在独立使用时两者没区别，但是运算时有区别。\n后置i++使用的比较多\nlet num = 10 num +=1 ++ num //前置自增 console.log(++i + 1) //3 // i先自加1，变成2之后，与后面的1相加 num ++ //后置自增 console.log(i++ + 1) //2 后置自增先运算 再++ // 先和1相加，先运算输出完毕后，i再自加 2. 二元运算符 需要两个操作数称为二元运算符\n3. 比较运算符 \u003e \u003c \u003e= \u003c= == //左右两边值是否相等 console.log(2=='2') true === //左右两边是否类型和值都相等，强烈建议使用 console.log(2==='2') false !== //左右两边是否不全等 字符串比较按照ASCII值，从左至右依次比较，如果第一位一样再比较第二位，以此类推\nconsole.log('a'\u003c'b') //true\nNaN不等于任何值，包括它本身。涉及到 “NaN\"都是false\n不同类型之间比较会发生隐式转换\n最终把数据隐士转换变成number类型再比较\n所以开发中，如果准确比较喜欢==或者!==\n比较运算符的结果返回true和false\n4. 逻辑运算符 符号 名称 特点 \u0026\u0026 逻辑与 一假则假 || 逻辑或 一真则真 ! 取反 真变假，假变真 5. 运算符优先级 优先级一致，从左至右运算\n优先级 运算符 顺序 1 小括号 （） 2 一元运算符 ++ – ！ 3 算数运算符 先*/% 后+- 4 关系运算符 \u003e \u003e= \u003c \u003c= 5 相等运算符 == != === !== 6 逻辑运算符 先\u0026\u0026后|| 7 赋值运算符 = 8 逗号运算符 , 一元运算符的逻辑非优先级很高 逻辑与比逻辑或优先级 分支语句 1. 表达式 表达式是可以被求值的代码，JavaScript会计算出一个结果\n因为表达式可以被求值，所以它可以写在赋值语句的右侧num=3+4\n2. 语句 语句是一段可以执行的代码\nprompt() 可以弹出一个输入框，还有 if 语句 for循环语句\n而语句不一定有值，所以alert(), for, break等语句不能被用于赋值\nalert() 弹出对话框\nconsole.log() 控制台打印输出\n3. 程序三大流程控制语句 顺序结构：从上至下 分支结构（条件判断） 循环结构 4. 分支语句 种类：单分支、双分支、多分支\n只有一条分支会被执行\n使用方法\nif (condition 1){ ..... code block ..... } else if (condition 2){ ..... code block ..... } else if (condition 2){ ..... code block ..... } else { // 不满足条件执行的代码 ..... code block ..... } a. 括号内条件为true时，进入大括号执行代码\n除了 ==0== 之外的其余数字都是true 除了 ==’ ‘== 所有的字符串都是true b. 小括号内的结果若不是布尔类型时，会发生隐式转换为布尔类型\nc. 如果大括号只有一个语句，大括号可以省略\nd. 先判断条件1，若满足条件1就执行代码1，其他不执行。若不满足则向下判断条件2，满足条件2 执行代码2，爱他不执行。若依然不满足继续向下判断，以此类推。若以上条件都不满足，执行else里面的代码。\n三元运算符 if 双分支的简洁版本\ncondition 满足 执行code1，不满足code2\ncondition ? code1 :code2 3\u003e5 ? alert(\"真的\"):alert(\"假的\") switch语句 Keopoints:\n找到小括号里面数据==全等==的case值，并执行里面对应的代码 若没有全等 =======的值，则执行defalut里面的代码 switch case语句一般用于等值判断，不适用于区间判断 switch case一般需要配合break关键词使用，没有break会造成case穿透 switch(数据){ case value1: //code break case value2: //code break case valueN: //code break default: //code break } Day3 循环语句 while循环 语法 while(condition){//执行条件 // code // 循环体 } 满足括号里面的条件true才会进入循环体执行代码 while大括号里代码执行完毕后不会跳出，而是继续回到小括号里面判断条件是否满足，若满足又执行大括号里的代码，然后再回到小括号里面判断条件，直到括号内条件不满足，跳出循环 三要素 变量起始值 终止条件（木有终止条件，循环会一直执行，造成死循环） 变量变化量（用自增或自减） let i = 1 while (i \u003c= 3){ document.write('循环三次') } break \u0026 continue 循环里面遇到break直接退出循环 循环里面遇到continue，重新开始新的循环，原来continue之后的语句不再执行 3. for 循环 优点： 声明起始值、循环条件、变化值写到一起\n语法 for (变量起始值; 终止条件; 变量变化量){ //循环体 } 循环嵌套 双重for循环 for (outside_start; condition; change_value){ for(inside_start; condition; change_value){ //code body } } 4.无限循环： while(true) 使用break中断循环 for(;;) 使用break中断循环 5. while和for的区别 明确循环次数使用for 不明确循环次数，推荐使用while 数组 Array是一种按顺序保存数据的数据类型， 每个数据都有索引\n1. 声明语法 // 1. 字面量声明数组 let arr = [1,2,'pink','true'] // 2. 使用new Array构造函数声明 let arr = new Array(1,2,3,4) 2. 取值语法 let names = ['hams','jams','lily','lake','tom'] names[0] // hams names[1] // jams names.length //获得数组长度 3. 数组操作 增\narr.push(元素1,...,元素n) // 将一个或多个元素添加到数组末尾，并返回该数组的新长度[!important] arr.unshift(元素1,...,元素n) // 将一个或多个元素添加到数组开头，并返回该数组的新长度 删\narr.pop() // 从数组数组中删除最后一个元素，并返回该元素的值 arr.shift() //删除第一个元素 arr.splice(start, deleteCount) // 删除指定元素 // arr.splice(起始位置, 删除几个元素) // 如果没有指定deldeteCount,会默认从起始位置删除到数组最后 改 —\u003e 数组[下标] = value\n查 —\u003e 数组下标\nDay4 函数使用 函数声明 function funcName(){ console.log('声明函数') } 尽量小驼峰命名法 前缀应该为动词 命名建议：常用动词约定 动词 含义 can 判断是否可执行某个动作 has 判断是否含有某个值 is 判断是否为某个值 get 获取某个值 set 设置某个值 load 加载某些数据 函数调用 函数名( ) 函数与循环的不同：\n循环代码写完即执行，不能很方便控制执行位置 随时调用，随时执行，可重复掉用 函数传参 function funName(parameter...){ code body } function getSum(num1,num2){ document.write(num1+num2) } 参数列表 传入数据列表 声明这个函数需要传入几个数据 多个数据用逗号隔开 参数默认值 如果用户不给形参对应的实参，结果为==undefined== undefined + undefined == NaN 增加代码健壮性，用户不输入实参，可以给形参默认值 默认值只会在缺少实参参数时才会被执行 参数也可以是变量 function getSum(x = 0, y = 0){ document.write(x+y) } getSum() //结果是0，而不是NaN getSum(1,2) //结果是3 函数返回值 函数返回执行结果对整个程序的扩展性更高，可以让其他程序使用此结果\nKeypoints return 会立刻结束当前函数，后面的代码块不会执行 如果函数没有return, 则此函数默认返回值为undefined return多个值，使用return[max, min], 返回一个数组 function getMaxMinValue(arr = []) { let max = arr[0] let min = arr[0] for (let i = 1; i \u003c arr.length; i++) { if (max \u003c arr[i]) { max = arr[i] } } for (let i = 1; i \u003c arr.length; i++) { if (min \u003e arr[i]) { min = arr[i] } } return [max, min] } 函数细节 同一个作用域，两个相同名字的函数，后面的函数会覆盖前面的函数\nreturn 会结束函数，所以return后面不再有语句\nbreak VS return\nbreak -\u003e 结束循环或switch\nreturn -\u003e 结束函数\n参数不匹配\n实参比形参多，剩余实参不参与运算\n实参比形参少，1 + undefined == NaN\nfunction fn(a,b){ return a+b } fn(1,2,100) // return 3 fn(1) //NaN 作用域 变量名的有效范围称为作用域\n全局作用域 全局有效\n作用于所有代码执行环境（整个script标签内部或独立js文件）\n局部作用域 局部有效\n作用域函数内的代码环境，因为与函数有关系，也称为函数作用域\n全局变量 全局变量在任何区域都可以访问和修改\n如果函数内部，变量没有声明，直接赋值，也当作==全局变量==， 黑户一样的存在，不太规范。 函数的形参看作局部变量 局部变量 局部变量只能在当前函数内部访问修改\n变量的访问原则 只要是代码，就至少有一个作用域 写在函数内部的是局部作用域 如果函数中还有函数（嵌套），那么在这个作用域中又诞生一个作用域 ==访问原则：在能够访问到的情况下，先局部，局部没有再找全局== 作用域链：采取==就近原则==的方式查找变量的最终值 匿名函数 没有名字的函数，无法直接使用\n使用方式 函数表达式 将匿名函数赋值给一个变量，通过变量名称进行调用，我们将这个称为函数表达式\nlet fn = function(){ //code body condole.log('hi') } //调用方式 fn() //还是要加（） 函数表达式和具名函数的区别 具名函数的调用可以写在任何位置 匿名函数需要先声明函数表达式再使用 let btn = document.querySelector('button') btn.onclick = function(){ alert('我是匿名函数') } 立即执行函数 场景介绍：避免全局变量之间的污染\n// 方式一 (function(){})(); //必须加;不然函数不停止 //第二个()本质是调用函数 fn();可以加实参 (function(a+b){console.log(a+b)})(1,2); // 方式二 (function (){}()); (function(a+b){return a+b}(2,3)); //不需要调用，立刻执行 总结：\n立即执行函数主要作用是防止变量污染 立即执行函数无需调用，立即执行；多个立即执行函数用;隔开 逻辑中断 function fn(x,y){ x = x||0 y = y||0 //逻辑中断 } 逻辑运算符里的短路 短路：只存在于\u0026\u0026和||之间，当满足一定条件会让右边代码不执行\n符号 短路条件 \u0026\u0026 左边为false就短路 || 左边为true就短路 通过左边能得到整个式子的结果，没必要判断右边\n运算结果：\n无论\u0026\u0026还是||，运算结果都是最后被执行的表达式值，一般用在变量赋值\nconsole.log(false \u0026\u0026 3+5) //false let age = 18 console.log(false \u0026\u0026 age++) //age还是18，因为左边为false，所以age++不能执行 console.log(age); console.log(11||age++) //age还是18,因为11判断为true,后面age++不执行 console.log(age) //如果表达式两侧都为真，则返回最后一个值 console.log(11\u002622) //return 22 转换为Boolean型 显式转换： ​\tBoolean( 数据 )\n​\t'', 0, undefined, null, false, NaN\n​\t转换为布尔值都是false，其余为true\nconsole.log(false \u0026\u0026 20) //false console.log(5\u003c3 \u0026\u0026 20) // false console.log(undefined \u0026\u0026 20) //undefined console.log(null \u0026\u0026 20) // null console.log(0 \u0026\u0026 20) // 0 console.log(10 \u0026\u0026 20) //20 console.log(false || 20) //20 console.log(5\u003c3 || 20) //20 console.log(undefined || 20) //20 console.log(null || 20) //20 console.log(0 || 20) //20 console.log(10 || 20) //10 隐式转换 有字符串的加法 \"\" + 1，结果是 “1”\n减法 - ，只能用于数字，会使空字符串\"“转换为 0\nnull 经过数字转换后会变成 0\nundefined 经过数字转换后会变成NaN\nnull == undefined //true\nnull === undefined //false\nconsole.log(''-1) //-1 console.log('pink老师' -1) //NaN console.log(null + 1) // 1 console.log(undefined + 1) //NaN // undefined 无论 + - * / 都是NaN console.log(NaN + 1) //NaN // NaN做任何的操作都是NaN，NaN也不等于NaN Day5 对象(object) JavaScript里面的一种数据类型\n可以理解为一种无序的数据集合，数组是有序的数据集合\n用来描述某事物\nlet obj = { uname: 'xx', age: 18, gender: '女' } ###属性与方法\n声明方式 let objectName1 = {} let objectName2 = new Object() 属性 属性： 信息或特征 (名词) 尺寸、颜色、重量 方法：功能或行为 (动词) 打电话、发短信、玩游戏 let goods = { name: '小米10青春版', num: 100012816024, weight: '0.55kg', 'current-address': '中国大陆' } 属性都是成对出现，包括属性名和值，用英文 : 分隔 多个属性之间用英文 , 分隔 增删改查 查 console.log(goods.name) console.log(goods.price) //第二种方法 goods['current-address'] 改 obj.gender = '男' 增 obj.hobby = '足球' //直接新增一个属性 删 delete obj.hobby 方法 方法由方法名和函数两部分构成，使用:分隔 多个属性之间使用,分隔 方法是依附在对象中的函数 方法名可以使用引号，一般情况省略，除非遇到特殊符号 可以添加实参和形参 let obj = { uname : '刘德华', //匿名函数 song : function(){ console.log('冰雨') }, addNum : function(x,y){ console.log(x+y) } } obj.addNum(1,2) 后追加 obj.hobby = '足球' //注意后追加变成了 = 号 obj.move = function(){ //code body// } 遍历对象 ==for k in obj== 的索引是字符串，适合遍历对象 javascript的对象有点像字典， k-\u003ekey\nlet obj = { uname : 'pink', age : 18, gender: '男' } // 遍历对象 for (let k in obj){ console.log(k) //输出 'uname' console.log(obj[k]) } 一般不使用for k in obj这种方式遍历数组，主要是用来遍历对象 for in 语法中的 k是一个变量，在循环过程中依次代表对象的属性名 由于k是字符串变量，所以需要使用 [ ] 语法解析 ==k==是获得对象的属性名，==obj [k]== 是获得属性值 内置对象 JavaScript内部提供的对象，包含各种属性和方法给开发者调用\nconsole.log() document.write() Math 提供了一系列的数学运算的方法\n包含方法 random-\u003e 生成0-1之间的随机数 （包0不包1）\nceil -\u003e 向上取整\nfloor -\u003e 向下取整\n有点像parseInt( )\nround -\u003e 四舍五入\nmax -\u003e 找最大数\nmin-\u003e 找最小数\npow-\u003e 幂运算\nabs-\u003e 绝对值\nMath.random() // 向下取整 Math.floor(Math.random()*(10+1)) //随机抽取数组 let arr = ['red','green','blue'] let random = Math.floor(Math.random()*arr.length) //生成N-M之间的随机数 Math.floor(Math.random()*(M-N+1))+N //如何生成5-10之间的随机数 Math.floor(Math.random()*(5+1))+5 //抽奖游戏，抽中的人在列表中删除 let name_arr = ['赵云', '黄忠', '关羽', '张飞'] while (name_arr.length \u003e 0) { let random_index = Math.floor(Math.random() * name_arr.length) document.write(name_arr.splice(random_index, 1)) } //数组删除数据方式 splice(起始位置,删除几个元素) 数据类型 基本数据类型 又称为值类型，在存储变量中，存储的值本身\nstring, number, boolean, undefined, null 引用数据类型 复杂数据类型，在存储变量时是地址（引用）\n通过new关键创造的对象 Object, Array, Data 栈堆 ![image-20240227220622098](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240227220622098.png)\n![image-20240227220658528](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240227220658528.png)\n",
+  "wordCount" : "5613",
+  "inLanguage": "zh",
+  "datePublished": "2024-02-24T00:00:00Z",
+  "dateModified": "2024-02-24T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Jingyi Wu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_note/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jingyi's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jingyiwu-codespace.github.io/img/magic_rabbit_sixteen_icon.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" class=" top" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jingyiwu-codespace.github.io/zh/" accesskey="h" title="Jingyi&#39;s Blog (Alt + H)">Jingyi&#39;s Blog</a>
+                    <div class="logo-switches">
+                        <button id="theme-toggle" accesskey="t" title="(Alt + T)"
+                            onclick="javascript:location.reload();">
+                            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+                        <ul class="lang-switch"><li>|</li>
+                            <li>
+                                <a href="https://jingyiwu-codespace.github.io/en/"
+                                    title="English"
+                                    aria-label="English">En</a>
+                            </li>
+                        </ul>
+                    </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/posts/" title="博客">
+                    <span>博客</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jingyiwu-codespace.github.io/zh/msg" title="留言板">
+                    <span>留言板</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header><main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://jingyiwu-codespace.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/">📝记录</a>&nbsp;»&nbsp;<a href="https://jingyiwu-codespace.github.io/zh/posts/tech/">💻 技术</a></div>
+
+    <h1 class="post-title entry-hint-parent">
+      学习: JavaScript 基础篇
+    </h1>
+    <div class="post-meta"><span title='2024-02-24 00:00:00 +0000 UTC'>二月 24, 2024</span>&nbsp;·&nbsp;12 分钟&nbsp;·&nbsp;Jingyi Wu
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">Views:<span id="busuanzi_value_page_pv"></span></span>
+      </div>
+
+
+    </div>
+  </header> <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#day1" aria-label="Day1">Day1</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#javascript%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba" aria-label="JavaScript输入输出">JavaScript输入输出</a></li>
+                    <li>
+                        <a href="#varible-%e5%8f%98%e9%87%8f" aria-label="Varible 变量">Varible 变量</a></li>
+                    <li>
+                        <a href="#array-%e6%95%b0%e7%bb%84" aria-label="Array 数组">Array 数组</a></li>
+                    <li>
+                        <a href="#const-%e5%b8%b8%e9%87%8f" aria-label="Const 常量">Const 常量</a></li>
+                    <li>
+                        <a href="#data-type-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="Data type 数据类型">Data type 数据类型</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="基本数据类型：">基本数据类型：</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-number" aria-label="1. number">1. number</a></li>
+                    <li>
+                        <a href="#2-string" aria-label="2. string">2. string</a></li>
+                    <li>
+                        <a href="#3-boolean" aria-label="3. boolean">3. boolean</a></li>
+                    <li>
+                        <a href="#4-undefined" aria-label="4. undefined">4. undefined</a></li>
+                    <li>
+                        <a href="#5-null" aria-label="5. null">5. null</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e6%a3%80%e6%b5%8b%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="检测数据类型">检测数据类型</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#typeof" aria-label="typeof">typeof</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e5%bc%95%e7%94%a8%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="引用数据类型">引用数据类型</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2" aria-label="类型转换">类型转换</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e9%9a%90%e5%bc%8f%e8%bd%ac%e6%8d%a2" aria-label="1. 隐式转换">1. 隐式转换</a></li>
+                    <li>
+                        <a href="#2-%e6%98%be%e7%a4%ba%e8%bd%ac%e6%8d%a2" aria-label="2. 显示转换">2. 显示转换</a></li></details>
+                            </ul>
+
+
+                            </ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#day-2" aria-label="Day 2">Day 2</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="运算符">运算符</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e4%b8%80%e5%85%83%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="1. 一元运算符">1. 一元运算符</a></li>
+                    <li>
+                        <a href="#2-%e4%ba%8c%e5%85%83%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="2. 二元运算符">2. 二元运算符</a></li>
+                    <li>
+                        <a href="#3-%e6%af%94%e8%be%83%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="3. 比较运算符">3. 比较运算符</a></li>
+                    <li>
+                        <a href="#4-%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="4. 逻辑运算符">4. 逻辑运算符</a></li>
+                    <li>
+                        <a href="#5-%e8%bf%90%e7%ae%97%e7%ac%a6%e4%bc%98%e5%85%88%e7%ba%a7" aria-label="5. 运算符优先级">5. 运算符优先级</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e5%88%86%e6%94%af%e8%af%ad%e5%8f%a5" aria-label="分支语句">分支语句</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e8%a1%a8%e8%be%be%e5%bc%8f" aria-label="1. 表达式">1. 表达式</a></li>
+                    <li>
+                        <a href="#2-%e8%af%ad%e5%8f%a5" aria-label="2. 语句">2. 语句</a></li>
+                    <li>
+                        <a href="#3-%e7%a8%8b%e5%ba%8f%e4%b8%89%e5%a4%a7%e6%b5%81%e7%a8%8b%e6%8e%a7%e5%88%b6%e8%af%ad%e5%8f%a5" aria-label="3. 程序三大流程控制语句">3. 程序三大流程控制语句</a></li>
+                    <li>
+                        <a href="#4-%e5%88%86%e6%94%af%e8%af%ad%e5%8f%a5" aria-label="4. 分支语句">4. 分支语句</a></li>
+                    <li>
+                        <a href="#%e4%b8%89%e5%85%83%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="三元运算符">三元运算符</a></li>
+                    <li>
+                        <a href="#switch%e8%af%ad%e5%8f%a5" aria-label="switch语句">switch语句</a></li></ul>
+
+                    </li></details>
+                            </ul>
+
+
+                            </ul>
+
+                    </li>
+                    <li>
+                        <a href="#day3" aria-label="Day3">Day3</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%be%aa%e7%8e%af%e8%af%ad%e5%8f%a5" aria-label="循环语句">循环语句</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#while%e5%be%aa%e7%8e%af" aria-label="while循环">while循环</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95" aria-label="语法">语法</a></li>
+                    <li>
+                        <a href="#%e4%b8%89%e8%a6%81%e7%b4%a0" aria-label="三要素">三要素</a></li>
+                    <li>
+                        <a href="#break--continue" aria-label="break &amp; continue">break &amp; continue</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#3-for-%e5%be%aa%e7%8e%af" aria-label="3. for 循环">3. for 循环</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e8%af%ad%e6%b3%95-1" aria-label="语法">语法</a></li>
+                    <li>
+                        <a href="#%e5%be%aa%e7%8e%af%e5%b5%8c%e5%a5%97" aria-label="循环嵌套">循环嵌套</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#4%e6%97%a0%e9%99%90%e5%be%aa%e7%8e%af" aria-label="4.无限循环：">4.无限循环：</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#5-while%e5%92%8cfor%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="5. while和for的区别">5. while和for的区别</a></li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e6%95%b0%e7%bb%84" aria-label="数组">数组</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#1-%e5%a3%b0%e6%98%8e%e8%af%ad%e6%b3%95" aria-label="1. 声明语法">1. 声明语法</a></li>
+                    <li>
+                        <a href="#2-%e5%8f%96%e5%80%bc%e8%af%ad%e6%b3%95" aria-label="2. 取值语法">2. 取值语法</a></li>
+                    <li>
+                        <a href="#3-%e6%95%b0%e7%bb%84%e6%93%8d%e4%bd%9c" aria-label="3. 数组操作">3. 数组操作</a></li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#day4" aria-label="Day4">Day4</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e4%bd%bf%e7%94%a8" aria-label="函数使用">函数使用</a></li>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e5%a3%b0%e6%98%8e" aria-label="函数声明">函数声明</a></li>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8" aria-label="函数调用">函数调用</a></li>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e4%bc%a0%e5%8f%82" aria-label="函数传参">函数传参</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%8f%82%e6%95%b0%e5%88%97%e8%a1%a8" aria-label="参数列表">参数列表</a></li>
+                    <li>
+                        <a href="#%e5%8f%82%e6%95%b0%e9%bb%98%e8%ae%a4%e5%80%bc" aria-label="参数默认值">参数默认值</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e8%bf%94%e5%9b%9e%e5%80%bc" aria-label="函数返回值">函数返回值</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#keypoints" aria-label="Keypoints">Keypoints</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e7%bb%86%e8%8a%82" aria-label="函数细节">函数细节</a></li>
+                    <li>
+                        <a href="#%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="作用域">作用域</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%85%a8%e5%b1%80%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="全局作用域">全局作用域</a></li>
+                    <li>
+                        <a href="#%e5%b1%80%e9%83%a8%e4%bd%9c%e7%94%a8%e5%9f%9f" aria-label="局部作用域">局部作用域</a></li>
+                    <li>
+                        <a href="#%e5%85%a8%e5%b1%80%e5%8f%98%e9%87%8f" aria-label="全局变量">全局变量</a></li>
+                    <li>
+                        <a href="#%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f" aria-label="局部变量">局部变量</a></li>
+                    <li>
+                        <a href="#%e5%8f%98%e9%87%8f%e7%9a%84%e8%ae%bf%e9%97%ae%e5%8e%9f%e5%88%99" aria-label="变量的访问原则">变量的访问原则</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0" aria-label="匿名函数">匿名函数</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e5%bc%8f" aria-label="使用方式">使用方式</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e8%a1%a8%e8%be%be%e5%bc%8f" aria-label="函数表达式">函数表达式</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%87%bd%e6%95%b0%e8%a1%a8%e8%be%be%e5%bc%8f%e5%92%8c%e5%85%b7%e5%90%8d%e5%87%bd%e6%95%b0%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="函数表达式和具名函数的区别">函数表达式和具名函数的区别</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e7%ab%8b%e5%8d%b3%e6%89%a7%e8%a1%8c%e5%87%bd%e6%95%b0" aria-label="立即执行函数">立即执行函数</a></li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e9%80%bb%e8%be%91%e4%b8%ad%e6%96%ad" aria-label="逻辑中断">逻辑中断</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97%e7%ac%a6%e9%87%8c%e7%9a%84%e7%9f%ad%e8%b7%af" aria-label="逻辑运算符里的短路">逻辑运算符里的短路</a></li>
+                    <li>
+                        <a href="#%e8%bd%ac%e6%8d%a2%e4%b8%baboolean%e5%9e%8b" aria-label="转换为Boolean型">转换为Boolean型</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e6%98%be%e5%bc%8f%e8%bd%ac%e6%8d%a2" aria-label="显式转换：">显式转换：</a></li>
+                    <li>
+                        <a href="#%e9%9a%90%e5%bc%8f%e8%bd%ac%e6%8d%a2" aria-label="隐式转换">隐式转换</a></li></ul>
+
+                    </li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#day5" aria-label="Day5">Day5</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%af%b9%e8%b1%a1object" aria-label="对象(object)">对象(object)</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%a3%b0%e6%98%8e%e6%96%b9%e5%bc%8f" aria-label="声明方式">声明方式</a></li>
+                    <li>
+                        <a href="#%e5%b1%9e%e6%80%a7" aria-label="属性">属性</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%a2%9e%e5%88%a0%e6%94%b9%e6%9f%a5" aria-label="增删改查">增删改查</a></li>
+                    <li>
+                        <a href="#%e6%9f%a5" aria-label="查">查</a></li>
+                    <li>
+                        <a href="#%e6%94%b9" aria-label="改">改</a></li>
+                    <li>
+                        <a href="#%e5%a2%9e" aria-label="增">增</a></li>
+                    <li>
+                        <a href="#%e5%88%a0" aria-label="删">删</a></li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e6%96%b9%e6%b3%95" aria-label="方法">方法</a></li>
+                    <li>
+                        <a href="#%e9%81%8d%e5%8e%86%e5%af%b9%e8%b1%a1" aria-label="遍历对象">遍历对象</a></li>
+                    <li>
+                        <a href="#%e5%86%85%e7%bd%ae%e5%af%b9%e8%b1%a1" aria-label="内置对象">内置对象</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#math" aria-label="Math">Math</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%8c%85%e5%90%ab%e6%96%b9%e6%b3%95" aria-label="包含方法">包含方法</a></li>
+                    <li>
+                        <a href="#mathrandom" aria-label="Math.random()">Math.random()</a></li></ul>
+
+                    </li></ul>
+
+                    </li></ul>
+
+                    </li>
+                    <li>
+                        <a href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="数据类型">数据类型</a><ul>
+
+                                
+                                <details>
+                                    <summary accesskey="c" title="(Alt + C)">
+                                        <span id="details_list">详情</span>
+                                    </summary>
+                    <li>
+                        <a href="#%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b-1" aria-label="基本数据类型">基本数据类型</a></li>
+                    <li>
+                        <a href="#%e5%bc%95%e7%94%a8%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b-1" aria-label="引用数据类型">引用数据类型</a></li>
+                    <li>
+                        <a href="#%e6%a0%88%e5%a0%86" aria-label="栈堆">栈堆</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+  <div class="post-content"><h1 id="day1">Day1<a hidden class="anchor" aria-hidden="true" href="#day1">#</a></h1>
+<h2 id="javascript输入输出">JavaScript输入输出<a hidden class="anchor" aria-hidden="true" href="#javascript输入输出">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;comment&#39;</span><span style="color:#797593">)</span> <span style="color:#9893a5">//浏览器弹出
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">prompt</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;comment:&#39;</span><span style="color:#797593">)</span> <span style="color:#9893a5">//用户输入
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">()</span> <span style="color:#9893a5">//写出在控制台
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><h2 id="varible-变量">Varible 变量<a hidden class="anchor" aria-hidden="true" href="#varible-变量">#</a></h2>
+<ol>
+<li>
+<p>let 不允许==多次声明==一个变量， 和python不一样</p>
+<p><code>let age = 18 </code></p>
+<p><code>age = 19 </code></p>
+</li>
+<li>
+<p>let 可以一次声明多个变量:</p>
+<p><code>let age = 18, uname = 'Ali'	</code></p>
+</li>
+</ol>
+<h2 id="array-数组">Array 数组<a hidden class="anchor" aria-hidden="true" href="#array-数组">#</a></h2>
+<ol>
+<li>
+<p>数组的声明方式，数组有序</p>
+<p>可以存储任意类型数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">arr1</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">,</span><span style="color:#ea9d34">5</span><span style="color:#797593">,</span><span style="color:#ea9d34">6</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">arr2</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;Mon&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;Tue&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;Wed&#39;</span><span style="color:#797593">]</span>
+</span></span></code></pre></div></li>
+<li>
+<p>数组索引方式</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">])</span>
+</span></span></code></pre></div></li>
+<li>
+<p>数组长度</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">)</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="const-常量">Const 常量<a hidden class="anchor" aria-hidden="true" href="#const-常量">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">const</span> <span style="color:#d7827e">PI</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">3.14</span>
+</span></span></code></pre></div><ol>
+<li>常量不可以改变，不可以复制，像是Java中的final static的性质。</li>
+<li>常量声明的时候必须赋值。</li>
+<li>常量命名最好大写。</li>
+</ol>
+<h2 id="data-type-数据类型">Data type 数据类型<a hidden class="anchor" aria-hidden="true" href="#data-type-数据类型">#</a></h2>
+<p>JavaScript 松散、弱数据类型语言</p>
+<blockquote>
+<p>Java</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#286983">int</span> <span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#d7827e">10</span><span style="color:#797593">;</span>
+</span></span></code></pre></div><blockquote>
+<p>JavaScript: 只有赋值之后才知道类型</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;二&#39;</span>
+</span></span></code></pre></div><h3 id="基本数据类型">基本数据类型：<a hidden class="anchor" aria-hidden="true" href="#基本数据类型">#</a></h3>
+<h4 id="1-number">1. number<a hidden class="anchor" aria-hidden="true" href="#1-number">#</a></h4>
+<ul>
+<li>
+<p>可以是整数、小数、正数、负数</p>
+</li>
+<li>
+<p>算数运算符：  +  - *   /  %</p>
+</li>
+<li>
+<p>NaN 数据类型的出现，表示计算错误，或计算机无法理解的结果。黏性属性，任何对NaN的操作返回都是NaN</p>
+</li>
+</ul>
+<h4 id="2-string">2. string<a hidden class="anchor" aria-hidden="true" href="#2-string">#</a></h4>
+<ul>
+<li>
+<p>+ 数字相加，字符相连</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#34;pink&#34;</span><span style="color:#797593">+</span><span style="color:#ea9d34">&#39;color&#39;</span><span style="color:#797593">+</span><span style="color:#d7827e">num</span><span style="color:#797593">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>模版字符串</p>
+<p>语法：</p>
+<ol>
+<li>
+<p>`` (反引号)</p>
+</li>
+<li>
+<p>内容拼接变量时，用<code>${}</code>包含变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">age</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#ea9d34">`</span><span style="color:#ea9d34">${</span><span style="color:#d7827e">age</span><span style="color:#ea9d34">}</span><span style="color:#ea9d34">岁`</span><span style="color:#797593">)</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+</ul>
+<h4 id="3-boolean">3. boolean<a hidden class="anchor" aria-hidden="true" href="#3-boolean">#</a></h4>
+<ul>
+<li>true</li>
+<li>false</li>
+</ul>
+<h4 id="4-undefined">4. undefined<a hidden class="anchor" aria-hidden="true" href="#4-undefined">#</a></h4>
+<ul>
+<li>只声明不赋值，变量默认值undefined</li>
+<li>使用场景：开发时声明一个变量，接受数据，如果不确定数据是否传输成功，检测变量是否为undefined</li>
+</ul>
+<h4 id="5-null">5. null<a hidden class="anchor" aria-hidden="true" href="#5-null">#</a></h4>
+<p>​	null 和 undefined 的区别：</p>
+<ul>
+<li>
+<p>undefined 表示没有赋值</p>
+</li>
+<li>
+<p>null 表示赋值了，内容为空</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">undefined</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//Nan
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">null</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span> <span style="color:#797593">)</span> <span style="color:#9893a5">// 1
+</span></span></span></code></pre></div></li>
+</ul>
+<p>使用场景：</p>
+<ul>
+<li>
+<p>null作为尚未创建的对象。</p>
+</li>
+<li>
+<p>将变量里面存放一个对象，但对象还没创建好，先给null</p>
+</li>
+</ul>
+<h3 id="检测数据类型">检测数据类型<a hidden class="anchor" aria-hidden="true" href="#检测数据类型">#</a></h3>
+<h4 id="typeof">typeof<a hidden class="anchor" aria-hidden="true" href="#typeof">#</a></h4>
+<ul>
+<li>typeof 变量名</li>
+<li>typeof (变量名)</li>
+</ul>
+<h3 id="引用数据类型">引用数据类型<a hidden class="anchor" aria-hidden="true" href="#引用数据类型">#</a></h3>
+<h2 id="类型转换">类型转换<a hidden class="anchor" aria-hidden="true" href="#类型转换">#</a></h2>
+<h4 id="1-隐式转换">1. 隐式转换<a hidden class="anchor" aria-hidden="true" href="#1-隐式转换">#</a></h4>
+<ul>
+<li>+号两边只要有一个字符串，两边都会转成字符串</li>
+<li>除了+号以外的算术运算符，都会把数据转成数字类型</li>
+<li>+号作为正号解析可以转换为数字型</li>
+<li>任何数据和字符串相加结果都是字符串</li>
+</ul>
+<p>![image-20240224102913057](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240224102913057.png)</p>
+<h4 id="2-显示转换">2. 显示转换<a hidden class="anchor" aria-hidden="true" href="#2-显示转换">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">Number</span><span style="color:#797593">(</span><span style="color:#d7827e">data</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 转化数字型 NaN也是number类型，代表非数字
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">ParseInt</span><span style="color:#797593">(</span><span style="color:#d7827e">data</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 只保留整数，不会四舍五入
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">ParseFloat</span><span style="color:#797593">(</span><span style="color:#d7827e">data</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 可以保留小数
+</span></span></span></code></pre></div><h1 id="day-2">Day 2<a hidden class="anchor" aria-hidden="true" href="#day-2">#</a></h1>
+<h3 id="运算符">运算符<a hidden class="anchor" aria-hidden="true" href="#运算符">#</a></h3>
+<h4 id="1-一元运算符">1. 一元运算符<a hidden class="anchor" aria-hidden="true" href="#1-一元运算符">#</a></h4>
+<p>一元运算符 &mdash;&gt; 自增运算、正负号</p>
+<ul>
+<li>
+<p>前后置自增：</p>
+<p>在独立使用时两者没区别，但是运算时有区别。</p>
+<p>后置i++使用的比较多</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">num</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">num</span> <span style="color:#797593">+=</span><span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">++</span> <span style="color:#d7827e">num</span> <span style="color:#9893a5">//前置自增
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#797593">++</span><span style="color:#d7827e">i</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// i先自加1，变成2之后，与后面的1相加
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">num</span> <span style="color:#797593">++</span> <span style="color:#9893a5">//后置自增
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">i</span><span style="color:#797593">++</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//2 后置自增先运算 再++
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 先和1相加，先运算输出完毕后，i再自加
+</span></span></span></code></pre></div></li>
+</ul>
+<h4 id="2-二元运算符">2. 二元运算符<a hidden class="anchor" aria-hidden="true" href="#2-二元运算符">#</a></h4>
+<p>需要两个操作数称为二元运算符</p>
+<h4 id="3-比较运算符">3. 比较运算符<a hidden class="anchor" aria-hidden="true" href="#3-比较运算符">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>	<span style="color:#797593">&gt;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&gt;=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">&lt;=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">==</span>  <span style="color:#9893a5">//左右两边值是否相等 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">==</span><span style="color:#ea9d34">&#39;2&#39;</span><span style="color:#797593">)</span> <span style="color:#286983">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">===</span> <span style="color:#9893a5">//左右两边是否类型和值都相等，强烈建议使用
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">2</span><span style="color:#797593">===</span><span style="color:#ea9d34">&#39;2&#39;</span><span style="color:#797593">)</span> <span style="color:#286983">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">!==</span> <span style="color:#9893a5">//左右两边是否不全等
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    
+</span></span></code></pre></div><ul>
+<li>
+<p>字符串比较按照ASCII值，从左至右依次比较，如果第一位一样再比较第二位，以此类推</p>
+<p><code>console.log('a'&lt;'b') //true</code></p>
+</li>
+<li>
+<p>NaN不等于任何值，包括它本身。涉及到 &ldquo;NaN&quot;都是false</p>
+</li>
+<li>
+<p>不同类型之间比较会发生隐式转换</p>
+<p>最终把数据隐士转换变成number类型再比较</p>
+<p>所以开发中，如果准确比较喜欢<code>==</code>或者<code>!==</code></p>
+</li>
+<li>
+<p>比较运算符的结果返回true和false</p>
+</li>
+</ul>
+<h4 id="4-逻辑运算符">4. 逻辑运算符<a hidden class="anchor" aria-hidden="true" href="#4-逻辑运算符">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>名称</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+<td>一假则假</td>
+</tr>
+<tr>
+<td>||</td>
+<td>逻辑或</td>
+<td>一真则真</td>
+</tr>
+<tr>
+<td>!</td>
+<td>取反</td>
+<td>真变假，假变真</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-运算符优先级">5. 运算符优先级<a hidden class="anchor" aria-hidden="true" href="#5-运算符优先级">#</a></h4>
+<p>优先级一致，从左至右运算</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>小括号</td>
+<td>（）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>一元运算符</td>
+<td>++ &ndash; ！</td>
+</tr>
+<tr>
+<td>3</td>
+<td>算数运算符</td>
+<td>先*/% 后+-</td>
+</tr>
+<tr>
+<td>4</td>
+<td>关系运算符</td>
+<td>&gt; &gt;= &lt; &lt;=</td>
+</tr>
+<tr>
+<td>5</td>
+<td>相等运算符</td>
+<td>== != === !==</td>
+</tr>
+<tr>
+<td>6</td>
+<td>逻辑运算符</td>
+<td>先&amp;&amp;后||</td>
+</tr>
+<tr>
+<td>7</td>
+<td>赋值运算符</td>
+<td>=</td>
+</tr>
+<tr>
+<td>8</td>
+<td>逗号运算符</td>
+<td>,</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一元运算符的逻辑非优先级很高</li>
+<li>逻辑与比逻辑或优先级</li>
+</ul>
+<h3 id="分支语句">分支语句<a hidden class="anchor" aria-hidden="true" href="#分支语句">#</a></h3>
+<h4 id="1-表达式">1. 表达式<a hidden class="anchor" aria-hidden="true" href="#1-表达式">#</a></h4>
+<p>表达式是可以被求值的代码，JavaScript会计算出一个结果</p>
+<blockquote>
+<p>因为表达式可以被求值，所以它可以写在赋值语句的右侧<code>num=3+4</code></p>
+</blockquote>
+<h4 id="2-语句">2. 语句<a hidden class="anchor" aria-hidden="true" href="#2-语句">#</a></h4>
+<p>语句是一段可以执行的代码</p>
+<blockquote>
+<p>prompt() 可以弹出一个输入框，还有 if 语句 for循环语句</p>
+</blockquote>
+<blockquote>
+<p>而语句不一定有值，所以alert(), for, break等语句不能被用于赋值</p>
+</blockquote>
+<blockquote>
+<p><code>alert()</code> 弹出对话框</p>
+</blockquote>
+<blockquote>
+<p><code>console.log()</code> 控制台打印输出</p>
+</blockquote>
+<h4 id="3-程序三大流程控制语句">3. 程序三大流程控制语句<a hidden class="anchor" aria-hidden="true" href="#3-程序三大流程控制语句">#</a></h4>
+<ul>
+<li>顺序结构：从上至下</li>
+<li>分支结构（条件判断）</li>
+<li>循环结构</li>
+</ul>
+<h4 id="4-分支语句">4. 分支语句<a hidden class="anchor" aria-hidden="true" href="#4-分支语句">#</a></h4>
+<ol>
+<li>
+<p>种类：单分支、双分支、多分支</p>
+<p>只有一条分支会被执行</p>
+</li>
+<li>
+<p>使用方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">condition</span> <span style="color:#ea9d34">1</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">code</span> <span style="color:#d7827e">block</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span> <span style="color:#286983">else</span> <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">condition</span> <span style="color:#ea9d34">2</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">code</span> <span style="color:#d7827e">block</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span> <span style="color:#286983">else</span> <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">condition</span> <span style="color:#ea9d34">2</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">code</span> <span style="color:#d7827e">block</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">else</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">// 不满足条件执行的代码
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">code</span> <span style="color:#d7827e">block</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">.....</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><p>a.  括号内条件为true时，进入大括号执行代码</p>
+<ul>
+<li>除了 ==0== 之外的其余数字都是true</li>
+<li>除了 ==&rsquo; &lsquo;==  所有的字符串都是true</li>
+</ul>
+<p>b.  小括号内的结果若不是布尔类型时，会发生隐式转换为布尔类型</p>
+<p>c.  如果大括号只有一个语句，大括号可以省略</p>
+<p>d.  先判断条件1，若满足条件1就执行代码1，其他不执行。若不满足则向下判断条件2，满足条件2 执行代码2，爱他不执行。若依然不满足继续向下判断，以此类推。若以上条件都不满足，执行else里面的代码。</p>
+</li>
+</ol>
+<h4 id="三元运算符">三元运算符<a hidden class="anchor" aria-hidden="true" href="#三元运算符">#</a></h4>
+<blockquote>
+<p>if 双分支的简洁版本</p>
+</blockquote>
+<p>condition 满足 执行code1，不满足code2</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">condition</span> <span style="color:#797593">?</span> <span style="color:#d7827e">code1</span> <span style="color:#797593">:</span><span style="color:#d7827e">code2</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ea9d34">3</span><span style="color:#797593">&gt;</span><span style="color:#ea9d34">5</span> <span style="color:#797593">?</span> <span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#34;真的&#34;</span><span style="color:#797593">)</span><span style="color:#797593">:</span><span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#34;假的&#34;</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h4 id="switch语句">switch语句<a hidden class="anchor" aria-hidden="true" href="#switch语句">#</a></h4>
+<p>Keopoints:</p>
+<ul>
+<li>找到小括号里面数据==全等==的case值，并执行里面对应的代码</li>
+<li>若没有全等 =======的值，则执行defalut里面的代码</li>
+<li>switch case语句一般用于等值判断，不适用于区间判断</li>
+<li>switch case一般需要配合break关键词使用，没有break会造成case穿透</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">switch</span><span style="color:#797593">(</span><span style="color:#d7827e">数据</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">case</span> <span style="color:#d7827e">value1</span><span style="color:#797593">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">case</span> <span style="color:#d7827e">value2</span><span style="color:#797593">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">case</span> <span style="color:#d7827e">valueN</span><span style="color:#797593">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">default</span><span style="color:#797593">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>        <span style="color:#286983">break</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h1 id="day3">Day3<a hidden class="anchor" aria-hidden="true" href="#day3">#</a></h1>
+<h2 id="循环语句">循环语句<a hidden class="anchor" aria-hidden="true" href="#循环语句">#</a></h2>
+<h3 id="while循环">while循环<a hidden class="anchor" aria-hidden="true" href="#while循环">#</a></h3>
+<h4 id="语法">语法<a hidden class="anchor" aria-hidden="true" href="#语法">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">while</span><span style="color:#797593">(</span><span style="color:#d7827e">condition</span><span style="color:#797593">){</span><span style="color:#9893a5">//执行条件
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// code
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#9893a5">// 循环体
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div><ul>
+<li>满足括号里面的条件true才会进入循环体执行代码</li>
+<li>while大括号里代码执行完毕后不会跳出，而是继续回到小括号里面判断条件是否满足，若满足又执行大括号里的代码，然后再回到小括号里面判断条件，直到括号内条件不满足，跳出循环</li>
+</ul>
+<h4 id="三要素">三要素<a hidden class="anchor" aria-hidden="true" href="#三要素">#</a></h4>
+<ul>
+<li>变量起始值</li>
+<li>终止条件（木有终止条件，循环会一直执行，造成死循环）</li>
+<li>变量变化量（用自增或自减）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">while</span> <span style="color:#797593">(</span><span style="color:#d7827e">i</span> <span style="color:#797593">&lt;=</span> <span style="color:#ea9d34">3</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;循环三次&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h4 id="break--continue">break &amp; continue<a hidden class="anchor" aria-hidden="true" href="#break--continue">#</a></h4>
+<ul>
+<li>循环里面遇到break直接退出循环</li>
+<li>循环里面遇到continue，重新开始新的循环，原来continue之后的语句不再执行</li>
+</ul>
+<h3 id="3-for-循环">3. for 循环<a hidden class="anchor" aria-hidden="true" href="#3-for-循环">#</a></h3>
+<p>优点： 声明起始值、循环条件、变化值写到一起</p>
+<h4 id="语法-1">语法<a hidden class="anchor" aria-hidden="true" href="#语法-1">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#d7827e">变量起始值</span><span style="color:#797593">;</span> <span style="color:#d7827e">终止条件</span><span style="color:#797593">;</span> <span style="color:#d7827e">变量变化量</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//循环体
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h4 id="循环嵌套">循环嵌套<a hidden class="anchor" aria-hidden="true" href="#循环嵌套">#</a></h4>
+<ul>
+<li>双重for循环</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#d7827e">outside_start</span><span style="color:#797593">;</span> <span style="color:#d7827e">condition</span><span style="color:#797593">;</span> <span style="color:#d7827e">change_value</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">for</span><span style="color:#797593">(</span><span style="color:#d7827e">inside_start</span><span style="color:#797593">;</span> <span style="color:#d7827e">condition</span><span style="color:#797593">;</span> <span style="color:#d7827e">change_value</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#9893a5">//code body
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h3 id="4无限循环">4.无限循环：<a hidden class="anchor" aria-hidden="true" href="#4无限循环">#</a></h3>
+<ul>
+<li>while(true) 使用break中断循环</li>
+<li>for(;;) 使用break中断循环</li>
+</ul>
+<h4 id="5-while和for的区别">5. while和for的区别<a hidden class="anchor" aria-hidden="true" href="#5-while和for的区别">#</a></h4>
+<ul>
+<li>明确循环次数使用for</li>
+<li>不明确循环次数，推荐使用while</li>
+</ul>
+<h2 id="数组">数组<a hidden class="anchor" aria-hidden="true" href="#数组">#</a></h2>
+<blockquote>
+<p>Array是一种按顺序保存数据的数据类型， 每个数据都有索引</p>
+</blockquote>
+<h3 id="1-声明语法">1. 声明语法<a hidden class="anchor" aria-hidden="true" href="#1-声明语法">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 1. 字面量声明数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;pink&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;true&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 2. 使用new Array构造函数声明
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Array</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">,</span><span style="color:#ea9d34">4</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h3 id="2-取值语法">2. 取值语法<a hidden class="anchor" aria-hidden="true" href="#2-取值语法">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">names</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;hams&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;jams&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;lily&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;lake&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;tom&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">names</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span> <span style="color:#9893a5">// hams
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">names</span><span style="color:#797593">[</span><span style="color:#ea9d34">1</span><span style="color:#797593">]</span> <span style="color:#9893a5">// jams
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">names</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span> <span style="color:#9893a5">//获得数组长度
+</span></span></span></code></pre></div><h3 id="3-数组操作">3. 数组操作<a hidden class="anchor" aria-hidden="true" href="#3-数组操作">#</a></h3>
+<ul>
+<li>
+<p>增</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">push</span><span style="color:#797593">(</span><span style="color:#d7827e">元素1</span><span style="color:#797593">,...,</span><span style="color:#d7827e">元素n</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 将一个或多个元素添加到数组末尾，并返回该数组的新长度[!important]
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">unshift</span><span style="color:#797593">(</span><span style="color:#d7827e">元素1</span><span style="color:#797593">,...,</span><span style="color:#d7827e">元素n</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 将一个或多个元素添加到数组开头，并返回该数组的新长度
+</span></span></span></code></pre></div></li>
+<li>
+<p>删</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">pop</span><span style="color:#797593">()</span> <span style="color:#9893a5">// 从数组数组中删除最后一个元素，并返回该元素的值
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">shift</span><span style="color:#797593">()</span> <span style="color:#9893a5">//删除第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">splice</span><span style="color:#797593">(</span><span style="color:#d7827e">start</span><span style="color:#797593">,</span> <span style="color:#d7827e">deleteCount</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 删除指定元素
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// arr.splice(起始位置, 删除几个元素) 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// 如果没有指定deldeteCount,会默认从起始位置删除到数组最后
+</span></span></span></code></pre></div></li>
+<li>
+<p>改 —&gt; 数组[下标] = value</p>
+</li>
+<li>
+<p>查 —&gt; 数组下标</p>
+</li>
+</ul>
+<h1 id="day4">Day4<a hidden class="anchor" aria-hidden="true" href="#day4">#</a></h1>
+<h2 id="函数使用">函数使用<a hidden class="anchor" aria-hidden="true" href="#函数使用">#</a></h2>
+<h2 id="函数声明">函数声明<a hidden class="anchor" aria-hidden="true" href="#函数声明">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">funcName</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;声明函数&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><ul>
+<li>尽量小驼峰命名法</li>
+<li>前缀应该为动词</li>
+<li>命名建议：常用动词约定</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>can</td>
+<td>判断是否可执行某个动作</td>
+</tr>
+<tr>
+<td>has</td>
+<td>判断是否含有某个值</td>
+</tr>
+<tr>
+<td>is</td>
+<td>判断是否为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取某个值</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置某个值</td>
+</tr>
+<tr>
+<td>load</td>
+<td>加载某些数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="函数调用">函数调用<a hidden class="anchor" aria-hidden="true" href="#函数调用">#</a></h2>
+<p><code>函数名( ) </code></p>
+<p>函数与循环的不同：</p>
+<ul>
+<li>循环代码写完即执行，不能很方便控制执行位置</li>
+<li>随时调用，随时执行，可重复掉用</li>
+</ul>
+<h2 id="函数传参">函数传参<a hidden class="anchor" aria-hidden="true" href="#函数传参">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">funName</span><span style="color:#797593">(</span><span style="color:#d7827e">parameter</span><span style="color:#797593">...){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">code</span> <span style="color:#d7827e">body</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#d7827e">num1</span><span style="color:#797593">,</span><span style="color:#d7827e">num2</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#d7827e">num1</span><span style="color:#797593">+</span><span style="color:#d7827e">num2</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h3 id="参数列表">参数列表<a hidden class="anchor" aria-hidden="true" href="#参数列表">#</a></h3>
+<ul>
+<li>传入数据列表</li>
+<li>声明这个函数需要传入几个数据</li>
+<li>多个数据用逗号隔开</li>
+</ul>
+<h3 id="参数默认值">参数默认值<a hidden class="anchor" aria-hidden="true" href="#参数默认值">#</a></h3>
+<ul>
+<li>如果用户不给形参对应的实参，结果为<!-- raw HTML omitted -->==undefined==<!-- raw HTML omitted --></li>
+<li>undefined + undefined == NaN</li>
+<li>增加代码健壮性，用户不输入实参，可以给形参默认值</li>
+<li>默认值只会在缺少实参参数时才会被执行</li>
+<li>参数也可以是变量</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">,</span> <span style="color:#d7827e">y</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">0</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">y</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">getSum</span><span style="color:#797593">()</span> <span style="color:#9893a5">//结果是0，而不是NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">getSum</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">)</span> <span style="color:#9893a5">//结果是3
+</span></span></span></code></pre></div><h2 id="函数返回值">函数返回值<a hidden class="anchor" aria-hidden="true" href="#函数返回值">#</a></h2>
+<blockquote>
+<p>函数返回执行结果对整个程序的扩展性更高，可以让其他程序使用此结果</p>
+</blockquote>
+<h3 id="keypoints">Keypoints<a hidden class="anchor" aria-hidden="true" href="#keypoints">#</a></h3>
+<ul>
+<li>return 会立刻结束当前函数，后面的代码块不会执行</li>
+<li>如果函数没有return, 则此函数默认返回值为undefined</li>
+<li>return多个值，使用<code>return[max, min]</code>, 返回一个数组</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">getMaxMinValue</span><span style="color:#797593">(</span><span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[])</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">let</span> <span style="color:#d7827e">max</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">let</span> <span style="color:#d7827e">min</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#ea9d34">0</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span> <span style="color:#797593">&lt;</span> <span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">++</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">max</span> <span style="color:#797593">&lt;</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">])</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">max</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">i</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">1</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span> <span style="color:#797593">&lt;</span> <span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">;</span> <span style="color:#d7827e">i</span><span style="color:#797593">++</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">if</span> <span style="color:#797593">(</span><span style="color:#d7827e">min</span> <span style="color:#797593">&gt;</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">])</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#d7827e">min</span> <span style="color:#797593">=</span> <span style="color:#d7827e">arr</span><span style="color:#797593">[</span><span style="color:#d7827e">i</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">return</span> <span style="color:#797593">[</span><span style="color:#d7827e">max</span><span style="color:#797593">,</span> <span style="color:#d7827e">min</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h2 id="函数细节">函数细节<a hidden class="anchor" aria-hidden="true" href="#函数细节">#</a></h2>
+<ul>
+<li>
+<p>同一个作用域，两个相同名字的函数，后面的函数会覆盖前面的函数</p>
+</li>
+<li>
+<p>return 会结束函数，所以return后面不再有语句</p>
+<blockquote>
+<p>break VS return</p>
+<p>break -&gt; 结束循环或switch</p>
+<p>return -&gt; 结束函数</p>
+</blockquote>
+</li>
+<li>
+<p>参数不匹配</p>
+<blockquote>
+<p>实参比形参多，剩余实参不参与运算</p>
+<p>实参比形参少，1 + undefined == NaN</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">,</span><span style="color:#d7827e">b</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#286983">return</span> <span style="color:#d7827e">a</span><span style="color:#797593">+</span><span style="color:#d7827e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">100</span><span style="color:#797593">)</span> <span style="color:#9893a5">// return 3
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//NaN
+</span></span></span></code></pre></div></li>
+</ul>
+<h2 id="作用域">作用域<a hidden class="anchor" aria-hidden="true" href="#作用域">#</a></h2>
+<blockquote>
+<p>变量名的有效范围称为作用域</p>
+</blockquote>
+<h3 id="全局作用域">全局作用域<a hidden class="anchor" aria-hidden="true" href="#全局作用域">#</a></h3>
+<blockquote>
+<p>全局有效</p>
+<p>作用于所有代码执行环境（整个script标签内部或独立js文件）</p>
+</blockquote>
+<h3 id="局部作用域">局部作用域<a hidden class="anchor" aria-hidden="true" href="#局部作用域">#</a></h3>
+<blockquote>
+<p>局部有效</p>
+<p>作用域函数内的代码环境，因为与函数有关系，也称为函数作用域</p>
+</blockquote>
+<h3 id="全局变量">全局变量<a hidden class="anchor" aria-hidden="true" href="#全局变量">#</a></h3>
+<blockquote>
+<p>全局变量在任何区域都可以访问和修改</p>
+</blockquote>
+<ul>
+<li>如果函数内部，变量没有声明，直接赋值，也当作==全局变量==， 黑户一样的存在，不太规范。</li>
+<li>函数的形参看作局部变量</li>
+</ul>
+<h3 id="局部变量">局部变量<a hidden class="anchor" aria-hidden="true" href="#局部变量">#</a></h3>
+<blockquote>
+<p>局部变量只能在当前函数内部访问修改</p>
+</blockquote>
+<h3 id="变量的访问原则">变量的访问原则<a hidden class="anchor" aria-hidden="true" href="#变量的访问原则">#</a></h3>
+<ul>
+<li>只要是代码，就至少有一个作用域</li>
+<li>写在函数内部的是局部作用域</li>
+<li>如果函数中还有函数（嵌套），那么在这个作用域中又诞生一个作用域</li>
+<li><!-- raw HTML omitted -->==访问原则：在能够访问到的情况下，先局部，局部没有再找全局==<!-- raw HTML omitted --></li>
+<li>作用域链：采取==就近原则==的方式查找变量的最终值</li>
+</ul>
+<h2 id="匿名函数">匿名函数<a hidden class="anchor" aria-hidden="true" href="#匿名函数">#</a></h2>
+<blockquote>
+<p>没有名字的函数，无法直接使用</p>
+</blockquote>
+<h3 id="使用方式">使用方式<a hidden class="anchor" aria-hidden="true" href="#使用方式">#</a></h3>
+<h4 id="函数表达式">函数表达式<a hidden class="anchor" aria-hidden="true" href="#函数表达式">#</a></h4>
+<blockquote>
+<p>将匿名函数赋值给一个变量，通过变量名称进行调用，我们将这个称为函数表达式</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">fn</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//code body
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">condole</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;hi&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//调用方式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">fn</span><span style="color:#797593">()</span> <span style="color:#9893a5">//还是要加（）
+</span></span></span></code></pre></div><h5 id="函数表达式和具名函数的区别">函数表达式和具名函数的区别<a hidden class="anchor" aria-hidden="true" href="#函数表达式和具名函数的区别">#</a></h5>
+<ul>
+<li>具名函数的调用可以写在任何位置</li>
+<li>匿名函数需要先声明函数表达式再使用</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">btn</span> <span style="color:#797593">=</span> <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">querySelector</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;button&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">btn</span><span style="color:#797593">.</span><span style="color:#d7827e">onclick</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">alert</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;我是匿名函数&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h4 id="立即执行函数">立即执行函数<a hidden class="anchor" aria-hidden="true" href="#立即执行函数">#</a></h4>
+<blockquote>
+<p>场景介绍：避免全局变量之间的污染</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 方式一
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(){})();</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//必须加;不然函数不停止
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">//第二个()本质是调用函数 fn();可以加实参
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">+</span><span style="color:#d7827e">b</span><span style="color:#797593">){</span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">+</span><span style="color:#d7827e">b</span><span style="color:#797593">)})(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 方式二
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">(</span><span style="color:#286983">function</span> <span style="color:#797593">(){}());</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">(</span><span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">a</span><span style="color:#797593">+</span><span style="color:#d7827e">b</span><span style="color:#797593">){</span><span style="color:#286983">return</span> <span style="color:#d7827e">a</span><span style="color:#797593">+</span><span style="color:#d7827e">b</span><span style="color:#797593">}(</span><span style="color:#ea9d34">2</span><span style="color:#797593">,</span><span style="color:#ea9d34">3</span><span style="color:#797593">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//不需要调用，立刻执行
+</span></span></span></code></pre></div><p>总结：</p>
+<ul>
+<li>立即执行函数主要作用是防止变量污染</li>
+<li>立即执行函数无需调用，立即执行；多个立即执行函数用;隔开</li>
+</ul>
+<h2 id="逻辑中断">逻辑中断<a hidden class="anchor" aria-hidden="true" href="#逻辑中断">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">function</span> <span style="color:#d7827e">fn</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">,</span><span style="color:#d7827e">y</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">x</span> <span style="color:#797593">=</span> <span style="color:#d7827e">x</span><span style="color:#797593">||</span><span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">y</span> <span style="color:#797593">=</span> <span style="color:#d7827e">y</span><span style="color:#797593">||</span><span style="color:#ea9d34">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//逻辑中断
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h3 id="逻辑运算符里的短路">逻辑运算符里的短路<a hidden class="anchor" aria-hidden="true" href="#逻辑运算符里的短路">#</a></h3>
+<ul>
+<li>
+<p>短路：只存在于&amp;&amp;和||之间，当满足一定条件会让右边代码不执行</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>短路条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>左边为false就短路</td>
+</tr>
+<tr>
+<td>||</td>
+<td>左边为true就短路</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>通过左边能得到整个式子的结果，没必要判断右边</p>
+</li>
+<li>
+<p>运算结果：</p>
+<p>无论&amp;&amp;还是||，运算结果都是最后被执行的表达式值，一般用在变量赋值</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">false</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">3</span><span style="color:#797593">+</span><span style="color:#ea9d34">5</span><span style="color:#797593">)</span> <span style="color:#9893a5">//false 
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">age</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">false</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#d7827e">age</span><span style="color:#797593">++</span><span style="color:#797593">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//age还是18，因为左边为false，所以age++不能执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">age</span><span style="color:#797593">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">11</span><span style="color:#797593">||</span><span style="color:#d7827e">age</span><span style="color:#797593">++</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//age还是18,因为11判断为true,后面age++不执行
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">age</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//如果表达式两侧都为真，则返回最后一个值
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">11</span><span style="color:#797593">&amp;</span><span style="color:#ea9d34">22</span><span style="color:#797593">)</span> <span style="color:#9893a5">//return 22
+</span></span></span></code></pre></div><h3 id="转换为boolean型">转换为Boolean型<a hidden class="anchor" aria-hidden="true" href="#转换为boolean型">#</a></h3>
+<h4 id="显式转换">显式转换：<a hidden class="anchor" aria-hidden="true" href="#显式转换">#</a></h4>
+<p>​	Boolean( 数据 )</p>
+<p>​	<code>'', 0, undefined, null, false, NaN</code></p>
+<p>​	转换为布尔值都是false，其余为true</p>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">false</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span>  <span style="color:#9893a5">//false
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">5</span><span style="color:#797593">&lt;</span><span style="color:#ea9d34">3</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">undefined</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">//undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">null</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">// null
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">0</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">10</span> <span style="color:#797593">&amp;&amp;</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">//20
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">false</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">5</span><span style="color:#797593">&lt;</span><span style="color:#ea9d34">3</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span>   <span style="color:#9893a5">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">undefined</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">null</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span>  <span style="color:#9893a5">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">0</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span>  <span style="color:#9893a5">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">10</span> <span style="color:#797593">||</span> <span style="color:#ea9d34">20</span><span style="color:#797593">)</span> <span style="color:#9893a5">//10
+</span></span></span></code></pre></div><h4 id="隐式转换">隐式转换<a hidden class="anchor" aria-hidden="true" href="#隐式转换">#</a></h4>
+<ol>
+<li>
+<p>有字符串的加法 <code>&quot;&quot; + 1</code>，结果是 “1”</p>
+</li>
+<li>
+<p>减法 - ，只能用于数字，会使空字符串&quot;&ldquo;转换为 0</p>
+</li>
+<li>
+<p>null 经过数字转换后会变成 0</p>
+</li>
+<li>
+<p>undefined 经过数字转换后会变成NaN</p>
+<p><code>null == undefined //true</code></p>
+<p><code>null === undefined //false</code></p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;&#39;</span><span style="color:#797593">-</span><span style="color:#ea9d34">1</span><span style="color:#797593">)</span>    <span style="color:#9893a5">//-1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;pink老师&#39;</span> <span style="color:#797593">-</span><span style="color:#ea9d34">1</span><span style="color:#797593">)</span>  <span style="color:#9893a5">//NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">null</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">undefined</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// undefined 无论 + - * / 都是NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#286983">NaN</span> <span style="color:#797593">+</span> <span style="color:#ea9d34">1</span><span style="color:#797593">)</span> <span style="color:#9893a5">//NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5">// NaN做任何的操作都是NaN，NaN也不等于NaN
+</span></span></span></code></pre></div><h1 id="day5">Day5<a hidden class="anchor" aria-hidden="true" href="#day5">#</a></h1>
+<h2 id="对象object">对象(object)<a hidden class="anchor" aria-hidden="true" href="#对象object">#</a></h2>
+<blockquote>
+<p>JavaScript里面的一种数据类型</p>
+<p>可以理解为一种无序的数据集合，数组是有序的数据集合</p>
+<p>用来描述某事物</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;xx&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span><span style="color:#797593">:</span> <span style="color:#ea9d34">18</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">gender</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;女&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><p>###属性与方法</p>
+<h3 id="声明方式">声明方式<a hidden class="anchor" aria-hidden="true" href="#声明方式">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">objectName1</span>  <span style="color:#797593">=</span> <span style="color:#797593">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">objectName2</span>  <span style="color:#797593">=</span> <span style="color:#286983">new</span> <span style="color:#d7827e">Object</span><span style="color:#797593">()</span>
+</span></span></code></pre></div><h3 id="属性">属性<a hidden class="anchor" aria-hidden="true" href="#属性">#</a></h3>
+<ul>
+<li>属性： 信息或特征 (名词)   尺寸、颜色、重量</li>
+<li>方法：功能或行为  (动词)   打电话、发短信、玩游戏</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">goods</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">name</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;小米10青春版&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">num</span><span style="color:#797593">:</span> <span style="color:#ea9d34">100012816024</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">weight</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;0.55kg&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ea9d34">&#39;current-address&#39;</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;中国大陆&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><ul>
+<li>属性都是成对出现，包括属性名和值，用英文 <code>:</code>  分隔</li>
+<li>多个属性之间用英文 <code>, </code>分隔</li>
+</ul>
+<h4 id="增删改查">增删改查<a hidden class="anchor" aria-hidden="true" href="#增删改查">#</a></h4>
+<h4 id="查">查<a hidden class="anchor" aria-hidden="true" href="#查">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">goods</span><span style="color:#797593">.</span><span style="color:#d7827e">name</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">goods</span><span style="color:#797593">.</span><span style="color:#d7827e">price</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//第二种方法
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">goods</span><span style="color:#797593">[</span><span style="color:#ea9d34">&#39;current-address&#39;</span><span style="color:#797593">]</span>
+</span></span></code></pre></div><h4 id="改">改<a hidden class="anchor" aria-hidden="true" href="#改">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">gender</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;男&#39;</span>
+</span></span></code></pre></div><h4 id="增">增<a hidden class="anchor" aria-hidden="true" href="#增">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">hobby</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;足球&#39;</span>    <span style="color:#9893a5">//直接新增一个属性
+</span></span></span></code></pre></div><h4 id="删">删<a hidden class="anchor" aria-hidden="true" href="#删">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">delete</span> <span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">hobby</span>
+</span></span></code></pre></div><h3 id="方法">方法<a hidden class="anchor" aria-hidden="true" href="#方法">#</a></h3>
+<ul>
+<li>方法由方法名和函数两部分构成，使用<code>:</code>分隔</li>
+<li>多个属性之间使用<code>,</code>分隔</li>
+<li>方法是依附在对象中的函数</li>
+<li>方法名可以使用引号，一般情况省略，除非遇到特殊符号</li>
+<li>可以添加实参和形参</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;刘德华&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//匿名函数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">song</span> <span style="color:#797593">:</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#ea9d34">&#39;冰雨&#39;</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">addNum</span> <span style="color:#797593">:</span> <span style="color:#286983">function</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">,</span><span style="color:#d7827e">y</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">x</span><span style="color:#797593">+</span><span style="color:#d7827e">y</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">addNum</span><span style="color:#797593">(</span><span style="color:#ea9d34">1</span><span style="color:#797593">,</span><span style="color:#ea9d34">2</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><ul>
+<li>后追加</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">hobby</span> <span style="color:#797593">=</span> <span style="color:#ea9d34">&#39;足球&#39;</span> <span style="color:#9893a5">//注意后追加变成了 = 号
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">obj</span><span style="color:#797593">.</span><span style="color:#d7827e">move</span> <span style="color:#797593">=</span> <span style="color:#286983">function</span><span style="color:#797593">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#9893a5">//code body//
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#797593">}</span>
+</span></span></code></pre></div><h3 id="遍历对象">遍历对象<a hidden class="anchor" aria-hidden="true" href="#遍历对象">#</a></h3>
+<ul>
+<li>==for k in obj== 的索引是字符串，适合遍历对象</li>
+</ul>
+<blockquote>
+<p>javascript的对象有点像字典， k-&gt;key</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">obj</span> <span style="color:#797593">=</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">uname</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;pink&#39;</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">age</span> <span style="color:#797593">:</span> <span style="color:#ea9d34">18</span><span style="color:#797593">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">gender</span><span style="color:#797593">:</span> <span style="color:#ea9d34">&#39;男&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">// 遍历对象
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">for</span> <span style="color:#797593">(</span><span style="color:#286983">let</span> <span style="color:#d7827e">k</span> <span style="color:#286983">in</span> <span style="color:#d7827e">obj</span><span style="color:#797593">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">k</span><span style="color:#797593">)</span> <span style="color:#9893a5">//输出 &#39;uname&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>    <span style="color:#d7827e">console</span><span style="color:#797593">.</span><span style="color:#d7827e">log</span><span style="color:#797593">(</span><span style="color:#d7827e">obj</span><span style="color:#797593">[</span><span style="color:#d7827e">k</span><span style="color:#797593">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span></code></pre></div><ul>
+<li>一般不使用for k in obj这种方式遍历数组，主要是用来遍历对象</li>
+<li>for in 语法中的 k是一个变量，在循环过程中依次代表对象的属性名</li>
+<li>由于k是字符串变量，所以需要使用 <code>[ ]</code> 语法解析</li>
+<li>==k==是获得对象的属性名，==obj [k]== 是获得属性值</li>
+</ul>
+<h3 id="内置对象">内置对象<a hidden class="anchor" aria-hidden="true" href="#内置对象">#</a></h3>
+<blockquote>
+<p>JavaScript内部提供的对象，包含各种属性和方法给开发者调用</p>
+<ul>
+<li>console.log()</li>
+<li>document.write()</li>
+</ul>
+</blockquote>
+<h4 id="math">Math<a hidden class="anchor" aria-hidden="true" href="#math">#</a></h4>
+<blockquote>
+<p>提供了一系列的数学运算的方法</p>
+</blockquote>
+<h5 id="包含方法">包含方法<a hidden class="anchor" aria-hidden="true" href="#包含方法">#</a></h5>
+<ul>
+<li>
+<p>random-&gt; 生成0-1之间的随机数 （包0不包1）</p>
+</li>
+<li>
+<p>ceil -&gt; 向上取整</p>
+</li>
+<li>
+<p>floor -&gt; 向下取整</p>
+<p>有点像parseInt( )</p>
+</li>
+<li>
+<p>round -&gt; 四舍五入</p>
+</li>
+<li>
+<p>max -&gt; 找最大数</p>
+</li>
+<li>
+<p>min-&gt; 找最小数</p>
+</li>
+<li>
+<p>pow-&gt; 幂运算</p>
+</li>
+<li>
+<p>abs-&gt; 绝对值</p>
+</li>
+</ul>
+<h5 id="mathrandom">Math.random()<a hidden class="anchor" aria-hidden="true" href="#mathrandom">#</a></h5>
+<div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">// 向下取整
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">floor</span><span style="color:#797593">(</span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">random</span><span style="color:#797593">()</span><span style="color:#797593">*</span><span style="color:#797593">(</span><span style="color:#ea9d34">10</span><span style="color:#797593">+</span><span style="color:#ea9d34">1</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//随机抽取数组
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#286983">let</span> <span style="color:#d7827e">arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;red&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;green&#39;</span><span style="color:#797593">,</span><span style="color:#ea9d34">&#39;blue&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">random</span> <span style="color:#797593">=</span> <span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">floor</span><span style="color:#797593">(</span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">random</span><span style="color:#797593">()</span><span style="color:#797593">*</span><span style="color:#d7827e">arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//生成N-M之间的随机数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">floor</span><span style="color:#797593">(</span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">random</span><span style="color:#797593">()</span><span style="color:#797593">*</span><span style="color:#797593">(</span><span style="color:#d7827e">M</span><span style="color:#797593">-</span><span style="color:#d7827e">N</span><span style="color:#797593">+</span><span style="color:#ea9d34">1</span><span style="color:#797593">))</span><span style="color:#797593">+</span><span style="color:#d7827e">N</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//如何生成5-10之间的随机数
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">floor</span><span style="color:#797593">(</span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">random</span><span style="color:#797593">()</span><span style="color:#797593">*</span><span style="color:#797593">(</span><span style="color:#ea9d34">5</span><span style="color:#797593">+</span><span style="color:#ea9d34">1</span><span style="color:#797593">))</span><span style="color:#797593">+</span><span style="color:#ea9d34">5</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#575279;background-color:#faf4ed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#9893a5">//抽奖游戏，抽中的人在列表中删除
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">let</span> <span style="color:#d7827e">name_arr</span> <span style="color:#797593">=</span> <span style="color:#797593">[</span><span style="color:#ea9d34">&#39;赵云&#39;</span><span style="color:#797593">,</span> <span style="color:#ea9d34">&#39;黄忠&#39;</span><span style="color:#797593">,</span> <span style="color:#ea9d34">&#39;关羽&#39;</span><span style="color:#797593">,</span> <span style="color:#ea9d34">&#39;张飞&#39;</span><span style="color:#797593">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#286983">while</span> <span style="color:#797593">(</span><span style="color:#d7827e">name_arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span> <span style="color:#797593">&gt;</span> <span style="color:#ea9d34">0</span><span style="color:#797593">)</span> <span style="color:#797593">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#286983">let</span> <span style="color:#d7827e">random_index</span> <span style="color:#797593">=</span> <span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">floor</span><span style="color:#797593">(</span><span style="color:#d7827e">Math</span><span style="color:#797593">.</span><span style="color:#d7827e">random</span><span style="color:#797593">()</span> <span style="color:#797593">*</span> <span style="color:#d7827e">name_arr</span><span style="color:#797593">.</span><span style="color:#d7827e">length</span><span style="color:#797593">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#d7827e">document</span><span style="color:#797593">.</span><span style="color:#d7827e">write</span><span style="color:#797593">(</span><span style="color:#d7827e">name_arr</span><span style="color:#797593">.</span><span style="color:#d7827e">splice</span><span style="color:#797593">(</span><span style="color:#d7827e">random_index</span><span style="color:#797593">,</span> <span style="color:#ea9d34">1</span><span style="color:#797593">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#797593">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#9893a5">//数组删除数据方式
+</span></span></span><span style="display:flex;"><span><span style="color:#9893a5"></span><span style="color:#d7827e">splice</span><span style="color:#797593">(</span><span style="color:#d7827e">起始位置</span><span style="color:#797593">,</span><span style="color:#d7827e">删除几个元素</span><span style="color:#797593">)</span>
+</span></span></code></pre></div><h2 id="数据类型">数据类型<a hidden class="anchor" aria-hidden="true" href="#数据类型">#</a></h2>
+<h3 id="基本数据类型-1">基本数据类型<a hidden class="anchor" aria-hidden="true" href="#基本数据类型-1">#</a></h3>
+<blockquote>
+<p>又称为值类型，在存储变量中，存储的值本身</p>
+<ul>
+<li>string, number, boolean, undefined, null</li>
+</ul>
+</blockquote>
+<h3 id="引用数据类型-1">引用数据类型<a hidden class="anchor" aria-hidden="true" href="#引用数据类型-1">#</a></h3>
+<blockquote>
+<p>复杂数据类型，在存储变量时是地址（引用）</p>
+<ul>
+<li>通过new关键创造的对象 Object, Array, Data</li>
+</ul>
+</blockquote>
+<h3 id="栈堆">栈堆<a hidden class="anchor" aria-hidden="true" href="#栈堆">#</a></h3>
+<p>![image-20240227220622098](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240227220622098.png)</p>
+<p>![image-20240227220658528](/Users/jingyiwu/Library/Application Support/typora-user-images/image-20240227220658528.png)</p>
+
+
+  </div>
+
+  
+
+  
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/javascript/">Javascript</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/vub/">VUB</a></li>
+      <li><a href="https://jingyiwu-codespace.github.io/zh/tags/frontend/">Frontend</a></li>
+    </ul>
+
+
+
+<details>
+    <summary>View/hide comments</summary>
+    <div class="giscus">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-eval'; object-src 'none'; ">
+        <script nonce="${nonce}">
+
+            function getGiscusTheme() {
+                
+                const preferredTheme = localStorage.getItem("pref-theme");
+                
+                let giscusTheme;
+                switch (preferredTheme) {
+                    case "light":
+                        giscusTheme = "noborder_light";
+                        break;
+                    case "dark":
+                        giscusTheme = "noborder_gray";
+                        break;
+                    default:
+                        giscusTheme = "noborder_gray"; 
+                }
+                return giscusTheme;
+            }
+            function setGiscusTheme() {
+                function sendMessage(message) {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (!iframe) return;
+                    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+                }
+                
+                sendMessage({
+                    setConfig: {
+                        theme: getGiscusTheme(),
+                    },
+                });
+            }
+
+            const attrs = {
+                "src": "https://giscus.app/client.js",
+                "data-repo": "JingyiWu-codespace/JingyiWu-codespace.github.io",
+                "data-repo-id": "R_kgDOLEfUzQ",
+                "data-category": "Announcements",
+                "data-category-id": "DIC_kwDOLEfUzc4CdFiN",
+                "data-mapping": "pathname",
+                "data-strict": "0",
+                "data-reactions-enabled": "1",
+                "data-emit-metadata": "0",
+                "data-input-position": "bottom",
+                "data-theme": getGiscusTheme(), 
+                "data-lang": "en",
+                "crossorigin": "anonymous",
+                "async": ""
+            };
+
+            const giscusScript = document.createElement("script");
+            Object.entries(attrs).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+            document.body.appendChild(giscusScript);
+
+            
+            const toggle = document.querySelector('#theme-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', setGiscusTheme);
+            }
+        </script>
+
+        <noscript>Please enable JavaScript to view the comments</noscript>
+    </div>
+
+</details>
+
+
+
+
+<nav class="paginav">
+  <a class="prev" href="https://jingyiwu-codespace.github.io/zh/posts/tech/javascript_webapi/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>学习: JavaScript WebAPIs篇</span>
+  </a>
+  <a class="next" href="https://jingyiwu-codespace.github.io/zh/posts/tech/cooja_kill_process/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>解决: Cooja 端口显示资源繁忙</span>
+  </a>
+</nav>
+
+
+  </footer>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>
+        &copy;
+        2024
+        <a href="https://jingyiwu-codespace.github.io" rel="noopener noreferrer" target="_blank">Jingyi's Blog</a>
+<span class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    Views: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+    Visitors: <span id="busuanzi_value_site_uv"></span>
+  </span>
+</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </span>
+    
+
+
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script></body>
+
+</html>
