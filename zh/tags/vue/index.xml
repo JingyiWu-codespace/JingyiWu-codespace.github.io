@@ -6,8 +6,15 @@
     <description>Recent content in Vue on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 05 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>前端开发｜基于VUE简易记事本应用</title>
+      <link>https://jingyiwu-codespace.github.io/zh/projects/tech/notepad/</link>
+      <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/projects/tech/notepad/</guid>
+      <description>持久化存储/多语言模式/增删任务/一键清空</description>
+    </item>
     <item>
       <title>学习：Vue2 &amp; Vue3 </title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/tech/vue/</link>

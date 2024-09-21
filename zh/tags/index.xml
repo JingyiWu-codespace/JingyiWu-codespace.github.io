@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>🏷️ 标签合集 on Jingyi&#39;s Blog</title>
+    <title>🧩 标签合集 on Jingyi&#39;s Blog</title>
     <link>https://jingyiwu-codespace.github.io/zh/tags/</link>
-    <description>Recent content in 🏷️ 标签合集 on Jingyi&#39;s Blog</description>
+    <description>Recent content in 🧩 标签合集 on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 05 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/c/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embeded System</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/embeded-system/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/embeded-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PSOC6</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/psoc6/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/psoc6/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Frontend</title>
       <link>https://jingyiwu-codespace.github.io/zh/tags/frontend/</link>
-      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/tags/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vue</title>
+      <link>https://jingyiwu-codespace.github.io/zh/tags/vue/</link>
+      <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/tags/vue/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +55,6 @@
       <link>https://jingyiwu-codespace.github.io/zh/tags/vub/</link>
       <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/tags/vub/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vue</title>
-      <link>https://jingyiwu-codespace.github.io/zh/tags/vue/</link>
-      <pubDate>Fri, 05 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/zh/tags/vue/</guid>
       <description></description>
     </item>
     <item>

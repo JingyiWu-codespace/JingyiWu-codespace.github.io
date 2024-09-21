@@ -6,13 +6,24 @@
     <description>Recent content in 🧱 Projects on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Apr 2024 20:29:08 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notepad by Vue</title>
-      <link>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</link>
+      <title>Eembeded System | Heart Rate Monitor by PSOC6</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Hardware: PSOC 6 board + MAX 30102&lt;/li&gt;
+&lt;li&gt;Software: Web Application: Javascript + HTML + chart.js + Python Flask - Using the C language&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    <item>
+      <title>Front-end | Simple notepad application by VUE</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</link>
       <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</guid>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</guid>
       <description>Add/Delect tasks, One-click clear, Multiple Language Mode, Persistence storage</description>
     </item>
   </channel>

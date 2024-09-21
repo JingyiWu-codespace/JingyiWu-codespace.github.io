@@ -6,13 +6,24 @@
     <description>Recent content on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Apr 2024 20:29:08 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notepad by Vue</title>
-      <link>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</link>
+      <title>Eembeded System | Heart Rate Monitor by PSOC6</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Hardware: PSOC 6 board + MAX 30102&lt;/li&gt;
+&lt;li&gt;Software: Web Application: Javascript + HTML + chart.js + Python Flask - Using the C language&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    <item>
+      <title>Front-end | Simple notepad application by VUE</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</link>
       <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</guid>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</guid>
       <description>Add/Delect tasks, One-click clear, Multiple Language Mode, Persistence storage</description>
     </item>
     <item>
@@ -46,7 +57,7 @@
     <item>
       <title>About Me</title>
       <link>https://jingyiwu-codespace.github.io/en/about/</link>
-      <pubDate>Thu, 01 Jan 1970 08:33:44 +0800</pubDate>
+      <pubDate>Thu, 01 Jan 1970 01:33:44 +0100</pubDate>
       <guid>https://jingyiwu-codespace.github.io/en/about/</guid>
       <description>class Me: def __init__(self): self.name = &amp;#34;Jingyi Wu&amp;#34; self.prefer_name = &amp;#34;Jennie&amp;#34; self.born_year = 1999 self.MBTI = &amp;#34;ISFJ&amp;#34; self.constellation = &amp;#34;Capricorn&amp;#34; self.curr_location = &amp;#34;Brussels｜ BE&amp;#34; self.grad_school = &amp;#34;Hong Kong Baptist University&amp;#34; self.undergrad_school = &amp;#34;NENU&amp;#34;</description>
     </item>

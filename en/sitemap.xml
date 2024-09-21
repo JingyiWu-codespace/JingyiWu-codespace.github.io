@@ -2,8 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/c/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/tags/c/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/tags/c/"
+                />
+  </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/categories/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -13,6 +26,100 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jingyiwu-codespace.github.io/en/categories/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/projects/tech/hrm_sees/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/projects/tech/hrm_sees/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/embeded-system/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/tags/embeded-system/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/tags/embeded-system/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/categories/projects/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/categories/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/categories/projects/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/psoc-6/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/tags/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/projects/</loc>
+    <lastmod>2024-09-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/projects/"
+                />
+  </url><url>
+    <loc>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</loc>
+    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://jingyiwu-codespace.github.io/zh/projects/tech/notepad/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jingyiwu-codespace.github.io/en/projects/tech/notepad/"
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/tags/frontend/</loc>
@@ -28,25 +135,6 @@
                 href="https://jingyiwu-codespace.github.io/en/tags/frontend/"
                 />
   </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://jingyiwu-codespace.github.io/zh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jingyiwu-codespace.github.io/en/"
-                />
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/categories/projects/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
-  </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/tags/vue/</loc>
     <lastmod>2024-04-20T20:29:08+01:00</lastmod>
     <xhtml:link
@@ -58,32 +146,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jingyiwu-codespace.github.io/en/tags/vue/"
-                />
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/tags/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://jingyiwu-codespace.github.io/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jingyiwu-codespace.github.io/en/tags/"
-                />
-  </url><url>
-    <loc>https://jingyiwu-codespace.github.io/en/projects/</loc>
-    <lastmod>2024-04-20T20:29:08+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://jingyiwu-codespace.github.io/zh/projects/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jingyiwu-codespace.github.io/en/projects/"
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/posts/tech/</loc>
@@ -243,7 +305,7 @@
                 />
   </url><url>
     <loc>https://jingyiwu-codespace.github.io/en/about/</loc>
-    <lastmod>1970-01-01T08:33:44+08:00</lastmod>
+    <lastmod>1970-01-01T01:33:44+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"

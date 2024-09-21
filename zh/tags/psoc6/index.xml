@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PSOC6 on Jingyi&#39;s Blog</title>
+    <link>https://jingyiwu-codespace.github.io/zh/tags/psoc6/</link>
+    <description>Recent content in PSOC6 on Jingyi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:08 +0100</lastBuildDate>
+    <atom:link href="https://jingyiwu-codespace.github.io/zh/tags/psoc6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>嵌入式系统｜基于网页开发心率监测应用</title>
+      <link>https://jingyiwu-codespace.github.io/zh/projects/tech/hrm_sees/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/projects/tech/hrm_sees/</guid>
+      <description>硬件: PSOC 6 + MAX 30102 软件: Javascript + HTML + chart.js + Python Flask</description>
+    </item>
+  </channel>
+</rss>

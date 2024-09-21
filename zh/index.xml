@@ -6,14 +6,28 @@
     <description>Recent content on Jingyi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 10 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>嵌入式系统｜基于网页开发心率监测应用</title>
+      <link>https://jingyiwu-codespace.github.io/zh/projects/tech/hrm_sees/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/projects/tech/hrm_sees/</guid>
+      <description>硬件: PSOC 6 + MAX 30102 软件: Javascript + HTML + chart.js + Python Flask</description>
+    </item>
     <item>
       <title>ε≡٩(๑&gt;₃&lt;)۶</title>
       <link>https://jingyiwu-codespace.github.io/zh/posts/life/summer_holiday_memo/</link>
       <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://jingyiwu-codespace.github.io/zh/posts/life/summer_holiday_memo/</guid>
       <description>在比利时流浪一年，对我的影响和改变都有什么？</description>
+    </item>
+    <item>
+      <title>前端开发｜基于VUE简易记事本应用</title>
+      <link>https://jingyiwu-codespace.github.io/zh/projects/tech/notepad/</link>
+      <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
+      <guid>https://jingyiwu-codespace.github.io/zh/projects/tech/notepad/</guid>
+      <description>持久化存储/多语言模式/增删任务/一键清空</description>
     </item>
     <item>
       <title>学习：Git </title>

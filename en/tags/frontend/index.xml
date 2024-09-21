@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 20 Apr 2024 20:29:08 +0100</lastBuildDate>
     <atom:link href="https://jingyiwu-codespace.github.io/en/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notepad by Vue</title>
-      <link>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</link>
+      <title>Front-end | Simple notepad application by VUE</title>
+      <link>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</link>
       <pubDate>Sat, 20 Apr 2024 20:29:08 +0100</pubDate>
-      <guid>https://jingyiwu-codespace.github.io/en/projects/life/notepad/</guid>
+      <guid>https://jingyiwu-codespace.github.io/en/projects/tech/notepad/</guid>
       <description>Add/Delect tasks, One-click clear, Multiple Language Mode, Persistence storage</description>
     </item>
   </channel>
